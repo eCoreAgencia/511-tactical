@@ -1,5 +1,6 @@
 import {
-	getProductWithVariations
+    getProductWithVariations,
+    getProductSimilarById
 } from '../modules/vtexRequest';
 import {
 	isMobile,
@@ -13,6 +14,7 @@ class Product {
         let self = this;
         this.variations = {};
         this.product = {};
+        this.productSimilar = [];
         this.makeZoom();
         $('.zoomPup, .zoomWindow, .zoomPreload').remove();
 		const productWithVariations = getProductWithVariations(productId);
@@ -48,7 +50,11 @@ class Product {
             $('.product__zoom').removeClass('is-active');
         });
 
-
+        $('body').on('change', '.product__skus--thumb input[type="radio"]', function(){
+            if($(this).is(':checked')){
+                console.log($(this).val());
+            }
+        })
         
 
        
@@ -62,9 +68,19 @@ class Product {
         }
     }
 
+    getIdSimilarSelected() {
+        $('.product__skus--thumb input[type="radio"]:checked').each(function(){
+            
+        });
+    }
+
 	renderSkuSelectors(product) {
-		console.log(product);
-		const select = `
+        const productSimilar = getProductSimilarById(product.productId);
+        productSimilar.then(products => {
+            console.log(products);
+            
+
+            const select = `
             <div class = "product__skus--size product__skus--select">
                 <span class="product__skus-title">Tamanho</span>
                 <select name="Tamanho">
@@ -72,28 +88,44 @@ class Product {
                     ${this.createSkuSelect(product.dimensionsMap.Tamanho)}
                 </select>
             </div>`;
-		const list = `
-            <div class="product__skus--color product__skus--thumb">
-                <span class="product__skus-title">Cor</span>
-                <ul>
-                    ${this.createSkuThumb(product.dimensionsMap.Cor)}
-                </ul>
-            </div>`;
-		const skus = `<div class="product__skus-inner">
-                ${list}
-                ${select}
-        </div>`
-		$('.product__skus').html(skus);
-		$(window).trigger('skuSelectorCreated');
+
+            if(products.length > 0) {
+                const list = `
+                    <div class="product__skus--color product__skus--thumb">
+                        <span class="product__skus-title">Cor</span>
+                        <ul>
+                            ${this.createSkuThumb(products)}
+                        </ul>
+                </div>`;
+                const skus = `<div class="product__skus-inner">
+                    ${list}
+                    ${select}
+            </div>`
+            $('.product__skus').html(skus);
+            } else {
+                const skus = `<div class="product__skus-inner">
+                    ${select}
+                </div>`
+                $('.product__skus').html(skus);
+            }
+
+            
+            $(window).trigger('skuSelectorCreated');
+        });
+		
 	}
 
 	createSkuSelect(dimensions) {
 		return dimensions.map(dimension => `<option value="${dimension}">${dimension}</option>`).join('');
 	}
 
-	createSkuThumb(dimensions) {
-		return dimensions.map(dimension => `<li><label for="${slugify(dimension)}">${dimension}</label><input type="radio" id="${slugify(dimension)}" name="Cor" value="${dimension}"></li>`).join('');
-	}
+	createSkuThumb(products) {
+       return products.map(product => `<li><label for="product-color-${product.productId}">${product.productName}</label><input type="radio" id="product-color-${product.productId}" name="Cor" value="${product.productId}"></li>`).join('');
+
+    }
+    
+    
+    
 
 	renderFormNotifyMe() {
 		const html = `<div class="product__unavailable">

@@ -2,21 +2,21 @@ import {
 	isLocalhost
 } from '../utils';
 
-export const getProductSimiliarById = (productId) => {
+export const getProductSimilarById = (productId) => {
 
-	getProductSimiliarById.cache = getProductSimiliarById.cache || {}
+	getProductSimilarById.cache = getProductSimilarById.cache || {}
 	const endpoint = `/api/catalog_system/pub/products/crossselling/similars/${productId}`;
 
-	if (isLocalhost) getProductSimiliarById.cache[productId] = window.product;
+	if (isLocalhost) getProductSimilarById.cache[productId] = window.similars;
 
 	return new Promise((resolve, reject) => {
-		let res = getProductSimiliarById.cache[productId]
+		let res = getProductSimilarById.cache[productId]
 		if (res) return resolve(res)
 		else {
 			return fetch(endpoint)
 				.then(data => {
-					getProductSimiliarById.cache[productId] = data.json()
-					return resolve(getProductSimiliarById.cache[productId])
+					getProductSimilarById.cache[productId] = data.json()
+					return resolve(getProductSimilarById.cache[productId])
 				})
 				.catch(err => reject(err))
 		}

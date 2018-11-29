@@ -1460,341 +1460,1013 @@
 		}
     };
     
-    var similars = [{
-        "productId": "3",
-        "productName": "CALÇA 5.11 TACTICAL - BR 38 CURTO - US 28 / 30",
-        "brand": "5.11 Tactical",
-        "linkText": "calca-511-tactical",
-        "productReference": "844802018326",
-        "categoryId": "39",
-        "productTitle": "CALÇA 5.11 TACTICAL",
-        "metaTagDescription": "Calça tática masculina 100% algodão, tecido tipo algodão canvas com 7 bolsos, cintura elástica para fácil ajuste no corpo, reforço nos joelhos e na parte traseira.",
-        "clusterHighlights": {},
-        "productClusters": {
-          "137": "tudo"
-        },
-        "searchableClusters": {},
-        "categories": ["/Masculino/Vestuário/Calças/", "/Masculino/Vestuário/", "/Masculino/"],
-        "categoriesIds": ["/1/6/39/", "/1/6/", "/1/"],
-        "link": "https://tactical.vtexcommercestable.com.br/calca-511-tactical/p",
-        "Composição": ["100% Algodão"],
-        "Informações de Produto": ["Composição"],
-        "allSpecifications": ["Composição"],
-        "description": "A primeira calça tática – a original, que tem atendido aos profissionais de segurança pública há anos. Feita de lona 100% algodão, a Calça 5.11 Tactical foi projetada para proporcionar durabilidade, conforto e desempenho superiores. Apresentando nossos bolsos de marca registrada com velcro, um cós ajustável, reforço duplo nos fundilhos e joelhos, além de pontos reforçados. Só tem uma original. Importada.",
-        "items": [{
-          "itemId": "4",
-          "name": "BR 38 CURTO - US 28 / 30",
-          "nameComplete": "CALÇA 5.11 TACTICAL BR 38 CURTO - US 28 / 30",
-          "complementName": "",
-          "ean": "844802018326",
-          "referenceId": [{
-            "Key": "RefId",
-            "Value": "844802018326"
-          }],
-          "measurementUnit": "un",
-          "unitMultiplier": 1.0000,
-          "modalType": null,
-          "isKit": false,
-          "images": [{
-            "imageId": "155523",
-            "imageLabel": "",
-            "imageTag": "<img src=\"~/arquivos/ids/155523-#width#-#height#/53167_019_02.jpg?v=636737517656170000\" width=\"#width#\" height=\"#height#\" alt=\"53167_019_02\" id=\"\" />",
-            "imageUrl": "http://tactical.vteximg.com.br/arquivos/ids/155523/53167_019_02.jpg?v=636737517656170000",
-            "imageText": "53167_019_02"
-          }],
-          "Cor": ["BLACK"],
-          "Tamanho": ["BR 38 - US 28"],
-          "variations": ["Cor", "Tamanho"],
-          "sellers": [{
-            "sellerId": "1",
-            "sellerName": "5.11 Tactical",
-            "addToCartLink": "https://tactical.vtexcommercestable.com.br/checkout/cart/add?sku=4&qty=1&seller=1&sc=1&price=750000&cv=d6731c9354814d57e89327e2854a2850_&sc=1",
-            "sellerDefault": true,
-            "commertialOffer": {
-              "DeliverySlaSamplesPerRegion": {
-                "0": {
-                  "DeliverySlaPerTypes": [],
-                  "Region": null
+    var similars = [
+        {
+            "productId": "3",
+            "productName": "CALÇA 5.11 TACTICAL - BR 38 CURTO - US 28 / 30",
+            "brand": "5.11 Tactical",
+            "linkText": "calca-511-tactical",
+            "productReference": "844802018326",
+            "categoryId": "39",
+            "productTitle": "CALÇA 5.11 TACTICAL",
+            "metaTagDescription": "Calça tática masculina 100% algodão, tecido tipo algodão canvas com 7 bolsos, cintura elástica para fácil ajuste no corpo, reforço nos joelhos e na parte traseira.",
+            "clusterHighlights": {},
+            "productClusters": {
+            "137": "tudo"
+            },
+            "searchableClusters": {},
+            "categories": ["/Masculino/Vestuário/Calças/", "/Masculino/Vestuário/", "/Masculino/"],
+            "categoriesIds": ["/1/6/39/", "/1/6/", "/1/"],
+            "link": "https://tactical.vtexcommercestable.com.br/calca-511-tactical/p",
+            "Composição": ["100% Algodão"],
+            "Informações de Produto": ["Composição"],
+            "allSpecifications": ["Composição"],
+            "description": "A primeira calça tática – a original, que tem atendido aos profissionais de segurança pública há anos. Feita de lona 100% algodão, a Calça 5.11 Tactical foi projetada para proporcionar durabilidade, conforto e desempenho superiores. Apresentando nossos bolsos de marca registrada com velcro, um cós ajustável, reforço duplo nos fundilhos e joelhos, além de pontos reforçados. Só tem uma original. Importada.",
+            "items": [{
+            "itemId": "4",
+            "name": "BR 38 CURTO - US 28 / 30",
+            "nameComplete": "CALÇA 5.11 TACTICAL BR 38 CURTO - US 28 / 30",
+            "complementName": "",
+            "ean": "844802018326",
+            "referenceId": [{
+                "Key": "RefId",
+                "Value": "844802018326"
+            }],
+            "measurementUnit": "un",
+            "unitMultiplier": 1.0000,
+            "modalType": null,
+            "isKit": false,
+            "images": [{
+                "imageId": "155523",
+                "imageLabel": "",
+                "imageTag": "<img src=\"~/arquivos/ids/155523-#width#-#height#/53167_019_02.jpg?v=636737517656170000\" width=\"#width#\" height=\"#height#\" alt=\"53167_019_02\" id=\"\" />",
+                "imageUrl": "http://tactical.vteximg.com.br/arquivos/ids/155523/53167_019_02.jpg?v=636737517656170000",
+                "imageText": "53167_019_02"
+            }],
+            "Cor": ["BLACK"],
+            "Tamanho": ["BR 38 - US 28"],
+            "variations": ["Cor", "Tamanho"],
+            "sellers": [{
+                "sellerId": "1",
+                "sellerName": "5.11 Tactical",
+                "addToCartLink": "https://tactical.vtexcommercestable.com.br/checkout/cart/add?sku=4&qty=1&seller=1&sc=1&price=750000&cv=d6731c9354814d57e89327e2854a2850_&sc=1",
+                "sellerDefault": true,
+                "commertialOffer": {
+                "DeliverySlaSamplesPerRegion": {
+                    "0": {
+                    "DeliverySlaPerTypes": [],
+                    "Region": null
+                    }
+                },
+                "Installments": [{
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express à vista"
+                }, {
+                    "Value": 3750.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 2,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express 2 vezes sem juros"
+                }, {
+                    "Value": 2500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 3,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express 3 vezes sem juros"
+                }, {
+                    "Value": 1875.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 4,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express 4 vezes sem juros"
+                }, {
+                    "Value": 1500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 5,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express 5 vezes sem juros"
+                }, {
+                    "Value": 1250.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 6,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express 6 vezes sem juros"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa à vista"
+                }, {
+                    "Value": 3750.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 2,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa 2 vezes sem juros"
+                }, {
+                    "Value": 2500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 3,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa 3 vezes sem juros"
+                }, {
+                    "Value": 1875.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 4,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa 4 vezes sem juros"
+                }, {
+                    "Value": 1500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 5,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa 5 vezes sem juros"
+                }, {
+                    "Value": 1250.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 6,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa 6 vezes sem juros"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners à vista"
+                }, {
+                    "Value": 3750.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 2,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners 2 vezes sem juros"
+                }, {
+                    "Value": 2500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 3,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners 3 vezes sem juros"
+                }, {
+                    "Value": 1875.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 4,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners 4 vezes sem juros"
+                }, {
+                    "Value": 1500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 5,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners 5 vezes sem juros"
+                }, {
+                    "Value": 1250.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 6,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners 6 vezes sem juros"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard à vista"
+                }, {
+                    "Value": 3750.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 2,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard 2 vezes sem juros"
+                }, {
+                    "Value": 2500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 3,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard 3 vezes sem juros"
+                }, {
+                    "Value": 1875.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 4,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard 4 vezes sem juros"
+                }, {
+                    "Value": 1500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 5,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard 5 vezes sem juros"
+                }, {
+                    "Value": 1250.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 6,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard 6 vezes sem juros"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Boleto Bancário",
+                    "PaymentSystemGroupName": "bankInvoicePaymentGroup",
+                    "Name": "Boleto Bancário à vista"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo à vista"
+                }, {
+                    "Value": 3750.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 2,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo 2 vezes sem juros"
+                }, {
+                    "Value": 2500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 3,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo 3 vezes sem juros"
+                }, {
+                    "Value": 1875.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 4,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo 4 vezes sem juros"
+                }, {
+                    "Value": 1500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 5,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo 5 vezes sem juros"
+                }, {
+                    "Value": 1250.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 6,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo 6 vezes sem juros"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Pagamento teste",
+                    "PaymentSystemGroupName": "custom201PaymentGroupPaymentGroup",
+                    "Name": "Pagamento teste à vista"
+                }],
+                "DiscountHighLight": [],
+                "GiftSkuIds": [],
+                "Teasers": [],
+                "BuyTogether": [],
+                "Price": 7500.0,
+                "ListPrice": 7500.0,
+                "PriceWithoutDiscount": 7500.0,
+                "RewardValue": 0.0,
+                "PriceValidUntil": "2019-11-19T16:05:04Z",
+                "AvailableQuantity": 999,
+                "Tax": 0.0,
+                "DeliverySlaSamples": [{
+                    "DeliverySlaPerTypes": [],
+                    "Region": null
+                }],
+                "GetInfoErrorMessage": null,
+                "CacheVersionUsedToCallCheckout": "d6731c9354814d57e89327e2854a2850_"
                 }
-              },
-              "Installments": [{
-                "Value": 7500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 1,
-                "PaymentSystemName": "American Express",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "American Express à vista"
-              }, {
-                "Value": 3750.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 2,
-                "PaymentSystemName": "American Express",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "American Express 2 vezes sem juros"
-              }, {
-                "Value": 2500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 3,
-                "PaymentSystemName": "American Express",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "American Express 3 vezes sem juros"
-              }, {
-                "Value": 1875.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 4,
-                "PaymentSystemName": "American Express",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "American Express 4 vezes sem juros"
-              }, {
-                "Value": 1500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 5,
-                "PaymentSystemName": "American Express",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "American Express 5 vezes sem juros"
-              }, {
-                "Value": 1250.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 6,
-                "PaymentSystemName": "American Express",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "American Express 6 vezes sem juros"
-              }, {
-                "Value": 7500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 1,
-                "PaymentSystemName": "Visa",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Visa à vista"
-              }, {
-                "Value": 3750.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 2,
-                "PaymentSystemName": "Visa",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Visa 2 vezes sem juros"
-              }, {
-                "Value": 2500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 3,
-                "PaymentSystemName": "Visa",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Visa 3 vezes sem juros"
-              }, {
-                "Value": 1875.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 4,
-                "PaymentSystemName": "Visa",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Visa 4 vezes sem juros"
-              }, {
-                "Value": 1500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 5,
-                "PaymentSystemName": "Visa",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Visa 5 vezes sem juros"
-              }, {
-                "Value": 1250.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 6,
-                "PaymentSystemName": "Visa",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Visa 6 vezes sem juros"
-              }, {
-                "Value": 7500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 1,
-                "PaymentSystemName": "Diners",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Diners à vista"
-              }, {
-                "Value": 3750.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 2,
-                "PaymentSystemName": "Diners",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Diners 2 vezes sem juros"
-              }, {
-                "Value": 2500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 3,
-                "PaymentSystemName": "Diners",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Diners 3 vezes sem juros"
-              }, {
-                "Value": 1875.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 4,
-                "PaymentSystemName": "Diners",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Diners 4 vezes sem juros"
-              }, {
-                "Value": 1500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 5,
-                "PaymentSystemName": "Diners",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Diners 5 vezes sem juros"
-              }, {
-                "Value": 1250.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 6,
-                "PaymentSystemName": "Diners",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Diners 6 vezes sem juros"
-              }, {
-                "Value": 7500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 1,
-                "PaymentSystemName": "Mastercard",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Mastercard à vista"
-              }, {
-                "Value": 3750.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 2,
-                "PaymentSystemName": "Mastercard",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Mastercard 2 vezes sem juros"
-              }, {
-                "Value": 2500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 3,
-                "PaymentSystemName": "Mastercard",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Mastercard 3 vezes sem juros"
-              }, {
-                "Value": 1875.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 4,
-                "PaymentSystemName": "Mastercard",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Mastercard 4 vezes sem juros"
-              }, {
-                "Value": 1500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 5,
-                "PaymentSystemName": "Mastercard",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Mastercard 5 vezes sem juros"
-              }, {
-                "Value": 1250.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 6,
-                "PaymentSystemName": "Mastercard",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Mastercard 6 vezes sem juros"
-              }, {
-                "Value": 7500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 1,
-                "PaymentSystemName": "Boleto Bancário",
-                "PaymentSystemGroupName": "bankInvoicePaymentGroup",
-                "Name": "Boleto Bancário à vista"
-              }, {
-                "Value": 7500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 1,
-                "PaymentSystemName": "Elo",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Elo à vista"
-              }, {
-                "Value": 3750.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 2,
-                "PaymentSystemName": "Elo",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Elo 2 vezes sem juros"
-              }, {
-                "Value": 2500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 3,
-                "PaymentSystemName": "Elo",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Elo 3 vezes sem juros"
-              }, {
-                "Value": 1875.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 4,
-                "PaymentSystemName": "Elo",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Elo 4 vezes sem juros"
-              }, {
-                "Value": 1500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 5,
-                "PaymentSystemName": "Elo",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Elo 5 vezes sem juros"
-              }, {
-                "Value": 1250.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 6,
-                "PaymentSystemName": "Elo",
-                "PaymentSystemGroupName": "creditCardPaymentGroup",
-                "Name": "Elo 6 vezes sem juros"
-              }, {
-                "Value": 7500.0,
-                "InterestRate": 0.0,
-                "TotalValuePlusInterestRate": 7500.0,
-                "NumberOfInstallments": 1,
-                "PaymentSystemName": "Pagamento teste",
-                "PaymentSystemGroupName": "custom201PaymentGroupPaymentGroup",
-                "Name": "Pagamento teste à vista"
-              }],
-              "DiscountHighLight": [],
-              "GiftSkuIds": [],
-              "Teasers": [],
-              "BuyTogether": [],
-              "Price": 7500.0,
-              "ListPrice": 7500.0,
-              "PriceWithoutDiscount": 7500.0,
-              "RewardValue": 0.0,
-              "PriceValidUntil": "2019-11-19T16:05:04Z",
-              "AvailableQuantity": 999,
-              "Tax": 0.0,
-              "DeliverySlaSamples": [{
-                "DeliverySlaPerTypes": [],
-                "Region": null
-              }],
-              "GetInfoErrorMessage": null,
-              "CacheVersionUsedToCallCheckout": "d6731c9354814d57e89327e2854a2850_"
-            }
-          }]
-        }]
-      }];
+            }]
+            }]
+        },
+        {
+            "productId": "4",
+            "productName": "CALÇA 5.11 TACTICAL - BR 38 CURTO - US 28 / 30",
+            "brand": "5.11 Tactical",
+            "linkText": "calca-511-tactical",
+            "productReference": "844802018326",
+            "categoryId": "39",
+            "productTitle": "CALÇA 5.11 TACTICAL",
+            "metaTagDescription": "Calça tática masculina 100% algodão, tecido tipo algodão canvas com 7 bolsos, cintura elástica para fácil ajuste no corpo, reforço nos joelhos e na parte traseira.",
+            "clusterHighlights": {},
+            "productClusters": {
+            "137": "tudo"
+            },
+            "searchableClusters": {},
+            "categories": ["/Masculino/Vestuário/Calças/", "/Masculino/Vestuário/", "/Masculino/"],
+            "categoriesIds": ["/1/6/39/", "/1/6/", "/1/"],
+            "link": "https://tactical.vtexcommercestable.com.br/calca-511-tactical/p",
+            "Composição": ["100% Algodão"],
+            "Informações de Produto": ["Composição"],
+            "allSpecifications": ["Composição"],
+            "description": "A primeira calça tática – a original, que tem atendido aos profissionais de segurança pública há anos. Feita de lona 100% algodão, a Calça 5.11 Tactical foi projetada para proporcionar durabilidade, conforto e desempenho superiores. Apresentando nossos bolsos de marca registrada com velcro, um cós ajustável, reforço duplo nos fundilhos e joelhos, além de pontos reforçados. Só tem uma original. Importada.",
+            "items": [{
+            "itemId": "4",
+            "name": "BR 38 CURTO - US 28 / 30",
+            "nameComplete": "CALÇA 5.11 TACTICAL BR 38 CURTO - US 28 / 30",
+            "complementName": "",
+            "ean": "844802018326",
+            "referenceId": [{
+                "Key": "RefId",
+                "Value": "844802018326"
+            }],
+            "measurementUnit": "un",
+            "unitMultiplier": 1.0000,
+            "modalType": null,
+            "isKit": false,
+            "images": [{
+                "imageId": "155523",
+                "imageLabel": "",
+                "imageTag": "<img src=\"~/arquivos/ids/155523-#width#-#height#/53167_019_02.jpg?v=636737517656170000\" width=\"#width#\" height=\"#height#\" alt=\"53167_019_02\" id=\"\" />",
+                "imageUrl": "http://tactical.vteximg.com.br/arquivos/ids/155523/53167_019_02.jpg?v=636737517656170000",
+                "imageText": "53167_019_02"
+            }],
+            "Cor": ["BLACK"],
+            "Tamanho": ["BR 38 - US 28"],
+            "variations": ["Cor", "Tamanho"],
+            "sellers": [{
+                "sellerId": "1",
+                "sellerName": "5.11 Tactical",
+                "addToCartLink": "https://tactical.vtexcommercestable.com.br/checkout/cart/add?sku=4&qty=1&seller=1&sc=1&price=750000&cv=d6731c9354814d57e89327e2854a2850_&sc=1",
+                "sellerDefault": true,
+                "commertialOffer": {
+                "DeliverySlaSamplesPerRegion": {
+                    "0": {
+                    "DeliverySlaPerTypes": [],
+                    "Region": null
+                    }
+                },
+                "Installments": [{
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express à vista"
+                }, {
+                    "Value": 3750.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 2,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express 2 vezes sem juros"
+                }, {
+                    "Value": 2500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 3,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express 3 vezes sem juros"
+                }, {
+                    "Value": 1875.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 4,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express 4 vezes sem juros"
+                }, {
+                    "Value": 1500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 5,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express 5 vezes sem juros"
+                }, {
+                    "Value": 1250.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 6,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express 6 vezes sem juros"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa à vista"
+                }, {
+                    "Value": 3750.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 2,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa 2 vezes sem juros"
+                }, {
+                    "Value": 2500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 3,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa 3 vezes sem juros"
+                }, {
+                    "Value": 1875.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 4,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa 4 vezes sem juros"
+                }, {
+                    "Value": 1500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 5,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa 5 vezes sem juros"
+                }, {
+                    "Value": 1250.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 6,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa 6 vezes sem juros"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners à vista"
+                }, {
+                    "Value": 3750.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 2,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners 2 vezes sem juros"
+                }, {
+                    "Value": 2500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 3,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners 3 vezes sem juros"
+                }, {
+                    "Value": 1875.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 4,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners 4 vezes sem juros"
+                }, {
+                    "Value": 1500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 5,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners 5 vezes sem juros"
+                }, {
+                    "Value": 1250.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 6,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners 6 vezes sem juros"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard à vista"
+                }, {
+                    "Value": 3750.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 2,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard 2 vezes sem juros"
+                }, {
+                    "Value": 2500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 3,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard 3 vezes sem juros"
+                }, {
+                    "Value": 1875.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 4,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard 4 vezes sem juros"
+                }, {
+                    "Value": 1500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 5,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard 5 vezes sem juros"
+                }, {
+                    "Value": 1250.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 6,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard 6 vezes sem juros"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Boleto Bancário",
+                    "PaymentSystemGroupName": "bankInvoicePaymentGroup",
+                    "Name": "Boleto Bancário à vista"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo à vista"
+                }, {
+                    "Value": 3750.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 2,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo 2 vezes sem juros"
+                }, {
+                    "Value": 2500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 3,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo 3 vezes sem juros"
+                }, {
+                    "Value": 1875.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 4,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo 4 vezes sem juros"
+                }, {
+                    "Value": 1500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 5,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo 5 vezes sem juros"
+                }, {
+                    "Value": 1250.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 6,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo 6 vezes sem juros"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Pagamento teste",
+                    "PaymentSystemGroupName": "custom201PaymentGroupPaymentGroup",
+                    "Name": "Pagamento teste à vista"
+                }],
+                "DiscountHighLight": [],
+                "GiftSkuIds": [],
+                "Teasers": [],
+                "BuyTogether": [],
+                "Price": 7500.0,
+                "ListPrice": 7500.0,
+                "PriceWithoutDiscount": 7500.0,
+                "RewardValue": 0.0,
+                "PriceValidUntil": "2019-11-19T16:05:04Z",
+                "AvailableQuantity": 999,
+                "Tax": 0.0,
+                "DeliverySlaSamples": [{
+                    "DeliverySlaPerTypes": [],
+                    "Region": null
+                }],
+                "GetInfoErrorMessage": null,
+                "CacheVersionUsedToCallCheckout": "d6731c9354814d57e89327e2854a2850_"
+                }
+            }]
+            }]
+        },
+        {
+            "productId": "5",
+            "productName": "CALÇA 5.11 TACTICAL - BR 38 CURTO - US 28 / 30",
+            "brand": "5.11 Tactical",
+            "linkText": "calca-511-tactical",
+            "productReference": "844802018326",
+            "categoryId": "39",
+            "productTitle": "CALÇA 5.11 TACTICAL",
+            "metaTagDescription": "Calça tática masculina 100% algodão, tecido tipo algodão canvas com 7 bolsos, cintura elástica para fácil ajuste no corpo, reforço nos joelhos e na parte traseira.",
+            "clusterHighlights": {},
+            "productClusters": {
+            "137": "tudo"
+            },
+            "searchableClusters": {},
+            "categories": ["/Masculino/Vestuário/Calças/", "/Masculino/Vestuário/", "/Masculino/"],
+            "categoriesIds": ["/1/6/39/", "/1/6/", "/1/"],
+            "link": "https://tactical.vtexcommercestable.com.br/calca-511-tactical/p",
+            "Composição": ["100% Algodão"],
+            "Informações de Produto": ["Composição"],
+            "allSpecifications": ["Composição"],
+            "description": "A primeira calça tática – a original, que tem atendido aos profissionais de segurança pública há anos. Feita de lona 100% algodão, a Calça 5.11 Tactical foi projetada para proporcionar durabilidade, conforto e desempenho superiores. Apresentando nossos bolsos de marca registrada com velcro, um cós ajustável, reforço duplo nos fundilhos e joelhos, além de pontos reforçados. Só tem uma original. Importada.",
+            "items": [{
+            "itemId": "4",
+            "name": "BR 38 CURTO - US 28 / 30",
+            "nameComplete": "CALÇA 5.11 TACTICAL BR 38 CURTO - US 28 / 30",
+            "complementName": "",
+            "ean": "844802018326",
+            "referenceId": [{
+                "Key": "RefId",
+                "Value": "844802018326"
+            }],
+            "measurementUnit": "un",
+            "unitMultiplier": 1.0000,
+            "modalType": null,
+            "isKit": false,
+            "images": [{
+                "imageId": "155523",
+                "imageLabel": "",
+                "imageTag": "<img src=\"~/arquivos/ids/155523-#width#-#height#/53167_019_02.jpg?v=636737517656170000\" width=\"#width#\" height=\"#height#\" alt=\"53167_019_02\" id=\"\" />",
+                "imageUrl": "http://tactical.vteximg.com.br/arquivos/ids/155523/53167_019_02.jpg?v=636737517656170000",
+                "imageText": "53167_019_02"
+            }],
+            "Cor": ["BLACK"],
+            "Tamanho": ["BR 38 - US 28"],
+            "variations": ["Cor", "Tamanho"],
+            "sellers": [{
+                "sellerId": "1",
+                "sellerName": "5.11 Tactical",
+                "addToCartLink": "https://tactical.vtexcommercestable.com.br/checkout/cart/add?sku=4&qty=1&seller=1&sc=1&price=750000&cv=d6731c9354814d57e89327e2854a2850_&sc=1",
+                "sellerDefault": true,
+                "commertialOffer": {
+                "DeliverySlaSamplesPerRegion": {
+                    "0": {
+                    "DeliverySlaPerTypes": [],
+                    "Region": null
+                    }
+                },
+                "Installments": [{
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express à vista"
+                }, {
+                    "Value": 3750.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 2,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express 2 vezes sem juros"
+                }, {
+                    "Value": 2500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 3,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express 3 vezes sem juros"
+                }, {
+                    "Value": 1875.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 4,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express 4 vezes sem juros"
+                }, {
+                    "Value": 1500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 5,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express 5 vezes sem juros"
+                }, {
+                    "Value": 1250.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 6,
+                    "PaymentSystemName": "American Express",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "American Express 6 vezes sem juros"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa à vista"
+                }, {
+                    "Value": 3750.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 2,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa 2 vezes sem juros"
+                }, {
+                    "Value": 2500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 3,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa 3 vezes sem juros"
+                }, {
+                    "Value": 1875.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 4,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa 4 vezes sem juros"
+                }, {
+                    "Value": 1500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 5,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa 5 vezes sem juros"
+                }, {
+                    "Value": 1250.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 6,
+                    "PaymentSystemName": "Visa",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Visa 6 vezes sem juros"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners à vista"
+                }, {
+                    "Value": 3750.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 2,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners 2 vezes sem juros"
+                }, {
+                    "Value": 2500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 3,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners 3 vezes sem juros"
+                }, {
+                    "Value": 1875.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 4,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners 4 vezes sem juros"
+                }, {
+                    "Value": 1500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 5,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners 5 vezes sem juros"
+                }, {
+                    "Value": 1250.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 6,
+                    "PaymentSystemName": "Diners",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Diners 6 vezes sem juros"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard à vista"
+                }, {
+                    "Value": 3750.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 2,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard 2 vezes sem juros"
+                }, {
+                    "Value": 2500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 3,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard 3 vezes sem juros"
+                }, {
+                    "Value": 1875.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 4,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard 4 vezes sem juros"
+                }, {
+                    "Value": 1500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 5,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard 5 vezes sem juros"
+                }, {
+                    "Value": 1250.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 6,
+                    "PaymentSystemName": "Mastercard",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Mastercard 6 vezes sem juros"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Boleto Bancário",
+                    "PaymentSystemGroupName": "bankInvoicePaymentGroup",
+                    "Name": "Boleto Bancário à vista"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo à vista"
+                }, {
+                    "Value": 3750.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 2,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo 2 vezes sem juros"
+                }, {
+                    "Value": 2500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 3,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo 3 vezes sem juros"
+                }, {
+                    "Value": 1875.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 4,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo 4 vezes sem juros"
+                }, {
+                    "Value": 1500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 5,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo 5 vezes sem juros"
+                }, {
+                    "Value": 1250.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 6,
+                    "PaymentSystemName": "Elo",
+                    "PaymentSystemGroupName": "creditCardPaymentGroup",
+                    "Name": "Elo 6 vezes sem juros"
+                }, {
+                    "Value": 7500.0,
+                    "InterestRate": 0.0,
+                    "TotalValuePlusInterestRate": 7500.0,
+                    "NumberOfInstallments": 1,
+                    "PaymentSystemName": "Pagamento teste",
+                    "PaymentSystemGroupName": "custom201PaymentGroupPaymentGroup",
+                    "Name": "Pagamento teste à vista"
+                }],
+                "DiscountHighLight": [],
+                "GiftSkuIds": [],
+                "Teasers": [],
+                "BuyTogether": [],
+                "Price": 7500.0,
+                "ListPrice": 7500.0,
+                "PriceWithoutDiscount": 7500.0,
+                "RewardValue": 0.0,
+                "PriceValidUntil": "2019-11-19T16:05:04Z",
+                "AvailableQuantity": 999,
+                "Tax": 0.0,
+                "DeliverySlaSamples": [{
+                    "DeliverySlaPerTypes": [],
+                    "Region": null
+                }],
+                "GetInfoErrorMessage": null,
+                "CacheVersionUsedToCallCheckout": "d6731c9354814d57e89327e2854a2850_"
+                }
+            }]
+            }]
+        }
+    ];
 	var mockPromiseCatalog = {
 		then: function (t) {
 			setTimeout(function () {
