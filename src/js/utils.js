@@ -85,3 +85,12 @@ export const isEmpty = (obj) => {
     }
     return true;
 }
+
+export const changeQuantity = (element, value) => {
+    const currentValue = element.val();
+    let newValue = +currentValue + value;
+    if(newValue) {
+        element.val(newValue);
+    }
+    
+}

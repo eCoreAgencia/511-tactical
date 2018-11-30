@@ -1,33 +1,34 @@
 extends ../layouts/default.pug
 
 block vars
-	- var pageTitle = 'Categoria'
-	- var bodyClass = 'institucional'
+    - var pageTitle = 'Categoria'
+    - var bodyClass = 'institucional'
 
 block content
-	.container
-		.wrapper--mobile
-			section.section__page.section__breadcrumb
-				section.section__page.section__institutional
-					.columns
-						aside.section__institutional__sidebar.column.is-3
-							h3.section__institutional__sidebar__title SOBRE A 5.11
-							ul.section__institutional__sidebar__list
-								li.section__institutional__sidebar__list__item
-									a.section__institutional__sidebar__list__item__link(href="/institucional/sobre-a-marca") Sobre a Marca
-								//- li.section__institutional__sidebar__list__item
-								//- 	a.section__institutional__sidebar__list__item__link(href="/institucional/encontre-uma-loja") Encontre uma Loja
-								li.section__institutional__sidebar__list__item
-									a.section__institutional__sidebar__list__item__link(href="/institucional/politica-de-privacidade") Política de Privacidade
-								li.section__institutional__sidebar__list__item
-									a.section__institutional__sidebar__list__item__link(href="/institucional/politica-de-pagamento") Política de Pagamento
-								//- li.section__institutional__sidebar__list__item
-								//- 	a.section__institutional__sidebar__list__item__link(href="/institucional/trabalhe-conosco") Trabalhe Conosco
-						.institutional__content.column
-							.banner.institutional__content__banner
-								+vtex-controller('<vtex:contentPlaceHolder id="Banner Institucional" />')
-							.institutional__content__text
-
-									h3.title
-										+vtex-controller('<vtex:contentPlaceHolder id="Conteúdo Institucional Titulo" />')
-									+vtex-controller('<vtex:contentPlaceHolder id="Conteúdo Institucional Conteudo" />')
+    .container
+        .wrapper--mobile
+            section.section__page.section__breadcrumb
+                section.section__page.section__institutional
+                    .columns
+                        aside.section__institutional__sidebar.column.is-3
+                            h3.section__institutional__sidebar__title SOBRE A 5.11
+                            ul.section__institutional__sidebar__list
+                                li.section__institutional__sidebar__list__item
+                                    a.section__institutional__sidebar__list__item__link(href="/institucional/sobre-a-marca") Sobre a Marca
+                                li.section__institutional__sidebar__list__item
+                                    a.section__institutional__sidebar__list__item__link(href="/institucional/encontre-uma-loja") Encontre uma Loja
+                                li.section__institutional__sidebar__list__item
+                                    a.section__institutional__sidebar__list__item__link(href="/institucional/politica-de-privacidade") Política de Privacidade
+                                li.section__institutional__sidebar__list__item
+                                    a.section__institutional__sidebar__list__item__link(href="/institucional/politica-de-pagamento") Política de Pagamento
+                                li.section__institutional__sidebar__list__item
+                                    a.section__institutional__sidebar__list__item__link(href="/institucional/trabalhe-conosco") Trabalhe Conosco
+                        .institutional__content.column
+                            .banner.institutional__content__banner
+                                +vtex-controller('<vtex:contentPlaceHolder id="Banner Institucional" />')
+                            .institutional__content__text
+                                h3.title
+                                    +vtex-controller('<vtex:contentPlaceHolder id="Conteúdo Institucional Titulo" />')
+                                        |   Sobre a Marca
+                                +vtex-controller('<vtex:contentPlaceHolder id="Conteúdo Institucional Conteudo" />')
+                                    include ../vtexParts/institucional/sobre-a-marca.pug

@@ -1,42 +1,42 @@
 header.header
-  .header__top
-    .header__inner
-      a.b2b__link(href="/") 5.11 para lojistas
-      ul.menu.menu--institutional
-        li.menu__item
-          a.menu__link(href="") Atendimento: (11) 0000-0000
-        li.menu__item
-          a.menu__link(href="") Encontre uma loja
-        li.menu__item
-          a.menu__link(href="/account") Acessar sua conta
-        li.menu__item
-          a.menu__link(href="/account/orders") Meus Pedidos
-  .header__main
-    .header__inner
-      button.btn.btn--menu
-        i.icon-menu
-        | menu
-      .header__logo
-        .logo
-          a(href="/")
-            include ../../svg/logo.svg
-        .logo.logo--white
-          a(href="/")
-            include ../../svg/logo-white.svg
-      .header__menu
-        nav.navbar.navbar--main
-          include ../subtemplates/menu.pug
-          include ../subtemplates/menu-mobile.pug
-      .header__search-form
-        button.btn.btn--search
-          i.icon-search
-        .js-search-form
-          .search-form
-            form.search-form__form(action="/busca", method="get")
-              .search-form__control
-                input.search-form__input(type="search", required='required', autocomplete='off', name="fq", placeholder='Faça uma busca...', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Faça uma busca...'")/
-                button.btn.btn--submit
-                  i.icon-search
-            .search-form__result
-      .header__minicart
-        .js-minicart
+    .header__top
+        .header__inner
+            a.b2b__link(href="/") 5.11 para lojistas
+            ul.menu.menu--institutional
+                li.menu__item
+                    a.menu__link(href="tel:1149352390") Atendimento: (11) 4935-2390
+                li.menu__item
+                    a.menu__link(href="/encontre-uma-loja") Encontre uma loja
+                li.menu__item
+                    a.menu__link(href="/account") Acessar sua conta
+                li.menu__item
+                    a.menu__link(href="/account/orders") Meus Pedidos
+    .header__main
+        .header__inner
+            button.btn.btn--menu
+                i.icon-menu
+                | menu
+            .header__logo
+                .logo
+                    a(href="/")
+                        include ../../svg/logo.svg
+                .logo.logo--white
+                    a(href="/")
+                        include ../../svg/logo-white.svg
+            .header__menu
+                nav.navbar.navbar--main
+                    include ../subtemplates/menu.pug
+                    include ../subtemplates/menu-mobile.pug
+            .header__search-form
+                button.btn.btn--search
+                    i.icon-search
+                .js-search-form
+                    .search-form
+                        form.search-form__form(action="/busca", method="get")
+                            .search-form__control
+                                input.search-form__input(type="search", required='required', autocomplete='off', name="fq", placeholder='Faça uma busca...', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Faça uma busca...'")/
+                                button.btn.btn--submit
+                                    i.icon-search
+                        .search-form__result
+            .header__minicart
+                .js-minicart

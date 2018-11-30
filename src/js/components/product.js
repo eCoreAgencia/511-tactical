@@ -5,12 +5,14 @@ import {
 import {
 	isMobile,
 	slugify,
-	addToCart
+    addToCart,
+    changeQuantity
 } from '../utils';
 
 class Product {
 	constructor() {
-		const productId = $('#___rc-p-id').val();
+        const productId = $('#___rc-p-id').val();
+        const quantityInput = $('.product__qtd-value');
         let self = this;
         this.variations = {};
         this.product = {};
@@ -28,11 +30,11 @@ class Product {
 		})
 
         $('.button--minus').on('click', () => {
-            self.changeQuantity(-1);
+            changeQuantity(quantityInput, -1);
         })
 
-        $('.button--minus').on('click', () => {
-			self.changeQuantity(-1);
+        $('.button--plus').on('click', () => {
+			changeQuantity(quantityInput, 1);
 		})
 
 		$('.btn--buy').on('click', function () {
@@ -58,14 +60,6 @@ class Product {
         
 
        
-    }
-    
-    changeQuantity(val) {
-        let currentVal = $('.product__qtd-value').val()
-        let newVal = +currentVal + +val
-        if (newVal) {
-            $('.product__qtd-value').val(newVal)
-        }
     }
 
     getIdSimilarSelected() {
