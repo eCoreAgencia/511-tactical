@@ -84,6 +84,7 @@
 			max-width: 190px;
 			margin: 0 auto;
 			padding-top: 15px;
+			min-height: 38px;
 		}
 
 		.product__main & {
@@ -129,27 +130,28 @@
 	&__price {
 		@extend %display-flex;
 		@extend %flex-justify-content-center;
-        @extend %flex-wrap-wrap;
-        
-        .economia-de {
-            @extend %display-none;
-        }
+		@extend %flex-wrap-wrap;
+
+		.economia-de {
+			@extend %display-none;
+		}
 
 		.price__installment {
 			width: 100%;
-            @extend %display-block;
-            
+			@extend %display-block;
+
 		}
 
 		.product--shelf & {
 			padding: 10px 0;
-            width: 100%;
-            .price {
-                @extend %display-flex;
+			width: 100%;
 
-                @extend %flex-justify-content-center;
-                @extend %flex-wrap-wrap;
-            }
+			.price {
+				@extend %display-flex;
+
+				@extend %flex-justify-content-center;
+				@extend %flex-wrap-wrap;
+			}
 
 			.price__best {
 				margin-left: 20px;
@@ -160,11 +162,11 @@
 				text-align: center;
 				@include font-size(13px);
 
-            }
-            
-            .price__list {
-                width: 100%;
-            }
+			}
+
+			.price__list {
+				width: 100%;
+			}
 		}
 
 		.preco-a-vista {
@@ -245,17 +247,18 @@
 			padding: 5px;
 		}
 
-        max-width: 434px;
-        
-        &--fixed {
-            position: fixed;
-            top: 70px;
-            right: 0;
-            @include mq(container){
-                left: 50%;
-                margin-left: 115px;
-            }
-        }
+		max-width: 434px;
+
+		&--fixed {
+			position: fixed;
+			top: 70px;
+			right: 0;
+
+			@include mq(container) {
+				left: 50%;
+				margin-left: 115px;
+			}
+		}
 	}
 
 	&__main {
@@ -327,12 +330,13 @@
 	}
 
 	&__code {
-        padding: 10px 0;
-        @extend %display-flex;
-        @include font-size(14px);
-        .skuReference {
-            margin-left: 10px;
-        }
+		padding: 10px 0;
+		@extend %display-flex;
+		@include font-size(14px);
+
+		.skuReference {
+			margin-left: 10px;
+		}
 	}
 
 	&__skus {
@@ -402,9 +406,9 @@
 					&:hover {
 						cursor: pointer;
 					}
-                }
-                
-                @include mq(tablet, max) {
+				}
+
+				@include mq(tablet, max) {
 					margin: 11px auto;
 				}
 
@@ -416,9 +420,9 @@
 
 		&--select {
 
-            @include mq(tablet) {
-                max-width: 300px;
-            }
+			@include mq(tablet) {
+				max-width: 300px;
+			}
 
 			.select-options,
 			select {
@@ -440,11 +444,11 @@
 
 				&:hover {
 					cursor: pointer;
-                }
-                
-                i {
-                    transform: rotate(90deg)
-                }
+				}
+
+				i {
+					transform: rotate(90deg)
+				}
 			}
 
 			.select-options {
@@ -536,8 +540,8 @@
 		.button {
 			@extend %background-color-white;
 			@extend %color-primary;
-            @extend %font-family-unitedsans;
-            @extend %no-border;
+			@extend %font-family-unitedsans;
+			@extend %no-border;
 			@include font-size(30px);
 			width: 100%;
 			padding: 3px;
@@ -597,56 +601,59 @@
 			padding: 13px 26px;
 			width: 100%;
 		}
-    }
+	}
 
-    &__zoom {
-        position: fixed;
-        width: 100%;
-        background: #fff;
-        height: 100%;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        top: 0;
-        z-index: 99;
-        @extend %display-none;
-        @extend %flex-justify-content-space-between;
+	&__zoom {
+		position: fixed;
+		width: 100%;
+		background: #fff;
+		height: 100%;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		top: 0;
+		z-index: 99;
+		@extend %display-none;
+		@extend %flex-justify-content-space-between;
 
-        &.is-active {
-            @extend %display-flex;
-        }
+		&.is-active {
+			@extend %display-flex;
+		}
 
-        &-thumbs {
-            margin-left: 30px;
-            max-width: 75px;
-            margin-top: 10px;
-            img {
-                margin: 10px 0;
-            }
-        }
+		&-thumbs {
+			margin-left: 30px;
+			max-width: 75px;
+			margin-top: 10px;
 
-        &-image {
-            
-            img {
-                height: 100vh;
-                width: auto;
-            }
-        }
-        .btn--close {
-            background-color: transparent;
-            color:   #bab1a8;
-            i {
-                font-size: 33px;
-            }
-        }
-    }
+			img {
+				margin: 10px 0;
+			}
+		}
 
-    .error {
-        @extend %display-block;
-        margin-bottom: 5px;
-        color: red;
-        @include font-size(12px);
-    }
+		&-image {
+
+			img {
+				height: 100vh;
+				width: auto;
+			}
+		}
+
+		.btn--close {
+			background-color: transparent;
+			color: #bab1a8;
+
+			i {
+				font-size: 33px;
+			}
+		}
+	}
+
+	.error {
+		@extend %display-block;
+		margin-bottom: 5px;
+		color: red;
+		@include font-size(12px);
+	}
 
 }
 

@@ -1,42 +1,48 @@
 body {
-  @extend %font-family-primary;
+	@extend %font-family-primary;
 }
 
 a {
-  @extend %color-primary;
-  text-decoration: none;
-  background-color: transparent;
-  -webkit-text-decoration-skip: objects;
+	@extend %color-primary;
+	text-decoration: none;
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
 }
 
 a:hover {
-  color: #0056b3;
-  text-decoration: underline;
+	color: #0056b3;
+	text-decoration: underline;
 }
 
 a.button {
-  &:hover {
-    text-decoration: none;
-  }
+	&:hover {
+		text-decoration: none;
+	}
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+	max-width: 100%;
+	height: auto;
 }
 
 button,
 html [type='button'],
 [type='reset'],
 [type='submit'] {
-  -webkit-appearance: button;
+	-webkit-appearance: button;
 }
+
 ul {
 	padding: 0;
 	margin: 0;
 }
+
 .container {
-  width: 100%;
-  max-width: $page-container;
-  margin: 0 auto;
+	width: 100%;
+	max-width: $page-container;
+	margin: 0 auto;
+}
+
+#ajaxBusy {
+	display: none !important;
 }
