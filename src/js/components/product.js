@@ -54,7 +54,17 @@ class Product {
 
 		$('body').on('change', '.product__skus--thumb input[type="radio"]', function () {
 			if ($(this).is(':checked')) {
-				console.log($(this).val());
+                console.log($(this).val());
+                const productId = $(this).val();
+                const productWithVariations = getProductWithVariations(productId);
+                productWithVariations.then(product => {
+                    if (product.available) {
+                        self.product = product;
+                        self.renderSkuSelectors(product);
+                    } else {
+                        self.renderFormNotifyMe(product);
+                    }
+                })
 			}
 		})
 

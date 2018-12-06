@@ -9,6 +9,8 @@ $.fn.sendForm = function(entity, overwriteFields) {
 	overwriteFields = overwriteFields || {};
 
 	form.submit(function(e) {
+
+        console.log(form);
 		e.preventDefault();
 
 		var fields = {};
@@ -30,7 +32,9 @@ $.fn.sendForm = function(entity, overwriteFields) {
 			}
 		});
 
-		fields = Object.assign({}, fields, overwriteFields);
+        fields = Object.assign({}, fields, overwriteFields);
+        
+        console.log(fields);
 
 		$.ajax({
 			url: url,
@@ -56,7 +60,7 @@ $.fn.sendForm = function(entity, overwriteFields) {
 				var msg = JSON.parse(jqXHR.responseText);
 				console.log('define notification:', 'error', msg);
 				const error_msg = `<span class="error-msg">${msg.Message}</span>`;
-				form.apend(error_msg);
+				form.append(error_msg);
 				$('.newsletter').addClass('form-fail');
 			});
 	});
