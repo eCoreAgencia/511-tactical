@@ -37,7 +37,7 @@ $(document).ready(function () {
 	})
 
 	$('.menu__item--dropup').on('click', function (e) {
-		e.preventDefault();
+		// e.preventDefault();
 		menuMobile.closeSubmenu($(this).parent());
 	})
 })
