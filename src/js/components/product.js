@@ -61,6 +61,14 @@ class Product {
                     if (product.available) {
                         self.product = product;
                         self.renderSkuSelectors(product);
+
+                        const select = `<span class="product__skus-title">Tamanho</span>
+                            <select name="Tamanho">
+                                <option value="" hidden>Selecione um tamanho</option>
+                                ${self.createSkuSelect(product.dimensionsMap.Tamanho)}
+                            </select>`;
+
+                            $('.product__skus--size').html('teste');
                     } else {
                         self.renderFormNotifyMe(product);
                     }
@@ -85,7 +93,7 @@ class Product {
 
 
 			const select = `
-            <div class = "product__skus--size product__skus--select">
+            <div class="product__skus--size product__skus--select">
                 <span class="product__skus-title">Tamanho</span>
                 <select name="Tamanho">
                     <option value="" hidden>Selecione um tamanho</option>
@@ -154,68 +162,27 @@ class Product {
 		$('.product__skus').html(html);
 	}
 
-	getSkuSelected() {
+	
 
-		let self = this;
-
-		$('.product__skus-inner').find(
-			`input[type="text"],
-            input[type="number"],
-            input[type="tel"],
-            input[type="email"],
-            input[type="hidden"],
-            input[type="radio"]:checked,
-            input[type="checkbox"]:checked,
-            select,
-            textarea`
-		).each(function (i) {
-			var name = $(this).attr('name') || $(this).attr('id');
-			if (name && this.value) {
-				self.variations[name] = $(this).val();
-			}
-		});
-
-		if (!self.variations.hasOwnProperty('Tamanho')) {
-			$('<span class="error">Selecione um tamanho</span>').insertAfter('.product__skus--size .product__skus-title')
-			return false
-		}
-
-		if (!self.variations.hasOwnProperty('Cor')) {
-			$('<span class="error">Selecione um cor</span>').insertAfter('.product__skus--color .product__skus-title')
-			return false
-		}
-		console.log(self.variations)
-
-		return true;
-	}
-
-	getSkuId() {
-		let self = this;
-		return this.product.skus.filter(sku => {
-
-			if (sku.dimensions.Cor == self.variations.Cor && sku.dimensions.Tamanho == self.variations.Tamanho) {
-				return sku;
-			}
-		});
-	}
+	
 	buyProduct() {
 
-		let self = this;
-		console.log(self.variations)
+		// let self = this;
+		// console.log(self.variations)
 
-		if (self.getSkuSelected()) {
-			const sku = self.getSkuId();
-			const qtd = parseInt($('.product__qtd-value').val());
-			if (sku[0]) {
-				console.log(sku[0]);
-				addToCart(sku[0].sku, qtd);
-			} else {
-				alert('Produto não disponível')
-			}
+		// if (self.getSkuSelected()) {
+		// 	const sku = self.getSkuId();
+		// 	const qtd = parseInt($('.product__qtd-value').val());
+		// 	if (sku[0]) {
+		// 		console.log(sku[0]);
+		// 		addToCart(sku[0].sku, qtd);
+		// 	} else {
+		// 		alert('Produto não disponível')
+		// 	}
 
-		} else {
-			$('.btn--buy').removeClass('running');
-		}
+		// } else {
+		// 	$('.btn--buy').removeClass('running');
+		// }
 
 	}
 
