@@ -87,7 +87,7 @@ class Product {
 
     changeQuantity(quantity) {
         const quantityInput = $('.product__qtd-value');
-        changeQuantity(quantityInput, quantity;
+        changeQuantity(quantityInput, quantity);
     }
 
     addSku(sku) {
