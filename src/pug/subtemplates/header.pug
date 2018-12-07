@@ -32,9 +32,9 @@ header.header
                     i.icon-search
                 .js-search-form
                     .search-form
-                        form.search-form__form(action="/busca", method="get")
+                        form.search-form__form.search-form(action="/busca", method="get")
                             .search-form__control
-                                input.search-form__input(type="search", required='required', autocomplete='off', name="fq", placeholder='Faça uma busca...', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Faça uma busca...'")/
+                                input.input(type='text', placeholder='Buscar produto')/
                                 button.btn.btn--submit
                                     i.icon-search
                         .search-form__result

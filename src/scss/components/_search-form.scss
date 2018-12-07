@@ -1,4 +1,5 @@
 .search-form {
+	position: relative;
 	&__result {
 		@extend %display-none;
 	}
@@ -23,5 +24,83 @@
 		@extend %color-primary;
 		background-color: transparent;
 		padding: 10px;
+	}
+
+	&__result {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 10;
+		width: 292px;
+		background: #fff;
+		padding: 10px;
+		right: 33px;
+		display: none;
+
+		.product--shelf {
+			display: flex;
+			padding: 10px 0;
+
+			& + .product--shelf {
+				border-top: 1px solid #ebebeb;
+			}
+		}
+
+		.product__header {
+			width: 73px;
+			height: 69px;
+			margin-right: 10px;
+		}
+
+		.product__media {
+			margin: 0;
+		}
+
+		.product__link {
+			font-size: 12px;
+			font-weight: 300;
+			@extend %font-family-unitedsanscondensed;
+			letter-spacing: 0.6px;
+			color: #a3a3a3;
+
+		}
+
+		.price__instament {
+			letter-spacing: 0.21px;
+			display: block;
+			font-size: 12px;
+			color: #808080;
+			font-weight: 400;
+			font-style: italic;
+			font-family: "Open Sans";
+		}
+
+		.price__list {
+			color: #000000;
+			@extend %font-family-unitedsanscondensed;
+			font-size: 12px;
+			font-weight: 700;
+			font-style: italic;
+			text-transform: uppercase;
+			/* Text style for "R$ 54,99" */
+			letter-spacing: 0.21px;
+		}
+	}
+
+	&__link {
+		background-color: #e95600;
+		display: block;
+		width: 100%;
+		padding: 10px;
+		text-align: center;
+		font-size: 12px;
+		letter-spacing: 1px;
+		font-weight: 300;
+		text-transform: uppercase;
+		color: #fff;
+		&:hover {
+			text-decoration: none;
+			color: #000;
+		}
 	}
 }

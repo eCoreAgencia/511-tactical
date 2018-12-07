@@ -32,12 +32,12 @@ $(document).ready(function () {
 	});
 
 	$('.menu__item--dropdown > .menu__link').on('click', function (e) {
-		e.preventDefault();
+		// e.preventDefault();
 		menuMobile.openSubmenu($(this));
 	})
 
 	$('.menu__item--dropup').on('click', function (e) {
-		e.preventDefault();
+		// e.preventDefault();
 		menuMobile.closeSubmenu($(this).parent());
 	})
 })
