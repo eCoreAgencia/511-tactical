@@ -31,7 +31,7 @@ $(document).ready(function () {
 		menuMobile.closeMenu(headerMenu)
 	});
 
-	$('.menu__item--dropdown > .menu__link').on('click', function (e) {
+	$('.menu--mobile .menu__item--dropdown > .menu__link').on('click', function (e) {
 		e.preventDefault();
 		menuMobile.openSubmenu($(this));
 	})

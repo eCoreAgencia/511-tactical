@@ -12,11 +12,13 @@ import {
 class Product {
 	constructor() {
 		const productId = $('#___rc-p-id').val();
-		const quantityInput = $('.product__qtd-value');
+		
 		let self = this;
 		this.variations = {};
 		this.product = {};
-		this.productSimilar = [];
+        this.item = {};
+        this.item.quantity = 1;
+        this.item.seller = "1";
 		this.makeZoom();
 		$('.zoomPup, .zoomWindow, .zoomPreload').remove();
 		const productWithVariations = getProductWithVariations(productId);
@@ -29,18 +31,9 @@ class Product {
 			}
 		})
 
-		$('.button--minus').on('click', () => {
-			changeQuantity(quantityInput, -1);
-		})
+		
 
-		$('.button--plus').on('click', () => {
-			changeQuantity(quantityInput, 1);
-		})
-
-		$('.btn--buy').on('click', function () {
-			$(this).addClass('running');
-			self.buyProduct();
-		});
+		
 
 		$('.image-zoom').on('click', function (e) {
 			e.preventDefault();
@@ -52,33 +45,93 @@ class Product {
 			$('.product__zoom').removeClass('is-active');
 		});
 
-		$('body').on('change', '.product__skus--thumb input[type="radio"]', function () {
-			if ($(this).is(':checked')) {
-                console.log($(this).val());
-                const productId = $(this).val();
-                const productWithVariations = getProductWithVariations(productId);
-                productWithVariations.then(product => {
-                    if (product.available) {
-                        self.product = product;
-                        self.renderSkuSelectors(product);
+		// $('body').on('change', '.product__skus--thumb input[type="radio"]', function () {
+		// 	if ($(this).is(':checked')) {
+        //         console.log($(this).val());
+        //         const productId = $(this).val();
+        //         const productWithVariations = getProductWithVariations(productId);
+        //         productWithVariations.then(product => {
+        //             if (product.available) {
+        //                 self.product = product;
+        //                 self.renderSkuSelectors(product);
 
-                        const select = `<span class="product__skus-title">Tamanho</span>
-                            <select name="Tamanho">
-                                <option value="" hidden>Selecione um tamanho</option>
-                                ${self.createSkuSelect(product.dimensionsMap.Tamanho)}
-                            </select>`;
+        //                 const select = `<span class="product__skus-title">Tamanho</span>
+        //                     <select name="Tamanho">
+        //                         <option value="" hidden>Selecione um tamanho</option>
+        //                         ${self.createSkuSelect(product.dimensionsMap.Tamanho)}
+        //                     </select>`;
 
-                            $('.product__skus--size').html('teste');
-                    } else {
-                        self.renderFormNotifyMe(product);
-                    }
-                })
+        //                     $('.product__skus--size').html('teste');
+        //             } else {
+        //                 self.renderFormNotifyMe(product);
+        //             }
+        //         })
+		// 	}
+		// })
+
+
+
+    }
+
+    inputQuantity() {
+        return `<div class="product__qtd">
+            <button class="button button--plus" onClick="Product.changeQuantity.apply(1)">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16"><defs><path id="9voea" d="M60.714 1123.786v2.143c0 .591-.48 1.071-1.071 1.071H55v4.643c0 .591-.48 1.071-1.071 1.071h-2.143c-.592 0-1.072-.48-1.072-1.071V1127h-4.643c-.591 0-1.071-.48-1.071-1.071v-2.143c0-.592.48-1.072 1.071-1.072h4.643v-4.643c0-.591.48-1.071 1.072-1.071h2.143c.591 0 1.071.48 1.071 1.071v4.643h4.643c.591 0 1.071.48 1.071 1.072z"></path></defs><g><g transform="translate(-45 -1117)"><use fill="#e75300" xlink:href="#9voea"></use></g></g></svg>
+            </button>
+            <input class="product__qtd-value" type="text" value="1">
+            <button class="button button--minus" onClick="Product.changeQuantity.apply(-1)">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="5" viewBox="0 0 16 5"><defs><path id="459ea" d="M275.714 1124.071v2.143c0 .592-.48 1.072-1.071 1.072H261.07c-.591 0-1.071-.48-1.071-1.072v-2.143c0-.591.48-1.071 1.071-1.071h13.572c.591 0 1.071.48 1.071 1.071z"></path></defs><g><g transform="translate(-260 -1123)"><use fill="#e75300" xlink:href="#459ea"></use></g></g></svg>
+            </button>
+      </div>`
+    }
+
+    changeQuantity(quantity) {
+        const quantityInput = $('.product__qtd-value');
+        changeQuantity(quantityInput, quantity;
+    }
+
+    addSku(sku) {
+        console.log(sku,'teste');
+    }
+
+    skuValidation() {
+        let self = this;
+        let skuValidated = true;
+
+        $('select[name="sku"').each(function() {
+            var name = $(this).attr('name') || $(this).attr('id');
+            var value = $(this).val();
+			if (value) {
+				self.item[name] = parseInt($(this).val());
 			}
-		})
+            console.log(self.item);
+        })
 
+        if(!this.item.hasOwnProperty('sku')){
+            $('<span class="error">Selecione um tamanho</span>').insertAfter('.product__skus--size .product__skus-title');
+            skuValidated = false;
+        }
 
+        return skuValidated;
+    }
 
-	}
+    addProductToCart(button){
+        if(this.skuValidation()) {
+            let { id, quantity, seller } = this.item;
+            addToCart(this.item);
+            $(button).addClass('running');
+        }
+        $(window).on('FC.ProductAdded', () => {
+            $(button).removeClass('running')
+        })
+    }
+    
+    buttonBuy() {
+        return `<button class="btn btn--buy ld-ext-right" onClick="Product.addProductToCart(this)">
+            Adicionar ao Carrinho
+            <div class="ld ld-ring ld-spin"></div>
+      </button>`;
+    }
 
 	getIdSimilarSelected() {
 		$('.product__skus--thumb input[type="radio"]:checked').each(function () {
@@ -87,7 +140,8 @@ class Product {
 	}
 
 	renderSkuSelectors(product) {
-		const productSimilar = getProductSimilarById(product.productId);
+        const productSimilar = getProductSimilarById(product.productId);
+        console.log(product);
 		productSimilar.then(products => {
 			console.log(products);
 
@@ -95,9 +149,9 @@ class Product {
 			const select = `
             <div class="product__skus--size product__skus--select">
                 <span class="product__skus-title">Tamanho</span>
-                <select name="Tamanho">
+                <select name="sku">
                     <option value="" hidden>Selecione um tamanho</option>
-                    ${this.createSkuSelect(product.dimensionsMap.Tamanho)}
+                    ${this.createSkuSelect(product.skus)}
                 </select>
             </div>`;
 
@@ -112,6 +166,7 @@ class Product {
 				const skus = `<div class="product__skus-inner">
                     ${list}
                     ${select}
+                    ${this.buttonBuy()}
             </div>`
 				$('.product__skus').html(skus);
 			} else {
@@ -127,8 +182,8 @@ class Product {
 
 	}
 
-	createSkuSelect(dimensions) {
-		return dimensions.map(dimension => `<option value="${dimension}">${dimension}</option>`).join('');
+	createSkuSelect(items) {
+		return items.map(item => `<option value="${item.sku}">${item.skuname}</option>`).join('');
 	}
 
 	createSkuThumb(products) {
@@ -296,7 +351,8 @@ $(document).ready(() => {
 				var $listItems = $list.children('li');
 
 				$styledSelect.click(function (e) {
-					e.stopPropagation();
+                    e.stopPropagation();
+                    $('.error').remove();
 					$('div.select-styled.active').not(this).each(function () {
 						$(this).removeClass('active').next('ul.select-options').hide();
 					});
