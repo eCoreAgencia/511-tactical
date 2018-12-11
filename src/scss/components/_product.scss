@@ -390,13 +390,15 @@
 				}
 			}
 
-			label {
+			a {
 				@extend %display-block;
 				font-size: 0;
 				width: 28px;
 				height: 28px;
 				border: 1px solid #211e14;
 				border-radius: 100%;
+				background-size: cover;
+				background-repeat: no-repeat;
 
 				@include mq(tablet) {
 					width: 20px;

@@ -65,15 +65,9 @@ block content
                     .product__action              
                         .product__action-top
                             .product__qtd
-                                button.button.button--plus
-                                    include ../../svg/plus.svg
-                                input.product__qtd-value(type="text" value="1")/
-                                button.button.button--minus
-                                    include ../../svg/minus.svg
+                                
                             .product__buy
-                                button.btn.btn--buy.ld-ext-right
-                                    | Adicionar ao Carrinho
-                                    .ld.ld-ring.ld-spin
+                                
                         .product__action-bottom
                             +vtex-controller('<vtex.cmc:BuyButton/>')
                                 a.buy-button.buy-button-ref(target='_top', href="javascript:alert('Por favor, selecione o modelo desejado.');", style='display:block')

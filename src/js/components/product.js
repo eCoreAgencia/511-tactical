@@ -26,9 +26,17 @@ class Product {
 			if (product.available) {
 				self.product = product;
 				self.renderSkuSelectors(product);
+				$('.product__buy').html(self.buttonBuy());
+				$('.product__qtd').html(self.inputQuantity());
 			} else {
 				self.renderFormNotifyMe(product);
 			}
+		})
+
+		$('.product__skus').on('click', '.sku-color', function(e){
+			e.preventDefault();
+			const productID = $(this).data('id');
+			self.changeProduct(productID);
 		})
 
 		
@@ -44,48 +52,20 @@ class Product {
 			e.preventDefault();
 			$('.product__zoom').removeClass('is-active');
 		});
-
-		// $('body').on('change', '.product__skus--thumb input[type="radio"]', function () {
-		// 	if ($(this).is(':checked')) {
-        //         console.log($(this).val());
-        //         const productId = $(this).val();
-        //         const productWithVariations = getProductWithVariations(productId);
-        //         productWithVariations.then(product => {
-        //             if (product.available) {
-        //                 self.product = product;
-        //                 self.renderSkuSelectors(product);
-
-        //                 const select = `<span class="product__skus-title">Tamanho</span>
-        //                     <select name="Tamanho">
-        //                         <option value="" hidden>Selecione um tamanho</option>
-        //                         ${self.createSkuSelect(product.dimensionsMap.Tamanho)}
-        //                     </select>`;
-
-        //                     $('.product__skus--size').html('teste');
-        //             } else {
-        //                 self.renderFormNotifyMe(product);
-        //             }
-        //         })
-		// 	}
-		// })
-
-
-
-    }
+	}
 
     inputQuantity() {
-        return `<div class="product__qtd">
-            <button class="button button--plus" onClick="Product.changeQuantity.apply(1)">
+        return `<button class="button button--plus" onClick="Product.changeQuantity(1)">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16"><defs><path id="9voea" d="M60.714 1123.786v2.143c0 .591-.48 1.071-1.071 1.071H55v4.643c0 .591-.48 1.071-1.071 1.071h-2.143c-.592 0-1.072-.48-1.072-1.071V1127h-4.643c-.591 0-1.071-.48-1.071-1.071v-2.143c0-.592.48-1.072 1.071-1.072h4.643v-4.643c0-.591.48-1.071 1.072-1.071h2.143c.591 0 1.071.48 1.071 1.071v4.643h4.643c.591 0 1.071.48 1.071 1.072z"></path></defs><g><g transform="translate(-45 -1117)"><use fill="#e75300" xlink:href="#9voea"></use></g></g></svg>
             </button>
             <input class="product__qtd-value" type="text" value="1">
-            <button class="button button--minus" onClick="Product.changeQuantity.apply(-1)">
+            <button class="button button--minus" onClick="Product.changeQuantity(-1)">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="5" viewBox="0 0 16 5"><defs><path id="459ea" d="M275.714 1124.071v2.143c0 .592-.48 1.072-1.071 1.072H261.07c-.591 0-1.071-.48-1.071-1.072v-2.143c0-.591.48-1.071 1.071-1.071h13.572c.591 0 1.071.48 1.071 1.071z"></path></defs><g><g transform="translate(-260 -1123)"><use fill="#e75300" xlink:href="#459ea"></use></g></g></svg>
-            </button>
-      </div>`
+            </button>`
     }
 
     changeQuantity(quantity) {
+		console.log(quantity);
         const quantityInput = $('.product__qtd-value');
         changeQuantity(quantityInput, quantity);
     }
@@ -98,7 +78,7 @@ class Product {
         let self = this;
         let skuValidated = true;
 
-        $('select[name="sku"').each(function() {
+        $('select[name="id"').each(function() {
             var name = $(this).attr('name') || $(this).attr('id');
             var value = $(this).val();
 			if (value) {
@@ -107,7 +87,7 @@ class Product {
             console.log(self.item);
         })
 
-        if(!this.item.hasOwnProperty('sku')){
+        if(!this.item.hasOwnProperty('id')){
             $('<span class="error">Selecione um tamanho</span>').insertAfter('.product__skus--size .product__skus-title');
             skuValidated = false;
         }
@@ -117,10 +97,17 @@ class Product {
 
     addProductToCart(button){
         if(this.skuValidation()) {
-            let { id, quantity, seller } = this.item;
-            addToCart(this.item);
-            $(button).addClass('running');
-        }
+			let { id, quantity, seller } = this.item;
+			console.log(this.item)
+			addToCart(id, quantity);
+			//const endpoint = `/checkout/cart/add?sku=${id}&qty=${quantity}&seller=1&redirect=true&sc=1`
+			$(button).addClass('running');
+			
+			//window.location.href = endpoint;
+            
+		}
+		
+		
         $(window).on('FC.ProductAdded', () => {
             $(button).removeClass('running')
         })
@@ -139,6 +126,29 @@ class Product {
 		});
 	}
 
+	changeProduct(productId){
+		let self = this;
+		const productWithVariations = getProductWithVariations(productId);
+		productWithVariations.then(product => {
+			if (product.available) {
+				self.product = product;
+
+				const select = `
+            	<span class="product__skus-title">Tamanho 2</span>
+					<select name="sku">
+						<option value="" hidden>Selecione um tamanho</option>
+						${this.createSkuSelect(product.skus)}
+					</select>`;
+				$('.product__skus--select').html(select);
+				
+				$(window).trigger('skuSelectorCreated');
+				
+			} else {
+				self.renderFormNotifyMe(product);
+			}
+		})
+	}
+
 	renderSkuSelectors(product) {
         const productSimilar = getProductSimilarById(product.productId);
         console.log(product);
@@ -149,7 +159,7 @@ class Product {
 			const select = `
             <div class="product__skus--size product__skus--select">
                 <span class="product__skus-title">Tamanho</span>
-                <select name="sku">
+                <select name="id">
                     <option value="" hidden>Selecione um tamanho</option>
                     ${this.createSkuSelect(product.skus)}
                 </select>
@@ -166,7 +176,7 @@ class Product {
 				const skus = `<div class="product__skus-inner">
                     ${list}
                     ${select}
-                    ${this.buttonBuy()}
+                    
             </div>`
 				$('.product__skus').html(skus);
 			} else {
@@ -187,7 +197,7 @@ class Product {
 	}
 
 	createSkuThumb(products) {
-		return products.map(product => `<li><label for="product-color-${product.productId}">${product.productName}</label><input type="radio" id="product-color-${product.productId}" name="Cor" value="${product.productId}"></li>`).join('');
+		return products.map(product => `<li><a style="background-image: url('${product.items[0].images[0].imageUrl}')" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`).join('');
 
 	}
 

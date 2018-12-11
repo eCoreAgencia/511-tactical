@@ -19,6 +19,7 @@ export const addToCart = function (id, quantity = 1, seller = '1', redirect = fa
 
 
 
+
 export const slugify = (string) => {
 	const a = 'àáäâãåèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;'
 	const b = 'aaaaaaeeeeiiiioooouuuuncsyoarsnpwgnmuxzh------'
@@ -87,8 +88,10 @@ export const isEmpty = (obj) => {
 }
 
 export const changeQuantity = (element, value) => {
-    const currentValue = element.val();
-    let newValue = +currentValue + value;
+	const currentValue = element.val();
+	console.log(value);
+	let newValue = +currentValue + +value;
+	
     if(newValue) {
         element.val(newValue);
     }
