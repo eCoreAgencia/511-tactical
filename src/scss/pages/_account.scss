@@ -1,3 +1,39 @@
+body.orders {
+	header .navbar {
+		position: initial;
+	}
+
+	body.orders .render-container.render-route-my-orders-portal ul.nav.nav-pills li a {
+		color: #000;
+	}
+	body.orders .render-container.render-route-my-orders-portal ul.nav.nav-pills li.active a {
+		background: #e95500;
+		border-radius: 2px;
+		color: #fff;
+	}	
+
+	.header__top .b2b__link::after {
+		margin-top: 2px;
+	}
+
+	form.search-form__form.search-form {
+		margin: 0;
+	}
+
+	form.newsletter__form input {
+		height: 60px;
+		padding-left: 20px;
+	}
+
+	.search-form__control input {
+		padding: 0;
+		margin: 0;
+		height: 100%;
+		border: none;
+		padding: 10px;
+	}
+}
+
 .section__account {
 	box-sizing: border-box;
 	.bread-crumb {
@@ -321,7 +357,14 @@
 		font-weight: 700;
 		font-family: Roboto;
 		text-decoration: underline;
-		background-color: #fbf7f1;
+		background-color: #e95500;
+		width: 100%;
+		text-align: center;
+		padding: 10px;
+		color: #fff;
+		text-decoration: none;
+		font-weight: 100;
+		letter-spacing: .5px;
 	}
 
 	.modal {

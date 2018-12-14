@@ -234,6 +234,9 @@ body {
                         flex-direction: column;
                         li {
                             width: 100%;
+                            .product__id, .product__reviews {
+                                display: none;
+                            }
                             .product--shelf {
                                 display: flex;
                                 justify-content: space-between;
