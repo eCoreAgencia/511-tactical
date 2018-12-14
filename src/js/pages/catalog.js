@@ -3,7 +3,6 @@ class catalog {
 		this.grid();
 		this.numberProduct();
 		this.returnTop();
-		this.changeFilterTextMobile();
 	}
 
 	grid() {
