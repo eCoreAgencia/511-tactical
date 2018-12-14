@@ -29,6 +29,12 @@ body {
 				width: 100vw;
 				@include mq('tablet') {
 					width: initial;
+					position: initial;
+					margin: auto;
+				}
+				@include mq(mobile) {
+					position: relative;
+					margin: 0;
 				}
 			}
 			&__filter {
@@ -69,13 +75,13 @@ body {
 						&.btnOpenFilter {
 							color: #e75300;
 							margin-right: 0px;
-							font-size: 12px;
-							padding-left: 10px;
+							font-size: 14px;
+							padding-left: 20px;
 							transition: 0.3s ease;
 							i {
 								margin-right: 5px;
 								&:before {
-									font-size: 11px;
+									font-size: 14px;
 								}
 							}
 							&:hover {
@@ -107,11 +113,20 @@ body {
 			}
 			&__numberProduct {
 				@include mq(mobile) {
-					display: none;
+					display: block;
+					position: absolute;
+					top: -80px;
+					right: 0;
+					left: 0;
+					margin: 0 auto;
+					text-align: center;
 				}
 
 				@include mq('tablet') {
 					display: block;
+					position: static;
+					margin: initial;
+					text-align: initial;
 				}
 				p {
 					color: #000000;
@@ -132,7 +147,7 @@ body {
 				align-items: center;
 
 				@include mq(mobile) {
-					margin-right: 10px;
+					margin-right: 20px;
 					select {
 						@include font-size(13px);
 					}
