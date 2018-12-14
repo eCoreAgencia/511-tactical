@@ -22,14 +22,21 @@
 	}
 
 	.orderBy {
+		.select {
+			display: flex;
+		}
 		select {
 			color: $c-black;
+			background-color: #f8f7f5;
+			border: 0;
+			padding: 10px 0;
+			@extend %font-family-unitedsans;
+			font-weight: 800;
+			text-transform: uppercase;
 		}
-
-		.select {
-			&::after {
-				border-color: #bdbdbd;
-			}
+		option {
+			@extend %font-family-unitedsans;
+			font-weight: 800;
 		}
 	}
 
@@ -86,6 +93,17 @@
 		border-color: #9e9e9e;
 		text-transform: uppercase;
 		font-size: 18px;
+	}
+	.pager.top {
+		& + .pages {
+			display: none;
+			+ #returnToTop {
+				display: none;
+			}
+		}
+	}
+	.btn-load-more {
+		display: none;
 	}
 	.pages {
 		display: flex;
@@ -187,6 +205,25 @@
 			border: 4px solid #dadad8;
 			justify-content: center;
 			@extend %font-family-unitedsans;
+		}
+	}
+	.btnOpenFilter {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		p {
+			font-weight: 800;
+			margin: 0;
+		}
+		p:first-of-type {
+			margin-right: 5px;
+			display: none;
+			@include atMedium {
+				display: block;
+			}
+		}
+		.icon-filter {
+			margin-bottom: 3px;
 		}
 	}
 }

@@ -26,6 +26,10 @@ body {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
+				width: 100vw;
+				@include mq('tablet') {
+					width: initial;
+				}
 			}
 			&__filter {
 				@include mq(mobile) {
@@ -66,7 +70,7 @@ body {
 							color: #e75300;
 							margin-right: 0px;
 							font-size: 12px;
-							padding-left: 25px;
+							padding-left: 10px;
 							transition: 0.3s ease;
 							i {
 								margin-right: 5px;
@@ -121,13 +125,16 @@ body {
 				}
 			}
 			&__orderBy {
+				.container {
+					width: initial;
+				}
 				display: flex;
 				align-items: center;
+
 				@include mq(mobile) {
-					width: 43%;
+					margin-right: 10px;
 					select {
-						border: 1px solid #ccc;
-						width: 80%;
+						@include font-size(13px);
 					}
 				}
 				@include mq('tablet') {

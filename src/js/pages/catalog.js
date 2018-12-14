@@ -3,6 +3,7 @@ class catalog {
 		this.grid();
 		this.numberProduct();
 		this.returnTop();
+		this.changeFilterTextMobile();
 	}
 
 	grid() {
@@ -31,7 +32,7 @@ class catalog {
 	returnTop() {
 		$(document).ajaxStop(function() {
 			let returnDiv = $('#returnToTop');
-			$(returnDiv).insertAfter('.pages');
+			$(returnDiv).insertAfter('.pager.bottom + .pages');
 		});
 	}
 }
