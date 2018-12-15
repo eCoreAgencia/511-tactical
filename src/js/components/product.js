@@ -12,7 +12,7 @@ import {
 class Product {
 	constructor() {
 		const productId = $('#___rc-p-id').val();
-		
+
 		let self = this;
 		this.variations = {};
 		this.product = {};
@@ -26,8 +26,8 @@ class Product {
 			if (product.available) {
 				self.product = product;
 				self.renderSkuSelectors(product);
-				$('.product__buy').html(self.buttonBuy());
-				$('.product__qtd').html(self.inputQuantity());
+				$('.product__main .product__buy').html(self.buttonBuy());
+				$('.product__main .product__qtd').html(self.inputQuantity());
 			} else {
 				self.renderFormNotifyMe(product);
 			}
@@ -39,9 +39,9 @@ class Product {
 			self.changeProduct(productID);
 		})
 
-		
 
-		
+
+
 
 		$('.image-zoom').on('click', function (e) {
 			e.preventDefault();
@@ -102,17 +102,17 @@ class Product {
 			addToCart(id, quantity);
 			//const endpoint = `/checkout/cart/add?sku=${id}&qty=${quantity}&seller=1&redirect=true&sc=1`
 			$(button).addClass('running');
-			
+
 			//window.location.href = endpoint;
-            
+
 		}
-		
-		
+
+
         $(window).on('FC.ProductAdded', () => {
             $(button).removeClass('running')
         })
     }
-    
+
     buttonBuy() {
         return `<button class="btn btn--buy ld-ext-right" onClick="Product.addProductToCart(this)">
             Adicionar ao Carrinho
@@ -140,9 +140,9 @@ class Product {
 						${this.createSkuSelect(product.skus)}
 					</select>`;
 				$('.product__skus--select').html(select);
-				
+
 				$(window).trigger('skuSelectorCreated');
-				
+
 			} else {
 				self.renderFormNotifyMe(product);
 			}
@@ -176,7 +176,7 @@ class Product {
 				const skus = `<div class="product__skus-inner">
                     ${list}
                     ${select}
-                    
+
             </div>`
 				$('.product__skus').html(skus);
 			} else {
@@ -227,9 +227,9 @@ class Product {
 		$('.product__skus').html(html);
 	}
 
-	
 
-	
+
+
 	buyProduct() {
 
 		// let self = this;
@@ -257,7 +257,7 @@ class Product {
 			$('.product__zoom .product__zoom-thumbs').append(`<a href=""><img src="${img}" /></a>`);
 		});
 
-		$('.image-zoom').each(function () {
+		$('#image a').each(function () {
 			const img = $(this).attr('href');
 			$('.product__zoom .product__zoom-image').append(`<img src="${img}" />`);
 		});
@@ -304,29 +304,37 @@ $(document).ready(() => {
 		}
 
 		const positionFixed = () => {
-			const distancePageTop = 100;
-			const footerPosition = $('.section__newsletter').offset().top;
-			const windowHeight = $(window).height();
-			const pageScroll = window.pageYOffset || document.documentElement.scrollTop;
+			// const distancePageTop = 100;
+			// const footerPosition = $('.section__newsletter').offset().top;
+			// const windowHeight = $(window).height();
+			// const pageScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-			if (pageScroll >= distancePageTop) {
-				$('.product__main .product__info').addClass('product__info--fixed');
-				console.log(pageScroll, footerPosition);
-				if (footerPosition - windowHeight) {
-					$('.product__main .product__info--fixed').addClass('product__info--opacity');
-				} else {
-					$('.product__main .product__info--fixed').addClass('product__info--opacity');
-				}
-			} else {
-				$('.product__main .product__info').removeClass('product__info--fixed');
-			}
+			// if (pageScroll >= distancePageTop) {
+			// 	$('.product__main .product__info').addClass('product__info--fixed');
+			// 	console.log(pageScroll, footerPosition);
+			// 	if (footerPosition - windowHeight) {
+			// 		$('.product__main .product__info--fixed').addClass('product__info--opacity');
+			// 	} else {
+			// 		$('.product__main .product__info--fixed').addClass('product__info--opacity');
+			// 	}
+			// } else {
+			// 	$('.product__main .product__info').removeClass('product__info--fixed');
+			// }
+
+			const footerPosition = $('.section__newsletter').offset().top;
+			const pageScroll = window.pageYOffset || document.documentElement.scrollTop;
+			var y = $(window).scrollTop();
+
+			console.log(footerPosition, pageScroll, y);
+
+
 		}
 
 		if (!isMobile.any()) {
-			//positionFixed();
+			positionFixed();
 
 			$(window).scroll(() => {
-				//positionFixed();
+				positionFixed();
 			})
 		}
 

@@ -1,122 +1,123 @@
 extends ../layouts/default.pug
 
 block vars
-    - var pageTitle = ' Produto'
-    - var bodyClass = 'product'
+	- var pageTitle = ' Produto'
+	- var bodyClass = 'product'
 
 block content
-    .container
-        section.section__page.section__breadcrumb
-            +vtex-controller('<vtex.cmc:breadCrumb />')
-                .bread-crumb
-                    ul
-                        li
-                            a(href='https://tactical.vtexcommercestable.com.br/', rel='v:url', property='v:title') tactical
-                        li
-                            a(href='https://tactical.vtexcommercestable.com.br/ferramentas-eletricas', rel='v:url', property='v:title') Ferramentas Elétricas
-                        li
-                            a(href='https://tactical.vtexcommercestable.com.br/ferramentas-eletricas/acessorios', rel='v:url', property='v:title') Acessórios
-                        li.last
-                            a(href='https://tactical.vtexcommercestable.com.br/ferramentas-eletricas/acessorios/mandril', rel='v:url', property='v:title') Mandril
-        section.section__page.section__product-header
-            .product__main
-                .product__media
-                    .product__media-top
-                        +vtex-controller('<vtex.cmc:ProductImage zoom="on"/>')
-                            include ../vtexParts/vtexProductImages.pug
+	.container
+		section.section__breadcrumb
+			+vtex-controller('<vtex.cmc:breadCrumb />')
+				.bread-crumb
+					ul
+						li
+							a(href='https://tactical.vtexcommercestable.com.br/', rel='v:url', property='v:title') tactical
+						li
+							a(href='https://tactical.vtexcommercestable.com.br/ferramentas-eletricas', rel='v:url', property='v:title') Ferramentas Elétricas
+						li
+							a(href='https://tactical.vtexcommercestable.com.br/ferramentas-eletricas/acessorios', rel='v:url', property='v:title') Acessórios
+						li.last
+							a(href='https://tactical.vtexcommercestable.com.br/ferramentas-eletricas/acessorios/mandril', rel='v:url', property='v:title') Mandril
+		section.section__page.section__product-header
+			.product__main
+				.product__media
+					.product__media-top
+						+vtex-controller('<vtex.cmc:ProductImage zoom="on"/>')
+							include ../vtexParts/vtexProductImages.pug
 
-                .product__info
-                    +vtex-controller('<vtex.cmc:productName />')
-                        h1
-                            .fn.productName.Mandril-1-2--com-Chave-Black-Decker XPRT® MULTICAM® TACTICAL PANT
-                                input#___rc-p-id(type='hidden', value='125')
-                                input#___rc-p-dv-id(type='hidden', value='22,9')
-                                input#___rc-p-sku-ids(type='hidden', value='150')
-                                input#___rc-p-kit-ids(type='hidden', value='')
-                    .product__code
-                        span SKU:
-                        +vtex-controller('<vtex.cmc:skuReference/>')
-                    .product__price
-                        .price
-                            +vtex-controller('<vtex.cmc:skuPrice />')
-                                .plugin-preco
-                                    .productPrice
-                                        p.descricao-preco
-                                            em.valor-de.price-list-price(style='display: block;')
-                                                | De:
-                                                strong.skuListPrice R$ 24,99
-                                            em.valor-por.price-best-price(style='display: block;')
-                                                | Por:
-                                                strong.skuBestPrice R$ 639,90
-                                            em.valor-dividido.price-installments(style='display: block;')
-                                                span
-                                                    span
-                                                        | ou
-                                                        label.skuBestInstallmentNumber
-                                                            | 12
-                                                            span.x x
-                                                        |  de
-                                                    strong
-                                                        label.skuBestInstallmentValue R$ 53,32
-                                        p.preco-a-vista.price-cash(style='display: block;')
-                                            | Preço a vista:
-                                            strong.skuPrice R$ 639,90
-                    .product__skus
-                    .product__action              
-                        .product__action-top
-                            .product__qtd
-                                
-                            .product__buy
-                                
-                        .product__action-bottom
-                            +vtex-controller('<vtex.cmc:BuyButton/>')
-                                a.buy-button.buy-button-ref(target='_top', href="javascript:alert('Por favor, selecione o modelo desejado.');", style='display:block')
-                                    | Comprar
-                                .portal-notify-me-ref
-                                    .notifyme.sku-notifyme(style='display: none;')
-                                        .notifyme-title-div(style='display: none;')
-                                            h3.notifymetitle.notifyme-title Avise-Me
-                                        form(action='/no-cache/AviseMe.aspx', style='display: none;')
-                                            fieldset.sku-notifyme-form.notifyme-form
-                                                p
-                                                    | Para ser avisado da disponibilidade deste Produto, basta preencher os campos abaixo.
-                                                input#notifymeClientName.sku-notifyme-client-name.notifyme-client-name(placeholder='Digite seu nome...', size='20', type='text', name='notifymeClientName', style='display: none;')
-                                                input#notifymeClientEmail.sku-notifyme-client-email.notifyme-client-email(placeholder='Digite seu e-mail...', size='20', type='text', name='notifymeClientEmail', style='display: none;')
-                                                input#notifymeButtonOK.btn-ok.sku-notifyme-button-ok.notifyme-button-ok(value='ok', type='button', name='notifymeButtonOK', style='display: none;')
-                                                input.sku-notifyme-skuid.notifyme-skuid(type='hidden', name='notifymeIdSku', value='', style='display: none;')
-                                        p.notifyme-loading-message(style='display: none')
-                                            span.sku-notifyme-loading.notifyme-loading Carregando...
-                                        fieldset.success(style='display:none;')
-                                            label
-                                                em
-                                                    span.sku-notifyme-success.notifyme-success
-                                                        | Cadastrado com sucesso, assim que o produto for disponibilizado você receberá um email avisando.
-                                        fieldset.error(style='display: none')
-                                            label
-                                                span.sku-notifyme-error.notifyme-error
-        section.section__page.section__product-bottom
-            .product__description
-                section.section__title
-                    <svg class="section__title__ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 25 25"><defs><path id="qg31a" d="M874.24 1114.82a3.41 3.41 0 0 1-3.42 3.42H856.2a3.41 3.41 0 0 1-3.4-3.42h-.02v-14.62h.02a3.41 3.41 0 0 1 3.4-3.42h14.63a3.41 3.41 0 0 1 3.42 3.42v14.62zM851 1120h25v-25h-25z"/><path id="qg31b" d="M870.69 1111.73c0 1.2-.97 2.16-2.16 2.16h-9.25c-1.2 0-2.16-.97-2.16-2.16h-.01v-9.26h.01c0-1.19.97-2.16 2.16-2.16v-.01h9.25v.01c1.2 0 2.16.97 2.16 2.16v9.26zm-14.85 3.43h16.13v-16.13h-16.13z"/><path id="qg31c" d="M867.93 1106.51h-3.45v-3.45h-1.15v3.45h-3.46v1.16h3.46v3.45h1.15v-3.45h3.45z"/></defs><g><g transform="translate(-851 -1095)"><g><use fill="#e75300" xlink:href="#qg31a"/></g><g><use fill="#e75300" xlink:href="#qg31b"/></g><g><use fill="#e75300" xlink:href="#qg31c"/></g></g></g></svg>
-                    h2.section__title__txt Descrição
-                .product__description-text
-                    +vtex-controller('<vtex.cmc:ProductDescription />')
-                        p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint voluptates laudantium nesciunt veniam quae in error similique aliquid, magnam voluptas ex eum autem architecto? Consequatur unde animi quae aliquid deserunt.
-        section.section__page.section__shelf
-            section.section__title
-                <svg class="section__title__ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 25 25"><defs><path id="qg31a" d="M874.24 1114.82a3.41 3.41 0 0 1-3.42 3.42H856.2a3.41 3.41 0 0 1-3.4-3.42h-.02v-14.62h.02a3.41 3.41 0 0 1 3.4-3.42h14.63a3.41 3.41 0 0 1 3.42 3.42v14.62zM851 1120h25v-25h-25z"/><path id="qg31b" d="M870.69 1111.73c0 1.2-.97 2.16-2.16 2.16h-9.25c-1.2 0-2.16-.97-2.16-2.16h-.01v-9.26h.01c0-1.19.97-2.16 2.16-2.16v-.01h9.25v.01c1.2 0 2.16.97 2.16 2.16v9.26zm-14.85 3.43h16.13v-16.13h-16.13z"/><path id="qg31c" d="M867.93 1106.51h-3.45v-3.45h-1.15v3.45h-3.46v1.16h3.46v3.45h1.15v-3.45h3.45z"/></defs><g><g transform="translate(-851 -1095)"><g><use fill="#e75300" xlink:href="#qg31a"/></g><g><use fill="#e75300" xlink:href="#qg31b"/></g><g><use fill="#e75300" xlink:href="#qg31c"/></g></g></g></svg>
-                h2.section__title__txt Você também pode gostar
-            .shelf.shelf__carousel--full.shelf--grid
-                +vtex-controller('<vtex:contentPlaceHolder id="Quem-viu-viu-tambem" />')
-                    .prateleira
-                        ul
-                            each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                                li
-                                    include ../shelves/prateleira
-        .product__zoom
-            .product__zoom-thumbs
-            .product__zoom-image
-            button.btn.btn--close
-                i.icon-close
+				.product__info
+					+vtex-controller('<vtex.cmc:productName />')
+						h1
+							.fn.productName.Mandril-1-2--com-Chave-Black-Decker XPRT® MULTICAM® TACTICAL PANT
+								input#___rc-p-id(type='hidden', value='125')
+								input#___rc-p-dv-id(type='hidden', value='22,9')
+								input#___rc-p-sku-ids(type='hidden', value='150')
+								input#___rc-p-kit-ids(type='hidden', value='')
+					.product__code
+						span SKU:
+						+vtex-controller('<vtex.cmc:productReference/>')
+					.product__price
+						.price
+							+vtex-controller('<vtex.cmc:skuPrice />')
+								.plugin-preco
+									.productPrice
+										p.descricao-preco
+											em.valor-de.price-list-price(style='display: block;')
+												| De:
+												strong.skuListPrice R$ 24,99
+											em.valor-por.price-best-price(style='display: block;')
+												| Por:
+												strong.skuBestPrice R$ 639,90
+											em.valor-dividido.price-installments(style='display: block;')
+												span
+													span
+														| ou
+														label.skuBestInstallmentNumber
+															| 12
+															span.x x
+														|  de
+													strong
+														label.skuBestInstallmentValue R$ 53,32
+										p.preco-a-vista.price-cash(style='display: block;')
+											| Preço a vista:
+											strong.skuPrice R$ 639,90
+					.product__skus
+					.product__action
+						.product__action-top
+							span.product__action-title Quantidade
+							.product__qtd
+
+							.product__buy
+
+						.product__action-bottom
+							+vtex-controller('<vtex.cmc:BuyButton/>')
+								a.buy-button.buy-button-ref(target='_top', href="javascript:alert('Por favor, selecione o modelo desejado.');", style='display:block')
+									| Comprar
+								.portal-notify-me-ref
+									.notifyme.sku-notifyme(style='display: none;')
+										.notifyme-title-div(style='display: none;')
+											h3.notifymetitle.notifyme-title Avise-Me
+										form(action='/no-cache/AviseMe.aspx', style='display: none;')
+											fieldset.sku-notifyme-form.notifyme-form
+												p
+													| Para ser avisado da disponibilidade deste Produto, basta preencher os campos abaixo.
+												input#notifymeClientName.sku-notifyme-client-name.notifyme-client-name(placeholder='Digite seu nome...', size='20', type='text', name='notifymeClientName', style='display: none;')
+												input#notifymeClientEmail.sku-notifyme-client-email.notifyme-client-email(placeholder='Digite seu e-mail...', size='20', type='text', name='notifymeClientEmail', style='display: none;')
+												input#notifymeButtonOK.btn-ok.sku-notifyme-button-ok.notifyme-button-ok(value='ok', type='button', name='notifymeButtonOK', style='display: none;')
+												input.sku-notifyme-skuid.notifyme-skuid(type='hidden', name='notifymeIdSku', value='', style='display: none;')
+										p.notifyme-loading-message(style='display: none')
+											span.sku-notifyme-loading.notifyme-loading Carregando...
+										fieldset.success(style='display:none;')
+											label
+												em
+													span.sku-notifyme-success.notifyme-success
+														| Cadastrado com sucesso, assim que o produto for disponibilizado você receberá um email avisando.
+										fieldset.error(style='display: none')
+											label
+												span.sku-notifyme-error.notifyme-error
+		section.section__page.section__product-bottom
+			.product__description
+				section.section__title
+					<svg class="section__title__ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 25 25"><defs><path id="qg31a" d="M874.24 1114.82a3.41 3.41 0 0 1-3.42 3.42H856.2a3.41 3.41 0 0 1-3.4-3.42h-.02v-14.62h.02a3.41 3.41 0 0 1 3.4-3.42h14.63a3.41 3.41 0 0 1 3.42 3.42v14.62zM851 1120h25v-25h-25z"/><path id="qg31b" d="M870.69 1111.73c0 1.2-.97 2.16-2.16 2.16h-9.25c-1.2 0-2.16-.97-2.16-2.16h-.01v-9.26h.01c0-1.19.97-2.16 2.16-2.16v-.01h9.25v.01c1.2 0 2.16.97 2.16 2.16v9.26zm-14.85 3.43h16.13v-16.13h-16.13z"/><path id="qg31c" d="M867.93 1106.51h-3.45v-3.45h-1.15v3.45h-3.46v1.16h3.46v3.45h1.15v-3.45h3.45z"/></defs><g><g transform="translate(-851 -1095)"><g><use fill="#e75300" xlink:href="#qg31a"/></g><g><use fill="#e75300" xlink:href="#qg31b"/></g><g><use fill="#e75300" xlink:href="#qg31c"/></g></g></g></svg>
+					h2.section__title__txt Descrição
+				.product__description-text
+					+vtex-controller('<vtex.cmc:ProductDescription />')
+						p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint voluptates laudantium nesciunt veniam quae in error similique aliquid, magnam voluptas ex eum autem architecto? Consequatur unde animi quae aliquid deserunt.
+		section.section__page.section__shelf
+			section.section__title
+				<svg class="section__title__ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 25 25"><defs><path id="qg31a" d="M874.24 1114.82a3.41 3.41 0 0 1-3.42 3.42H856.2a3.41 3.41 0 0 1-3.4-3.42h-.02v-14.62h.02a3.41 3.41 0 0 1 3.4-3.42h14.63a3.41 3.41 0 0 1 3.42 3.42v14.62zM851 1120h25v-25h-25z"/><path id="qg31b" d="M870.69 1111.73c0 1.2-.97 2.16-2.16 2.16h-9.25c-1.2 0-2.16-.97-2.16-2.16h-.01v-9.26h.01c0-1.19.97-2.16 2.16-2.16v-.01h9.25v.01c1.2 0 2.16.97 2.16 2.16v9.26zm-14.85 3.43h16.13v-16.13h-16.13z"/><path id="qg31c" d="M867.93 1106.51h-3.45v-3.45h-1.15v3.45h-3.46v1.16h3.46v3.45h1.15v-3.45h3.45z"/></defs><g><g transform="translate(-851 -1095)"><g><use fill="#e75300" xlink:href="#qg31a"/></g><g><use fill="#e75300" xlink:href="#qg31b"/></g><g><use fill="#e75300" xlink:href="#qg31c"/></g></g></g></svg>
+				h2.section__title__txt Você também pode gostar
+			.shelf.shelf__carousel--full.shelf--grid
+				+vtex-controller('<vtex:contentPlaceHolder id="Quem-viu-viu-tambem" />')
+					.prateleira
+						ul
+							each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+								li
+									include ../shelves/prateleira
+		.product__zoom
+			.product__zoom-thumbs
+			.product__zoom-image
+			button.btn.btn--close
+				i.icon-close
 block scripts
-    script(src='/arquivos/ec-easyzoom.js')
+	script(src='/arquivos/ec-easyzoom.js')
