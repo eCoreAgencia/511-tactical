@@ -64,6 +64,12 @@ body.login {
 		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 		background-color: #e75300;
 		border-radius: 0;
+		display: flex;
+		justify-content: center;
+		padding-left: 40px;
+		&#loginWithUserAndPasswordBtn {
+			padding: 20px;
+		}
 		@media (max-width: 800px) {
 			width: 100%;
 			margin: 0 auto;
@@ -74,7 +80,7 @@ body.login {
 		span {
 			color: #ffffff;
 			// @extend %font-family-unitedsans;
-			font-size: 16px;
+			font-size: 13px;
 			font-weight: 700;
 			line-height: 25px;
 			text-transform: uppercase;
