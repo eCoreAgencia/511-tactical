@@ -43,7 +43,7 @@ class Product {
 
 
 
-		$('.image-zoom').on('click', function (e) {
+		$('.product__media').on('click', function (e) {
 			e.preventDefault();
 			$('.product__zoom').addClass('is-active');
 		})
@@ -276,6 +276,10 @@ $(document).ready(() => {
 	if ($('body').hasClass('product')) {
 		window.productChoice = {};
 		window.Product = new Product();
+
+		if($('.productDescription').is(':empty')){
+			$('.product__description').hide();
+		}
 
 
 
