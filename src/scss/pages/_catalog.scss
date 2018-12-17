@@ -69,13 +69,13 @@ body {
 						&.btnOpenFilter {
 							color: #e75300;
 							margin-right: 0px;
-							font-size: 12px;
+							font-size: 15px;
 							padding-left: 10px;
 							transition: 0.3s ease;
 							i {
 								margin-right: 5px;
 								&:before {
-									font-size: 11px;
+									font-size: 14px;
 								}
 							}
 							&:hover {
@@ -134,7 +134,7 @@ body {
 				@include mq(mobile) {
 					margin-right: 10px;
 					select {
-						@include font-size(13px);
+						@include font-size(15px);
 					}
 				}
 				@include mq('tablet') {
@@ -249,6 +249,9 @@ body {
 								align-items: center;
 								width: 100%;
 							}
+							.product__header {
+								flex-shrink: 0;
+							}
 							.product__name {
 								text-align: left;
 								max-width: 100%;
@@ -267,10 +270,29 @@ body {
 							.btn-list {
 								display: block;
 							}
+							.description {
+								padding-right: 10%;
+							}
 							.product__info {
 								display: flex;
 								justify-content: space-between;
 								align-items: center;
+								max-width: 100%;
+								flex: 1;
+								&--name {
+									flex: 4;
+									h4 {
+										text-align: left;
+									}
+								}
+								.product__price {
+									flex: 1;
+								}
+							}
+							.product__link {
+								img {
+									width: 120px;
+								}
 							}
 						}
 					}
@@ -313,6 +335,9 @@ body {
 					@media only screen and (max-width: 640px) {
 						width: 100%;
 					}
+				}
+				em {
+					margin: 0 5px;
 				}
 				form {
 					position: relative;
@@ -411,6 +436,11 @@ body {
 					}
 				}
 			}
+		}
+	}
+	&.resultado-busca {
+		.textCatalog {
+			display: none;
 		}
 	}
 }
