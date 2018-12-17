@@ -384,7 +384,7 @@
 				height: 50px;
 				border: 1px solid #dddddd;
 				margin-right: 10px;
-
+				margin-top: 10px;
 				@include mq(tablet) {
 					border: none;
 					width: 20px;
@@ -576,6 +576,10 @@
 		padding: 40px 0;
 		margin: 20px 0;
 
+		@include mq(tablet, max){
+			padding-left: 10px;
+			padding-right: 10px;
+		}
 		.section__title {
 			justify-content: flex-start;
 		}
