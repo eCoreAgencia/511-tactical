@@ -43,7 +43,7 @@ class Product {
 
 
 
-		$('.image-zoom').on('click', function (e) {
+		$('.product__media').on('click', function (e) {
 			e.preventDefault();
 			$('.product__zoom').addClass('is-active');
 		})
