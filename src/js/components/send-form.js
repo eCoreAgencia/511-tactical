@@ -59,7 +59,7 @@ $.fn.sendForm = function(entity, overwriteFields) {
 			.fail(function(jqXHR, textStatus) {
 				var msg = JSON.parse(jqXHR.responseText);
 				console.log('define notification:', 'error', msg);
-				const error_msg = `<span class="error-msg">${msg.Message}</span>`;
+				const error_msg = `<span class="error-msg" style="display: none;">${msg.Message}</span>`;
 				form.append(error_msg);
 				$('.newsletter').addClass('form-fail');
 			});

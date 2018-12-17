@@ -9,6 +9,14 @@
 		@extend %background-color-white;
 		border: 1px solid #dadad8;
 		height: 35px;
+		input {
+			color: #ccc;
+			font-size: 12px;
+			width: 180px;
+			padding-left: 10px;
+			border: 0;
+			border-right: 1px solid;
+		}
 	}
 
 	&__input {
@@ -16,7 +24,6 @@
 		padding: 5px;
 		color: #c0c0c0;
 		@include font-size(14px);
-
 	}
 
 	.btn--submit {
@@ -62,7 +69,9 @@
 			@extend %font-family-unitedsanscondensed;
 			letter-spacing: 0.6px;
 			color: #a3a3a3;
-
+			&:hover {
+				color: #fff;
+			}
 		}
 
 		.price__instament {

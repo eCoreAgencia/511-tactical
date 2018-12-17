@@ -66,6 +66,7 @@
 	}
 
 	&__info {
+
 		.description {
 			display: none;
 		}
@@ -88,7 +89,7 @@
 		}
 
 		.product__main & {
-			
+
 
 			h1 {
 				margin: 0;
@@ -146,7 +147,6 @@
 
 			.price {
 				@extend %display-flex;
-
 				@extend %flex-justify-content-center;
 				@extend %flex-wrap-wrap;
 			}
@@ -159,7 +159,6 @@
 				padding: 5px 0;
 				text-align: center;
 				@include font-size(13px);
-
 			}
 
 			.price__list {
@@ -242,11 +241,13 @@
 	}
 
 	&__info {
+		max-width: 434px;
+		width: 100%;
 		.product--shelf & {
 			padding: 5px;
 		}
 
-		max-width: 434px;
+
 
 		&--fixed {
 			position: fixed;
@@ -313,8 +314,9 @@
 
 			@include mq(tablet) {
 				width: 100%;
-
+				flex-direction: column;
 				max-width: 75px;
+				margin-right: 15px;
 
 				li {
 					height: 75px;
@@ -508,6 +510,19 @@
 				padding: 0;
 
 			}
+		}
+
+		&-title {
+			width: 100%;
+			@extend %font-family-unitedsans;
+			@extend %text-transform-uppercase;
+			@extend %display-block;
+			color: #211e14;
+			letter-spacing: 0.5px;
+			font-weight: 800;
+			margin-bottom: 10px;
+
+			@include font-size(14px);
 		}
 	}
 

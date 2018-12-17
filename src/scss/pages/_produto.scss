@@ -12,7 +12,9 @@
 
         .prateleira > h2 {
             @extend %display-none;
-        }
+		}
+
+		margin-bottom: 20px;
     }
 
     .section__shelf .section__title {
