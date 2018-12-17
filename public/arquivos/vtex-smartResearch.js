@@ -143,20 +143,20 @@ jQuery.fn.vtexSmartResearch=function(opts)
 		infinitScroll: function() {
 
 			var elementPages, pages, currentStatus, tmp;
-	
+
 			elementPages = body.find(".pager:first").attr("id");
 			tmp = (elementPages || "").split("_").pop();
 			pages = (null !== options.pageLimit) ? options.pageLimit : window["pagecount_" + tmp];
 			currentStatus = true;
-	
+
 			// Reportando erros
 			// if("undefined"===typeof pages) log("NÃ£o foi possÃ­vel localizar quantidade de pÃ¡ginas.\n Tente adicionar o .js ao final da pÃ¡gina. \n[MÃ©todo: infinitScroll]");
-	
+
 			if ("undefined" === typeof pages)
 				pages = 99999999;
-	
+
 			loadContentE.append("<div class='button btn-load-more confira-todos-produtos'>Ver Mais</div>");
-	
+
 			pageJqxhr = jQuery.ajax({
 				url: fn.getUrl(true),
 				success: function(data) {
@@ -165,7 +165,7 @@ jQuery.fn.vtexSmartResearch=function(opts)
 					}
 				}
 			});
-	
+
 			loadContentE.live('click', '.btn-load-more', function(){
 			// _window.bind('scroll', function() {
 				var _this = jQuery(this);
@@ -198,7 +198,7 @@ jQuery.fn.vtexSmartResearch=function(opts)
 							}
 						});
 						currentPage++;
-	
+
 						pageJqxhr = jQuery.ajax({
 							url: fn.getUrl(true),
 							success: function(data) {
@@ -349,6 +349,10 @@ jQuery.fn.vtexSmartResearch=function(opts)
 					t.addClass(labelClass).attr({"title":v,"index":ndx});
 
 					options.labelCallback(labelCallbackData);
+
+					if(fieldsetClass == 'filtro_listacores') {
+						t.css('background-image', 'url(/arquivos/'+v+'.png)');
+					}
 				});
 
 				labelCallbackData.fieldsetCount++;

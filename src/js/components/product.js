@@ -197,7 +197,7 @@ class Product {
 	}
 
 	createSkuThumb(products) {
-		return products.map(product => `<li><a style="background-image: url('${product.items[0].images[0].imageUrl}')" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`).join('');
+		return products.map(product => `<li><a style="background-image: url('/arquivos/${product.ListaCores[0]}.png')" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`).join('');
 
 	}
 
