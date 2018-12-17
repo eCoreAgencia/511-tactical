@@ -36,4 +36,12 @@ class catalog {
 	}
 }
 
+$(document).ready(function(){
+
+	$('.Cores label').each(function(){
+		const img = $(this).attr('title');
+		$(this).css('background-image', `/arquivos/${img}.png`);
+	});
+});
+
 window.catalog = new catalog();
