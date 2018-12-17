@@ -351,7 +351,7 @@ jQuery.fn.vtexSmartResearch=function(opts)
 					options.labelCallback(labelCallbackData);
 
 					if(fieldsetClass == 'filtro_listacores') {
-						t.css('background-image', 'url(/arquivos/'+v+'.png)');
+						t.css('background-image', 'url(/arquivos/'+v+'.jpg)');
 					}
 				});
 
