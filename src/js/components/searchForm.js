@@ -179,8 +179,9 @@
 			let tpl = ''
 
 			brands.forEach(brand => {
+				console.log(brand)
 
-				let url = `/${encodeURIComponent(brand).replace('.', '-')}/${query}`
+				let url = `/${query}`
 
 			  //   if (brand == 'VER TODAS') {
 			  //       url = `/busca/${query}`
