@@ -10,12 +10,12 @@
 		border: 1px solid #dadad8;
 		height: 35px;
 		input {
-			color: #ccc;
-			font-size: 12px;
+			color: #e4e4e4;
+			font-size: 14px;
 			width: 180px;
 			padding-left: 10px;
 			border: 0;
-			border-right: 1px solid;
+			flex: 1;
 		}
 	}
 
@@ -81,7 +81,7 @@
 			color: #808080;
 			font-weight: 400;
 			font-style: italic;
-			font-family: "Open Sans";
+			font-family: 'Open Sans';
 		}
 
 		.price__list {
