@@ -16,6 +16,21 @@
 		}
 	}
 
+	&__responsibility {
+		ul {
+			li {
+				display: inline-block;
+				vertical-align: top;
+				margin-right: 10px;
+				margin-top: 20px;
+				width: 28%;
+				svg {
+					width: 100%;
+				}
+			}
+		}
+	}
+
 	&__column {
 		@include mq(mobile) {
 			width: 100%;

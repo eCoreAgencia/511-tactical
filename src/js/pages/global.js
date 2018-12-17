@@ -1,4 +1,5 @@
 import { isMobile } from '../utils';
+import './../components/send-form';
 
 $(document).ready(() => {
 	const headerFixed = () => {
@@ -19,13 +20,14 @@ $(document).ready(() => {
 
 		$(window).scroll(() => {
 			headerFixed();
-		})
+		});
 	}
 
-	$(".footer__column .footer__title").on('click', function(e) {
-		$(this).next().toggleClass('active');
-	})
+	$('.footer__column .footer__title').on('click', function(e) {
+		$(this)
+			.next()
+			.toggleClass('active');
+	});
 
-	$('.newsletter__form').sendForm('NL')
-
-})
+	$('.newsletter__form').sendForm('NL');
+});

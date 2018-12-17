@@ -4,6 +4,7 @@ $(document).ready(() => {
         word = word.replace('?ft=', '');
         console.log(word);
         $('.section__title h2 em').text(word);
+        $('.section__page section__form h3 em').text(word);
     }
 });
 

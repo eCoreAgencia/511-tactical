@@ -106,6 +106,7 @@
 
 			&.is-open {
 				left: 0;
+				position: fixed;
 				transition: all linear 0.3s;
 			}
 
