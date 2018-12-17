@@ -91,7 +91,8 @@
                 background-color: #fff;
                 &.is-open {
                     left: 0;
-                    right: 0;
+					right: 0;
+					z-index: 999;
                 }
             }
         }
