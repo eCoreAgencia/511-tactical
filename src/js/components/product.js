@@ -260,6 +260,7 @@ class Product {
 		$('#image a').each(function () {
 			const img = $(this).attr('href');
 			$('.product__zoom .product__zoom-image').append(`<img src="${img}" />`);
+			$('#image').html(`<img src="${img}" />`);
 		});
 
 		$('.product__zoom').on('click', 'a', function (e) {
