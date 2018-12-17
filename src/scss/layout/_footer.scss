@@ -147,8 +147,9 @@
 		@include mq("tablet") {
 			padding: 0;
 			margin-bottom: 15px;
-
-
+			&.socialMedia {
+				text-align: left;
+			}
 		}
 
 	}
