@@ -211,7 +211,9 @@
 				height: 15px;
 			}
 			@include mq(mobile) {
-				font-size: 24px;
+				font-size: 27px;
+				font-family: UnitedSansReg-Bold;
+				letter-spacing: -1px;
 			}
 		}
 	}

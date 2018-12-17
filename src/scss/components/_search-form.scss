@@ -16,6 +16,9 @@
 			padding-left: 10px;
 			border: 0;
 			border-right: 1px solid;
+			@include mq(mobile) {
+				width: 100%;
+			}
 		}
 	}
 

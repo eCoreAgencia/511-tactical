@@ -136,6 +136,12 @@
 			font-weight: 800;
 			margin: 0;
 			padding: 20px;
+			&.socialMedia {
+				text-align: center;
+				&:after {
+					display: none !important;
+				}
+			}
 		}
 
 		@include mq("tablet") {
