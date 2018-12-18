@@ -2,7 +2,6 @@ class catalog {
 	constructor() {
 		this.grid();
 		this.numberProduct();
-		this.returnTop();
 		this.checkText();
 	}
 
@@ -29,12 +28,6 @@ class catalog {
 		$('.section__navTop__numberProduct p b').text(numberResult);
 	}
 
-	returnTop() {
-		$(document).ajaxStop(function() {
-			let returnDiv = $('#returnToTop');
-			$(returnDiv).insertAfter('.pager.bottom + .pages');
-		});
-	}
 	checkText() {
 		if (!$('.textCatalog p').length > 0) {
 			$('.textCatalog').hide();
