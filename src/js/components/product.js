@@ -419,6 +419,10 @@ $(document).ready(() => {
 
 			});
 		});
+		let reference = $('.productReference').text();
+		let newReference = reference.split(',')[0];
+		console.log(newReference);
+		$('.productReference').text(newReference);
 	}
 
 })

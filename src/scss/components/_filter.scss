@@ -96,7 +96,14 @@
                           }
                       }
 
-                      &.filtro_cor {
+                      &.filtro_listacores {
+                          h5 {
+                            font-size: 0;
+                            &:before {
+                                content: "Cores";
+                                font-size: 16px;
+                            }
+                          }
                           div {
                               label {
                                   float: left;

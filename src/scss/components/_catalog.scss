@@ -5,7 +5,7 @@
 	.pager {
 		display: none;
 	}
-
+	
 	.shelf {
 		ul {
 			@extend %flex-justify-content-flex-start;
@@ -180,7 +180,7 @@
 		text-transform: uppercase;
 		justify-content: center;
 		align-items: center;
-		margin: 10px 0 0 20px;
+		margin: 20px 0;
 		.text2 {
 			margin-left: 5px;
 		}

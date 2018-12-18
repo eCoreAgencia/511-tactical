@@ -2,7 +2,7 @@ class catalog {
 	constructor() {
 		this.grid();
 		this.numberProduct();
-		this.returnTop();
+		this.checkText();
 	}
 
 	grid() {
@@ -24,21 +24,19 @@ class catalog {
 	}
 
 	numberProduct() {
-		let numberResult = $('.resultado-busca-numero .value').text();
+		let numberResult = $('.resultado-busca-numero:first .value').text();
 		$('.section__navTop__numberProduct p b').text(numberResult);
 	}
 
-	returnTop() {
-		$(document).ajaxStop(function() {
-			let returnDiv = $('#returnToTop');
-			$(returnDiv).insertAfter('.pager.bottom + .pages');
-		});
+	checkText() {
+		if (!$('.textCatalog p').length > 0) {
+			$('.textCatalog').hide();
+		}
 	}
 }
 
-$(document).ready(function(){
-
-	$('.Cores label').each(function(){
+$(document).ready(function() {
+	$('.Cores label').each(function() {
 		const img = $(this).attr('title');
 		$(this).css('background-image', `/arquivos/${img}.png`);
 	});

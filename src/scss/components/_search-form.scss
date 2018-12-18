@@ -48,13 +48,31 @@
 			display: flex;
 			padding: 10px 0;
 
+			.product__info {
+				.product__name {
+					text-align: left;
+					a {
+						color: #000;
+						font-weight: 600;
+					}
+				}
+				.product__price {
+					.price {
+						span {
+							text-align: left;
+							width: 100%;
+						}
+					}
+				}
+			}
+
 			& + .product--shelf {
 				border-top: 1px solid #ebebeb;
 			}
 		}
 
 		.product__header {
-			width: 73px;
+			width: 145px;
 			height: 69px;
 			margin-right: 10px;
 		}
