@@ -193,156 +193,267 @@ body {
             height: 207px;
         }
 
-        .allVitrine {
-            display: flex;
-            position: initial;
-            .is-fluid {
-                width: 100%;
-                padding: 0 20px;
-                .textCatalog {
-                    margin-bottom: 60px;
-                    .titleText {
-                        display: flex;
-                        align-items: center;
-                    }
-                    h4 {
-                        color: #000000;
-                        font-family: Roboto;
-                        font-size: 16px;
-                        font-weight: 400;
-                        line-height: 25px;
-                    }
-                }
-                .pages {
-                    display: none;
-                }
-                ul {
-                    text-align: center;
-                    li {
-                        transition: .5s ease;
-                        display: inline-block;
-                        margin: 10px;
-                        @include mq(mobile) {
-                            width: 42%;
-                        }
-                        @include mq("tablet") {
-                            width: 230px;
-                        }
-                    }
-                    &.active {
-                        display: flex;
-                        flex-direction: column;
-                        li {
-                            width: 100%;
-                            .product__id, .product__reviews {
-                                display: none;
-                            }
-                            .product--shelf {
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: center;
-                                width: 100%;
-                                .product__header {
-                                    
-                                }
-                            }
-                            .product__name {
-                                text-align: left;
-                                max-width: 100%;
-                            }
-                            .product__actions {
-                                display: none;
-                            }
-                            .description {
-                                display: block;
-                                color: #6a6157;
-                                font-family: Roboto;
-                                font-size: 14px;
-                                font-weight: 400;
-                                line-height: 20px;
-                            }
-                            .btn-list {
-                                display: block;
-                            }
-                            .product__info {
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: center;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+		.allVitrine {
+			display: flex;
+			position: initial;
+			.is-fluid {
+				width: 100%;
+				padding: 0 20px;
+				.textCatalog {
+					margin-bottom: 60px;
+					.titleText {
+						display: flex;
+						align-items: center;
+					}
+					h4 {
+						color: #000000;
+						font-family: Roboto;
+						font-size: 16px;
+						font-weight: 400;
+						line-height: 25px;
+					}
+				}
+				.pages {
+					display: none;
+				}
+				ul {
+					text-align: center;
+					li {
+						transition: 0.5s ease;
+						display: inline-block;
+						margin: 10px;
+						@include mq(mobile) {
+							width: 42%;
+						}
+						@include mq('tablet') {
+							width: 230px;
+						}
+					}
+					&.active {
+						display: flex;
+						flex-direction: column;
+						li {
+							width: 100%;
+							.product__id,
+							.product__reviews {
+								display: none;
+							}
+							.product--shelf {
+								display: flex;
+								justify-content: space-between;
+								align-items: center;
+								width: 100%;
+								.product__header {
+								}
+							}
+							.product__name {
+								text-align: left;
+								max-width: 100%;
+							}
+							.product__actions {
+								display: none;
+							}
+							.description {
+								display: block;
+								color: #6a6157;
+								font-family: Roboto;
+								font-size: 14px;
+								font-weight: 400;
+								line-height: 20px;
+							}
+							.btn-list {
+								display: block;
+							}
+							.product__info {
+								display: flex;
+								justify-content: space-between;
+								align-items: center;
+							}
+						}
+					}
+				}
+			}
+		}
+		&.resultado-busca{
+			.textCatalog {
+				display: none;
+			}
+		}
+	}
 
-    &.empty-search {
-        .section {
-            &__title {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                h2 {
-                    font-size: 32px;
-                    @media only screen and (max-width: 640px) {
-                        padding: 0 10px;
-                        line-height: 45px;
-                    }
-                }
-            }
-            &__form {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                h3 {
-                    display: block;
-                    padding-bottom: 60px;
-                    height: 50px;
-                    width: 643px;
-                    color: #000000;
-                    font-family: Roboto;
-                    font-size: 16px;
-                    font-weight: 400;
-                    line-height: 25px;
-                    text-align: center;
-                    @media only screen and (max-width: 640px) {
-                        width: 100%;
-                    }
-                }
-                form {
-                    position: relative;
-                    border: 1px solid #ccc;
-                    width: 643px;
-                    @media only screen and (max-width: 640px) {
-                        width: 100%;
-                        margin-top: 50px;
-                        border: 0;
-                        padding: 20px;
-                    }
-                    input {
-                        width: 100%;
-                        @media only screen and (max-width: 640px) {
-                            border: 1px solid #ccc;
-                        }
-                        &[type="text"] {
-                            padding: 10px;
-                            height: 60px;
-                        }
-                        &[type="submit"] {
-                            position: absolute;
-                            top: 10px;
-                            right: 10px;
-                            width: 180px;
-                            background-color: #e75300;
-                            border: none;
-                            color: #ffffff;
-                            font-size: 16px;
-                            font-weight: 300;
-                            text-transform: uppercase;
-                            letter-spacing: 1px;
-                            padding: 14px 0 11px;
+	.allVitrine {
+		display: flex;
+		position: initial;
+		.is-fluid {
+			width: 100%;
+			padding: 0 20px;
+			.textCatalog {
+				display: none;
+				@include atMedium {
+					display: block;
+				}
+				margin-bottom: 60px;
+				.titleText {
+					display: flex;
+					align-items: center;
+				}
+				h4 {
+					color: #000000;
+					font-family: Roboto;
+					font-size: 16px;
+					font-weight: 400;
+					line-height: 25px;
+				}
+			}
+
+			ul {
+				text-align: center;
+				li {
+					transition: 0.5s ease;
+					display: inline-block;
+					margin: 10px;
+					@include mq(mobile) {
+						width: 42%;
+					}
+					@include mq('tablet') {
+						width: 230px;
+					}
+				}
+				&.active {
+					display: flex;
+					flex-direction: column;
+					li {
+						width: 100%;
+						.product--shelf {
+							display: flex;
+							justify-content: space-between;
+							align-items: center;
+							width: 100%;
+						}
+						.product__header {
+							flex-shrink: 0;
+						}
+						.product__name {
+							text-align: left;
+							max-width: 100%;
+						}
+						.product__actions {
+							display: none;
+						}
+						.description {
+							display: block;
+							color: #6a6157;
+							font-family: Roboto;
+							font-size: 14px;
+							font-weight: 400;
+							line-height: 20px;
+						}
+						.btn-list {
+							display: block;
+						}
+						.description {
+							padding-right: 10%;
+						}
+						.product__info {
+							display: flex;
+							justify-content: space-between;
+							align-items: center;
+							max-width: 100%;
+							flex: 1;
+							&--name {
+								flex: 4;
+								h4 {
+									text-align: left;
+								}
+							}
+							.product__price {
+								flex: 1;
+							}
+						}
+						.product__link {
+							img {
+								width: 120px;
+							}
+						}
+						.btn--buy.btn-list {
+							min-width: 177px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.empty-search {
+		.section {
+			&__title {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				h2 {
+					font-size: 32px;
+					@media only screen and (max-width: 640px) {
+						padding: 0 10px;
+						line-height: 45px;
+					}
+				}
+			}
+			&__form {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				h3 {
+					display: block;
+					padding-bottom: 60px;
+					height: 50px;
+					width: 643px;
+					color: #000000;
+					font-family: Roboto;
+					font-size: 16px;
+					font-weight: 400;
+					line-height: 25px;
+					text-align: center;
+					@media only screen and (max-width: 640px) {
+						width: 100%;
+					}
+				}
+				em {
+					margin: 0 5px;
+				}
+				form {
+					position: relative;
+					border: 1px solid #ccc;
+					width: 643px;
+					@media only screen and (max-width: 640px) {
+						width: 100%;
+						margin-top: 50px;
+						border: 0;
+						padding: 20px;
+					}
+					input {
+						width: 100%;
+						@media only screen and (max-width: 640px) {
+							border: 1px solid #ccc;
+						}
+						&[type='text'] {
+							padding: 10px;
+							height: 60px;
+						}
+						&[type='submit'] {
+							position: absolute;
+							top: 10px;
+							right: 10px;
+							width: 180px;
+							background-color: #e75300;
+							border: none;
+							color: #ffffff;
+							font-size: 16px;
+							font-weight: 300;
+							text-transform: uppercase;
+							letter-spacing: 1px;
+							padding: 14px 0 11px;
 							@extend %font-family-unitedsans;
 							font-weight: 800;
                             @media only screen and (max-width: 640px) {
@@ -400,14 +511,14 @@ body {
                         }
                     }
 
-                    li {
-                        &.slick-slide {
-                            margin-left: 0;
-                            margin-right: 0;
-                        }
-                    }
-                }
-            }
-        }
-    }
+					li {
+						&.slick-slide {
+							margin-left: 0;
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
 }
