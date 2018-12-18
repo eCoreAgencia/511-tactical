@@ -20,11 +20,13 @@ class Product {
         this.item.quantity = 1;
         this.item.seller = "1";
 		this.makeZoom();
-		$('.zoomPup, .zoomWindow, .zoomPreload').remove();
+
 		const productWithVariations = getProductWithVariations(productId);
 		productWithVariations.then(product => {
 			if (product.available) {
 				self.product = product;
+				const price = self.renderPrice(product.skus[0]);
+				$('.product__price').html(price);
 				self.renderSkuSelectors(product);
 				$('.product__main .product__buy').html(self.buttonBuy());
 				$('.product__main .product__qtd').html(self.inputQuantity());
@@ -35,7 +37,7 @@ class Product {
 
 		$('.product__skus').on('click', '.sku-color', function(e){
 			e.preventDefault();
-			const productID = $(this).data('id');
+			const productID = $(this).data('product-id');
 			self.changeProduct(productID);
 		})
 
@@ -43,7 +45,7 @@ class Product {
 
 
 
-		$('.product__media').on('click', function (e) {
+		$('.product__main .product__media').on('click', function (e) {
 			e.preventDefault();
 			$('.product__zoom').addClass('is-active');
 		})
@@ -72,13 +74,31 @@ class Product {
 
     addSku(sku) {
         console.log(sku,'teste');
-    }
+	}
+
+	renderPrice(product) {
+		const listPrice = `<em class="valor-de price-list-price">De:<strong class="skuListPrice">${product.listPriceFormated}</strong></em>`;
+		const bestPrice = `<em class="valor-por price-best-price">Por:<strong class="skuBestPrice">${product.bestPriceFormated}</strong></em>`;
+	const installments = `<em class="valor-dividido price-installments"><span><span>ou<label class="skuBestInstallmentNumber">${product.installments}<span class="x">x</span></label>de</span><strong><label class="skuBestInstallmentValue">R$ ${ product.installmentsValue.formatMoney() }</label></strong></span></em>`
+		const price = `<div class="price">
+							<div class="plugin-preco">
+								<div class="productPrice">
+									<p class="descricao-preco">
+										${ product.listPrice > 0 ? listPrice : ''}
+										${ product.bestPrice > 0 ? bestPrice : ''}
+										${ product.installments > 0 ? installments : ''}
+									</p>
+								</div>
+							</div>
+						</div>`;
+		return price;
+	}
 
     skuValidation() {
         let self = this;
         let skuValidated = true;
 
-        $('select[name="id"').each(function() {
+        $('select.sku-size').each(function() {
             var name = $(this).attr('name') || $(this).attr('id');
             var value = $(this).val();
 			if (value) {
@@ -130,16 +150,19 @@ class Product {
 		let self = this;
 		const productWithVariations = getProductWithVariations(productId);
 		productWithVariations.then(product => {
+			console.log(product);
 			if (product.available) {
 				self.product = product;
+				const price = self.renderPrice(product.skus[0]);
 
 				const select = `
-            	<span class="product__skus-title">Tamanho 2</span>
-					<select name="sku">
+            	<span class="product__skus-title">Tamanho</span>
+					<select class="sku-size" name="sku">
 						<option value="" hidden>Selecione um tamanho</option>
 						${this.createSkuSelect(product.skus)}
 					</select>`;
 				$('.product__skus--select').html(select);
+				$('.product__price').html(price);
 
 				$(window).trigger('skuSelectorCreated');
 
@@ -159,7 +182,7 @@ class Product {
 			const select = `
             <div class="product__skus--size product__skus--select">
                 <span class="product__skus-title">Tamanho</span>
-                <select name="id">
+                <select  class="sku-size" name="id">
                     <option value="" hidden>Selecione um tamanho</option>
                     ${this.createSkuSelect(product.skus)}
                 </select>
@@ -252,6 +275,8 @@ class Product {
 	}
 
 	makeZoom() {
+		$('.zoomPup, .zoomWindow, .zoomPreload').remove();
+
 		$('.thumbs li').each(function () {
 			const img = $('img', this).attr('src');
 			$('.product__zoom .product__zoom-thumbs').append(`<a href=""><img src="${img}" /></a>`);
@@ -282,6 +307,11 @@ $(document).ready(() => {
 			$('.product__description').hide();
 		}
 
+		if($('.productReference')[0]){
+			const code = $('.productReference').text().split('_');
+			$('.productReference').text(code[0]);
+		}
+
 
 
 		const shelf__prev = `<button type='button' class='slick-prev shelf__button'><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43" height="43" viewBox="0 0 43 43"><defs><path id="vcuya" d="M1460 1326.21l21.21-21.21 21.21 21.21-21.21 21.21z"/><path id="vcuyc" d="M1481.5 1318.5l-7.52 7.52"/><path id="vcuyd" d="M1481.5 1333.02l-7.52-7.52"/><clipPath id="vcuyb"><use fill="#fff" xlink:href="#vcuya"/></clipPath></defs><g><g transform="matrix(-1 0 0 1 1503 -1305)"><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-miterlimit="50" stroke-width="4" clip-path="url(&quot;#vcuyb&quot;)" xlink:href="#vcuya"/></g><g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyc"/></g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyd"/></g></g></g></g></svg></button>`
@@ -309,23 +339,6 @@ $(document).ready(() => {
 		}
 
 		const positionFixed = () => {
-			// const distancePageTop = 100;
-			// const footerPosition = $('.section__newsletter').offset().top;
-			// const windowHeight = $(window).height();
-			// const pageScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-			// if (pageScroll >= distancePageTop) {
-			// 	$('.product__main .product__info').addClass('product__info--fixed');
-			// 	console.log(pageScroll, footerPosition);
-			// 	if (footerPosition - windowHeight) {
-			// 		$('.product__main .product__info--fixed').addClass('product__info--opacity');
-			// 	} else {
-			// 		$('.product__main .product__info--fixed').addClass('product__info--opacity');
-			// 	}
-			// } else {
-			// 	$('.product__main .product__info').removeClass('product__info--fixed');
-			// }
-
 			const footerPosition = $('.section__newsletter').offset().top;
 			const pageScroll = window.pageYOffset || document.documentElement.scrollTop;
 			var y = $(window).scrollTop();
@@ -348,6 +361,10 @@ $(document).ready(() => {
 
 
 		$(window).on('skuSelectorCreated', () => {
+			const img = $('#image img');
+			$('.zoomPup, .zoomWindow, .zoomPreload').remove();
+			$('#image').html(img);
+
 			$('select').each(function () {
 				var $this = $(this),
 					numberOfOptions = $(this).children('option').length;
