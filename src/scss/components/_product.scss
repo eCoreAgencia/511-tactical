@@ -694,3 +694,76 @@
 		@extend %price__installment;
 	}
 }
+
+.modal-window {
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 999;
+	opacity: 0;
+	pointer-events: none;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	&:target {
+	  opacity: 1;
+	  pointer-events: auto;
+	}
+	&>div {
+	  width: 100%;
+	  max-width: 600px;
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+
+	  background: #ffffff;
+	  color: #333333;
+	}
+
+  }
+
+  .modal-close {
+	color: #fff;
+
+  }
+
+  .modal-header {
+	  background-color: #000000;
+	  color: #fff;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  padding: 30px 15px;
+	  @extend %font-family-unitedsans;
+
+	  h2 {
+			margin: 0;
+		  	font-size: 24px;
+			font-weight: 800;
+			text-transform: uppercase;
+	  }
+	  a {
+		  font-size: 18px;
+		  margin-right: 10px;
+		  margin-left: auto;
+	  }
+  }
+
+  .modal-content {
+	  padding: 30px;
+
+	  .title {
+		color: #000;
+		font-weight: 800;
+		font-size: 23px;
+		text-transform: uppercase;
+		display: flex;
+		align-items: center;
+		margin: 0;
+		@extend %font-family-unitedsans;
+	  }
+  }

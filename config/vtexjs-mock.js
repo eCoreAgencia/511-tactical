@@ -1459,7 +1459,7 @@
 			}, 300);
 		}
     };
-    
+
     var similars = [
         {
             "productId": "3",
@@ -1479,7 +1479,8 @@
             "categoriesIds": ["/1/6/39/", "/1/6/", "/1/"],
             "link": "https://tactical.vtexcommercestable.com.br/calca-511-tactical/p",
             "Composição": ["100% Algodão"],
-            "Informações de Produto": ["Composição"],
+			"Informações de Produto": ["Composição"],
+			"ListaCores": ['red'],
             "allSpecifications": ["Composição"],
             "description": "A primeira calça tática – a original, que tem atendido aos profissionais de segurança pública há anos. Feita de lona 100% algodão, a Calça 5.11 Tactical foi projetada para proporcionar durabilidade, conforto e desempenho superiores. Apresentando nossos bolsos de marca registrada com velcro, um cós ajustável, reforço duplo nos fundilhos e joelhos, além de pontos reforçados. Só tem uma original. Importada.",
             "items": [{

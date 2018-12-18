@@ -26,7 +26,7 @@ class Product {
 			if (product.available) {
 				self.product = product;
 				const price = self.renderPrice(product.skus[0]);
-				$('.product__price').html(price);
+				$('.product__main .product__price').html(price);
 				self.renderSkuSelectors(product);
 				$('.product__main .product__buy').html(self.buttonBuy());
 				$('.product__main .product__qtd').html(self.inputQuantity());
@@ -77,9 +77,11 @@ class Product {
 	}
 
 	renderPrice(product) {
+		const installmentsValue = product.installmentsValue / 100;
 		const listPrice = `<em class="valor-de price-list-price">De:<strong class="skuListPrice">${product.listPriceFormated}</strong></em>`;
 		const bestPrice = `<em class="valor-por price-best-price">Por:<strong class="skuBestPrice">${product.bestPriceFormated}</strong></em>`;
-	const installments = `<em class="valor-dividido price-installments"><span><span>ou<label class="skuBestInstallmentNumber">${product.installments}<span class="x">x</span></label>de</span><strong><label class="skuBestInstallmentValue">R$ ${ product.installmentsValue.formatMoney() }</label></strong></span></em>`
+
+		const installments = `<em class="valor-dividido price-installments"><span><span>ou <label class="skuBestInstallmentNumber">${product.installments}<span class="x">x</span> </label>de</span> <strong><label class="skuBestInstallmentValue">R$ ${ installmentsValue.formatMoney() }</label></strong></span></em>`
 		const price = `<div class="price">
 							<div class="plugin-preco">
 								<div class="productPrice">
