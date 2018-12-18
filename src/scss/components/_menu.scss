@@ -10,7 +10,7 @@
 				}
 			}
         }
-        
+
         &--dropup {
             .menu__link {
                 background-color: #e7e3e0;
@@ -43,15 +43,16 @@
 		@extend %display-flex;
 		@extend %flex-justify-content-space-between;
         @extend %no-margin;
-        
-       
+
+
 
 		&--mobile {
             width: calc(100vw - 60px);
             height: 100vh;
             background-color: #ffffff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-            position: relative;
+			position: relative;
+			overflow: auto;
 			@include mq(tablet) {
 				display: none;
             }
@@ -68,7 +69,7 @@
 				display: none;
 			}
         }
-        
+
         &--level {
             flex-direction: column;
            justify-content: flex-start !important;
@@ -97,7 +98,7 @@
         }
 
         &__item {
-            
+
         }
 	}
 
