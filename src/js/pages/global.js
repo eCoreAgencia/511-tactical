@@ -23,6 +23,10 @@ $(document).ready(() => {
 		});
 	}
 
+	$('main').on('click', function() {
+		$('.search-form__result').css('display','none');
+	})
+
 	$('.footer__column .footer__title').on('click', function(e) {
 		$(this)
 			.next()

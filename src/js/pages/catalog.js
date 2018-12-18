@@ -24,7 +24,7 @@ class catalog {
 	}
 
 	numberProduct() {
-		let numberResult = $('.resultado-busca-numero .value').text();
+		let numberResult = $('.resultado-busca-numero:first .value').text();
 		$('.section__navTop__numberProduct p b').text(numberResult);
 	}
 
