@@ -43,7 +43,7 @@ class Product {
 
 
 
-		$('.image-zoom').on('click', function (e) {
+		$('.product__media').on('click', function (e) {
 			e.preventDefault();
 			$('.product__zoom').addClass('is-active');
 		})
@@ -197,7 +197,7 @@ class Product {
 	}
 
 	createSkuThumb(products) {
-		return products.map(product => `<li><a style="background-image: url('${product.items[0].images[0].imageUrl}')" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`).join('');
+		return products.map(product => `<li><a style="background-image: url('/arquivos/${product.ListaCores[0]}.jpg')" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`).join('');
 
 	}
 
@@ -260,6 +260,7 @@ class Product {
 		$('#image a').each(function () {
 			const img = $(this).attr('href');
 			$('.product__zoom .product__zoom-image').append(`<img src="${img}" />`);
+			$('#image').html(`<img src="${img}" />`);
 		});
 
 		$('.product__zoom').on('click', 'a', function (e) {
@@ -276,6 +277,10 @@ $(document).ready(() => {
 	if ($('body').hasClass('product')) {
 		window.productChoice = {};
 		window.Product = new Product();
+
+		if($('.productDescription').is(':empty')){
+			$('.product__description').hide();
+		}
 
 
 
@@ -395,6 +400,10 @@ $(document).ready(() => {
 
 			});
 		});
+		let reference = $('.productReference').text();
+		let newReference = reference.split(',')[0];
+		console.log(newReference);
+		$('.productReference').text(newReference);
 	}
 
 })

@@ -1,4 +1,45 @@
 body.institucional {
+	&.lojas {
+		.titleLojas {
+			padding: 50px 0 10px;
+			h3 i {
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+
+		.contentLojas {
+			ul {
+				margin-bottom: 50px;
+				li {
+					display: inline-block;
+					width: 210px;
+					margin-right: 80px;
+					a {
+						text-decoration: underline;
+						font-size: 14px;
+						color: #e95500;
+						&:hover {
+							color: #e95500;
+						}
+					}
+					p {
+						font-size: 15px;
+					}
+				}
+			}
+			.estado h4 {
+				width: 100%;
+				text-align: center;
+				border-top: 1px solid #ccc;
+				border-bottom: 1px solid #ccc;
+				padding: 15px;
+				font-size: 20px;
+				font-weight: 400;
+				margin-bottom: 50px;
+			}
+		}
+	}
 	.bread-crumb {
 		display: none;
 		@include atMedium {

@@ -223,11 +223,13 @@
 			let tpl = '';
 
 			brands.forEach(brand => {
-				let url = `/${encodeURIComponent(brand).replace('.', '-')}/${query}`;
+				console.log(brand)
 
-				//   if (brand == 'VER TODAS') {
-				//       url = `/busca/${query}`
-				//   }
+				let url = `/${query}`
+
+			  //   if (brand == 'VER TODAS') {
+			  //       url = `/busca/${query}`
+			  //   }
 				if (brand == 'VER TODAS') {
 					url = `/${query}`;
 				}

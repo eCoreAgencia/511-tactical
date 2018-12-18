@@ -3,6 +3,7 @@ class catalog {
 		this.grid();
 		this.numberProduct();
 		this.returnTop();
+		this.checkText();
 	}
 
 	grid() {
@@ -34,6 +35,18 @@ class catalog {
 			$(returnDiv).insertAfter('.pager.bottom + .pages');
 		});
 	}
+	checkText() {
+		if (!$('.textCatalog p').length > 0) {
+			$('.textCatalog').hide();
+		}
+	}
 }
+
+$(document).ready(function() {
+	$('.Cores label').each(function() {
+		const img = $(this).attr('title');
+		$(this).css('background-image', `/arquivos/${img}.png`);
+	});
+});
 
 window.catalog = new catalog();
