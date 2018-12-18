@@ -287,6 +287,11 @@ body {
 				}
 			}
 		}
+		&.resultado-busca{
+			.textCatalog {
+				display: none;
+			}
+		}
 	}
 
 	.allVitrine {
