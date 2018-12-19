@@ -106,6 +106,7 @@ class Product {
 			if (value) {
 				self.item[name] = parseInt($(this).val());
 			}
+
             console.log(self.item);
         })
 
@@ -257,22 +258,7 @@ class Product {
 
 	buyProduct() {
 
-		// let self = this;
-		// console.log(self.variations)
 
-		// if (self.getSkuSelected()) {
-		// 	const sku = self.getSkuId();
-		// 	const qtd = parseInt($('.product__qtd-value').val());
-		// 	if (sku[0]) {
-		// 		console.log(sku[0]);
-		// 		addToCart(sku[0].sku, qtd);
-		// 	} else {
-		// 		alert('Produto não disponível')
-		// 	}
-
-		// } else {
-		// 	$('.btn--buy').removeClass('running');
-		// }
 
 	}
 
