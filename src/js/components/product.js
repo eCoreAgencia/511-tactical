@@ -159,10 +159,10 @@ class Product {
 
 				const select = `
             	<span class="product__skus-title">Tamanho</span>
-					<select class="sku-size" name="sku">
-						<option value="" hidden>Selecione um tamanho</option>
-						${this.createSkuSelect(product.skus)}
-					</select>`;
+				<select  class="sku-size" name="id">
+					<option value="" hidden>Selecione um tamanho</option>
+					${this.createSkuSelect(product.skus)}
+				</select>`;
 				$('.product__skus--select').html(select);
 				$('.product__price').html(price);
 
