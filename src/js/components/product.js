@@ -106,6 +106,7 @@ class Product {
 			if (value) {
 				self.item[name] = parseInt($(this).val());
 			}
+
             console.log(self.item);
         })
 
@@ -159,10 +160,10 @@ class Product {
 
 				const select = `
             	<span class="product__skus-title">Tamanho</span>
-					<select class="sku-size" name="sku">
-						<option value="" hidden>Selecione um tamanho</option>
-						${this.createSkuSelect(product.skus)}
-					</select>`;
+				<select  class="sku-size" name="id">
+					<option value="" hidden>Selecione um tamanho</option>
+					${this.createSkuSelect(product.skus)}
+				</select>`;
 				$('.product__skus--select').html(select);
 				$('.product__price').html(price);
 
@@ -257,22 +258,7 @@ class Product {
 
 	buyProduct() {
 
-		// let self = this;
-		// console.log(self.variations)
 
-		// if (self.getSkuSelected()) {
-		// 	const sku = self.getSkuId();
-		// 	const qtd = parseInt($('.product__qtd-value').val());
-		// 	if (sku[0]) {
-		// 		console.log(sku[0]);
-		// 		addToCart(sku[0].sku, qtd);
-		// 	} else {
-		// 		alert('Produto não disponível')
-		// 	}
-
-		// } else {
-		// 	$('.btn--buy').removeClass('running');
-		// }
 
 	}
 
