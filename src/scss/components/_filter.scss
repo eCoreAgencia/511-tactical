@@ -2,15 +2,46 @@
   width: 36%;
   background: #fbf7f1;
   border: 1px solid #eceae7;
-  padding-left: 20px;
+//   padding-left: 20px;
   padding-top: 20px;
-  padding-right: 20px;
+//   padding-right: 20px;
   @include mq(mobile) {
     position: fixed;
     top: 0;
     z-index: 99;
     width: 75%;
     height: 100%;
+    .clouseFilter {
+        position: absolute;
+        right: -81px;
+        background: #e95500;
+        top: -1px;
+        width: 80px;
+        height: 60px;
+        text-align: center;
+        a {
+            color: #fff;
+            font-size: 0;
+            display: block;
+            padding-top: 16px;
+            &:hover {
+                text-decoration: none;
+            }
+            &:before {
+                content: "\e906";
+                font-family: "icomoon-tatical";
+                speak: none;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 25px;
+            }
+        }
+    }
   }
   @include mq("tablet") {
     position: relative;

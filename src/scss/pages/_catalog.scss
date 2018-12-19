@@ -103,11 +103,18 @@ body {
             }
             &__numberProduct {
                 @include mq(mobile) {
-                    display: none;
+					display: none;
+					&.numberItensMob {
+						text-align: center;
+						display: block;
+					}
                 }
 
                 @include mq("tablet") {
-                    display: block;
+					display: block;
+					&.numberItensMob {
+						display: none;
+					}
                 }
                 p {
                     color: #000000;
@@ -217,7 +224,6 @@ body {
 					display: none;
 				}
 				ul {
-					text-align: center;
 					li {
 						transition: 0.5s ease;
 						display: inline-block;
@@ -307,7 +313,6 @@ body {
 			}
 
 			ul {
-				text-align: center;
 				li {
 					transition: 0.5s ease;
 					display: inline-block;

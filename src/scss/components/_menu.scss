@@ -93,6 +93,17 @@
                 &.is-open {
                     left: 0;
 					right: 0;
+					.menu__item--dropup {
+						a {
+							&:before {
+								content: "<";
+								padding-right: 8px;
+								font-size: 16px;
+								color: #e95500;
+								font-family: Arial;
+							}
+						}
+					}
                 }
             }
         }
