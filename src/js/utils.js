@@ -13,7 +13,7 @@ export const addToCart = function (id, quantity = 1, seller = '1', redirect = fa
 	}
 	vtexjs.checkout.addToCart([item], null, 1)
 		.done(orderForm => {
-            $(window).trigger('FC.ProductAdded');
+			$(window).trigger('FC.ProductAdded');
 		})
 }
 

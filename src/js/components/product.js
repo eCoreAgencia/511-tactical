@@ -37,8 +37,10 @@ class Product {
 
 		$('.product__skus').on('click', '.sku-color', function(e){
 			e.preventDefault();
-			const productID = $(this).data('product-id');
-			self.changeProduct(productID);
+			$('.product__skus .sku-color').removeClass('active');
+			$(this).addClass('active');
+			// const productID = $(this).data('product-id');
+			// self.changeProduct(productID);
 		})
 
 
@@ -125,6 +127,7 @@ class Product {
 			addToCart(id, quantity);
 			//const endpoint = `/checkout/cart/add?sku=${id}&qty=${quantity}&seller=1&redirect=true&sc=1`
 			$(button).addClass('running');
+			$('.minicart').toggleClass('active');
 
 			//window.location.href = endpoint;
 

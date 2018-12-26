@@ -150,11 +150,11 @@
                                   float: left;
                                   margin: 3px;
                                   &.sr_selected {
-                                      border: 1px solid #000;
+                                      border: 2px solid #e95500;
                                   }
 
                                   &:hover {
-                                      border: 1px solid #000;
+                                      border: 2px solid #e95500;
                                   }
                               }
                               input {

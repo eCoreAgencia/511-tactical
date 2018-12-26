@@ -42,10 +42,10 @@ class Filter {
 	}
 
 	init() {
-		$('.orderBy .select select').on('change', function() {
-			const value = $(this).val();
-			window.location.href = window.location.href + '?PS=12&O=' + value;
-		});
+		// $('.orderBy .select select').on('change', function() {
+		// 	const value = $(this).val();
+		// 	window.location.href = window.location.href + '?PS=12&O=' + value;
+		// });
 
 		if (this.isExist(this.menu)) {
 			console.log(this.menu);

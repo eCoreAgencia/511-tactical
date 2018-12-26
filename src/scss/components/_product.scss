@@ -65,6 +65,14 @@
 		}
 	}
 
+	&__table {
+		padding: 20px 0;
+		&:hover{
+			text-decoration: none;
+			color: #e95500;
+		}
+	}
+
 	&__info {
 
 		.description {
@@ -401,6 +409,10 @@
 				border-radius: 100%;
 				background-size: cover;
 				background-repeat: no-repeat;
+
+				&.active {
+					border: 2px solid #e95500;
+				}
 
 				@include mq(tablet) {
 					width: 20px;

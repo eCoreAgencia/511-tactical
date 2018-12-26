@@ -1,10 +1,14 @@
+function especialCharMask (especialChar){
+    especialChar = especialChar.replace(/Ã§/g, 'ç');
+    return especialChar;
+}
+
 $(document).ready(() => {
     if ($('body').hasClass('empty-search')) {
         let word = decodeURI(window.location.search);
         word = word.replace('?ft=', '');
-        console.log(word);
-        $('.section__title h2 em').text(word);
-        $('.section__page.section__form h3 em').text(word);
+        $('.section__title h2 em').text(especialCharMask(word));
+        $('.section__form h3 em').text(word);
     }
 });
 
