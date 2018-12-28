@@ -37,8 +37,14 @@ class Product {
 
 		$('.product__skus').on('click', '.sku-color', function(e){
 			e.preventDefault();
+			let idproduct = $(this).attr("data-product-id");
+			let colorname = $(this).attr("style").split("/arquivos/")[1];
+			colorname	  = colorname.replace(/1|2|3|4|5|6|7|8|9|0.|.jpg|'|\)| /g,'');
+			colorname	  = colorname.replace(/-/g,' ');
+			console.log(colorname)
 			$('.product__skus .sku-color').removeClass('active');
 			$(this).addClass('active');
+			self.getImage(idproduct);
 			// const productID = $(this).data('product-id');
 			// self.changeProduct(productID);
 		})
@@ -127,7 +133,11 @@ class Product {
 			addToCart(id, quantity);
 			//const endpoint = `/checkout/cart/add?sku=${id}&qty=${quantity}&seller=1&redirect=true&sc=1`
 			$(button).addClass('running');
-			$('.minicart').toggleClass('active');
+			console.log("te2");
+			setTimeout(function() {
+				$(".minicart").addClass("active");
+			}, 1000);
+			// $('.minicart').addClass('active');
 
 			//window.location.href = endpoint;
 
@@ -226,12 +236,38 @@ class Product {
 	}
 
 	createSkuThumb(products) {
+		console.log(products)
 		return products.map(product => `<li><a style="background-image: url('/arquivos/${product.ListaCores[0]}.jpg')" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`).join('');
 
 	}
 
+	getImage(idproduct) {
+		const productSimilar = getProductSimilarById(idproduct);
+		const selectID = idproduct;
+		$(".thumbs li").remove();
 
+		vtexjs.catalog.getProductWithVariations(selectID).done(function(product){
+			let urlPrinciapal = product.skus[0].image;
+			$("#image #image-main").attr("src",urlPrinciapal);
+		});
 
+		productSimilar.then(products => {
+			products.map(index => {
+				if(index.productId == selectID) {
+					let arrayList = index.items[0].images;
+					arrayList.map(index => {
+						let urlImage = index.imageUrl;
+						let renderImage = `<li>
+												<a id="botaoZoom" href="javascript:void(0);" title="Zoom" rel="${urlImage}" zoom="${urlImage}" class="ON">
+													<img src="${urlImage}" title="CALCA-APEX-BATTLE-BROWN-BR-42-CURTO---US-32---30" alt="CALCA-APEX-BATTLE-BROWN-BR-42-CURTO---US-32---30">
+												</a>
+											</li>`;
+						$(renderImage).appendTo(".thumbs");
+					})
+				}
+			})
+		});
+	}
 
 	renderFormNotifyMe() {
 		const html = `<div class="product__unavailable">

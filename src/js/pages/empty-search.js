@@ -8,7 +8,7 @@ $(document).ready(() => {
         let word = decodeURI(window.location.search);
         word = word.replace('?ft=', '');
         $('.section__title h2 em').text(especialCharMask(word));
-        $('.section__form h3 em').text(word);
+        $('.section__form h3 em').text(especialCharMask(word));
     }
 });
 
