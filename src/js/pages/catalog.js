@@ -3,6 +3,14 @@ class catalog {
 		this.grid();
 		this.numberProduct();
 		this.checkText();
+		this.orderBay();
+	}
+
+	orderBay() {
+		$(".orderBy select").change(function() {
+			const orderBy = $(this).val();
+			window.location = `${window.location.pathname}?O=${orderBy}`;
+		});
 	}
 
 	grid() {
