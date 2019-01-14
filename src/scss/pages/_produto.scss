@@ -3,6 +3,24 @@
         margin: 0;
     }
 
+	&__table {
+		padding: 20px 0;
+		a {
+            padding-left: 0;
+            &:hover{
+                text-decoration: none;
+                color: #e95500;
+            }
+		}
+	}
+
+    .modal-window {
+        > div {
+            width: 80%;
+            max-width: initial;
+        }
+    }
+
     .section__product-bottom, .section__shelf {
         max-width: 600px;
     }

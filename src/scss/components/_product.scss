@@ -65,14 +65,6 @@
 		}
 	}
 
-	&__table {
-		padding: 20px 0;
-		&:hover{
-			text-decoration: none;
-			color: #e95500;
-		}
-	}
-
 	&__info {
 
 		.description {
@@ -762,6 +754,11 @@
 		  font-size: 18px;
 		  margin-right: 10px;
 		  margin-left: auto;
+		  transition: .3s ease;
+		  &:hover {
+			  color: #e75300;
+			  text-decoration: none;
+		  }
 	  }
   }
 

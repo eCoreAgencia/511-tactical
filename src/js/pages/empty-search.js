@@ -1,5 +1,9 @@
 function especialCharMask (especialChar){
     especialChar = especialChar.replace(/Ã§/g, 'ç');
+    especialChar = especialChar.replace(/Ãª/g, 'ê');
+    especialChar = especialChar.replace(/Ã/g, 'Ó');
+    especialChar = especialChar.replace(/Ã£o/g, 'ã');
+    especialChar = especialChar.replace(/-/g, ' ');
     return especialChar;
 }
 
