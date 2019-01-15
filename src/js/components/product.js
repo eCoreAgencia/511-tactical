@@ -21,6 +21,11 @@ class Product {
         this.item.seller = "1";
 		this.makeZoom();
 
+		if($('body').hasClass('product')) {
+			this.addProductToCart();
+			this.fixeInfoProduct();
+		}
+
 		const productWithVariations = getProductWithVariations(productId);
 		productWithVariations.then(product => {
 			if (product.available) {
@@ -62,6 +67,23 @@ class Product {
 			e.preventDefault();
 			$('.product__zoom').removeClass('is-active');
 		});
+	}
+
+	fixeInfoProduct() {
+		var nav = $('.product__main .product__info');
+
+		$(window).scroll(function () {
+			if ($(document).scrollTop() > 115) {
+				if ($(this).scrollTop() >= $('body main > .container').first().height() - 450) {
+					nav.removeClass("menu-fixo");
+				} else {
+					nav.addClass("menu-fixo");
+				}
+			} else {
+				nav.removeClass("menu-fixo");
+			}
+		});
+		
 	}
 
     inputQuantity() {
