@@ -18,14 +18,19 @@
 
 	&__responsibility {
 		ul {
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			margin: 20px 0;
 			li {
 				display: inline-block;
 				vertical-align: top;
-				margin-right: 10px;
-				margin-top: 20px;
 				width: 28%;
 				svg {
 					width: 100%;
+				}
+				@include atMedium {
+					margin-right: 10px;
 				}
 			}
 		}
@@ -38,7 +43,7 @@
 			h3 {
 				position: relative;
 				&:after {
-					content: '';
+					content: "";
 					position: absolute;
 					right: 30px;
 					display: inline-block;
@@ -109,13 +114,11 @@
 			@include mq("tablet") {
 				padding: 0;
 				@include font-size(14px);
-
 			}
 
 			&:hover {
 				@extend %color-primary;
 			}
-
 		}
 
 		.menu__item--highlight {
@@ -129,7 +132,6 @@
 		@extend %color-white;
 		@extend %font-family-unitedsans;
 		@extend %text-transform-uppercase;
-
 
 		@include mq(mobile) {
 			@include font-size(20px);
@@ -151,11 +153,9 @@
 				text-align: left;
 			}
 		}
-
 	}
 
 	&__brand {
-
 		&-description,
 		&-copyright {
 			color: #bab1a8;
@@ -171,8 +171,6 @@
 		}
 	}
 
-
-
 	&__logo {
 		@extend %display-flex;
 		@extend %flex-justify-content-center;
@@ -184,23 +182,21 @@
 
 	&__secure {
 		@extend %display-flex;
-		@extend %flex-justify-content-space-around;
-		padding: 20px 35px;
-
-		img+img {
+		justify-content: center;
+		padding: 0 0 20px 0;
+		img + img {
 			margin-left: 10px;
 		}
 
 		@include mq("tablet") {
 			padding: 0;
 			justify-content: flex-start;
-
+		}
+		a {
+			margin-right: 5px;
 		}
 	}
-
-
 }
-
 
 .social-media {
 	@extend %display-flex;

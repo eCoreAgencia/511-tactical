@@ -49,3 +49,22 @@ export const getProductWithVariations = (productId) => {
 
 
 }
+
+
+export const getSearchProducts = (term) => {
+	const endpoint = `/api/catalog_system/pub/products/search${term}`;
+
+
+	return new Promise((resolve, reject) => {
+		//let res = getSearchProducts.cache[productId]
+		if (isLocalhost) return resolve(window.products)
+		else {
+			return fetch(endpoint)
+					.then(data => {
+						const searchResult = data.json()
+						return resolve(searchResult)
+					})
+					.catch(err => reject(err))
+		}
+	})
+}

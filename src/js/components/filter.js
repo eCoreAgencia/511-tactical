@@ -1,3 +1,6 @@
+import { getSearchProducts } from '../modules/vtexRequest'
+const R = require('ramda');
+
 class Filter {
 	constructor() {
 		this.menu = document.querySelector('.logo ');
@@ -47,6 +50,7 @@ class Filter {
 		// 	window.location.href = window.location.href + '?PS=12&O=' + value;
 		// });
 
+
 		if (this.isExist(this.menu)) {
 			console.log(this.menu);
 		} else {
@@ -68,6 +72,17 @@ class Filter {
 		});
 
 		$(".filter input[type='checkbox']").vtexSmartResearch();
+
+		$('.search-multiple-navigator input').on('change', function(){
+			let urlFilters = ''
+			$('.search-multiple-navigator input').each(function(){
+				if($(this).is(':checked')){
+					urlFilters += '&' + $(this).attr('rel');
+				}
+			})
+
+			console.log(urlFilters);
+		})
 	}
 
 	isExist(e) {
@@ -76,6 +91,124 @@ class Filter {
 	}
 }
 
-if ($('body').hasClass('catalog')) {
-	window.filter = new Filter();
-}
+$(document).ready(function(){
+	if ($('body').hasClass('catalog')) {
+		window.filter = new Filter();
+
+		const pathname = window.location.pathname || '';
+		const search = window.location.search || '?';
+		const url = pathname + search + '&_from=1&_to=30';
+
+		const filterShelf = (products) => {
+			const productNames = products.map(product => product.productName);
+			const productFilters = products.filter((product, index) => {
+				if (R.findIndex(R.propEq('productName', productNames[index]))(products) >= index) {
+					return product;
+				}
+			})
+
+			return productFilters;
+		}
+
+		const mountProduct = (product) => {
+
+			const {items, productName, productId, description, link} = product;
+			const stock = items[0].sellers[0].commertialOffer.AvailableQuantity;
+			const bestPrice = items[0].sellers[0].commertialOffer.Price;
+			const listPrice = items[0].sellers[0].commertialOffer.ListPrice;
+			const imgWidth = 500;
+			const imgHeight = 500;
+			const thumbSize = `-${imgWidth}-${imgHeight}`
+			const thumb = items[0].images[0].imageTag;
+			let price = ''
+
+			if(stock > 0){
+				if (listPrice > bestPrice) {
+					price = `
+						<div class="price">
+							<span class="price__old">R$ ${listPrice.formatMoney()}</span>
+							<span class="price__best">R$ ${bestPrice.formatMoney()}</span>
+							<span class="price__installment">
+								ou até 6X de R$ ${(bestPrice/6).formatMoney()}
+							</span>
+						</div>
+					`
+				}else {
+					price = `
+						<div class="price">
+							<span class="price__list">R$ ${bestPrice.formatMoney()}</span>
+							<span class="price__installment">
+								ou até 6X de R$ ${(bestPrice/6).formatMoney()}
+							</span>
+						</div>
+					`
+				}
+			}else {
+				price = `<span class="product__unavailable>Indisponível</span>`
+			}
+			const html = `
+					<div class="product product--shelf">
+						<span class="product__id" data-product-id="${productId}"></span>
+  						<div class="product__header">
+							<div class="product__media">
+								<a class="product__link" title="${productName}" href="${link}">
+									${thumb.replace('~/', '/').replace('-#width#-#height#', thumbSize).replace('#width#', imgWidth).replace('#height#', imgHeight)}
+								</a>
+							</div>
+							<div class="product__actions">
+								<a class="btn btn--buy product__buy" title="${productName}" href="${link}">Compre Agora</a>
+							</div>
+  						</div>
+  						<div class="product__reviews"></div>
+						<div class="product__info">
+							<div class="product__info--name">
+								<h3 class="product__name">
+									<a class="product__link" title="${productName}" href="${link}">
+										${productName}
+									</a>
+								</h3>
+								<h4 class="description">
+									${description}
+								</h4>
+							</div>
+    						<div class="product__price">
+									${price}
+							</div>
+  						</div>
+					</div>`
+				return html;
+
+		}
+
+		const renderProducts = (term) => {
+			const endpoint = `/api/catalog_system/pub/products/search${term}`;
+			$.ajax({
+				url: endpoint,
+				type: 'GET',
+				headers: {
+					accept: 'application/json',
+					'content-type': 'application/json; charset=utf-8'
+				}
+			})
+			.done(function(data){
+				console.log(data);
+				const dupRemove = filterShelf(data);
+
+
+				//console.log(dupRemove, 'remove');
+				const teste = `<ul>${dupRemove.map(item => `<li>${mountProduct(item)}</li>`).join('')}</ul>`;
+				console.log(teste);
+
+				$('.shelf__vitrine .prateleira .prateleira').html(teste);
+
+			})
+		}
+
+
+		renderProducts(url);
+
+
+	}
+})
+
+

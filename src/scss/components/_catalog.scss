@@ -4,7 +4,7 @@
 	.pages {
 		display: none;
 	}
-	
+
 	.shelf {
 		ul {
 			@extend %flex-justify-content-flex-start;
@@ -63,7 +63,7 @@
 			}
 
 			&::after {
-				content: '|';
+				content: "|";
 				display: inline-block;
 				margin-left: 5px;
 			}
@@ -123,7 +123,7 @@
 			z-index: 9;
 			overflow: hidden;
 			&::after {
-				content: '';
+				content: "";
 				position: absolute;
 				z-index: 8;
 				top: 0;
@@ -145,7 +145,7 @@
 		li.next {
 			font-size: 0;
 			&::before {
-				content: '';
+				content: "";
 				position: absolute;
 				margin: auto;
 				width: 8px;
@@ -180,6 +180,7 @@
 		justify-content: center;
 		align-items: center;
 		margin: 20px 0;
+		height: 60px;
 		.text2 {
 			margin-left: 5px;
 		}
