@@ -1,3 +1,6 @@
+import { getSearchProducts } from '../modules/vtexRequest'
+const R = require('ramda');
+
 class Filter {
 	constructor() {
 		this.menu = document.querySelector('.logo ');
@@ -46,6 +49,25 @@ class Filter {
 		// 	const value = $(this).val();
 		// 	window.location.href = window.location.href + '?PS=12&O=' + value;
 		// });
+		const url = window.location.pathname;
+
+		const result = getSearchProducts(url);
+
+		result.then(products => {
+			console.log(products)
+			const productNames = products.map(product => product.productName);
+			console.log(productNames);
+			const productFilters = products.filter((product, index) => {
+				console.log(index);
+				console.log(R.findIndex(R.propEq('productName', productNames[index]))(products), 'valor');
+
+				if(R.findIndex(R.propEq('productName',productNames[index]))(products) >= index){
+					return product;
+				}
+			})
+
+			console.log(productFilters);
+		})
 
 		if (this.isExist(this.menu)) {
 			console.log(this.menu);
@@ -76,6 +98,10 @@ class Filter {
 	}
 }
 
-if ($('body').hasClass('catalog')) {
-	window.filter = new Filter();
-}
+$(document).ready(function(){
+	if ($('body').hasClass('catalog')) {
+		window.filter = new Filter();
+	}
+})
+
+
