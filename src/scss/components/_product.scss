@@ -99,6 +99,11 @@
 
 	&__info {
 		padding: 10px 15px;
+		&.menu-fixo {
+				position: fixed;
+				left: 56%;
+				top: 70px;
+		}
 	}
 
 	.productName {
