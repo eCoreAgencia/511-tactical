@@ -95,11 +95,25 @@ $(document).ready(function(){
 	if ($('body').hasClass('catalog')) {
 		window.filter = new Filter();
 		let urlFilters = '';
+		let url, content, preg, category;
+		jQuery('script:not([src])').each(function () {
+			content = jQuery(this)[0].innerHTML;
+			preg = /\/buscapagina\?.+&PageNumber=/i;
+			if (content.search(/\/buscapagina\?/i) > -1) {
+				url = preg.exec(content);
+				url = url[0].replace('/buscapagina', '')
+				url = url.split('&PS=');
+				category = url[0];
+				console.log(category);
+				return false;
+			}
+		})
+
 		const fromPage = $('.shelf--new').data('from');
 		const toPage = $('.shelf--new').data('to');
 		const pathname = window.location.pathname || '';
 		const search = window.location.search || '?';
-		const url = pathname + search + '&_from='+fromPage+'&_to='+toPage;
+		url = category + '&_from='+fromPage+'&_to='+toPage;
 
 		const filterShelf = (products) => {
 			const productNames = products.map(product => product.productName);
@@ -233,7 +247,7 @@ $(document).ready(function(){
 		}
 
 		const smartFilter = (filters) => {
-			const url = pathname + search + filters;
+			const url = category + filters;
 			renderProducts(url);
 		}
 
@@ -249,7 +263,7 @@ $(document).ready(function(){
 		$('.btn-load-more').on('click', function(){
 			const fromPage = $('.shelf--new').data('from') + 30;
 			const toPage = $('.shelf--new').data('to') + 30;
-			const url = pathname + search + '&_from=' + fromPage + '&_to=' + toPage;
+			const url = category + '&_from=' + fromPage + '&_to=' + toPage;
 			appendProducts(url);
 			$('.shelf--new').data('from', fromPage);
 			$('.shelf--new').data('to', toPage);
@@ -258,6 +272,11 @@ $(document).ready(function(){
 
 
 		renderProducts(url);
+
+
+
+
+		console.log(partialSearch);
 
 
 	}
