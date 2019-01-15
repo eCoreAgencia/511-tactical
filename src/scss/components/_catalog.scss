@@ -230,4 +230,10 @@
 			margin-bottom: 3px;
 		}
 	}
+
+	.shelf__vitrine.loaded {
+		.prateleira .prateleira {
+			display: none !important;
+		}
+	}
 }

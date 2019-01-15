@@ -94,10 +94,12 @@ class Filter {
 $(document).ready(function(){
 	if ($('body').hasClass('catalog')) {
 		window.filter = new Filter();
-
+		let urlFilters = '';
+		const fromPage = $('.shelf--new').data('from');
+		const toPage = $('.shelf--new').data('to');
 		const pathname = window.location.pathname || '';
 		const search = window.location.search || '?';
-		const url = pathname + search + '&_from=1&_to=30';
+		const url = pathname + search + '&_from='+fromPage+'&_to='+toPage;
 
 		const filterShelf = (products) => {
 			const productNames = products.map(product => product.productName);
@@ -197,12 +199,62 @@ $(document).ready(function(){
 
 				//console.log(dupRemove, 'remove');
 				const teste = `<ul>${dupRemove.map(item => `<li>${mountProduct(item)}</li>`).join('')}</ul>`;
-				console.log(teste);
 
-				$('.shelf__vitrine .prateleira .prateleira').html(teste);
+				$('.shelf--new').html(teste);
+
+				$('.shelf__vitrine').addClass('loaded');
 
 			})
 		}
+
+
+		const appendProducts = (term) => {
+			const endpoint = `/api/catalog_system/pub/products/search${term}`;
+			$.ajax({
+					url: endpoint,
+					type: 'GET',
+					headers: {
+						accept: 'application/json',
+						'content-type': 'application/json; charset=utf-8'
+					}
+				})
+				.done(function (data) {
+					console.log(data);
+					const dupRemove = filterShelf(data);
+
+
+					//console.log(dupRemove, 'remove');
+					dupRemove.map(item => {
+						const li = `<li>${mountProduct(item)}</li>`;
+						$('.shelf--new ul').append(li);
+					});
+
+				})
+		}
+
+		const smartFilter = (filters) => {
+			const url = pathname + search + filters;
+			renderProducts(url);
+		}
+
+		$('.search-multiple-navigator input').on('change', function () {
+			urlFilters = '';
+			$('.search-multiple-navigator input:checked').each(function () {
+				urlFilters += '&' + $(this).attr('rel');
+			})
+
+			smartFilter(urlFilters);
+		})
+
+		$('.btn-load-more').on('click', function(){
+			const fromPage = $('.shelf--new').data('from') + 30;
+			const toPage = $('.shelf--new').data('to') + 30;
+			const url = pathname + search + '&_from=' + fromPage + '&_to=' + toPage;
+			appendProducts(url);
+			$('.shelf--new').data('from', fromPage);
+			$('.shelf--new').data('to', toPage);
+
+		})
 
 
 		renderProducts(url);
