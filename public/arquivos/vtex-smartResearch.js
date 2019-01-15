@@ -174,7 +174,7 @@ jQuery.fn.vtexSmartResearch = function(opts) {
 						options.returnTopText +
 						'<span class="arrowToTop"></span></a></div>'
 				);
-				$('.prateleira .prateleira').append(elem);
+				$('main').append(elem);
 			}
 
 			var windowH = _window.height();
