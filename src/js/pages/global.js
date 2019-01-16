@@ -14,6 +14,10 @@ $(document).ready(() => {
 
 	removeRS();
 
+	$('.newsletter__input').on('focus', function(){
+		$('.newsletter').removeClass('form-fail');
+	})
+
 	const headerFixed = () => {
 		const distancePageTop = 100;
 		const pageScroll = window.pageYOffset || document.documentElement.scrollTop;
