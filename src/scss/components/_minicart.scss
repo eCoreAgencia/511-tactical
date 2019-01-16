@@ -51,7 +51,11 @@
 	&__handle {
 		border: none;
 		box-shadow: 0;
-		background-color: transparent;
+        background-color: transparent;
+        @include atMedium {
+
+            padding-right: 0;
+        }
 
 		.minicart__header & {
 			width: 100%;

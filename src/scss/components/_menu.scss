@@ -121,9 +121,11 @@
 		@extend %color-black;
 		@extend %font-family-unitedsanscondensed;
 		@extend %text-transform-uppercase;
-		color: #211e14;
-		font-weight: 700;
-		@include font-size(18px);
+		color: #4C4A3F;
+		font-weight: 800;
+        @include font-size(18px);
+        letter-spacing: 0.6px;
+        padding-top: 3.4px;
 	}
 
 

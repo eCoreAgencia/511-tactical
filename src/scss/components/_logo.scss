@@ -1,11 +1,14 @@
 .logo {
-  &__brand {
-    margin: 0;
-    font-size: 0;
-    max-width: 250px;
-  }
+	a {
+		display: flex;
+	}
+	&__brand {
+		margin: 0;
+		font-size: 0;
+		max-width: 250px;
+	}
 
-  &__link {
-    display: block;
-  }
+	&__link {
+		display: block;
+	}
 }
