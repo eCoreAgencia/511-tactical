@@ -2,6 +2,18 @@ import { isMobile } from '../utils';
 import './../components/send-form';
 
 $(document).ready(() => {
+
+	const removeRS = () => {
+		$('.product--shelf').each(function() {
+			$('[class*="price__"]', this).each(function(){
+				const priceList = $(this).html().replace('R$ ', 'R$');
+				$(this).html(priceList);
+			})
+		})
+	}
+
+	removeRS();
+
 	const headerFixed = () => {
 		const distancePageTop = 100;
 		const pageScroll = window.pageYOffset || document.documentElement.scrollTop;
