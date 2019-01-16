@@ -14,6 +14,12 @@ $(document).ready(() => {
 
 	removeRS();
 
+	$('.bread-crumb').each(function() {
+		$('a', this).each(function() {
+			$(this).html($(this).html().replace('tactical', 'Home'));
+		})
+	})
+
 	$('.newsletter__input').on('focus', function(){
 		$('.newsletter').removeClass('form-fail');
 	})
