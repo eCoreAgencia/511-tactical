@@ -12,11 +12,15 @@
 		input {
 			color: #000;
 			font-size: 14px;
-			width: 180px;
+            width: 160px;
 			padding-left: 10px;
 			border: 0;
-			flex: 1;
-		}
+            flex: 1;
+            &::placeholder {
+                color: #D7D7D7;
+            }
+        }
+
 	}
 
 	&__input {

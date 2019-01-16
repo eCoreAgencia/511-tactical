@@ -61,4 +61,10 @@ $(document).ready(function () {
     const productID = $(this).data('product-id');
     addToCart(productID);
   })
+
+
+  $('.product--shelf').each(function() {
+	  if($('.price__list', this)) $('.price__list', this).html($('.price__list', this).html().replace('R$ ', 'R$'))
+  })
+
 });

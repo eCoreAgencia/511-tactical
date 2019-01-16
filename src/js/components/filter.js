@@ -272,13 +272,6 @@ $(document).ready(function(){
 
 
 		renderProducts(url);
-
-
-
-
-
-
-
 	}
 })
 
