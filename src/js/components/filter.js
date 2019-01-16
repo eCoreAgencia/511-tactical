@@ -276,7 +276,7 @@ $(document).ready(function(){
 
 
 
-		console.log(partialSearch);
+
 
 
 	}
