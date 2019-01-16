@@ -156,14 +156,14 @@
 					border-bottom: 7px solid transparent;
 					border-top: 7px solid transparent;
 
-					>a {
+					> a {
 						position: relative;
 					}
 
 					&:hover {
 						border-bottom: 7px solid transparent;
 						border-top: 7px solid transparent;
-						>a:before {
+						> a:before {
 							content: "";
 							display: block;
 							position: absolute;
@@ -400,7 +400,7 @@
 		}
 		.menu__link {
 			font-weight: 700;
-			padding-top: 8.4px;
+			padding-top: 5px;
 		}
 	}
 }
