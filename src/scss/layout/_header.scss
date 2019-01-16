@@ -1,5 +1,5 @@
 .header {
-	@extend %background-color-black;
+	background-color: #211F13;
 
 	@include mq(tablet, max) {
 		height: 60px;
@@ -22,7 +22,7 @@
 		}
 
 		.header__top & {
-			padding-left: 174px;
+			padding-left: 163px;
 		}
 	}
 
@@ -41,11 +41,14 @@
 		}
 
 		.menu__item {
-			padding: 0 10px;
+			padding: 0 15px;
 
-			+.menu__item {
+			+ .menu__item {
 				border-left: 1px solid $c-primary;
-			}
+            }
+            &:last-of-type {
+                padding-right: 0;
+            }
 		}
 
 		.header__inner {
@@ -68,16 +71,18 @@
 
 		.b2b__link {
 			@extend %display-flex;
+			align-items: center;
 
 			&::after {
-				content: '';
-				background-image: url('/arquivos/arrow-highlight.png');
+				content: "";
+				background-image: url("/arquivos/arrow-highlight.png");
 				display: inline-flex;
-				height: 20px;
+				height: 15px;
 				width: 20px;
 				background-repeat: no-repeat;
 				align-self: center;
-				align-items: center;
+                align-items: center;
+                margin-left: 8px;
 			}
 		}
 
@@ -93,7 +98,7 @@
 	&__main {
 		@include mq(tablet) {
 			background-color: #fbf7f1;
-			background-image: url('/arquivos/bg-header.png');
+			background-image: url("/arquivos/bg-header.png");
 			background-repeat: repeat-x;
 			height: 75px;
 		}
@@ -127,11 +132,12 @@
 
 		@include mq(tablet) {
 			display: block;
-			padding-left: 174px;
+            padding-left: 153px;
 			width: 100%;
-			max-width: 750px;
-			height: 75px;
-
+            max-width: 808px;
+            height: 75px;
+            padding-right: 20px;
+            margin-right: 3.3%;
 			.btn--close {
 				display: none;
 			}
@@ -170,7 +176,7 @@
 
 			.menu__submenu .menu__link {
 				color: #fbf7f1;
-				font-family: 'United Sans';
+				font-family: "United Sans";
 				font-size: 16px;
 				font-weight: 800;
 				line-height: 34px;
@@ -181,8 +187,8 @@
 					color: #e75300;
 
 					&::after {
-						content: '';
-						background-image: url('/arquivos/arrow-highlight.png');
+						content: "";
+						background-image: url("/arquivos/arrow-highlight.png");
 						display: inline-flex;
 						background-color: #211e14;
 						height: 23px;
@@ -222,7 +228,7 @@
 				.menu__link {
 					display: block;
 					width: 100%;
-					font-family: 'Roboto';
+					font-family: "Roboto";
 					@include font-size(14px);
 					text-transform: none;
 					color: #bab1a8;
@@ -235,7 +241,7 @@
 				text-transform: uppercase;
 				letter-spacing: 0.57px;
 				color: #fbf7f1;
-				font-family: 'United Sans';
+				font-family: "United Sans";
 				display: block;
 				width: 100%;
 				font-weight: 800;
@@ -246,13 +252,12 @@
 	}
 
 	&__logo {
-		margin-left: 10px;
 		margin-right: auto;
 		@extend %background-color-black--light;
 		@extend %display-flex;
 
 		@include mq(tablet) {
-			padding: 20px;
+            padding: 18px 18px 19px 18px;
 			border-bottom: 6px solid $c-primary;
 			position: absolute;
 			top: 0;
@@ -295,13 +300,14 @@
 						display: block;
 
 						form {
-							input[type='search'] {
+							input[type="search"] {
 								width: 90%;
 							}
 						}
 					}
 
-					@include mq(tablet) {}
+					@include mq(tablet) {
+					}
 				}
 			}
 		}
@@ -322,7 +328,6 @@
 	}
 
 	@include mq(tablet) {
-
 		.btn--search,
 		.btn--menu {
 			display: none;
