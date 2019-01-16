@@ -101,7 +101,7 @@
 		}
 
 		.menu__item {
-			margin: 10px 0;
+			margin: 10px 0 12px;
 		}
 
 		.menu__link {
@@ -135,7 +135,7 @@
 
 		@include mq(mobile) {
 			@include font-size(20px);
-			font-weight: 800;
+			font-weight: 700;
 			margin: 0;
 			padding: 20px;
 			&.socialMedia {
@@ -148,7 +148,7 @@
 
 		@include mq("tablet") {
 			padding: 0;
-			margin-bottom: 15px;
+			margin-bottom: 10px;
 			&.socialMedia {
 				text-align: left;
 			}
@@ -156,6 +156,9 @@
 	}
 
 	&__brand {
+		&-description {
+			margin-bottom: 26px;
+		}
 		&-description,
 		&-copyright {
 			color: #bab1a8;
