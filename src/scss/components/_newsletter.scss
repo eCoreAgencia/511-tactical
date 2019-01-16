@@ -39,12 +39,13 @@
 		width: 100%;
 		border: 2px solid #dadad8;
 		padding: 20px;
-		:placeholder {
+		@extend %font-family-roboto;
+		font-size: 18px;
+		font-weight: 400;
+		letter-spacing: -0.36px;
+
+		@include input-placeholder {
 			color: #c0c0c0;
-			@extend %font-family-roboto;
-			font-size: 18px;
-			font-weight: 400;
-			letter-spacing: -0.36px;
 		}
 	}
 	&__form {
