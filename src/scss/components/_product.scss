@@ -65,7 +65,11 @@
 	}
 
 	&__info {
-
+		.product__main & {
+			margin-left: auto;
+			position: sticky;
+			top: 0;
+		}
 		.description {
 			display: none;
 		}
@@ -142,6 +146,7 @@
 		.price__installment {
 			width: 100%;
 			@extend %display-block;
+			@include font-size(14px);
 
 		}
 
@@ -201,6 +206,7 @@
 			@extend %price__installment;
 			@extend %no-italic;
 			margin-left: 10px;
+			@include font-size(14px);
 		}
 
 		.product__main & {
@@ -334,12 +340,17 @@
 
 	}
 
+	&__column {
+		flex: 1;
+	}
+
 	&__code {
 		padding: 10px 0;
 		@extend %display-flex;
 		@include font-size(14px);
+		color: #6A6257;
 
-		.skuReference {
+		.productReference {
 			margin-left: 10px;
 		}
 	}
@@ -438,12 +449,14 @@
 			.select-options,
 			select {
 				@extend %display-none;
+				@extend %text-transform-uppercase;
 			}
 
 			.select-styled {
 				@extend %display-flex;
 				@extend %flex-align-items-center;
 				@extend %flex-justify-content-space-between;
+				@extend %text-transform-uppercase;
 				border: 3px solid #211e14;
 				padding: 10px 20px;
 				color: #211e14;

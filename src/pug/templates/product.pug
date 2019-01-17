@@ -68,7 +68,9 @@ block content
 							.product__qtd
 
 							.product__buy
-
+						.product__table
+							a.btn(href='#open-modal')
+								|  Tabela de Medidas
 						.product__action-bottom
 							+vtex-controller('<vtex.cmc:BuyButton/>')
 								a.buy-button.buy-button-ref(target='_top', href="javascript:alert('Por favor, selecione o modelo desejado.');", style='display:block')
@@ -95,9 +97,7 @@ block content
 										fieldset.error(style='display: none')
 											label
 												span.sku-notifyme-error.notifyme-error
-					.product__table
-						a.btn(href='#open-modal')
-							|  Tabela de Medidas
+
 		section.section__page.section__product-bottom
 			.product__description
 				section.section__title
