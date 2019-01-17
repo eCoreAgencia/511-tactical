@@ -203,7 +203,7 @@
 			align-items: center;
 			min-width: 200px;
 			padding: 15px 30px;
-			border: 3px solid #e95500;
+			border: 3px solid #6c645a;
 			justify-content: center;
 			@extend %font-family-unitedsans;
 			&:hover {
@@ -234,6 +234,14 @@
 	.shelf__vitrine.loaded {
 		.prateleira .prateleira {
 			display: none !important;
+		}
+		@include atMedium {
+			padding: 30px 0;
+		}
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
 		}
 	}
 }

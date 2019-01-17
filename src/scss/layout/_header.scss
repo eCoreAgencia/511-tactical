@@ -156,14 +156,14 @@
 					border-bottom: 7px solid transparent;
 					border-top: 7px solid transparent;
 
-					>a {
+					> a {
 						position: relative;
 					}
 
 					&:hover {
 						border-bottom: 7px solid transparent;
 						border-top: 7px solid transparent;
-						>a:before {
+						> a:before {
 							content: "";
 							display: block;
 							position: absolute;
@@ -386,7 +386,7 @@
 
 		.header__logo {
 			@include mq(tablet) {
-				background-color: #fff;
+				background-color: #fbf8f1;
 			}
 		}
 
@@ -396,7 +396,11 @@
 
 		.menu__link,
 		i.icon-cart {
-			color: #bab1a8;
+			color: #b0a69d;
+		}
+		.menu__link {
+			font-weight: 700;
+			padding-top: 5px;
 		}
 	}
 }

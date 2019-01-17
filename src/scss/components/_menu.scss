@@ -9,13 +9,13 @@
 					display: block;
 				}
 			}
-        }
+		}
 
-        &--dropup {
-            .menu__link {
-                background-color: #e7e3e0;
-            }
-        }
+		&--dropup {
+			.menu__link {
+				background-color: #e7e3e0;
+			}
+		}
 	}
 
 	&__link {
@@ -42,56 +42,54 @@
 	.menu {
 		@extend %display-flex;
 		@extend %flex-justify-content-space-between;
-        @extend %no-margin;
-
-
+		@extend %no-margin;
 
 		&--mobile {
-            width: calc(100vw - 60px);
-            height: 100vh;
-            background-color: #ffffff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+			width: calc(100vw - 60px);
+			height: 100vh;
+			background-color: #ffffff;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 			position: relative;
 			overflow: auto;
 			@include mq(tablet) {
 				display: none;
-            }
-            .menu__item--highlight {
-                .menu__link {
-                    background-color: #fbf8f2;
-                    @extend %color-primary;
-                }
-            }
+			}
+			.menu__item--highlight {
+				.menu__link {
+					background-color: #fbf8f2;
+					@extend %color-primary;
+				}
+			}
 		}
 
 		&--desktop {
 			@include mq(tablet, max) {
 				display: none;
 			}
-        }
+		}
 
-        &--level {
-            flex-direction: column;
-           justify-content: flex-start !important;
-            .menu__link {
-                @extend %display-flex;
-                padding: 8px 16px;
-                line-height: 36px;
-                border-bottom: 2px solid #e8e7e5;
-                @include font-size(20px);
-            }
+		&--level {
+			flex-direction: column;
+			justify-content: flex-start !important;
+			.menu__link {
+				@extend %display-flex;
+				padding: 8px 16px;
+				line-height: 36px;
+				border-bottom: 2px solid #e8e7e5;
+				@include font-size(20px);
+			}
 
-            &.submenu {
-                left: -100%;
-                top: 52px;
-                z-index: 10;
-                height: 100%;
-                width: 100%;
-                position: absolute;
-                transition: all linear 0.3s;
-                background-color: #fff;
-                &.is-open {
-                    left: 0;
+			&.submenu {
+				left: -100%;
+				top: 52px;
+				z-index: 10;
+				height: 100%;
+				width: 100%;
+				position: absolute;
+				transition: all linear 0.3s;
+				background-color: #fff;
+				&.is-open {
+					left: 0;
 					right: 0;
 					.menu__item--dropup {
 						a {
@@ -104,13 +102,12 @@
 							}
 						}
 					}
-                }
-            }
-        }
+				}
+			}
+		}
 
-        &__item {
-
-        }
+		&__item {
+		}
 	}
 
 	.menu__submenu {
@@ -121,12 +118,10 @@
 		@extend %color-black;
 		@extend %font-family-unitedsanscondensed;
 		@extend %text-transform-uppercase;
-		color: #4C4A3F;
-		font-weight: 800;
-        @include font-size(18px);
-        letter-spacing: 0.6px;
-        padding-top: 3.4px;
+		color: #4c4a3f;
+		font-weight: 700;
+		@include font-size(18px);
+		letter-spacing: 0.6px;
+		padding-top: 3.4px;
 	}
-
-
 }
