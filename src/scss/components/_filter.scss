@@ -84,6 +84,7 @@
 							letter-spacing: 0.5px;
 							margin-bottom: 5px;
 							@extend %font-family-unitedsans;
+							text-transform: uppercase;
 						}
 						div {
 							label {
@@ -163,6 +164,24 @@
 								input {
 									display: none;
 								}
+							}
+						}
+					}
+					fieldset:not(.Cores) {
+						label {
+							display: flex;
+							align-items: center;
+							justify-content: flex-start;
+							input {
+								display: none;
+							}
+							&:before {
+								content: "";
+								width: 12px;
+								height: 12px;
+								border: 1px solid black;
+								display: inline-block;
+								margin-right: 5px;
 							}
 						}
 					}
