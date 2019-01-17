@@ -149,7 +149,7 @@ body {
 						display: none;
 					}
 					@include mq("tablet") {
-						display: block;
+						display: flex;
 					}
 					a {
 						margin-left: 10px;
