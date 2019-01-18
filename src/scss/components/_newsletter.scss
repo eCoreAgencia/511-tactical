@@ -38,7 +38,7 @@
 	&__input {
 		width: 100%;
 		border: 2px solid #dadad8;
-		padding: 20px;
+		padding: 20px 55px 20px 20px;
 		@extend %font-family-roboto;
 		font-size: 18px;
 		font-weight: 400;
@@ -46,6 +46,9 @@
 
 		@include input-placeholder {
 			color: #c0c0c0;
+		}
+		@include atMedium {
+			padding: 20px;
 		}
 	}
 	&__form {
@@ -82,6 +85,7 @@
 	}
 
 	&__btn {
+		display: flex;
 		position: absolute;
 		top: 0;
 		bottom: 0;
