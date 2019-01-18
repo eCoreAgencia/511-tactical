@@ -3,10 +3,18 @@ body.orders {
 		position: initial;
 	}
 
-	body.orders .render-container.render-route-my-orders-portal ul.nav.nav-pills li a {
+	body.orders
+		.render-container.render-route-my-orders-portal
+		ul.nav.nav-pills
+		li
+		a {
 		color: #000;
 	}
-	body.orders .render-container.render-route-my-orders-portal ul.nav.nav-pills li.active a {
+	body.orders
+		.render-container.render-route-my-orders-portal
+		ul.nav.nav-pills
+		li.active
+		a {
 		background: #e95500;
 		border-radius: 2px;
 		color: #fff;
@@ -60,6 +68,7 @@ body.orders {
 			color: #e75300;
 			font-weight: 800;
 			line-height: 32px;
+			font-family: "UnitedSansReg-Heavy";
 		}
 
 		&__txt {
@@ -92,13 +101,14 @@ body.orders {
 				background-color: #211e14;
 
 				&:before {
-					content: '';
+					content: "";
 					width: 25px;
 					height: 25px;
 					margin: 0 20px 0 30px;
 					display: inline-block;
 					vertical-align: text-bottom;
-					background: url(/arquivos/ico-account.png) no-repeat scroll 0 0 transparent;
+					background: url(/arquivos/ico-account.png) no-repeat scroll
+						0 0 transparent;
 				}
 			}
 
@@ -179,12 +189,12 @@ body.orders {
 .section__account .control-label {
 	padding: 10px 0 3px;
 }
-.section__account input[type='text'],
+.section__account input[type="text"],
 .section__account select {
 	width: 100%;
 }
-.section__account input[type='radio'],
-.section__account input[type='checkbox'] {
+.section__account input[type="radio"],
+.section__account input[type="checkbox"] {
 	margin: 0 5px 0 0;
 	float: none;
 	position: relative;
@@ -297,7 +307,7 @@ body.orders {
 .modal-footer:after {
 	display: table;
 	line-height: 0;
-	content: '';
+	content: "";
 }
 
 .modal-footer:after {
@@ -321,6 +331,18 @@ body.orders {
 	margin: 20px 0 30px;
 	.columns {
 		align-items: stretch;
+	}
+	.column.is-4 {
+		&:first-of-type {
+			.account__box {
+				margin-left: 0;
+			}
+		}
+		&:last-of-type {
+			.account__box {
+				margin-right: 0;
+			}
+		}
 	}
 }
 
@@ -364,7 +386,7 @@ body.orders {
 		color: #fff;
 		text-decoration: none;
 		font-weight: 100;
-		letter-spacing: .5px;
+		letter-spacing: 0.5px;
 	}
 
 	.modal {
@@ -374,6 +396,15 @@ body.orders {
 	.profile-detail-display {
 		.title {
 			font-size: 14px;
+		}
+		h4 {
+			font-size: 0px !important;
+			display: flex;
+			align-items: center;
+			&::after {
+				content: "MEUS DADOS";
+				font-size: 20px;
+			}
 		}
 	}
 

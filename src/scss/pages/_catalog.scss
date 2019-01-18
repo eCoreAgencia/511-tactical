@@ -7,14 +7,16 @@ body {
 		.section__title {
 			background: url(/arquivos/BG_Banner_Categoria.jpg) center;
 			text-align: center;
+			margin-top: 5px;
 			h2 {
 				padding: 0;
 				color: #211e14;
+				@extend %font-family-unitedsans;
 				font-size: 75px;
 				font-weight: 700;
-				line-height: 48px;
+				line-height: 100px;
 				text-transform: uppercase;
-				font-family:'TrumpGothicWest-Bold';
+				font-family: "United Sans Condensed";
 			}
 		}
 
@@ -50,8 +52,12 @@ body {
 					font-weight: 700;
 					&.btnClear {
 						i {
-							svg {
+							&:before {
+								content: "x";
+								font-family: Arial;
+								font-weight: bold;
 								margin-right: 5px;
+								font-size: 18px;
 							}
 						}
 					}
@@ -167,17 +173,9 @@ body {
 					display: flex;
 					justify-content: space-between;
 					a {
-						svg {
-							use {
-								fill: #e8e7e5 !important;
-							}
-						}
+						color: #e8e7e5;
 						&.active {
-							svg {
-								use {
-									fill: #e75300 !important;
-								}
-							}
+							color: #e75300;
 						}
 					}
 				}
@@ -200,6 +198,7 @@ body {
 				color: #6a6157;
 				@extend %font-family-unitedsans;
 				font-size: 14px;
+				font-weight: 300;
 				text-transform: uppercase;
 				letter-spacing: 0.5px;
 			}
@@ -265,7 +264,6 @@ body {
 								justify-content: space-between;
 								align-items: center;
 								width: 100%;
-								max-width: 100%;
 								.product__header {
 								}
 							}
@@ -414,8 +412,13 @@ body {
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
-				h2 {
+				margin-top: 0;
+				h2,
+				em {
 					font-size: 32px;
+					color: #211f13;
+					font-style: normal;
+					font-family: "UnitedSansCond-Bold";
 					@media only screen and (max-width: 640px) {
 						padding: 0 10px;
 						line-height: 45px;
@@ -444,10 +447,11 @@ body {
 				}
 				em {
 					margin: 0 5px;
+					font-style: normal;
 				}
 				form {
 					position: relative;
-					border: 1px solid #ccc;
+
 					width: 643px;
 					@media only screen and (max-width: 640px) {
 						width: 100%;
@@ -456,9 +460,9 @@ body {
 						padding: 20px;
 					}
 					input {
+						border: 2px solid #ccc;
 						width: 100%;
 						@media only screen and (max-width: 640px) {
-							border: 1px solid #ccc;
 						}
 						&[type="text"] {
 							padding: 10px;
@@ -485,6 +489,10 @@ body {
 								width: 100%;
 								left: 0;
 							}
+						}
+						&::placeholder {
+							font-weight: 500;
+							color: #c8c8c8;
 						}
 					}
 				}
