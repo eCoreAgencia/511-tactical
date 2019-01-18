@@ -27,10 +27,10 @@
 		display: none;
 		flex-direction: column;
 		overflow: auto;
+		padding: 20px;
 		@include atMedium {
 			width: 400px;
 			overflow: hidden;
-
 		}
 
 		.active & {
@@ -51,20 +51,22 @@
 	&__handle {
 		border: none;
 		box-shadow: 0;
-        background-color: transparent;
-        @include atMedium {
-
-            padding-right: 0;
-        }
+		background-color: transparent;
+		@include atMedium {
+			padding-right: 0;
+		}
 
 		.minicart__header & {
 			width: 100%;
 			display: flex;
 			align-items: center;
 			background-color: $c-white;
-			padding: 30px 0;
+			padding: 0 0 25px 0;
 			svg {
 				width: 10px;
+			}
+			@include atMedium {
+				padding: 30px 0;
 			}
 		}
 	}
@@ -75,7 +77,7 @@
 
 	&__title {
 		color: #e75300;
-		font-family: 'Roboto';
+		font-family: "Roboto";
 		font-weight: 400;
 		@include font-size(17px);
 		margin: 0 auto 0 18px;
@@ -100,7 +102,7 @@
 		margin-bottom: 20px;
 		&:hover {
 			color: #fff;
-    		text-decoration: none;
+			text-decoration: none;
 		}
 	}
 
@@ -136,11 +138,14 @@
 		}
 
 		&__name {
-			@include font-size(18px);
+			@include font-size(16px);
 			color: #211e14;
 			@extend %font-family-roboto;
 			font-weight: 700;
 			margin: 0 0 10px 0;
+			@include atMedium {
+				@include font-size(18px);
+			}
 		}
 
 		&__remove {
@@ -177,7 +182,6 @@
 
 		.icon-cart--black {
 			@include atMedium {
-
 				svg {
 					// stroke: #000;
 					fill: #000;
@@ -188,7 +192,7 @@
 			}
 			.header--fixed & {
 				fill: #bab1a8;
-					use {
+				use {
 					fill: #bab1a8;
 				}
 			}
