@@ -62,15 +62,16 @@ block content
 											| Preço a vista:
 											strong.skuPrice R$ 639,90
 					.product__skus
+					.product__table
+							a.btn(href='#open-modal')
+								|  Tabela de Medidas
 					.product__action
 						.product__action-top
 							span.product__action-title Quantidade
 							.product__qtd
 
 							.product__buy
-						.product__table
-							a.btn(href='#open-modal')
-								|  Tabela de Medidas
+
 						.product__action-bottom
 							+vtex-controller('<vtex.cmc:BuyButton/>')
 								a.buy-button.buy-button-ref(target='_top', href="javascript:alert('Por favor, selecione o modelo desejado.');", style='display:block')

@@ -23,7 +23,7 @@ class Product {
 
 		if($('body').hasClass('product')) {
 			this.addProductToCart();
-			//this.fixeInfoProduct();
+			this.fixeInfoProduct();
 		}
 
 		const productWithVariations = getProductWithVariations(productId);
@@ -75,7 +75,12 @@ class Product {
 	fixeInfoProduct() {
 		var nav = $('.product__main .product__info');
 
+
+
 		$(window).scroll(function () {
+			var newsletter = $('.section__newsletter').offset();
+			var dist = newsletter.top - nav.height();
+			console.log(newsletter.top, dist, 'ass');
 			if ($(document).scrollTop() > 115) {
 				if ($(this).scrollTop() >= $('body main > .container').first().height() - 450) {
 					nav.removeClass("menu-fixo");
@@ -213,9 +218,7 @@ class Product {
 		})
 	}
 
-	getDetailProduct(product) {
-		const detail = product['Especificações técnicas']
-	}
+
 
 	renderSkuSelectors(product) {
         const productSimilar = getProductSimilarById(product.productId);
@@ -224,10 +227,12 @@ class Product {
 			console.log(products[0]["Especificações técnicas"]);
 
 			if(products[0]["Especificações técnicas"].length > 0){
+
+				const items = products[0]["Especificações técnicas"][0].split(';');
 				const detail = `
 					<div class="product__description-detail">
 						<span class="product__description-detail-title">Detalhes</span>
-						<ul>${products[0]["Especificações técnicas"].map(item => `<li> <span>+</span> ${item}</li>`).join('')}</ul>
+						<ul>${items.map(item => `<li> <span>+</span> ${item}</li>`).join('')}</ul>
 					</div>`;
 
 				$(detail).insertAfter('.product__description .productDescription');
@@ -277,7 +282,7 @@ class Product {
 
 	createSkuThumb(products) {
 		console.log(products)
-		return products.map(product => `<li><a style="background-image: url('/arquivos/${product.ListaCores[0]}.jpg')" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`).join('');
+		return products.map(product => `<li><a style="background-image: url('/arquivos/.jpg')" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`).join('');
 
 	}
 
@@ -286,15 +291,20 @@ class Product {
 		const selectID = idproduct;
 		$(".thumbs li").remove();
 
-		vtexjs.catalog.getProductWithVariations(selectID).done(function(product){
+		const productWithVariations = getProductWithVariations(idproduct)
+
+		productWithVariations.then( product => {
 			let urlPrinciapal = product.skus[0].image;
 			$("#image #image-main").attr("src",urlPrinciapal);
+			$('.product__zoom-image img').attr("src",urlPrinciapal);
 		});
 
 		productSimilar.then(products => {
+			$('.product__zoom-thumbs').empty();
 			products.map(index => {
 				if(index.productId == selectID) {
 					let arrayList = index.items[0].images;
+
 					arrayList.map(index => {
 						let urlImage = index.imageUrl;
 						let renderImage = `<li>
@@ -302,7 +312,13 @@ class Product {
 													<img src="${urlImage}" title="CALCA-APEX-BATTLE-BROWN-BR-42-CURTO---US-32---30" alt="CALCA-APEX-BATTLE-BROWN-BR-42-CURTO---US-32---30">
 												</a>
 											</li>`;
+						let zoomImage = `<a href="javascript:void(0);">
+												<img src="${urlImage}" title="CALCA-APEX-BATTLE-BROWN-BR-42-CURTO---US-32---30" alt="CALCA-APEX-BATTLE-BROWN-BR-42-CURTO---US-32---30">
+											</a>`;
 						$(renderImage).appendTo(".thumbs");
+						$('.product__zoom-thumbs').append(zoomImage);
+
+
 					})
 				}
 			})
