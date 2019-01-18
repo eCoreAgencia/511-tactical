@@ -455,6 +455,12 @@
 				@extend %text-transform-uppercase;
 			}
 
+			.select-options {
+				li:first-child {
+					display: none;
+				}
+			}
+
 			.select-styled {
 				@extend %display-flex;
 				@extend %flex-align-items-center;
@@ -481,6 +487,8 @@
 			.select-options {
 				@extend %position-absolute;
 				@extend %background-color-white;
+				overflow: auto;
+				max-height: 200px;
 				top: 100%;
 				border: 3px solid #211e14;
 				border-top: none;
