@@ -65,7 +65,8 @@ body {
 							i {
 								margin-right: 5px;
 								&:before {
-									font-size: 11px;
+									font-size: 17px;
+									vertical-align: sub;
 								}
 							}
 							&:hover {
@@ -84,8 +85,15 @@ body {
 							transition: 0.3s ease;
 							i {
 								margin-right: 5px;
+								&.icon-arrow-left {
+									&:before {
+										font-size: 13px;
+										vertical-align: top;
+									}
+								}
 								&:before {
-									font-size: 11px;
+									font-size: 17px;
+									vertical-align: sub;
 								}
 							}
 							&:hover {
@@ -124,6 +132,11 @@ body {
 			&__orderBy {
 				display: flex;
 				align-items: center;
+				select {
+					background: #f8f7f5 url(https://www.511tactical.com/static/version1547043251/frontend/511/default/en_US/images/icon-dropdown-orange.svg) no-repeat;
+					background-position: right 15px center;
+					padding-left: 10px;
+				}
 				@include mq(mobile) {
 					width: 43%;
 					select {
