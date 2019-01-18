@@ -78,11 +78,11 @@
 						margin-bottom: 20px;
 						h5 {
 							display: block;
-							font-size: 16px;
+							font-size: 17px;
 							font-weight: 700;
 							color: #211e14;
 							letter-spacing: 0.5px;
-							margin-bottom: 5px;
+							margin-bottom: 15px;
 							@extend %font-family-unitedsans;
 							text-transform: uppercase;
 						}
@@ -92,7 +92,8 @@
 								@extend %font-family-unitedsans;
 								font-size: 14px;
 								color: #000;
-								font-weight: 300;
+								font-weight: 500;
+								margin-bottom: 10px;
 								input {
 									margin-right: 5px;
 								}
@@ -182,6 +183,14 @@
 								border: 1px solid black;
 								display: inline-block;
 								margin-right: 5px;
+							}
+							&.sr_selected {
+								&:before {
+									background-image: url("/arquivos/Check_-_FontAwesome.png");
+
+									background-repeat: no-repeat;
+									background-position: center;
+								}
 							}
 						}
 					}

@@ -24,8 +24,11 @@
                 }
             }
             &::after {
-                content: '/';
-                margin-left: 5px;
+				content: '/';
+				font-weight: 100;
+				font-size: 14px;
+				color: #6A6257;
+                margin-left: 3px;
                 display: inline-block;
             }
 
@@ -37,7 +40,7 @@
 
             &.last {
                 a {
-                    color: #000;
+                    color: #6A6257;
                     font-weight: 700;
                 }
             }

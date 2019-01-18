@@ -23,7 +23,7 @@ class Product {
 
 		if($('body').hasClass('product')) {
 			this.addProductToCart();
-			this.fixeInfoProduct();
+			//this.fixeInfoProduct();
 		}
 
 		const productWithVariations = getProductWithVariations(productId);
@@ -83,7 +83,7 @@ class Product {
 				nav.removeClass("menu-fixo");
 			}
 		});
-		
+
 	}
 
     inputQuantity() {
