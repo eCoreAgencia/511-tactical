@@ -72,6 +72,9 @@
 		.b2b__link {
 			@extend %display-flex;
 			align-items: center;
+			&:hover {
+				color: #6c6359;
+			}
 
 			&::after {
 				content: "";

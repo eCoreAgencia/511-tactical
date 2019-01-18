@@ -59,8 +59,8 @@ class Minicart {
 						</div>
 					</div>
 				</div>
+				<a class="minicart__checkout btn-cart-checkout" href="/Site/Carrinho.aspx">IR PARA O CARRINHO</a>
 				<div class="minicart__content--scroll">
-					<a class="minicart__checkout" href="/Site/Carrinho.aspx">IR PARA O CARRINHO</a>
 					<div class="minicart__content">
 						<ul class="minicart__products">
 							${this.renderItems()}

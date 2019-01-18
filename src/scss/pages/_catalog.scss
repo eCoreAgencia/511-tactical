@@ -7,16 +7,15 @@ body {
 		.section__title {
 			background: url(/arquivos/BG_Banner_Categoria.jpg) center;
 			text-align: center;
-			margin-top: 5px;
 			h2 {
 				padding: 0;
 				color: #211e14;
 				@extend %font-family-unitedsans;
 				font-size: 75px;
 				font-weight: 700;
-				line-height: 100px;
+				line-height: 45px;
 				text-transform: uppercase;
-				font-family: "United Sans Condensed";
+				font-family: 'TrumpGothicWest-Bold';
 			}
 		}
 
@@ -52,12 +51,9 @@ body {
 					font-weight: 700;
 					&.btnClear {
 						i {
+							padding-right: 5px;
 							&:before {
-								content: "x";
-								font-family: Arial;
-								font-weight: bold;
-								margin-right: 5px;
-								font-size: 18px;
+								display: none;
 							}
 						}
 					}
@@ -142,6 +138,7 @@ body {
 					background: #f8f7f5 url(https://www.511tactical.com/static/version1547043251/frontend/511/default/en_US/images/icon-dropdown-orange.svg) no-repeat;
 					background-position: right 15px center;
 					padding-left: 10px;
+					-webkit-appearance: none;
 				}
 				@include mq(mobile) {
 					width: 43%;
@@ -201,6 +198,7 @@ body {
 				font-weight: 300;
 				text-transform: uppercase;
 				letter-spacing: 0.5px;
+				font-weight: bold;
 			}
 		}
 
@@ -350,6 +348,7 @@ body {
 							justify-content: space-between;
 							align-items: center;
 							width: 100%;
+							max-width: 100%;
 						}
 						.product__header {
 							flex-shrink: 0;
