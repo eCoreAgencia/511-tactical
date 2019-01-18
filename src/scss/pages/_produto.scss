@@ -6,8 +6,11 @@
 	&__table {
 		padding: 0 0 30px;
 		a {
+			@extend %font-family-unitedsans;
 			padding: 0;
 			text-transform: uppercase;
+			@include font-size(14px);
+			font-weight: 800;
             &:hover{
                 text-decoration: none;
 				color: #e95500;
