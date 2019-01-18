@@ -334,6 +334,12 @@
 				li {
 					height: 75px;
 					margin-bottom: 10px;
+					&:hover {
+						outline: #000;
+						outline-width: 3px;
+						outline-offset: -3px;
+						outline-style: solid;
+					}
 				}
 
 			}
@@ -485,7 +491,7 @@
 				}
 			}
 
-			.select-options { 
+			.select-options {
 				@extend %position-absolute;
 				@extend %background-color-white;
 				overflow: auto;
