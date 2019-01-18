@@ -66,9 +66,7 @@
 
 	&__info {
 		.product__main & {
-			margin-left: auto;
-			position: sticky;
-			top: 0;
+			flex: 1
 		}
 		.description {
 			display: none;
@@ -240,6 +238,11 @@
 		#show {
 			@extend %display-flex;
 			@extend %flex-direction-row-reverse;
+		}
+
+		.product__main  & {
+			flex: 1;
+			max-width: 666px;
 		}
 
 	}
@@ -622,6 +625,10 @@
 				span {
 					color: $c-primary;
 					margin-right: 10px;
+				}
+
+				li:last-child {
+					display: none;
 				}
 			}
 
