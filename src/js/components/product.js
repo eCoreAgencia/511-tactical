@@ -32,7 +32,12 @@ class Product {
 				self.product = product;
 				const price = self.renderPrice(product.skus[0]);
 				$('.product__main .product__price').html(price);
-				self.renderSkuSelectors(product);
+				if(product.dimensionsMap.Tamanho[0] == 'U'){
+					self.item.id = product.skus[0].sku;
+				} else {
+					self.renderSkuSelectors(product);
+				}
+
 				$('.product__main .product__buy').html(self.buttonBuy());
 				$('.product__main .product__qtd').html(self.inputQuantity());
 			} else {
@@ -53,8 +58,6 @@ class Product {
 			// const productID = $(this).data('product-id');
 			// self.changeProduct(productID);
 		})
-
-
 
 
 
@@ -210,11 +213,26 @@ class Product {
 		})
 	}
 
+	getDetailProduct(product) {
+		const detail = product['Especificações técnicas']
+	}
+
 	renderSkuSelectors(product) {
         const productSimilar = getProductSimilarById(product.productId);
         console.log(product);
 		productSimilar.then(products => {
-			console.log(products);
+			console.log(products[0]["Especificações técnicas"]);
+
+			if(products[0]["Especificações técnicas"].length > 0){
+				const detail = `
+					<div class="product__description-detail">
+						<span class="product__description-detail-title">Detalhes</span>
+						<ul>${products[0]["Especificações técnicas"].map(item => `<li> <span>+</span> ${item}</li>`).join('')}</ul>
+					</div>`;
+
+				$(detail).insertAfter('.product__description .productDescription');
+			}
+
 
 
 			const select = `

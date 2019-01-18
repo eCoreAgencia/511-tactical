@@ -1468,7 +1468,8 @@
             "linkText": "calca-511-tactical",
             "productReference": "844802018326",
             "categoryId": "39",
-            "productTitle": "CALÇA 5.11 TACTICAL",
+			"productTitle": "CALÇA 5.11 TACTICAL",
+			"Especificações técnicas": ["Composição"],
             "metaTagDescription": "Calça tática masculina 100% algodão, tecido tipo algodão canvas com 7 bolsos, cintura elástica para fácil ajuste no corpo, reforço nos joelhos e na parte traseira.",
             "clusterHighlights": {},
             "productClusters": {
