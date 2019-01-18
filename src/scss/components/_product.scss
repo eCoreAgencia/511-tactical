@@ -604,6 +604,29 @@
 		.section__title {
 			justify-content: flex-start;
 		}
+
+		&-detail {
+			margin: 40px 0;
+
+			&-title {
+				@extend %font-family-unitedsans;
+				@extend %text-transform-uppercase;
+				@include font-size(23px);
+				font-weight: 800;
+			}
+
+			ul {
+				margin: 20px 0;
+				list-style: none;
+
+				span {
+					color: $c-primary;
+					margin-right: 10px;
+				}
+			}
+
+
+		}
 	}
 
 	&__unavailable {
