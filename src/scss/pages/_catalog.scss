@@ -438,7 +438,7 @@ body {
 				}
 				form {
 					position: relative;
-					border: 1px solid #ccc;
+
 					width: 643px;
 					@media only screen and (max-width: 640px) {
 						width: 100%;
@@ -447,9 +447,9 @@ body {
 						padding: 20px;
 					}
 					input {
+						border: 2px solid #ccc;
 						width: 100%;
 						@media only screen and (max-width: 640px) {
-							border: 1px solid #ccc;
 						}
 						&[type="text"] {
 							padding: 10px;
@@ -476,6 +476,10 @@ body {
 								width: 100%;
 								left: 0;
 							}
+						}
+						&::placeholder {
+							font-weight: 500;
+							color: #c8c8c8;
 						}
 					}
 				}
