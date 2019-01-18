@@ -190,10 +190,10 @@
 			}
 
 			.menu__submenu .menu__link {
-				color: #fbf7f1;
+				color: #fbf8f3;
 				font-family: "United Sans";
 				font-size: 16px;
-				font-weight: 800;
+				font-weight: 700;
 				line-height: 34px;
 				text-transform: uppercase;
 				letter-spacing: 0.57px;
@@ -221,7 +221,7 @@
 				height: 100%;
 				border-right: 2px solid #6a6157;
 				max-width: 167px;
-				padding-right: 24%;
+				padding-right: 17%;
 				justify-content: flex-start;
 			}
 
@@ -260,7 +260,7 @@
 				font-family: "United Sans";
 				display: block;
 				width: 100%;
-				font-weight: 800;
+				font-weight: 700;
 				margin-bottom: 7px;
 				@include font-size(16px);
 			}

@@ -19,7 +19,7 @@ class Filter {
 				$('.category__filter.filter').fadeOut();
 				$('.category__filter.filter').removeClass('active');
 			} else {
-				$(this).html('<i class="icon-filter"></i><p>Fechar</p><p>Filtros</p>');
+				$(this).html('<i class="icon-arrow-left"></i><p>Fechar</p><p>Filtros</p>');
 				$('.category__filter.filter').fadeIn();
 				$('.category__filter.filter').addClass('active');
 			}
