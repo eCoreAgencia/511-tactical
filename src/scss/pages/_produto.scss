@@ -4,20 +4,25 @@
     }
 
 	&__table {
-		padding: 20px 0;
+		padding: 0 0 30px;
 		a {
-            padding-left: 0;
+			@extend %font-family-unitedsans;
+			padding: 0;
+			text-transform: uppercase;
+			@include font-size(14px);
+			font-weight: 800;
             &:hover{
                 text-decoration: none;
-                color: #e95500;
+				color: #e95500;
+
             }
 		}
 	}
 
     .modal-window {
         > div {
-            width: 80%;
-            max-width: initial;
+            width: 100%;
+            max-width: 1200px;
         }
     }
 

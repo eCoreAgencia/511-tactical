@@ -214,6 +214,7 @@ class Product {
 
 			} else {
 				self.renderFormNotifyMe(product);
+				$('.product__table').hide();
 			}
 		})
 	}
