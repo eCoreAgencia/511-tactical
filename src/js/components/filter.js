@@ -160,7 +160,7 @@ $(document).ready(function(){
 					`
 				}
 			}else {
-				price = `<span class="product__unavailable>Indisponível</span>`
+				price = `<span class="product__unavailable">Indisponível</span>`
 			}
 			const html = `
 					<div class="product product--shelf">
