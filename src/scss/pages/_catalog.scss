@@ -247,6 +247,7 @@ body {
 					li {
 						transition: 0.5s ease;
 						display: inline-block;
+						vertical-align: top;
 						margin: 10px;
 						@include mq(mobile) {
 							width: 42%;
