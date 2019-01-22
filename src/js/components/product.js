@@ -283,7 +283,7 @@ class Product {
 
 	createSkuThumb(products) {
 		console.log(products)
-		return products.map(product => `<li><a style="background-image: url('/arquivos/.jpg')" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`).join('');
+		return products.map(product => `<li><a style="background-image: url('/arquivos/${product.ListaCores[0]}.jpg')" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`).join('');
 
 	}
 
