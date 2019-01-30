@@ -58,15 +58,18 @@ body.login {
 	}
 
 	.vtexIdUI .vtexIdUI-providers-list li .btn {
-		width: 411px;
-		height: 80px;
-		background-image: none;
-		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-		background-color: #e75300;
 		border-radius: 0;
-		display: flex;
-		justify-content: center;
-		padding-left: 40px;
+		width: 100%;
+		text-align: center;
+		display: block;
+		height: 60px;
+		background-image: none;
+		background-color: #e75300;
+		box-shadow: none;
+		span {
+			text-align: center;
+			display: block;
+		}
 		&#loginWithUserAndPasswordBtn {
 			padding: 20px;
 		}
@@ -79,15 +82,8 @@ body.login {
 		}
 		span {
 			color: #ffffff;
-			// @extend %font-family-unitedsans;
-			font-size: 13px;
+			font-size: 14px;
 			font-weight: 700;
-			line-height: 25px;
-			text-transform: uppercase;
-			text-shadow: none;
-			display: flex;
-			flex-wrap: nowrap;
-			flex: 1;
 			@media (max-width: 800px) {
 				font-size: 14px;
 			}
@@ -95,7 +91,7 @@ body.login {
 	}
 	.vtexIdUI #vtexIdUI-facebook {
 		&::before {
-			content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="21" viewBox="0 0 21 21"><defs><path id="7ks5a" d="M64.063 285A3.939 3.939 0 0 1 68 288.938v13.125A3.939 3.939 0 0 1 64.062 306h-2.57v-8.135h2.72l.411-3.172h-3.13v-2.023c0-.916.245-1.531 1.571-1.531l1.668-.014v-2.83c-.287-.041-1.285-.123-2.433-.123-2.42 0-4.088 1.476-4.088 4.183v2.338h-2.734v3.172h2.734V306h-7.273A3.939 3.939 0 0 1 47 302.062v-13.125A3.939 3.939 0 0 1 50.938 285z"/></defs><g><g transform="translate(-47 -285)"><use fill="#fff" xlink:href="#7ks5a"/></g></g></svg>');
+			content: "\e603";
 			display: block;
 			@media (max-width: 800px) {
 				margin: 0 10px;
@@ -104,10 +100,13 @@ body.login {
 	}
 
 	.vtexIdUI-others-send-email span {
+		margin-top: 0;
+		margin-left: -30px;
 		&::before {
-			display: block;
+			display: inline-block;
 			content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="17" viewBox="0 0 22 17"><defs><path id="blu1a" d="M67 359.553v12.094a1.55 1.55 0 0 1-1.545 1.553H48.548A1.552 1.552 0 0 1 47 371.647v-12.094c0-.858.695-1.553 1.548-1.553h16.907A1.55 1.55 0 0 1 67 359.553zm-18.827-.865l8.867 8.844 8.79-8.844zm-.485 13.325l6.41-6.448-6.41-6.389zm18.143.498l-6.384-6.422-2.163 2.173a.34.34 0 0 1-.485 0l-2.212-2.204-6.414 6.453zm.495-13.335l-6.394 6.42 6.394 6.417z"/></defs><g><g transform="translate(-46 -357)"><use fill="#fff" fill-opacity="0" stroke="#fff" stroke-miterlimit="50" stroke-width=".3" xlink:href="#blu1a"/></g></g></svg>');
 			margin: 0 20px;
+			vertical-align: sub;
 			@media (max-width: 800px) {
 				margin: 0 10px;
 			}

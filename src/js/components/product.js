@@ -115,6 +115,7 @@ class Product {
 	}
 
 	renderPrice(product) {
+		console.log(product)
 		const installmentsValue = product.installmentsValue / 100;
 		const listPrice = `<em class="valor-de price-list-price">De:<strong class="skuListPrice">${product.listPriceFormated}</strong></em>`;
 		const bestPrice = `<em class="valor-por price-best-price">Por:<strong class="skuBestPrice">${product.bestPriceFormated}</strong></em>`;
@@ -225,18 +226,25 @@ class Product {
         const productSimilar = getProductSimilarById(product.productId);
         console.log(product);
 		productSimilar.then(products => {
-			console.log(products[0]["Especificações técnicas"]);
+			console.log('tessa')
+			console.log(products[0]);
 
 			if(products[0]["Especificações técnicas"].length > 0){
 
 				const items = products[0]["Especificações técnicas"][0].split(';');
 				const detail = `
 					<div class="product__description-detail">
-						<span class="product__description-detail-title">Detalhes</span>
+						<span class="product__description-detail-title" style="display: none" >Detalhes</span>
 						<ul>${items.map(item => `<li> <span>+</span> ${item}</li>`).join('')}</ul>
 					</div>`;
 
 				$(detail).insertAfter('.product__description .productDescription');
+				let itemsLi = $('.product__description-detail ul li').length;
+				if(itemsLi == 1) {
+					$('.product__description-detail-title').css('display','none');
+				} else {
+					$('.product__description-detail-title').css('display','block');
+				}
 			}
 
 
