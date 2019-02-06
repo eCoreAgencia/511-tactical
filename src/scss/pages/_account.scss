@@ -1,4 +1,9 @@
 body.orders {
+
+	.nav-pills>li+li {
+		display: none;
+	}
+
 	header .navbar {
 		position: initial;
 	}

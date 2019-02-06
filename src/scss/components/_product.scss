@@ -101,9 +101,15 @@
 	&__info {
 		padding: 10px 15px;
 		&.menu-fixo {
-				position: fixed;
-				left: 56%;
-				top: 70px;
+			position: fixed;
+			left: 56%;
+			top: 70px;
+			@media only screen and (max-width: 1730px) {
+				left: 58%;
+			}
+			@media only screen and (max-width: 1348px) {
+				left: 61%;
+			}
 		}
 	}
 
@@ -238,6 +244,10 @@
 		#show {
 			@extend %display-flex;
 			@extend %flex-direction-row-reverse;
+			padding-right: 70px; 
+			@media only screen and (max-width: 768px) {
+			    padding-right: 0px;
+			}
 		}
 
 		.product__main  & {
@@ -292,7 +302,14 @@
 			@extend %flex-wrap-wrap;
 			list-style: none;
 			width: 100%;
-
+			button.slick-next {
+				transform: rotate(90deg);
+				margin-right: 14px;
+			}
+			button.slick-prev {
+				transform: rotate(-90deg);
+				margin-right: 10px;
+			}
 			.slick-slide {
 				width: 100%;
 			}
@@ -723,6 +740,9 @@
 			img {
 				height: 100vh;
 				width: auto;
+				@media only screen and (max-width: 768px) {
+					height: auto;
+				}
 			}
 		}
 
@@ -776,6 +796,13 @@
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
+	.modal-header {
+		.modal-close {
+			@media only screen and (max-width: 768px) {
+				color: #e75300;
+			}
+		}
+	}
 	&:target {
 	  opacity: 1;
 	  pointer-events: auto;

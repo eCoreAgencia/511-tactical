@@ -32,8 +32,21 @@ class catalog {
 	}
 
 	numberProduct() {
-		let numberResult = $('.resultado-busca-numero:first .value').text();
-		$('.section__navTop__numberProduct p b').text(numberResult);
+		// let numberResult = $('.resultado-busca-numero:first .value').text();
+		// $('.section__navTop__numberProduct p b').text(numberResult);
+
+		// setTimeout(function() {
+		// 	var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
+		// 	$('.section__navTop__numberProduct p b').text(numberProduct);
+		// }, 4000)
+
+		// $('.button.btn-load-more.confira-todos-produtos').on('click', function() {
+		// 	setTimeout(function() {
+		// 		var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
+		// 		$('.section__navTop__numberProduct p b').text(numberProduct);
+		// 		console.log('load more product');
+		// 	}, 4000)
+		// })
 	}
 
 	checkText() {

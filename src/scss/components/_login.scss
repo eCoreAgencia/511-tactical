@@ -90,11 +90,42 @@ body.login {
 		}
 	}
 	.vtexIdUI #vtexIdUI-facebook {
-		&::before {
-			content: "\e603";
-			display: block;
+		border-radius: 0;
+		width: 100%;
+		text-align: center;
+		display: block;
+		height: 60px;
+		background-image: none;
+		background-color: #e75300;
+		box-shadow: none;
+		// &::before {
+		// 	content: "\e603";
+		// 	display: block;
+		// 	@media (max-width: 800px) {
+		// 		margin: 0 10px;
+		// 	}
+		// }
+		span {
+			text-align: center;
+			display: inline-block;
+			vertical-align: top;
+		}
+		&#loginWithUserAndPasswordBtn {
+			padding: 20px;
+		}
+		@media (max-width: 800px) {
+			width: 100%;
+			margin: 0 auto;
+		}
+		i {
+			display: none;
+		}
+		span {
+			color: #ffffff;
+			font-size: 14px;
+			font-weight: 700;
 			@media (max-width: 800px) {
-				margin: 0 10px;
+				font-size: 14px;
 			}
 		}
 	}
@@ -120,5 +151,41 @@ body.login {
 		font-size: 32px;
 		font-weight: lighter;
 		top: -10px;
+	}
+
+	.modal-footer {
+		background: #fff;
+		width: 94%;
+		margin: 0 auto;
+		button#classicLoginBtn, button#sendAccessKeyBtn, button#confirmLoginAccessKeyBtn, button#tryChangePswdBtn, button#changePswdBtn {
+			border: none;
+			box-shadow: none;
+			border-radius: 2px;
+			background: #e75300;
+			padding: 10px 30px;
+		}
+		a {
+			color:  #372527;
+			font-size: 15px;
+			font-weight: 500;
+			text-decoration: none;
+			i {
+				font-size: 12px;
+			}
+		}
+	}
+	div#vtexIdUI-classic-login {
+		.modal-body {
+			a {
+				color:#372527;
+				font-size: 12px;
+				font-weight: 500;
+				padding-bottom: 6px;
+			}
+		}
+	}
+
+	div#vtexIdUI-change-pswd .modal-header .vtexIdUI-header.row-fluid {
+		display: none;
 	}
 }

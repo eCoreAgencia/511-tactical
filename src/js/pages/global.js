@@ -2,6 +2,11 @@ import { isMobile } from "../utils";
 import "./../components/send-form";
 
 $(document).ready(() => {
+
+	$("body").hasClass("login") && $("body").on("click", ".vtexIdUI-page .close", function() {
+		window.location.href = "/"
+	})
+
 	const removeRS = () => {
 		$(".product--shelf").each(function() {
 			$('[class*="price__"]', this).each(function() {

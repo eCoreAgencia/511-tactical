@@ -27,7 +27,7 @@ block content
 					i.icon-filter
 					p Mostrar
 					p Filtros
-				a(href="", class="btnClear")
+				a(href="#", class="btnClear")
 					i.icon-close
 						include ../../svg/icon-close.svg
 					| Limpar filtros
@@ -64,6 +64,9 @@ block content
 			.clouseFilter
 				a(href="#" class="clouse") X
 			.filter__inner
+				a(href="#", class="btnClear")
+					span ×
+					| Limpar filtro
 				.filter__content
 					ul.filter__menu
 						li.filter__item

@@ -5,61 +5,322 @@ button.btn.btn--close
 		li.menu__item.menu__item--highlight
 			a.menu__link(href="/account") Acessar sua conta
 		li.menu__item.menu__item--dropdown
-			a.menu__link(href="/",  data-submenu="submenu-1") Masculino
+			a.menu__link(href="/", data-submenu="submenu-1") Masculino
 		li.menu__item.menu__item--dropdown
-			a.menu__link(href="/",  data-submenu="submenu-2") Feminino
-		li.menu__item
-			a.menu__link(href="/") Calçados
-		li.menu__item
-			a.menu__link(href="/") Mochilas
-		li.menu__item
-			a.menu__link(href="/") Acessórios
-		li.menu__item
-			a.menu__link(href="/") Uso Profissional
+			a.menu__link(href="/", data-submenu="submenu-2") Feminino
+		li.menu__item.menu__item--dropdown
+			a.menu__link(href="/", data-submenu="submenu-3") Calçados
+		li.menu__item.menu__item--dropdown
+			a.menu__link(href="/", data-submenu="submenu-4") Mochilas
+		li.menu__item.menu__item--dropdown
+			a.menu__link(href="/", data-submenu="submenu-5") Acessórios
+		li.menu__item.menu__item--dropdown
+			a.menu__link(href="/", data-submenu="submenu-6") Uso Profissional
 		li.menu__item.menu__item--highlight
 			a.menu__link(href="/account") 5.11 para lojistas
 		li.menu__item.menu__item--highlight
 			a.menu__link(href="/account") Encontre uma loja
+
+	// PRIMEIRO NIVEL DO MENU
 	ul.menu.menu--level.submenu.submenu-1
 		li.menu__item.menu__item--dropup
 			a.menu__link(href='#', data-menu='menu--main') Masculino
 		li.menu__item
-			a.menu__link(href="/masculino/lancamentos") Lançamentos
+			a.menu__link(href="/masculino/Vestuario/Calcas?O=OrderByNameASC") Calças
+		li.menu__item.menu__item--dropdown
+			a.menu__link(href="#", data-submenu="submenu-1-1") Agasalhos
+		li.menu__item.menu__item--dropdown
+			a.menu__link(href="#", data-submenu="submenu-1-2") Bolsas &amp; Mochilas
+		li.menu__item.menu__item--dropdown
+			a.menu__link(href="#", data-submenu="submenu-1-3") Camisas
 		li.menu__item
-			a.menu__link(href="/masculino/fitness") Fitness
+			a.menu__link(href="/masculino/Vestuario/Shorts?O=OrderByNameASC") Shorts
 		li.menu__item
-			a.menu__link(href="/masculino/lifestyle") Lifestyle
+			a.menu__link(href="/masculino/Vestuario/Coletes?O=OrderByNameASC") Coletes
 		li.menu__item
-			a.menu__link(href="/masculino/exterior") Exterior
+			a.menu__link(href="/masculino/Vestuario/Cuecas-e-Meias?O=OrderByNameASC") Cuecas e Meias
 		li.menu__item
-			a.menu__link(href="/masculino/campo") Campo
+			a.menu__link(href="#", data-submenu="submenu-1-4") Calçados
 		li.menu__item
-			a.menu__link(href="/masculino/profissional") Profissional
+			a.menu__link(href="/masculino/Novidades?O=OrderByNameASC") Lançamentos
 		li.menu__item
-			a.menu__link(href="/masculino/sale") Sale
+			a.menu__link(href="/busca?fq=H:140") Fitness
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:141") Lifestyle
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:142") Outdoor
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:143") Treino de Tiro
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:144") Profissional
+		li.menu__item
+			a.menu__link(href="/masculino/sale?O=OrderByNameASC") Sale
 		li.menu__item.menu__item--highlight
 			a.menu__link(href="/masculino") Ver todos
-	ul.menu.menu--level.submenu.submenu-1-1
-		li.menu__item.menu__item--dropup
-			a.menu__link(href='#', data-menu='submenu-1') Sale
-		li.menu__item
-			a.menu__link(href='#') Calças
+
 	ul.menu.menu--level.submenu.submenu-2
 		li.menu__item.menu__item--dropup
 			a.menu__link(href='#', data-menu='menu--main') Feminino
 		li.menu__item
-			a.menu__link(href="/feminino/lancamentos") Lançamentos
+			a.menu__link(href="/feminino/Vestuario/Calcas?O=OrderByNameASC") Calças
+		li.menu__item.menu__item--dropdown
+			a.menu__link(href="#", data-submenu="submenu-2-1") Agasalhos
+		li.menu__item.menu__item--dropdown
+			a.menu__link(href="#", data-submenu="submenu-2-2") Bolsas &amp; Mochilas
+		li.menu__item.menu__item--dropdown
+			a.menu__link(href="#", data-submenu="submenu-2-3") Camisas
 		li.menu__item
-			a.menu__link(href="/feminino/fitness") Fitness
+			a.menu__link(href="/Feminino/Vestuario/Shorts?O=OrderByNameASC") Shorts
 		li.menu__item
-			a.menu__link(href="/feminino/lifestyle") Lifestyle
+			a.menu__link(href="/Feminino/Vestuario/Meias?O=OrderByNameASC") Meias
 		li.menu__item
-			a.menu__link(href="/feminino/exterior") Exterior
+			a.menu__link(href="#", data-submenu="submenu-2-4") Calçados
 		li.menu__item
-			a.menu__link(href="/feminino/campo") Campo
+			a.menu__link(href="/feminino/Novidades?O=OrderByNameASC") Lançamentos
 		li.menu__item
-			a.menu__link(href="/feminino/profissional") Profissional
+			a.menu__link(href="/busca?fq=H:149") Fitness
 		li.menu__item
-			a.menu__link(href="/feminino/sale") Sale
+			a.menu__link(href="/busca?fq=H:150") Lifestyle
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:151") Outdoor
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:152") Treino de Tiro
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:153") Profissional
+		li.menu__item
+			a.menu__link(href="/feminino/Sale?O=OrderByNameASC") Sale
 		li.menu__item.menu__item--highlight
-			a.menu__link(href="/feminino") Ver todos
+			a.menu__link(href="/Feminino") Ver todos
+
+	ul.menu.menu--level.submenu.submenu-3
+		li.menu__item.menu__item--dropup
+			a.menu__link(href='#', data-menu='menu--main') Calçados
+		li.menu__item
+			a.menu__link(href="/Calçados/Botas?O=OrderByNameASC") Botas
+		li.menu__item
+			a.menu__link(href="/Calçados/Sapatos?O=OrderByNameASC") Sapatos
+		li.menu__item
+			a.menu__link(href="/Calçados/Tênis?O=OrderByNameASC") tênis
+		li.menu__item
+			a.menu__link(href="/Calçados?O=OrderByReleaseDateDESC") Lançamentos
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:156") Fitness
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:157") Lifestyle
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:158") Outdoor
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:159") Treino de Tiro
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:160") Profissional
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:161") Sale
+		li.menu__item.menu__item--highlight
+			a.menu__link(href="/Calçados?O=OrderByNameASC") Ver todos
+
+	ul.menu.menu--level.submenu.submenu-4
+		li.menu__item.menu__item--dropup
+			a.menu__link(href='#', data-menu='menu--main') Bolsos Modular
+		li.menu__item
+			a.menu__link(href="/Bolsas-e-Mochilas/Bolsa-de-ombro?O=OrderByNameASC") Bolsa de Ombro
+		li.menu__item
+			a.menu__link(href="/Bolsas-e-Mochilas/Malas?O=OrderByNameASC") Malas
+		li.menu__item
+			a.menu__link(href="/Bolsas-e-Mochilas/Mochila-Transversal?O=OrderByNameASC") Mochila Transversal
+		li.menu__item
+			a.menu__link(href="/Bolsas-e-Mochilas/Mochilas?O=OrderByNameASC") Mochilas
+		li.menu__item
+			a.menu__link(href="/Bolsas-e-Mochilas/Armazenamento-para-Armas-e-Munição?O=OrderByNameASC")  Armazenamento para Armas e Munição
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:163") Fitness
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:164") Lifestyle
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:165") Outdoor
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:166") Treino de Tiro
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:167") Profissional
+		li.menu__item
+			a.menu__link(href="/Bolsas-e-Mochilas/Sale?O=OrderByNameASC") Sale
+		li.menu__item.menu__item--highlight
+			a.menu__link(href="/Bolsas-e-Mochilas?O=OrderByNameASC") Ver todos
+
+	ul.menu.menu--level.submenu.submenu-5
+		li.menu__item.menu__item--dropup
+			a.menu__link(href='#', data-menu='menu--main') Acessórios
+		li.menu__item
+			a.menu__link(href="/Acessórios/Bandoleiras?O=OrderByNameASC") Bandoleiras
+		li.menu__item
+			a.menu__link(href="/Acessórios/Cachecol?O=OrderByNameASC") Cachecol
+		li.menu__item
+			a.menu__link(href="/Acessórios/Carteiras?O=OrderByNameASC") Carteiras
+		li.menu__item
+			a.menu__link(href="/Acessórios/Chapéus,-Bonés-e-toucas?O=OrderByNameASC") Chapeus, Bonés e Toucas
+		li.menu__item
+			a.menu__link(href="/Acessórios/Cintos?O=OrderByNameASC") Cintos
+		li.menu__item
+			a.menu__link(href="/Acessórios/Coldres?O=OrderByNameASC") Coldres
+		li.menu__item
+			a.menu__link(href="/Acessórios/Ferramentas?O=OrderByNameASC") Ferramentas
+		li.menu__item
+			a.menu__link(href="/Acessórios/Lanternas?O=OrderByNameASC") Lanternas
+		li.menu__item
+			a.menu__link(href="/Acessórios/Luvas?O=OrderByNameASC") Luvas
+		li.menu__item
+			a.menu__link(href="/Acessórios/Óculos?O=OrderByNameASC") Óculos
+		li.menu__item
+			a.menu__link(href="/Acessórios/Pacth?O=OrderByNameASC") Pacth
+		li.menu__item
+			a.menu__link(href="/Acessórios/Novidades?O=OrderByNameASC") Lançamentos
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:170") Fitness
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:171") Lifestyle
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:172") Outdoor
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:173") Treino de Tiro
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:174") Profissional
+		li.menu__item
+			a.menu__link(href="/Acessórios/Sale?O=OrderByNameASC") Sale
+		li.menu__item.menu__item--highlight
+			a.menu__link(href="/Acessórios?O=OrderByNameASC") Ver todos
+
+	ul.menu.menu--level.submenu.submenu-6
+		li.menu__item.menu__item--dropup
+			a.menu__link(href='#', data-menu='menu--main') Uso Profissional
+		li.menu__item.menu__item--dropdown
+			a.menu__link(href="#", data-submenu="submenu-6-1") Bombeiros
+		li.menu__item.menu__item--dropdown
+			a.menu__link(href="#", data-submenu="submenu-6-2") Policiais
+		li.menu__item
+			a.menu__link(href="/busca/?fq=C:5/36&ft=Lançamentos") Lançamentos
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:177") Fitness
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:178") Lifestyle
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:179") Outdoor
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:180") Treino de Tiro
+		li.menu__item
+			a.menu__link(href="/busca?fq=H:176") Profissional
+		li.menu__item
+			a.menu__link(href="/busca/?fq=C:5/37&ft=Sale") Sale
+		li.menu__item.menu__item--highlight
+			a.menu__link(href="//busca/?fq=C:5&ft=Uso Profissional") Ver todos
+
+	// SEGUNDO NIVEL DO MENU
+	ul.menu.menu--level.submenu.submenu-1-1
+		li.menu__item.menu__item--dropup
+			a.menu__link(href='#', data-menu='submenu-1-1') Agasalhos
+		li.menu__item
+			a.menu__link(href="/masculino/Vestuario/Agasalhos/Jaquetas-e-Casacos?O=OrderByNameASC") Jaquetas &amp; Parkas
+		li.menu__item
+			a.menu__link(href="/masculino/Vestuario/Agasalhos/Moletons?O=OrderByNameASC") Blusões &amp; Moletons
+		li.menu__item
+			a.menu__link(href="/masculino/Vestuario/Agasalhos/Blusas-Taticas?O=OrderByNameASC") Blusas Taticas
+		li.menu__item.menu__item--highlight
+			a.menu__link(href="/masculino/Vestuario/Agasalhos?O=OrderByNameASC") Ver todos
+
+	ul.menu.menu--level.submenu.submenu-1-2
+		li.menu__item.menu__item--dropup
+			a.menu__link(href='#', data-menu='submenu-1-2') Bolsas &amp; Mochilas
+		li.menu__item
+			a.menu__link(href="/Bolsas-e-Mochilas/Bolsa-de-mão?O=OrderByNameASC") Bolsas modular
+		li.menu__item
+			a.menu__link(href="/Bolsas-e-Mochilas/Mochilas?O=OrderByNameASC") Mochilas
+		li.menu__item.menu__item--highlight
+			a.menu__link(href="/Bolsas-e-Mochilas?O=OrderByNameASC") Ver todos
+
+	ul.menu.menu--level.submenu.submenu-1-3
+		li.menu__item.menu__item--dropup
+			a.menu__link(href='#', data-menu='submenu-1-3') Camisas
+		li.menu__item
+			a.menu__link(href="/masculino/Vestuario/Camisas/camisas-de-botao?O=OrderByNameASC") Camisas de botão
+		li.menu__item
+			a.menu__link(href="/masculino/Vestuario/Camisas/Camisas-e-Polos?O=OrderByNameASC") Camisas e Polos
+		li.menu__item
+			a.menu__link(href="/masculino/Vestuario/Camisas/camisetas-e-regatas?O=OrderByNameASC") Camisetas e regatas
+		li.menu__item.menu__item--highlight
+			a.menu__link(href="/masculino/Vestuario/Camisas?O=OrderByNameASC") Ver todos
+
+	ul.menu.menu--level.submenu.submenu-1-4
+		li.menu__item.menu__item--dropup
+			a.menu__link(href='#', data-menu='submenu-1-4') Calçados
+		li.menu__item
+			a.menu__link(href="/busca/?fq=C:11/56&fq=specificationFilter_167:Masculino&O=OrderByNameASC") Botas
+		li.menu__item
+			a.menu__link(href="/busca/?fq=C:11/58&fq=specificationFilter_167:Masculino&O=OrderByNameASC") Sapatos
+		li.menu__item
+			a.menu__link(href="/busca/?fq=C:11/57&fq=specificationFilter_167:Masculino&O=OrderByNameASC") Tênis
+		li.menu__item.menu__item--highlight
+			a.menu__link(href="/busca/?fq=C:11&fq=specificationFilter_167:Masculino&O=OrderByNameASC") Ver todos
+
+	ul.menu.menu--level.submenu.submenu-2-1
+		li.menu__item.menu__item--dropup
+			a.menu__link(href='#', data-menu='submenu-2-1') Agasalhos
+		li.menu__item
+			a.menu__link(href="/feminino/Vestuario/Agasalhos/Jaquetas-e-Casacos?O=OrderByNameASC") Jaquetas &amp; Parkas
+		li.menu__item
+			a.menu__link(href="/feminino/Vestuario/Agasalhos/Moletons?O=OrderByNameASC") Blusões &amp; Moletons
+		li.menu__item
+			a.menu__link(href="/feminino/Vestuario/Agasalhos/Blusas-Taticas?O=OrderByNameASC") Blusas Taticas
+		li.menu__item.menu__item--highlight
+			a.menu__link(href="/feminino/Vestuario/Calcas?O=OrderByNameASC") Ver todos
+
+	ul.menu.menu--level.submenu.submenu-2-2
+		li.menu__item.menu__item--dropup
+			a.menu__link(href='#', data-menu='submenu-2-2') Bolsas &amp; Mochilas
+		li.menu__item
+			a.menu__link(href="/Bolsas-e-Mochilas/Bolsa-de-mão?O=OrderByNameASC") Bolsas modular
+		li.menu__item
+			a.menu__link(href="/Bolsas-e-Mochilas/Mochilas?O=OrderByNameASC") Mochilas
+		li.menu__item.menu__item--highlight
+			a.menu__link(href="/Bolsas-e-Mochilas?O=OrderByNameASC") Ver todos
+
+	ul.menu.menu--level.submenu.submenu-2-3
+		li.menu__item.menu__item--dropup
+			a.menu__link(href='#', data-menu='submenu-1-3') Camisas
+		li.menu__item
+			a.menu__link(href="/Feminino/Vestuario/Camisas/Camisas-de-botão?O=OrderByNameASC") Camisas de botão
+		li.menu__item
+			a.menu__link(href="/Feminino/Vestuario/Camisas/Camisas-e-Polos?O=OrderByNameASC") Camisas e Polos
+		li.menu__item
+			a.menu__link(href="/Feminino/Vestuario/Camisas/Camisetas-e-Regatas?O=OrderByNameASC") Camisetas e regatas
+		li.menu__item.menu__item--highlight
+			a.menu__link(href="/Feminino/Vestuario/Camisas?O=OrderByNameASC") Ver todos
+
+	ul.menu.menu--level.submenu.submenu-2-4
+		li.menu__item.menu__item--dropup
+			a.menu__link(href='#', data-menu='submenu-2-4') Calçados
+		li.menu__item
+			a.menu__link(href="/busca/?fq=C:11/56&fq=specificationFilter_167:Feminino&O=OrderByNameASC") Botas
+		li.menu__item
+			a.menu__link(href="/busca/?fq=C:11/58&fq=specificationFilter_167:Feminino&O=OrderByNameASC") Sapatos
+		li.menu__item
+			a.menu__link(href="/busca/?fq=C:11/57&fq=specificationFilter_167:Feminino&O=OrderByNameASC") Tênis
+		li.menu__item.menu__item--highlight
+			a.menu__link(href="/busca/?fq=C:11&fq=specificationFilter_167:Feminino&O=OrderByNameASC") Ver todos
+
+	ul.menu.menu--level.submenu.submenu-6-1
+		li.menu__item.menu__item--dropup
+			a.menu__link(href='#', data-menu='submenu-6-1') Bombeiros
+		li.menu__item
+			a.menu__link(href="/busca/?fq=C:5/59&ft=Botas") Botas
+		li.menu__item
+			a.menu__link(href="/busca/?fq=C:5/60&ft=Uniformes") Uniformes
+		li.menu__item.menu__item--highlight
+			a.menu__link(href="/busca/?fq=C:5/35&ft=Bombeiros") Ver todos
+
+	ul.menu.menu--level.submenu.submenu-6-2
+		li.menu__item.menu__item--dropup
+			a.menu__link(href='#', data-menu='submenu-6-1') Policiais
+		li.menu__item
+			a.menu__link(href="/busca/?fq=C:61/35&ft=Policiais") Botas
+		li.menu__item
+			a.menu__link(href="/busca/?fq=C:62/35&ft=Policiais") Uniformes
+		li.menu__item.menu__item--highlight
+			a.menu__link(href="/busca/?fq=C:34/35&ft=Policiais") Ver todos

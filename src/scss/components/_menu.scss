@@ -4,6 +4,26 @@
 
 	&__item {
 		&--dropdown {
+			
+			@media only screen and (max-width: 768px) {
+				a{
+					position: relative;
+					&:before {
+						content: "";
+						position: absolute;
+						right: 30px;
+						top: 19px;
+						display: inline-block;
+						width: 12px;
+						height: 12px;
+						border: solid #e75300;
+						border-width: 2px 2px 0 0;
+						border-radius: 2px;
+						-webkit-transform: rotate(45deg);
+						-ms-transform: rotate(45deg);
+					}
+				}
+			}
 			&:hover {
 				.menu__submenu {
 					display: block;
@@ -93,12 +113,22 @@
 					right: 0;
 					.menu__item--dropup {
 						a {
+							padding-left: 40px;
 							&:before {
-								content: "<";
-								padding-right: 8px;
-								font-size: 16px;
 								color: #e95500;
 								font-family: Arial;
+								content: "";
+								position: absolute;
+								left: 18px;
+								top: 18px;
+								display: inline-block;
+								width: 12px;
+								height: 12px;
+								border: solid #e75300;
+								border-width: 2px 2px 0 0;
+								border-radius: 2px;
+								transform: rotate(225deg);
+								-ms-transform: rotate(45deg);
 							}
 						}
 					}

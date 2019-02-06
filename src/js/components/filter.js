@@ -38,9 +38,7 @@ class Filter {
 	clearFilter() {
 		$('.btnClear').on('click', function(e) {
 			e.preventDefault();
-			$('fieldset label.sr_selected').each(function() {
-				$(this).trigger('click');
-			});
+			window.location = window.location.href;
 		});
 	}
 
@@ -106,7 +104,7 @@ $(document).ready(function(){
 				category = url[0];
 				console.log(category);
 				return false;
-			}
+			}''
 		})
 
 		const fromPage = $('.shelf--new').data('from');
@@ -216,6 +214,11 @@ $(document).ready(function(){
 
 				$('.shelf--new').html(teste);
 
+				setTimeout(function() {
+					var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
+					$('.section__navTop__numberProduct p b').text(numberProduct);
+				}, 1000)
+
 				$('.shelf__vitrine').addClass('loaded');
 
 			})
@@ -243,6 +246,11 @@ $(document).ready(function(){
 						$('.shelf--new ul').append(li);
 					});
 
+					
+					var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
+					$('.section__navTop__numberProduct p b').text(numberProduct);
+					console.log('load more product');
+
 				})
 		}
 
@@ -268,10 +276,21 @@ $(document).ready(function(){
 			$('.shelf--new').data('from', fromPage);
 			$('.shelf--new').data('to', toPage);
 
+			// setTimeout(function() {
+			// 	var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
+			// 	$('.section__navTop__numberProduct p b').text(numberProduct);
+			// 	console.log('load more product');
+			// }, 4000)
+
 		})
 
 
-		renderProducts(url);
+		if($('body').hasClass('category') || $('body').hasClass('department')) {
+			renderProducts(url);
+		} else {
+			let numberResult = $('.resultado-busca-numero:first .value').text();
+			$('.section__navTop__numberProduct p b').text(numberResult);
+		}
 	}
 })
 
