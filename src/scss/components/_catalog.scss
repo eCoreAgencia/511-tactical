@@ -5,6 +5,12 @@
 		display: none;
 	}
 
+	&.resultado-busca {
+		.section__navTop__filter {
+			display: none;
+		}
+	}
+
 	.shelf {
 		ul {
 			@extend %flex-justify-content-flex-start;

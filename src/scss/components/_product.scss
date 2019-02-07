@@ -248,6 +248,14 @@
 			@media only screen and (max-width: 768px) {
 			    padding-right: 0px;
 			}
+			#image {
+				img {
+					display: none !important;
+					&#image-main {
+						display: block !important;
+					}
+				}
+			}
 		}
 
 		.product__main  & {
