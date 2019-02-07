@@ -9,7 +9,7 @@ import {
 	changeQuantity
 } from '../utils';
 
-import {find, propEq } from 'ramda';
+import {findIndex, propEq } from 'ramda';
 
 class Product {
 	constructor() {
@@ -131,7 +131,7 @@ class Product {
 	}
 
 	renderPrice(product) {
-		console.log(product)
+
 		const installmentsValue = product.installmentsValue / 100;
 		const listPrice = `<em class="valor-de price-list-price">De:<strong class="skuListPrice">${product.listPriceFormated}</strong></em>`;
 		const bestPrice = `<em class="valor-por price-best-price">Por:<strong class="skuBestPrice">${product.bestPriceFormated}</strong></em>`;
@@ -240,9 +240,8 @@ class Product {
 
 	renderSkuSelectors(product) {
         const productSimilar = getProductSimilarById(product.productId);
-        console.log(product);
+        //console.log(product);
 		productSimilar.then(products => {
-			console.log('tessa')
 			console.log(products[0]);
 
 			if(products[0]["Especificações técnicas"].length > 0){
@@ -285,6 +284,7 @@ class Product {
 
 
 			if (products.length > 0) {
+				//alert('teste');
 				const list = `
                     <div class="product__skus--color product__skus--thumb">
                         <span class="product__skus-title">Cor</span>
@@ -299,6 +299,7 @@ class Product {
             </div>`
 				$('.product__skus').html(skus);
 			} else {
+				alert('teste 2');
 				const skus = `<div class="product__skus-inner">
                     ${select}
                 </div>`
@@ -312,19 +313,31 @@ class Product {
 	}
 
 	createSkuSelect(items,sizes) {
-
+		console.log(items);
 
 		return sizes.map(size => {
-			const sku = find(propEq('skuname', size))(items);
-			console.log(sku);
-			const html = `<option value="${sku.sku}">${size}</option>`
+			let html = '';
+			const skuI = findIndex(propEq('skuname', size))(items);
+			console.log(size, skuI, '-');
+			if(skuI >= 0){
+				html = `<option value="${items[skuI].sku}">${size}</option>`;
+			}
+
+			console.log(html);
 			return html;
 			}).join('');
 	}
 
 	createSkuThumb(products) {
-		console.log(products)
-		return products.map(product => `<li><a style="background-image: url('/arquivos/${product.ListaCores[0]}.jpg')" title="${product.ListaCores[0]}" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`).join('');
+		const productIds = products.map(product => product.productId);
+		const productFilters = products.filter((product, index) => {
+			if (findIndex(propEq('productId', productIds[index]))(products) >= index) {
+				return product;
+			}
+		})
+
+		console.log(productFilters);
+		return productFilters.map(product => `<li><a style="background-image: url('/arquivos/${product.ListaCores[0]}.jpg')" title="${product.ListaCores[0]}" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`).join('');
 
 	}
 
