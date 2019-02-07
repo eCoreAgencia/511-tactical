@@ -64,7 +64,7 @@ class Product {
 
 
 
-		$('#include #image img').on('click', function (e) {
+		$('#show ul.thumbs li img').on('click', function (e) {
 			e.preventDefault();
 			$('.product__zoom').addClass('is-active');
 
@@ -72,8 +72,8 @@ class Product {
 			$('.product__zoom .product__zoom-image img').attr('src', img);
 		})
 
-		$('#show ul.thumbs li img').on('click', function (e) {
-			e.preventDefault();
+		$('img#image-main').on('click', function (e) {
+			console.log('das');
 			$('.product__zoom').addClass('is-active');
 
 			const img = $(this).attr('src').replace('500-500', '1000-1000');
