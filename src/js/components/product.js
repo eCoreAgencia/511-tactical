@@ -261,11 +261,13 @@ class Product {
 				}
 			}
 
+			let select = '';
+
 			if (product.dimensionsMap.Tamanho[0] == 'U') {
 				self.item.id = product.skus[0].sku;
-				const select = '';
+				select = '';
 			} else {
-				const select = `
+				select = `
 					<div class="product__skus--size product__skus--select">
 						<span class="product__skus-title">Tamanho</span>
 						<select  class="sku-size" name="id">
