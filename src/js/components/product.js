@@ -9,6 +9,8 @@ import {
 	changeQuantity
 } from '../utils';
 
+import {find, propEq } from 'ramda';
+
 class Product {
 	constructor() {
 		const productId = $('#___rc-p-id').val();
@@ -267,12 +269,14 @@ class Product {
 				self.item.id = product.skus[0].sku;
 				select = '';
 			} else {
+
+
 				select = `
 					<div class="product__skus--size product__skus--select">
 						<span class="product__skus-title">Tamanho</span>
 						<select  class="sku-size" name="id">
 							<option value="" hidden>Selecione um tamanho</option>
-							${this.createSkuSelect(product.skus)}
+							${this.createSkuSelect(product.skus, product.dimensionsMap.Tamanho)}
 						</select>
 					</div>`;
 			}
@@ -307,8 +311,15 @@ class Product {
 
 	}
 
-	createSkuSelect(items) {
-		return items.map(item => `<option value="${item.sku}">${item.skuname}</option>`).join('');
+	createSkuSelect(items,sizes) {
+
+
+		return sizes.map(size => {
+			const sku = find(propEq('skuname', size))(items);
+			console.log(sku);
+			const html = `<option value="${sku.sku}">${size}</option>`
+			return html;
+			}).join('');
 	}
 
 	createSkuThumb(products) {

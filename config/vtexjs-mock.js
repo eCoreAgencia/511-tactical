@@ -1315,14 +1315,14 @@
 		},
 		"dimensionsMap": {
 			"Cor": ["COYOTE", "SELVA", "MARINE", "BLACK"],
-			"Tamanho": ["BR 37 - US 6", "BR 39,5 - US 8", "BR 40 - US 10", "BR 42 - US 12"]
+			"Tamanho": ["PP", "P", "G", "GG"]
 		},
 		"skus": [{
 				"sku": 5,
-				"skuname": "BR 37 - US 6",
+				"skuname": "G",
 				"dimensions": {
 					"Cor": "COYOTE",
-					"Tamanho": "BR 37 - US 6"
+					"Tamanho": "G"
 				},
 				"available": true,
 				"availablequantity": 99999,
@@ -1351,10 +1351,10 @@
 			},
 			{
 				"sku": 6,
-				"skuname": "BR 39,5 - US 8",
+				"skuname": "P",
 				"dimensions": {
 					"Cor": "SELVA",
-					"Tamanho": "BR 39,5 - US 8"
+					"Tamanho": "P"
 				},
 				"available": true,
 				"availablequantity": 99999,
@@ -1383,10 +1383,10 @@
 			},
 			{
 				"sku": 7,
-				"skuname": "BR 40 - US 10",
+				"skuname": "GG",
 				"dimensions": {
 					"Cor": "MARINE",
-					"Tamanho": "BR 40 - US 10"
+					"Tamanho": "GG"
 				},
 				"available": true,
 				"availablequantity": 99999,
@@ -1415,10 +1415,10 @@
 			},
 			{
 				"sku": 8,
-				"skuname": "BR 42 - US 12",
+				"skuname": "PP",
 				"dimensions": {
 					"Cor": "BLACK",
-					"Tamanho": "BR 42 - US 12"
+					"Tamanho": "PP"
 				},
 				"available": true,
 				"availablequantity": 99999,
@@ -2532,7 +2532,7 @@
 		  "items": [
 			{
 			  "itemId": "101003",
-			  "name": "BR 40 LONGO - US 30 / 34",
+			  "name": "G",
 			  "nameComplete": "CALÇA TACLITE PRO BR 40 LONGO - US 30 / 34",
 			  "complementName": "",
 			  "ean": "",
@@ -2563,7 +2563,7 @@
 				}
 			  ],
 			  "Tamanho": [
-				"BR 40 LONGO - US 30 / 34"
+				"M"
 			  ],
 			  "variations": [
 				"Tamanho"
