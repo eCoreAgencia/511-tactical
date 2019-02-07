@@ -81,7 +81,7 @@ class Product {
 			const img = $(this).attr('src').replace('500-500', '1000-1000');
 			$('.product__zoom .product__zoom-image img').attr('src', img);
 		})
-
+ 
 		$('.product__zoom .btn--close').on('click', function (e) {
 			e.preventDefault();
 			$('.product__zoom').removeClass('is-active');
