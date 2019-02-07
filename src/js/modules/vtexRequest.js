@@ -68,3 +68,28 @@ export const getSearchProducts = (term) => {
 		}
 	})
 }
+
+
+export const getSearchProductById = (productId) => {
+
+	getSearchProductById.cache = getSearchProductById.cache || {}
+	const endpoint = `/api/catalog_system/pub/products/search?fq=productId=${productId}`;
+
+
+	return new Promise((resolve, reject) => {
+		let res = getSearchProductById.cache[productId]
+		if (isLocalhost) return resolve(window.similars)
+		if (res) return resolve(res)
+		else {
+			return fetch(endpoint)
+				.then(data => {
+					getSearchProductById.cache[productId] = data.json()
+					return resolve(getSearchProductById.cache[productId])
+				})
+				.catch(err => reject(err))
+		}
+		return reject("Couldn't get product.")
+	})
+
+
+}

@@ -244,13 +244,13 @@
 		#show {
 			@extend %display-flex;
 			@extend %flex-direction-row-reverse;
-			padding-right: 70px; 
+			padding-right: 70px;
 			@media only screen and (max-width: 768px) {
 			    padding-right: 0px;
 			}
 			#image {
 				img {
-					display: none !important;
+					//display: none !important;
 					&#image-main {
 						display: block !important;
 					}
