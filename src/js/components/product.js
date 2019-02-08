@@ -1,6 +1,7 @@
 import {
 	getProductWithVariations,
-	getProductSimilarById
+	getProductSimilarById,
+	getSearchProductById
 } from '../modules/vtexRequest';
 import {
 	isMobile,
@@ -9,7 +10,7 @@ import {
 	changeQuantity
 } from '../utils';
 
-import {findIndex, propEq } from 'ramda';
+import {findIndex, propEq, replace } from 'ramda';
 
 class Product {
 	constructor() {
@@ -66,6 +67,8 @@ class Product {
 
 
 
+
+
 		$('#show ul.thumbs li img').on('click', function (e) {
 			e.preventDefault();
 			// $('.product__zoom').addClass('is-active');
@@ -75,17 +78,20 @@ class Product {
 			$('.product__zoom .product__zoom-image img').attr('src', img);
 		})
 
-		$('#show #include img').on('click', function (e) {
-			console.log('blablabdddddla')
-
-			$('.zoomPup, .zoomWindow, .zoomPreload').remove();
-
+		const openZoom = (img) => {
+			$('.product__zoom-image img').attr('src', img);
 			$('.product__zoom').addClass('is-active');
+		}
 
-			const img = $(this).attr('src').replace('500-500', '1000-1000');
-			$('.product__zoom .product__zoom-image img').attr('src', img);
+		$('.product__media #image').on('click', 'img', function (e) {
+			console.log($(this).attr('src'));
+			openZoom($(this).attr('src'));
 		})
- 
+
+		$('.thumbs').on('click', 'img', function (e) {
+			openZoom($(this).attr('src'));
+		})
+
 		$('.product__zoom .btn--close').on('click', function (e) {
 			e.preventDefault();
 			$('.product__zoom').removeClass('is-active');
@@ -100,7 +106,6 @@ class Product {
 		$(window).scroll(function () {
 			var newsletter = $('.section__newsletter').offset();
 			var dist = newsletter.top - nav.height();
-			console.log(newsletter.top, dist, 'ass');
 			if ($(document).scrollTop() > 115) {
 				if ($(this).scrollTop() >= $('body main > .container').first().height() - 450) {
 					nav.removeClass("menu-fixo");
@@ -180,17 +185,11 @@ class Product {
     addProductToCart(button){
         if(this.skuValidation()) {
 			let { id, quantity, seller } = this.item;
-			console.log(this.item)
 			addToCart(id, quantity);
-			//const endpoint = `/checkout/cart/add?sku=${id}&qty=${quantity}&seller=1&redirect=true&sc=1`
 			$(button).addClass('running');
-			console.log("te2");
 			setTimeout(function() {
 				$(".minicart").addClass("active");
 			}, 1000);
-			// $('.minicart').addClass('active');
-
-			//window.location.href = endpoint;
 
 		}
 
@@ -243,8 +242,8 @@ class Product {
 
 
 	renderSkuSelectors(product) {
+		const self = this;
         const productSimilar = getProductSimilarById(product.productId);
-        //console.log(product);
 		productSimilar.then(products => {
 			console.log(products[0]);
 
@@ -345,64 +344,64 @@ class Product {
 
 	}
 
-	getImage(idproduct) {
-		const productSimilar = getProductSimilarById(idproduct);
-		const selectID = idproduct;
-		$(".thumbs").remove();
-		$(".apresentacao #show").append('<ul class="thumbs"></ul>');
+	async getImage(idproduct) {
 
-		const productWithVariations = getProductWithVariations(idproduct)
+		const product = await getSearchProductById(idproduct);
+		const productImages = product[0].items[0].images;
+		$(".thumbs").slick('unslick');
+		$(".thumbs").empty();
+		$('.product__zoom-thumbs').empty();
+		const mainImages = () => {
+			let imageHtml = replace(/#width#/g, '1000', productImages[0].imageTag);
+			imageHtml = replace(/#height#/g, '1000', imageHtml);
+			imageHtml = replace(/~/g, '', imageHtml);
+			console.log(imageHtml);
+			$('.product__media #image').html(imageHtml);
+			$('.product__zoom-image').html(imageHtml);
+		}
+		const renderGallery = productImages.map(image => {
+			console.log(image);
+			let imageHtml = replace(/#width#/g, '500', image.imageTag);
+			imageHtml = replace(/#height#/g, '500', imageHtml);
+			imageHtml = replace(/~/g, '', imageHtml);
+			console.log(imageHtml);
+			const html = `<li><a class="ON" id="botaoZoom" href="javascript:void(0);" title="Zoom" rel="https://tactical.vteximg.com.br/arquivos/ids/155524-292-292/12110_120_01.jpg?v=636737535706500000" zoom="https://tactical.vteximg.com.br/arquivos/ids/155524-1000-1000/12110_120_01.jpg?v=636737535706500000" tabindex="0">${imageHtml}</a></li>`
+			return html;
+		}).join('');
 
-		productWithVariations.then( product => {
-			let urlPrinciapal = product.skus[0].image;
-			$("#image #image-main").attr("src",urlPrinciapal);
-			$('.product__zoom-image img').attr("src",urlPrinciapal);
+		const renderZoomThumbs = productImages.map(image => {
+			console.log(image);
+			let imageHtml = replace(/#width#/g, '500', image.imageTag);
+			imageHtml = replace(/#height#/g, '500', imageHtml);
+			imageHtml = replace(/~/g, '', imageHtml);
+			console.log(imageHtml);
+			const html = `<a href="javascript:void(0);">${imageHtml}</a>`
+			return html;
+		}).join('');
+		$(".thumbs").html(renderGallery);
+		$('.product__zoom-thumbs').html(renderZoomThumbs);
+		mainImages();
+
+
+
+		const shelf__prev = `<button type='button' class='slick-prev shelf__button'><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43" height="43" viewBox="0 0 43 43"><defs><path id="vcuya" d="M1460 1326.21l21.21-21.21 21.21 21.21-21.21 21.21z"/><path id="vcuyc" d="M1481.5 1318.5l-7.52 7.52"/><path id="vcuyd" d="M1481.5 1333.02l-7.52-7.52"/><clipPath id="vcuyb"><use fill="#fff" xlink:href="#vcuya"/></clipPath></defs><g><g transform="matrix(-1 0 0 1 1503 -1305)"><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-miterlimit="50" stroke-width="4" clip-path="url(&quot;#vcuyb&quot;)" xlink:href="#vcuya"/></g><g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyc"/></g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyd"/></g></g></g></g></svg></button>`
+		const shelf__next = `<button type='button' class='slick-next shelf__button'><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43" height="43" viewBox="0 0 43 43"><defs><path id="vcuya" d="M1460 1326.21l21.21-21.21 21.21 21.21-21.21 21.21z"/><path id="vcuyc" d="M1481.5 1318.5l-7.52 7.52"/><path id="vcuyd" d="M1481.5 1333.02l-7.52-7.52"/><clipPath id="vcuyb"><use fill="#fff" xlink:href="#vcuya"/></clipPath></defs><g><g transform="matrix(-1 0 0 1 1503 -1305)"><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-miterlimit="50" stroke-width="4" clip-path="url(&quot;#vcuyb&quot;)" xlink:href="#vcuya"/></g><g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyc"/></g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyd"/></g></g></g></g></svg></button>`
+
+		$('ul.thumbs').slick({
+			arrows: true,
+			slidesToShow: 6,
+			slidesToScroll: 1,
+			vertical: true,
+			infinite: true,
+			prevArrow: shelf__prev,
+			nextArrow: shelf__next,
+			responsive: [{
+				breakpoint: 800,
+				settings: 'unslick'
+			}]
 		});
 
-		productSimilar.then(products => {
-			$('.product__zoom-thumbs').empty();
-			products.map(index => {
-				if(index.productId == selectID) {
-					let arrayList = index.items[0].images;
 
-					arrayList.map(index => {
-						let urlImage = index.imageUrl;
-						let renderImage = `<li>
-												<a id="botaoZoom" href="javascript:void(0);" title="Zoom" rel="${urlImage}" zoom="${urlImage}" class="ON">
-													<img src="${urlImage}" title="CALCA-APEX-BATTLE-BROWN-BR-42-CURTO---US-32---30" alt="CALCA-APEX-BATTLE-BROWN-BR-42-CURTO---US-32---30">
-												</a>
-											</li>`;
-						let zoomImage = `<a href="javascript:void(0);">
-												<img src="${urlImage}" title="CALCA-APEX-BATTLE-BROWN-BR-42-CURTO---US-32---30" alt="CALCA-APEX-BATTLE-BROWN-BR-42-CURTO---US-32---30">
-											</a>`;
-						$(renderImage).appendTo(".thumbs");
-						$('.product__zoom-thumbs').append(zoomImage);
-
-
-					})
-
-					const shelf__prev = `<button type='button' class='slick-prev shelf__button'><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43" height="43" viewBox="0 0 43 43"><defs><path id="vcuya" d="M1460 1326.21l21.21-21.21 21.21 21.21-21.21 21.21z"/><path id="vcuyc" d="M1481.5 1318.5l-7.52 7.52"/><path id="vcuyd" d="M1481.5 1333.02l-7.52-7.52"/><clipPath id="vcuyb"><use fill="#fff" xlink:href="#vcuya"/></clipPath></defs><g><g transform="matrix(-1 0 0 1 1503 -1305)"><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-miterlimit="50" stroke-width="4" clip-path="url(&quot;#vcuyb&quot;)" xlink:href="#vcuya"/></g><g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyc"/></g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyd"/></g></g></g></g></svg></button>`
-					const shelf__next = `<button type='button' class='slick-next shelf__button'><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43" height="43" viewBox="0 0 43 43"><defs><path id="vcuya" d="M1460 1326.21l21.21-21.21 21.21 21.21-21.21 21.21z"/><path id="vcuyc" d="M1481.5 1318.5l-7.52 7.52"/><path id="vcuyd" d="M1481.5 1333.02l-7.52-7.52"/><clipPath id="vcuyb"><use fill="#fff" xlink:href="#vcuya"/></clipPath></defs><g><g transform="matrix(-1 0 0 1 1503 -1305)"><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-miterlimit="50" stroke-width="4" clip-path="url(&quot;#vcuyb&quot;)" xlink:href="#vcuya"/></g><g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyc"/></g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyd"/></g></g></g></g></svg></button>`
-
-					setTimeout(() => {
-						console.log('colocou o slick');
-						$('ul.thumbs').slick({
-							arrows: true,
-							slidesToShow: 6,
-							slidesToScroll: 1,
-							vertical: true,
-							infinite: true,
-							prevArrow: shelf__prev,
-							nextArrow: shelf__next,
-							responsive: [{
-								breakpoint: 800,
-								settings: 'unslick'
-							}]
-						});
-					}, 2000);
-				}
-			})
-		});
 	}
 
 	renderFormNotifyMe() {
@@ -519,10 +518,6 @@ $(document).ready(() => {
 			const footerPosition = $('.section__newsletter').offset().top;
 			const pageScroll = window.pageYOffset || document.documentElement.scrollTop;
 			var y = $(window).scrollTop();
-
-			console.log(footerPosition, pageScroll, y);
-
-
 		}
 
 		if (!isMobile.any()) {
