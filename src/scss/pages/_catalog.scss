@@ -255,6 +255,14 @@ body {
 						@include mq("tablet") {
 							width: 230px;
 						}
+						.product__price {
+							.product__unavailable {
+								display: none;
+							}
+							.btn-list {
+								display: none;
+							}
+						}
 					}
 					&.active {
 						display: flex;
@@ -264,6 +272,14 @@ body {
 							.product__id,
 							.product__reviews {
 								display: none;
+							}
+							.product__price {
+								.product__unavailable {
+									display: block;
+								}
+								.btn-list {
+									display: block;
+								}
 							}
 							.product--shelf {
 								display: flex;
@@ -287,6 +303,16 @@ body {
 								font-size: 14px;
 								font-weight: 400;
 								line-height: 20px;
+							}
+							.btn-list {
+								background: #e75300;
+								width: 100%;
+								display: block;
+								padding: 14px 0;
+								text-align: center;
+								color: #fff;
+								font-size: 15px;
+								font-weight: 800;
 							}
 							.btn-list {
 								display: block;

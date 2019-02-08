@@ -3,20 +3,20 @@ import "./../components/send-form";
 
 $(document).ready(() => {
 
+	$( "form.search-form" ).on("submit", function(event) {
+		event.preventDefault();
+	
+		let termo		 = $('.search-form input').val();
+		
+		window.location = "https://"+window.location.hostname+"/"+termo;
+	});	
+
     $(".product__info--name .description").each(function(i){
 		let len = $(this).text().length;
         if(len>60) {
             $(this).text($(this).text().substr(0,200)+'...');
         }
     });
-
-	if($('body').hasClass('resultado-busca')) {
-		let url = window.location.href;
-		// .split('title=')[1];
-		if(url.indexOf('title=')) {
-			$('.section__title .titulo-sessao').text(url.split('title=')[1].replace(/%20/g, ' '));
-		}
-	}
 
 	$("body").hasClass("login") && $("body").on("click", ".vtexIdUI-page .close", function() {
 		window.location.href = "/"

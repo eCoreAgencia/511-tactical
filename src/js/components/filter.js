@@ -126,6 +126,8 @@ $(document).ready(function(){
 
 		const mountProduct = (product) => {
 
+			let indiponivel = '';
+
 			const {items, productName, productId, description, link} = product;
 			const stock = items[0].sellers[0].commertialOffer.AvailableQuantity;
 			const bestPrice = items[0].sellers[0].commertialOffer.Price;
@@ -134,6 +136,8 @@ $(document).ready(function(){
 			const imgHeight = 500;
 			const thumbSize = `-${imgWidth}-${imgHeight}`
 			const thumb = items[0].images[0].imageTag;
+			let aboutMore = `<a class="btn btn--buy product__buy btn-list" title="${productName}" href="${link}">VER DETALHE</a>`;
+			let btnBuy = `<a class="btn btn--buy product__buy" title="${productName}" href="${link}">Compre Agora</a>`;
 			let price = ''
 
 			if(stock > 0){
@@ -158,7 +162,10 @@ $(document).ready(function(){
 					`
 				}
 			}else {
-				price = `<span class="product__unavailable">Indisponível</span>`
+				price = ``;
+				indiponivel = `<span class="product__unavailable">Indisponível</span>`;
+				btnBuy = ``;
+				aboutMore = ``;
 			}
 			const html = `
 					<div class="product product--shelf">
@@ -170,7 +177,8 @@ $(document).ready(function(){
 								</a>
 							</div>
 							<div class="product__actions">
-								<a class="btn btn--buy product__buy" title="${productName}" href="${link}">Compre Agora</a>
+								${btnBuy}
+								${indiponivel}
 							</div>
   						</div>
   						<div class="product__reviews"></div>
@@ -187,6 +195,8 @@ $(document).ready(function(){
 							</div>
     						<div class="product__price">
 									${price}
+									${indiponivel}
+									${aboutMore}
 							</div>
   						</div>
 					</div>`
