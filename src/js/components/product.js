@@ -17,6 +17,7 @@ class Product {
 		const productId = $('#___rc-p-id').val();
 
 		let self = this;
+		this.similar = '';
 		this.variations = {};
 		this.product = {};
         this.item = {};
@@ -243,29 +244,16 @@ class Product {
 
 
 
-	renderSkuSelectors(product) {
+	async renderSkuSelectors(product) {
 		const self = this;
-        const productSimilar = getProductSimilarById(product.productId);
-		productSimilar.then(products => {
-			console.log(products[0]);
+		const productSimilar = await getProductSimilarById(product.productId);
+		console.log(productSimilar);
+		self.similar = productSimilar;
 
-			if(products[0]["Especificações técnicas"].length > 0){
 
-				const items = products[0]["Especificações técnicas"][0].split(';');
-				const detail = `
-					<div class="product__description-detail">
-						<span class="product__description-detail-title" style="display: none" >Detalhes</span>
-						<ul>${items.map(item => `<li> <span>+</span> ${item}</li>`).join('')}</ul>
-					</div>`;
 
-				$(detail).insertAfter('.product__description .productDescription');
-				let itemsLi = $('.product__description-detail ul li').length;
-				if(itemsLi == 1) {
-					$('.product__description-detail-title').css('display','none');
-				} else {
-					$('.product__description-detail-title').css('display','block');
-				}
-			}
+
+
 
 			let select = '';
 
@@ -276,44 +264,60 @@ class Product {
 
 
 				select = `
-					<div class="product__skus--size product__skus--select">
-						<span class="product__skus-title">Tamanho</span>
-						<select  class="sku-size" name="id">
-							<option value="" hidden>Selecione um tamanho</option>
-							${this.createSkuSelect(product.skus, product.dimensionsMap.Tamanho)}
-						</select>
-					</div>`;
+						<div class="product__skus--size product__skus--select">
+							<span class="product__skus-title">Tamanho</span>
+							<select  class="sku-size" name="id">
+								<option value="" hidden>Selecione um tamanho</option>
+								${this.createSkuSelect(product.skus, product.dimensionsMap.Tamanho)}
+							</select>
+						</div>`;
 			}
 
 
 
 
-			if (products.length > 0) {
-				//alert('teste');
-				const list = `
-                    <div class="product__skus--color product__skus--thumb">
-                        <span class="product__skus-title">Cor</span>
-                        <ul>
-                            ${this.createSkuThumb(products)}
-                        </ul>
-                </div>`;
-				const skus = `<div class="product__skus-inner">
-                    ${list}
-                    ${select}
+			if (productSimilar.length > 0) {
 
-            </div>`
+				if (productSimilar[0]["Especificações técnicas"].length > 0) {
+
+					const items = productSimilar[0]["Especificações técnicas"][0].split(';');
+					const detail = `
+						<div class="product__description-detail">
+							<span class="product__description-detail-title" style="display: none" >Detalhes</span>
+							<ul>${items.map(item => `<li> <span>+</span> ${item}</li>`).join('')}</ul>
+						</div>`;
+
+					$(detail).insertAfter('.product__description .productDescription');
+					let itemsLi = $('.product__description-detail ul li').length;
+					if (itemsLi == 1) {
+						$('.product__description-detail-title').css('display', 'none');
+					} else {
+						$('.product__description-detail-title').css('display', 'block');
+					}
+				}
+
+				const list = `
+						<div class="product__skus--color product__skus--thumb">
+							<span class="product__skus-title">Cor</span>
+							<ul>
+								${this.createSkuThumb(products)}
+							</ul>
+					</div>`;
+				const skus = `<div class="product__skus-inner">
+						${list}
+						${select}
+
+				</div>`
 				$('.product__skus').html(skus);
 			} else {
-				alert('teste 2');
 				const skus = `<div class="product__skus-inner">
-                    ${select}
-                </div>`
+						${select}
+					</div>`
 				$('.product__skus').html(skus);
 			}
 
 
 			$(window).trigger('skuSelectorCreated');
-		});
 
 	}
 
@@ -347,15 +351,14 @@ class Product {
 	}
 
 	async getImage(idproduct) {
-
-		const product = await getSearchProductById(idproduct);
-		const productImages = product[0].items[0].images;
+		const productId = findIndex(propEq('productId', idproduct))(this.similar);
+		const productImages = this.similar[productId].items[0].images;
 		$(".thumbs").slick('unslick');
 		$(".thumbs").empty();
 		$('.product__zoom-thumbs').empty();
 		const mainImages = () => {
-			let imageHtml = replace(/#width#/g, '1000', productImages[0].imageTag);
-			imageHtml = replace(/#height#/g, '1000', imageHtml);
+			let imageHtml = replace(/#width#/g, '506', productImages[0].imageTag);
+			imageHtml = replace(/#height#/g, '506', imageHtml);
 			imageHtml = replace(/~/g, '', imageHtml);
 			console.log(imageHtml);
 			$('.product__media #image').html(imageHtml);
@@ -441,7 +444,7 @@ class Product {
 	makeZoom() {
 		$('.zoomPup, .zoomWindow, .zoomPreload').remove();
 
-		$('#image img').unwrap();
+
 
 		$('.thumbs li').each(function () {
 			const img = $('img', this).attr('src');
