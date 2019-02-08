@@ -1315,7 +1315,7 @@
 		},
 		"dimensionsMap": {
 			"Cor": ["COYOTE", "SELVA", "MARINE", "BLACK"],
-			"Tamanho": ["PP", "P", "G", "GG", "38"]
+			"Tamanho": ["U", "P", "G", "GG", "38"]
 		},
 		"skus": [{
 				"sku": 5,

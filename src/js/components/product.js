@@ -241,6 +241,7 @@ class Product {
 
 
 	renderSkuSelectors(product) {
+		const self = this;
         const productSimilar = getProductSimilarById(product.productId);
 		productSimilar.then(products => {
 			console.log(products[0]);
