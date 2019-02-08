@@ -23,12 +23,15 @@ class Product {
         this.item = {};
         this.item.quantity = 1;
         this.item.seller = "1";
-		this.makeZoom();
+
 		this.loading = `<div class="sp sp-circle"></div>`
 
 		if($('body').hasClass('product')) {
 			this.addProductToCart();
+			$('.product__main .product__media').append(this.loading);
 			$('.product__skus').html(this.loading);
+			$('.product__main .product__media').addClass('is-loading');
+			this.makeZoom();
 			if($(window).width() > 800) {
 				this.fixeInfoProduct();
 			}
@@ -66,6 +69,7 @@ class Product {
 			console.log(colorname)
 			$('.product__skus .sku-color').removeClass('active');
 			$(this).addClass('active');
+			$('.product__main .product__media').addClass('is-loading');
 			self.getImage(idproduct);
 			// const productID = $(this).data('product-id');
 			// self.changeProduct(productID);
@@ -281,7 +285,8 @@ class Product {
 
 			if (productSimilar.length > 0) {
 
-				if (productSimilar[0]["Especificações técnicas"].length > 0) {
+
+				if (productSimilar[0].hasOwnProperty("Especificações técnicas")) {
 
 					const items = productSimilar[0]["Especificações técnicas"][0].split(';');
 					const detail = `
@@ -349,7 +354,16 @@ class Product {
 		})
 
 		console.log(productFilters);
-		return productFilters.map(product => `<li><a style="background-image: url('/arquivos/${product.ListaCores[0]}.jpg')" title="${product.ListaCores[0]}" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`).join('');
+
+		return productFilters.map(product => {
+
+			if (product.hasOwnProperty("ListaCores")) {
+				return `<li><a style="background-image: url('/arquivos/${product.ListaCores[0]}.jpg')" title="${product.ListaCores[0]}" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`
+			}
+
+			return `<li><a title="" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`;
+
+		}).join('');
 
 	}
 
@@ -408,6 +422,11 @@ class Product {
 				settings: 'unslick'
 			}]
 		});
+		setTimeout(function(){
+			$('.product__main .product__media').removeClass('is-loading');
+		}, 1000)
+
+
 
 
 	}
@@ -445,6 +464,8 @@ class Product {
 	}
 
 	makeZoom() {
+
+
 		$('.zoomPup, .zoomWindow, .zoomPreload').remove();
 
 
@@ -466,6 +487,12 @@ class Product {
 			$('.product__zoom .product__zoom-image img').attr('src', img);
 
 		})
+
+		setTimeout(function () {
+			$('.product__main .product__media').removeClass('is-loading');
+		}, 1000)
+
+
 	}
 
 }

@@ -1,4 +1,7 @@
-import { getSearchProducts } from '../modules/vtexRequest'
+import {
+	getProductWithVariations,
+	getSearchProducts
+} from '../modules/vtexRequest'
 const R = require('ramda');
 
 class Filter {
@@ -124,9 +127,10 @@ $(document).ready(function(){
 			return productFilters;
 		}
 
-		const mountProduct = (product) => {
+		const mountProduct = async (product) => {
 
 			let indiponivel = '';
+			console.log(product);
 
 			const {items, productName, productId, description, link} = product;
 			const stock = items[0].sellers[0].commertialOffer.AvailableQuantity;
@@ -162,10 +166,39 @@ $(document).ready(function(){
 					`
 				}
 			}else {
-				price = ``;
-				indiponivel = `<span class="product__unavailable">Indisponível</span>`;
-				btnBuy = ``;
-				aboutMore = ``;
+				const productWithVariations = await getProductWithVariations(productId);
+				const skuAvailable = R.findIndex(R.propEq('available', true))(productWithVariations.skus);
+
+				if (skuAvailable >= 0){
+
+					if (productWithVariations.skus[skuAvailable].listPrice > productWithVariations.skus[skuAvailable].bestPrice) {
+						price = `
+						<div class="price">
+							<span class="price__old">R$ ${productWithVariations.skus[skuAvailable].listPrice.formatMoney()}</span>
+							<span class="price__best">R$ ${productWithVariations.skus[skuAvailable].bestPrice.formatMoney()}</span>
+							<span class="price__installment">
+								ou até 6X de R$ ${(productWithVariations.skus[skuAvailable].bestPrice/6).formatMoney()}
+							</span>
+						</div>
+					`
+					} else {
+						price = `
+						<div class="price">
+							<span class="price__list">R$ ${productWithVariations.skus[skuAvailable].bestPrice.formatMoney()}</span>
+							<span class="price__installment">
+								ou até 6X de R$ ${(productWithVariations.skus[skuAvailable].bestPrice/6).formatMoney()}
+							</span>
+						</div>
+					`
+					}
+
+				} else {
+					price = ``;
+					indiponivel = `<span class="product__unavailable">Indisponível</span>`;
+					btnBuy = ``;
+					aboutMore = ``;
+				}
+
 			}
 			const html = `
 					<div class="product product--shelf">
@@ -195,7 +228,6 @@ $(document).ready(function(){
 							</div>
     						<div class="product__price">
 									${price}
-									${indiponivel}
 									${aboutMore}
 							</div>
   						</div>
@@ -227,7 +259,7 @@ $(document).ready(function(){
 				setTimeout(function() {
 					var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
 					$('.section__navTop__numberProduct p b').text(numberProduct);
-					
+
 					$(".product__info--name .description").each(function(i){
 						let len = $(this).text().length;
 						if(len>60) {
@@ -263,7 +295,7 @@ $(document).ready(function(){
 						$('.shelf--new ul').append(li);
 					});
 
-					
+
 					var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
 					$('.section__navTop__numberProduct p b').text(numberProduct);
 					$(".product__info--name .description").each(function(i){
