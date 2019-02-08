@@ -1,3 +1,11 @@
+.product--shelf {
+	.product__info--name {
+		.product__name {
+			min-height: 60px;
+		}
+	}
+}
+
 .shelf {
 	&--grid {
 		ul {

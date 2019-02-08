@@ -217,6 +217,13 @@ $(document).ready(function(){
 				setTimeout(function() {
 					var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
 					$('.section__navTop__numberProduct p b').text(numberProduct);
+					
+					$(".product__info--name .description").each(function(i){
+						let len = $(this).text().length;
+						if(len>60) {
+							$(this).text($(this).text().substr(0,200)+'...');
+						}
+					});
 				}, 1000)
 
 				$('.shelf__vitrine').addClass('loaded');
@@ -249,6 +256,12 @@ $(document).ready(function(){
 					
 					var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
 					$('.section__navTop__numberProduct p b').text(numberProduct);
+					$(".product__info--name .description").each(function(i){
+						let len = $(this).text().length;
+						if(len>60) {
+							$(this).text($(this).text().substr(0,200)+'...');
+						}
+					});
 					console.log('load more product');
 
 				})
