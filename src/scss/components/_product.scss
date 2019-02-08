@@ -30,6 +30,8 @@
 
 
 .product {
+
+
 	&--shelf {
 		&:hover {
 			outline: #f2f2f2;
@@ -713,6 +715,17 @@
 			@extend %no-border;
 			padding: 13px 26px;
 			width: 100%;
+		}
+		.product--shelf & {
+			@extend %color-white;
+			@extend %font-family-unitedsans;
+			@extend %text-transform-uppercase;
+			@extend %flex-justify-content-center;
+			@extend %display-flex;
+			font-weight: 800;
+			background-color: #B8B0A7;
+			width: 100%;
+			padding: 16px 32px;
 		}
 	}
 

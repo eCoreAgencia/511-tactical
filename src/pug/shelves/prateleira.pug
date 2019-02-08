@@ -33,7 +33,15 @@ else
 			a.product__link(title= title, href= href)
 				!= getImageTag
 		.product__actions
-			a.btn.btn--buy.product__buy(title= title, href= href) Compre Agora
+			if ( global.process.env.NODE_ENV === 'production' )
+				!= '\n#if ($product.IsInStock)'
+				!= '\n 	<a class="btn btn--buy product__buy" title="XPRT® MultiCam® Tactical Pant" href="'+href+'">Compre Agora</a>'
+				!= '\n#else'
+				!= '\n	<div class="product__unavailable">Indisponível</div>'
+				!= '\n#end\n'
+			else
+				a.btn.btn--buy.product__buy(title= title, href= href) Compre Agora
+
 	.product__reviews
 	.product__info
 		.product__info--name
@@ -58,7 +66,7 @@ else
 				!= '\n    	#end'
 				!= '\n  </div>'
 				!= '\n#else'
-				!= '\n  <span class="product__unavailable>Indisponível</span>"'
+				!= '\n  '
 				!= '\n#end\n'
 			else
 				.price
