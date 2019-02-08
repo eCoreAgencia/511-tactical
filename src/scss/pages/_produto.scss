@@ -32,12 +32,18 @@
 
     .section__shelf {
 		padding: 20px 10px 0;
+		margin-bottom: 20px;
+
+        .prateleira {
+            .slick-prev {
+                transform: rotate(180deg);
+                margin-bottom: 10px;
+            }
+        }
 
         .prateleira > h2 {
             @extend %display-none;
 		}
-
-		margin-bottom: 20px;
     }
 
     .section__shelf .section__title {

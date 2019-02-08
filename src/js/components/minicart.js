@@ -51,7 +51,7 @@ class Minicart {
 					<div class="minicart__review">
 						<div class="minicart__review-header">
 							<span class="minicart__item-counter">MEU CARRINHO</span>
-							<span class="minicart__item-qty"> (${this.printQuantity(qty)} ITENS)</span>
+							<span class="minicart__item-qty"> ${this.printQuantity(qty)} ITEM(S)</span>
 						</div>
 						<div class="minicart__dsp-total">
 							<span class="minicart__dsp-txt">Subtotal do Carrinho:</span>
@@ -81,6 +81,13 @@ class Minicart {
 				index
 			}
 		]);
+		if($('.minicart').hasClass('active')) {
+			$('.minicart').removeClass('active');
+			$('body').removeClass('is-fixed');
+		} else {
+			$('.minicart').addClass('active');
+			$('body').addClass('is-fixed');
+		}
 	}
 
 	updateItem(obj) {
@@ -129,7 +136,12 @@ $(document).ready(function() {
 	window.Minicart = new Minicart();
 
 	$('body').on('click', '.minicart__handle', function() {
-		$('.minicart').toggleClass('active');
-		$('body').toggleClass('is-fixed');
+		if($('.minicart').hasClass('active')) {
+			$('.minicart').removeClass('active');
+			$('body').removeClass('is-fixed');
+		} else {
+			$('.minicart').addClass('active');
+			$('body').addClass('is-fixed');
+		}
 	});
 });
