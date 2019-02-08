@@ -39,7 +39,9 @@ class Product {
 		productWithVariations.then(product => {
 			if (product.available) {
 				self.product = product;
-				const price = self.renderPrice(product.skus[0]);
+				const skuI = findIndex(propEq('available', true))(product.skus);
+				console.log(product.skus[skuI]);
+				const price = self.renderPrice(product.skus[skuI]);
 				$('.product__main .product__price').html(price);
 				self.renderSkuSelectors(product);
 
