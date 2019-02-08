@@ -441,7 +441,6 @@ class Product {
 		$('.zoomPup, .zoomWindow, .zoomPreload').remove();
 
 		$('#image img').unwrap();
-		$('#image img').unwrap();
 
 		$('.thumbs li').each(function () {
 			const img = $('img', this).attr('src');
