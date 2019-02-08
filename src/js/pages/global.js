@@ -3,6 +3,14 @@ import "./../components/send-form";
 
 $(document).ready(() => {
 
+	if($('body').hasClass('resultado-busca')) {
+		let url = window.location.href;
+		// .split('title=')[1];
+		if(url.indexOf('title=')) {
+			$('.section__title .titulo-sessao').text(url.split('title=')[1]);
+		}
+	}
+
 	$("body").hasClass("login") && $("body").on("click", ".vtexIdUI-page .close", function() {
 		window.location.href = "/"
 	})
