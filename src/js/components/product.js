@@ -73,9 +73,10 @@ class Product {
 
 		$('#show ul.thumbs li img').on('click', function (e) {
 			e.preventDefault();
-			$('.product__zoom').addClass('is-active');
+			// $('.product__zoom').addClass('is-active');
 
 			const img = $(this).attr('src').replace('500-500', '1000-1000');
+			$('#show #include #image img').attr('src', img);
 			$('.product__zoom .product__zoom-image img').attr('src', img);
 		})
 
