@@ -300,7 +300,7 @@ class Product {
 						<div class="product__skus--color product__skus--thumb">
 							<span class="product__skus-title">Cor</span>
 							<ul>
-								${this.createSkuThumb(products)}
+								${this.createSkuThumb(productSimilar)}
 							</ul>
 					</div>`;
 				const skus = `<div class="product__skus-inner">
