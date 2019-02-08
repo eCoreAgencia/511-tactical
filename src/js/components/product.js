@@ -10,7 +10,7 @@ import {
 	changeQuantity
 } from '../utils';
 
-import {findIndex, propEq, replace } from 'ramda';
+import {findIndex, propEq, replace, remove } from 'ramda';
 
 class Product {
 	constructor() {
@@ -25,6 +25,8 @@ class Product {
         this.item.seller = "1";
 
 		this.loading = `<div class="sp sp-circle"></div>`
+
+
 
 		if($('body').hasClass('product')) {
 			this.addProductToCart();
@@ -630,6 +632,10 @@ $(document).ready(() => {
 		let newReference = reference.split(',')[0];
 		console.log(newReference);
 		$('.productReference').text(newReference);
+
+
+
+
 	}
 
 })

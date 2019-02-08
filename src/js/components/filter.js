@@ -97,6 +97,7 @@ $(document).ready(function(){
 		window.filter = new Filter();
 		let urlFilters = '';
 		let url, content, preg, category;
+		const loading = `<div class="sp sp-circle"></div>`
 		jQuery('script:not([src])').each(function () {
 			content = jQuery(this)[0].innerHTML;
 			preg = /\/buscapagina\?.+&PageNumber=/i;
@@ -114,7 +115,7 @@ $(document).ready(function(){
 		const toPage = $('.shelf--new').data('to');
 		const pathname = window.location.pathname || '';
 		const search = window.location.search || '?';
-		url = category + '&_from='+fromPage+'&_to='+toPage;
+		url = category + '&_from=1&_to='+toPage;
 
 		const filterShelf = (products) => {
 			const productNames = products.map(product => product.productName);
@@ -123,6 +124,16 @@ $(document).ready(function(){
 					return product;
 				}
 			})
+
+			const column = 4;
+			const arraySize = productFilters.length;
+			if (arraySize > column) {
+				const removeQtd = arraySize % column;
+				const initRemove = arraySize - removeQtd;
+				const newArray = R.remove(initRemove, removeQtd, productFilters)
+				console.log(newArray);
+				return newArray;
+			}
 
 			return productFilters;
 		}
@@ -290,11 +301,13 @@ $(document).ready(function(){
 
 
 					//console.log(dupRemove, 'remove');
-					dupRemove.map(item => {
+					const items = dupRemove.map(item => {
 						const li = `<li>${mountProduct(item)}</li>`;
-						$('.shelf--new ul').append(li);
-					});
 
+						return li;
+					}).join('');
+
+					$('.shelf--new ul').html(items);
 
 					var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
 					$('.section__navTop__numberProduct p b').text(numberProduct);
@@ -326,7 +339,7 @@ $(document).ready(function(){
 		$('.btn-load-more').on('click', function(){
 			const fromPage = $('.shelf--new').data('from') + 30;
 			const toPage = $('.shelf--new').data('to') + 30;
-			const url = category + '&_from=' + fromPage + '&_to=' + toPage;
+			const url = category + '&_from=1&_to=' + toPage;
 			appendProducts(url);
 			$('.shelf--new').data('from', fromPage);
 			$('.shelf--new').data('to', toPage);
