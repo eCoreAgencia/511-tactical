@@ -24,9 +24,11 @@ class Product {
         this.item.quantity = 1;
         this.item.seller = "1";
 		this.makeZoom();
+		this.loading = `<div class="sp sp-circle"></div>`
 
 		if($('body').hasClass('product')) {
 			this.addProductToCart();
+			$('.product__skus').html(this.loading);
 			if($(window).width() > 800) {
 				this.fixeInfoProduct();
 			}
@@ -40,6 +42,7 @@ class Product {
 		productWithVariations.then(product => {
 			if (product.available) {
 				self.product = product;
+
 				const skuI = findIndex(propEq('available', true))(product.skus);
 				console.log(product.skus[skuI]);
 				const price = self.renderPrice(product.skus[skuI]);

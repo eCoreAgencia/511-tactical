@@ -46,3 +46,27 @@ ul {
 #ajaxBusy {
 	display: none !important;
 }
+.sp {
+	width: 30px;
+	height: 30px;
+	clear: both;
+	margin: 20px auto;
+}
+
+.sp-circle {
+	border: 4px rgba($c-orange, 0.25) solid;
+	border-top: 4px rgba($c-orange, 1) solid;
+	border-radius: 50%;
+	-webkit-animation: spCircRot .6s infinite linear;
+	animation: spCircRot .6s infinite linear;
+}
+
+@-webkit-keyframes spCircRot {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+
+	to {
+		-webkit-transform: rotate(359deg);
+	}
+}
