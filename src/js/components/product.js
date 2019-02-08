@@ -440,6 +440,9 @@ class Product {
 	makeZoom() {
 		$('.zoomPup, .zoomWindow, .zoomPreload').remove();
 
+		$('#image img').unwrap();
+		$('#image img').unwrap();
+
 		$('.thumbs li').each(function () {
 			const img = $('img', this).attr('src');
 			$('.product__zoom .product__zoom-thumbs').append(`<a href=""><img src="${img}" /></a>`);
