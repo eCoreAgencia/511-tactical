@@ -255,14 +255,7 @@ body {
 						@include mq("tablet") {
 							width: 230px;
 						}
-						.product__price {
-							.product__unavailable {
-								display: none;
-							}
-							.btn-list {
-								display: none;
-							}
-						}
+
 					}
 					&.active {
 						display: flex;

@@ -4,6 +4,16 @@
 			min-height: 60px;
 		}
 	}
+
+	.product__price {
+		.product__unavailable {
+			display: none;
+		}
+
+		.btn-list {
+			display: none;
+		}
+	}
 }
 
 .shelf {

@@ -45,4 +45,4 @@ const sendFiles = (dir, type = 'template') => new Promise(async (resolve, reject
 sendFiles(templatesDir, 'template')
   .then(() => sendFiles(subtemplatesDir, 'subtemplate'))
   .then(() => sendFiles(shelvesDir, 'shelf'))
-  .then(() => sendFiles(filesDir, 'file'))
+  //.then(() => sendFiles(filesDir, 'file'))
