@@ -115,7 +115,7 @@ $(document).ready(function(){
 		const toPage = $('.shelf--new').data('to');
 		const pathname = window.location.pathname || '';
 		const search = window.location.search || '?';
-		url = category + '&_from=1&_to='+toPage;
+		url = category + '&_from='+fromPage+'&_to='+toPage;
 
 		const filterShelf = (products) => {
 			const productNames = products.map(product => product.productName);
@@ -133,9 +133,11 @@ $(document).ready(function(){
 				const newArray = R.remove(initRemove, removeQtd, productFilters)
 				console.log(newArray);
 				return newArray;
+			} else {
+				return productFilters;
 			}
 
-			return productFilters;
+
 		}
 
 		const mountProduct = async (product) => {
@@ -301,13 +303,11 @@ $(document).ready(function(){
 
 
 					//console.log(dupRemove, 'remove');
-					const items = dupRemove.map(item => {
+					dupRemove.map(item => {
 						const li = `<li>${mountProduct(item)}</li>`;
+						$('.shelf--new ul').append(li);
+					});
 
-						return li;
-					}).join('');
-
-					$('.shelf--new ul').html(items);
 
 					var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
 					$('.section__navTop__numberProduct p b').text(numberProduct);
@@ -339,7 +339,7 @@ $(document).ready(function(){
 		$('.btn-load-more').on('click', function(){
 			const fromPage = $('.shelf--new').data('from') + 30;
 			const toPage = $('.shelf--new').data('to') + 30;
-			const url = category + '&_from=1&_to=' + toPage;
+			const url = category + '&_from=' + fromPage + '&_to=' + toPage;
 			appendProducts(url);
 			$('.shelf--new').data('from', fromPage);
 			$('.shelf--new').data('to', toPage);
