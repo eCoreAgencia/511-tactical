@@ -1,7 +1,4 @@
-import {
-	getProductWithVariations,
-	getSearchProducts
-} from '../modules/vtexRequest'
+import { getSearchProducts } from '../modules/vtexRequest'
 const R = require('ramda');
 
 class Filter {
@@ -15,7 +12,7 @@ class Filter {
 	}
 
 	openFilter() {
-		$('.btnOpenFilter').on('click', function(e) {
+		$('.btnOpenFilter').on('click', function (e) {
 			e.preventDefault();
 			if ($('.category__filter.filter').hasClass('active')) {
 				$(this).html('<i class="icon-filter"></i><p>Mostrar</p><p>Filtros</p>');
@@ -30,7 +27,7 @@ class Filter {
 	}
 
 	clouseFilter() {
-		$('.clouseFilter').on('click', function(e) {
+		$('.clouseFilter').on('click', function (e) {
 			e.preventDefault();
 			$('.btnOpenFilter').html('<i class="icon-filter"></i><p>Mostrar</p><p>Filtros</p>');
 			$('.category__filter.filter').fadeOut();
@@ -39,7 +36,7 @@ class Filter {
 	}
 
 	clearFilter() {
-		$('.btnClear').on('click', function(e) {
+		$('.btnClear').on('click', function (e) {
 			e.preventDefault();
 			window.location = window.location.href;
 		});
@@ -58,7 +55,7 @@ class Filter {
 			console.log('Não existe');
 		}
 
-		$('.filter .search-multiple-navigator fieldset').each(function() {
+		$('.filter .search-multiple-navigator fieldset').each(function () {
 			if ($('div', this).find('label')[0]) {
 				const text = $('h5', this).text();
 				let label = $('div', this).html();
@@ -74,10 +71,10 @@ class Filter {
 
 		$(".filter input[type='checkbox']").vtexSmartResearch();
 
-		$('.search-multiple-navigator input').on('change', function(){
+		$('.search-multiple-navigator input').on('change', function () {
 			let urlFilters = ''
-			$('.search-multiple-navigator input').each(function(){
-				if($(this).is(':checked')){
+			$('.search-multiple-navigator input').each(function () {
+				if ($(this).is(':checked')) {
 					urlFilters += '&' + $(this).attr('rel');
 				}
 			})
@@ -92,12 +89,11 @@ class Filter {
 	}
 }
 
-$(document).ready(function(){
+$(document).ready(function () {
 	if ($('body').hasClass('catalog')) {
 		window.filter = new Filter();
 		let urlFilters = '';
 		let url, content, preg, category;
-		const loading = `<div class="sp sp-circle"></div>`
 		jQuery('script:not([src])').each(function () {
 			content = jQuery(this)[0].innerHTML;
 			preg = /\/buscapagina\?.+&PageNumber=/i;
@@ -108,14 +104,14 @@ $(document).ready(function(){
 				category = url[0];
 				console.log(category);
 				return false;
-			}''
+			} ''
 		})
 
 		const fromPage = $('.shelf--new').data('from');
 		const toPage = $('.shelf--new').data('to');
 		const pathname = window.location.pathname || '';
 		const search = window.location.search || '?';
-		url = category + '&_from='+fromPage+'&_to='+toPage;
+		url = category + '&_from=' + fromPage + '&_to=' + toPage;
 
 		const filterShelf = (products) => {
 			const productNames = products.map(product => product.productName);
@@ -125,27 +121,14 @@ $(document).ready(function(){
 				}
 			})
 
-			const column = 4;
-			const arraySize = productFilters.length;
-			if (arraySize > column) {
-				const removeQtd = arraySize % column;
-				const initRemove = arraySize - removeQtd;
-				const newArray = R.remove(initRemove, removeQtd, productFilters)
-				console.log(newArray);
-				return newArray;
-			} else {
-				return productFilters;
-			}
-
-
+			return productFilters;
 		}
 
-		const mountProduct = async (product) => {
+		const mountProduct = (product) => {
 
 			let indiponivel = '';
-			console.log(product);
 
-			const {items, productName, productId, description, link} = product;
+			const { items, productName, productId, description, link } = product;
 			const stock = items[0].sellers[0].commertialOffer.AvailableQuantity;
 			const bestPrice = items[0].sellers[0].commertialOffer.Price;
 			const listPrice = items[0].sellers[0].commertialOffer.ListPrice;
@@ -157,61 +140,32 @@ $(document).ready(function(){
 			let btnBuy = `<a class="btn btn--buy product__buy" title="${productName}" href="${link}">Compre Agora</a>`;
 			let price = ''
 
-			if(stock > 0){
+			if (stock > 0) {
 				if (listPrice > bestPrice) {
 					price = `
 						<div class="price">
 							<span class="price__old">R$ ${listPrice.formatMoney()}</span>
 							<span class="price__best">R$ ${bestPrice.formatMoney()}</span>
 							<span class="price__installment">
-								ou até 6X de R$ ${(bestPrice/6).formatMoney()}
+								ou até 6X de R$ ${(bestPrice / 6).formatMoney()}
 							</span>
 						</div>
 					`
-				}else {
+				} else {
 					price = `
 						<div class="price">
 							<span class="price__list">R$ ${bestPrice.formatMoney()}</span>
 							<span class="price__installment">
-								ou até 6X de R$ ${(bestPrice/6).formatMoney()}
+								ou até 6X de R$ ${(bestPrice / 6).formatMoney()}
 							</span>
 						</div>
 					`
 				}
-			}else {
-				const productWithVariations = await getProductWithVariations(productId);
-				const skuAvailable = R.findIndex(R.propEq('available', true))(productWithVariations.skus);
-
-				if (skuAvailable >= 0){
-
-					if (productWithVariations.skus[skuAvailable].listPrice > productWithVariations.skus[skuAvailable].bestPrice) {
-						price = `
-						<div class="price">
-							<span class="price__old">R$ ${productWithVariations.skus[skuAvailable].listPrice.formatMoney()}</span>
-							<span class="price__best">R$ ${productWithVariations.skus[skuAvailable].bestPrice.formatMoney()}</span>
-							<span class="price__installment">
-								ou até 6X de R$ ${(productWithVariations.skus[skuAvailable].bestPrice/6).formatMoney()}
-							</span>
-						</div>
-					`
-					} else {
-						price = `
-						<div class="price">
-							<span class="price__list">R$ ${productWithVariations.skus[skuAvailable].bestPrice.formatMoney()}</span>
-							<span class="price__installment">
-								ou até 6X de R$ ${(productWithVariations.skus[skuAvailable].bestPrice/6).formatMoney()}
-							</span>
-						</div>
-					`
-					}
-
-				} else {
-					price = ``;
-					indiponivel = `<span class="product__unavailable">Indisponível</span>`;
-					btnBuy = ``;
-					aboutMore = ``;
-				}
-
+			} else {
+				price = ``;
+				indiponivel = `<span class="product__unavailable">Indisponível</span>`;
+				btnBuy = ``;
+				aboutMore = ``;
 			}
 			const html = `
 					<div class="product product--shelf">
@@ -241,11 +195,12 @@ $(document).ready(function(){
 							</div>
     						<div class="product__price">
 									${price}
+									${indiponivel}
 									${aboutMore}
 							</div>
   						</div>
 					</div>`
-				return html;
+			return html;
 
 		}
 
@@ -259,44 +214,44 @@ $(document).ready(function(){
 					'content-type': 'application/json; charset=utf-8'
 				}
 			})
-			.done(function(data){
-				console.log(data);
-				const dupRemove = filterShelf(data);
+				.done(function (data) {
+					console.log(data);
+					const dupRemove = filterShelf(data);
 
 
-				//console.log(dupRemove, 'remove');
-				const teste = `<ul>${dupRemove.map(item => `<li>${mountProduct(item)}</li>`).join('')}</ul>`;
+					//console.log(dupRemove, 'remove');
+					const teste = `<ul>${dupRemove.map(item => `<li>${mountProduct(item)}</li>`).join('')}</ul>`;
 
-				$('.shelf--new').html(teste);
+					$('.shelf--new').html(teste);
 
-				setTimeout(function() {
-					var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
-					$('.section__navTop__numberProduct p b').text(numberProduct);
+					setTimeout(function () {
+						var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
+						$('.section__navTop__numberProduct p b').text(numberProduct);
 
-					$(".product__info--name .description").each(function(i){
-						let len = $(this).text().length;
-						if(len>60) {
-							$(this).text($(this).text().substr(0,200)+'...');
-						}
-					});
-				}, 1000)
+						$(".product__info--name .description").each(function (i) {
+							let len = $(this).text().length;
+							if (len > 60) {
+								$(this).text($(this).text().substr(0, 200) + '...');
+							}
+						});
+					}, 1000)
 
-				$('.shelf__vitrine').addClass('loaded');
+					$('.shelf__vitrine').addClass('loaded');
 
-			})
+				})
 		}
 
 
 		const appendProducts = (term) => {
 			const endpoint = `/api/catalog_system/pub/products/search${term}`;
 			$.ajax({
-					url: endpoint,
-					type: 'GET',
-					headers: {
-						accept: 'application/json',
-						'content-type': 'application/json; charset=utf-8'
-					}
-				})
+				url: endpoint,
+				type: 'GET',
+				headers: {
+					accept: 'application/json',
+					'content-type': 'application/json; charset=utf-8'
+				}
+			})
 				.done(function (data) {
 					console.log(data);
 					const dupRemove = filterShelf(data);
@@ -311,10 +266,10 @@ $(document).ready(function(){
 
 					var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
 					$('.section__navTop__numberProduct p b').text(numberProduct);
-					$(".product__info--name .description").each(function(i){
+					$(".product__info--name .description").each(function (i) {
 						let len = $(this).text().length;
-						if(len>60) {
-							$(this).text($(this).text().substr(0,200)+'...');
+						if (len > 60) {
+							$(this).text($(this).text().substr(0, 200) + '...');
 						}
 					});
 					console.log('load more product');
@@ -336,7 +291,7 @@ $(document).ready(function(){
 			smartFilter(urlFilters);
 		})
 
-		$('.btn-load-more').on('click', function(){
+		$('.btn-load-more').on('click', function () {
 			const fromPage = $('.shelf--new').data('from') + 30;
 			const toPage = $('.shelf--new').data('to') + 30;
 			const url = category + '&_from=' + fromPage + '&_to=' + toPage;
@@ -353,7 +308,7 @@ $(document).ready(function(){
 		})
 
 
-		if($('body').hasClass('category') || $('body').hasClass('department')) {
+		if ($('body').hasClass('category') || $('body').hasClass('department')) {
 			renderProducts(url);
 		} else {
 			let numberResult = $('.resultado-busca-numero:first .value').text();
@@ -361,5 +316,4 @@ $(document).ready(function(){
 		}
 	}
 })
-
 
