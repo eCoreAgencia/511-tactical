@@ -1,4 +1,7 @@
-import { getSearchProducts } from '../modules/vtexRequest'
+import {
+	getProductWithVariations,
+	getSearchProducts
+} from '../modules/vtexRequest'
 const R = require('ramda');
 
 class Filter {
@@ -129,7 +132,7 @@ $(document).ready(function () {
 			return productFilters;
 		}
 
-		const mountProduct = (product) => {
+		const mountProduct = async (product) => {
 
 			let indiponivel = '';
 
@@ -167,10 +170,39 @@ $(document).ready(function () {
 					`
 				}
 			} else {
-				price = ``;
-				indiponivel = `<span class="product__unavailable">Indisponível</span>`;
-				btnBuy = ``;
-				aboutMore = ``;
+				const productWithVariations = await getProductWithVariations(productId);
+				const skuAvailable = R.findIndex(R.propEq('available', true))(productWithVariations.skus);
+
+				if (skuAvailable >= 0){
+
+					if (productWithVariations.skus[skuAvailable].listPrice > productWithVariations.skus[skuAvailable].bestPrice) {
+						price = `
+						<div class="price">
+							<span class="price__old">R$ ${productWithVariations.skus[skuAvailable].listPrice.formatMoney()}</span>
+							<span class="price__best">R$ ${productWithVariations.skus[skuAvailable].bestPrice.formatMoney()}</span>
+							<span class="price__installment">
+								ou até 6X de R$ ${(productWithVariations.skus[skuAvailable].bestPrice/6).formatMoney()}
+							</span>
+						</div>
+					`
+					} else {
+						price = `
+						<div class="price">
+							<span class="price__list">R$ ${productWithVariations.skus[skuAvailable].bestPrice.formatMoney()}</span>
+							<span class="price__installment">
+								ou até 6X de R$ ${(productWithVariations.skus[skuAvailable].bestPrice/6).formatMoney()}
+							</span>
+						</div>
+					`
+					}
+
+				} else {
+					price = ``;
+					indiponivel = `<span class="product__unavailable">Indisponível</span>`;
+					btnBuy = ``;
+					aboutMore = ``;
+				}
+
 			}
 			const html = `
 					<div class="product product--shelf">
@@ -191,7 +223,7 @@ $(document).ready(function () {
 							<div class="product__info--name">
 								<h3 class="product__name">
 									<a class="product__link" title="${productName}" href="${link}">
-										${productName}
+										${productName.replace(/ - TAM ÚNICO/g, '')}
 									</a>
 								</h3>
 								<h4 class="description">
@@ -304,11 +336,7 @@ $(document).ready(function () {
 			$('.shelf--new').data('from', fromPage);
 			$('.shelf--new').data('to', toPage);
 
-			// setTimeout(function() {
-			// 	var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
-			// 	$('.section__navTop__numberProduct p b').text(numberProduct);
-			// 	console.log('load more product');
-			// }, 4000)
+
 
 		})
 
