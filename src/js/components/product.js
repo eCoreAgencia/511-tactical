@@ -332,14 +332,26 @@ class Product {
 	}
 
 	createSkuSelect(items,sizes) {
-		console.log(items);
+		//console.log(items);
 
-		return sizes.map(size => {
+		const newArray = items.map(item => {
+			const skuname = {
+				skuname: item.skuname.replace(/\s/g, "")
+			}
+
+			return skuname;
+
+		});
+
+		const newSizes = sizes.map(item => item.replace(/\s/g, ""));
+		console.log(newArray, newSizes);
+		return newSizes.map(size => {
 			let html = '';
-			const skuI = findIndex(propEq('skuname', size))(items);
-			console.log(size, skuI, '-');
+			console.log(size);
+			const skuI = findIndex(propEq('skuname', size))(newArray);
+			console.log(size, skuI, '');
 			if(skuI >= 0){
-				html = `<option value="${items[skuI].sku}">${size}</option>`;
+				html = `<option value="${items[skuI].sku}">${items[skuI].skuname}</option>`;
 			}
 
 			console.log(html);

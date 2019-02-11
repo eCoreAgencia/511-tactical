@@ -1303,150 +1303,651 @@
 	};
 
 	var product = {
-		"productId": 4,
-		"name": "BOTA ATAC COYOTE 8''",
+		"productId": 200126,
+		"name": "CALÇA TACLITE PRO",
 		"salesChannel": "1",
 		"available": true,
-		"displayMode": "lista",
-		"dimensions": ["Cor", "Tamanho"],
+		"displayMode": "especificacao",
+		"dimensions": ["Tamanho"],
 		"dimensionsInputType": {
-			"Cor": "Radio",
 			"Tamanho": "Radio"
 		},
 		"dimensionsMap": {
-			"Cor": ["COYOTE", "SELVA", "MARINE", "BLACK"],
-			"Tamanho": ["U", "P", "G", "GG", "38"]
+			"Tamanho": ["BR 40  CURTO - US 30 / 30", "BR 40 REGULAR - US 30 / 32", "BR 40 LONGO - US 30 / 34", "BR 42 CURTO - US 32 / 30", "BR 42 REGULAR - US 32 / 32", "BR 42 LONGO - US 32 / 34", "BR 44 CURTO - US 34 / 30", "BR 44 REGULAR - US 34 / 32", "BR 44 LONGO - US 44 / 34", "BR 46 CURTO  - US 36 / 30", "BR 46 REGULAR  - US 36 / 32", "BR 46 LONGO  - US 36 / 34", "BR 48 CURTO - US 38 / 30", "BR 48 REGULAR - US 38 / 32", "BR 48 LONGO - US 38 / 34", "BR 50 CURTO - US 40 / 30", "BR 50 REGULAR - US 40 / 32", "BR 50 LONGO - US 40 / 34", "BR 52 CURTO - US 42 / 30", "BR 52 REGULAR - US 42 / 32", "BR 52 LONGO - US 42 / 34"]
 		},
 		"skus": [{
-				"sku": 5,
-				"skuname": "G",
-				"dimensions": {
-					"Cor": "COYOTE",
-					"Tamanho": "G"
-				},
-				"available": true,
-				"availablequantity": 99999,
-				"cacheVersionUsedToCallCheckout": "620bd412fcadd36bf030618e5f74ff51_",
-				"listPriceFormated": "R$ 0,00",
-				"listPrice": 0,
-				"taxFormated": "R$ 0,00",
-				"taxAsInt": 0,
-				"bestPriceFormated": "R$ 1.400,00",
-				"bestPrice": 140000,
-				"installments": 6,
-				"installmentsValue": 23333,
-				"installmentsInsterestRate": 0,
-				"image": "http://tactical.vteximg.com.br/arquivos/ids/155524-292-292/12110_120_01.jpg?v=636737535706500000",
-				"sellerId": "1",
-				"seller": "Infracommerce Negócios e Soluções em Internet ltda",
-				"measures": {
-					"cubicweight": 1.0000,
-					"height": 12.7000,
-					"length": 30.4800,
-					"weight": 1.4900,
-					"width": 34.2900
-				},
-				"unitMultiplier": 1.0000,
-				"rewardValue": 0
+			"sku": 101031,
+			"skuname": "BR 40 LONGO - US 30 / 34",
+			"dimensions": {
+				"Tamanho": "BR 40 LONGO - US 30 / 34"
 			},
-			{
-				"sku": 6,
-				"skuname": "P",
-				"dimensions": {
-					"Cor": "SELVA",
-					"Tamanho": "P"
-				},
-				"available": true,
-				"availablequantity": 99999,
-				"cacheVersionUsedToCallCheckout": "620bd412fcadd36bf030618e5f74ff51_",
-				"listPriceFormated": "R$ 0,00",
-				"listPrice": 0,
-				"taxFormated": "R$ 0,00",
-				"taxAsInt": 0,
-				"bestPriceFormated": "R$ 1.400,00",
-				"bestPrice": 140000,
-				"installments": 6,
-				"installmentsValue": 23333,
-				"installmentsInsterestRate": 0,
-				"image": "http://tactical.vteximg.com.br/arquivos/ids/155524-292-292/12110_120_01.jpg?v=636737535706500000",
-				"sellerId": "1",
-				"seller": "Infracommerce Negócios e Soluções em Internet ltda",
-				"measures": {
-					"cubicweight": 1.0000,
-					"height": 12.7000,
-					"length": 30.4800,
-					"weight": 1.4900,
-					"width": 34.2900
-				},
-				"unitMultiplier": 1.0000,
-				"rewardValue": 0
+			"available": true,
+			"availablequantity": 1,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157956-500-500/calca-taclite-pro-tdu-khaki-br-40-longo---us-30-34--511-tactical-1.jpg?v=636795619842770000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.4168,
+				"height": 1.5200,
+				"length": 43.1800,
+				"weight": 0.6100,
+				"width": 30.4800
 			},
-			{
-				"sku": 7,
-				"skuname": "GG",
-				"dimensions": {
-					"Cor": "MARINE",
-					"Tamanho": "GG"
-				},
-				"available": true,
-				"availablequantity": 99999,
-				"cacheVersionUsedToCallCheckout": "620bd412fcadd36bf030618e5f74ff51_",
-				"listPriceFormated": "R$ 0,00",
-				"listPrice": 0,
-				"taxFormated": "R$ 0,00",
-				"taxAsInt": 0,
-				"bestPriceFormated": "R$ 1.400,00",
-				"bestPrice": 140000,
-				"installments": 6,
-				"installmentsValue": 23333,
-				"installmentsInsterestRate": 0,
-				"image": "http://tactical.vteximg.com.br/arquivos/ids/155524-292-292/12110_120_01.jpg?v=636737535706500000",
-				"sellerId": "1",
-				"seller": "Infracommerce Negócios e Soluções em Internet ltda",
-				"measures": {
-					"cubicweight": 1.0000,
-					"height": 12.7000,
-					"length": 30.4800,
-					"weight": 1.4900,
-					"width": 34.2900
-				},
-				"unitMultiplier": 1.0000,
-				"rewardValue": 0
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101032,
+			"skuname": "BR 40 REGULAR - US 30 / 32",
+			"dimensions": {
+				"Tamanho": "BR 40 REGULAR - US 30 / 32"
 			},
-			{
-				"sku": 8,
-				"skuname": "PP",
-				"dimensions": {
-					"Cor": "BLACK",
-					"Tamanho": "PP"
-				},
-				"available": true,
-				"availablequantity": 99999,
-				"cacheVersionUsedToCallCheckout": "620bd412fcadd36bf030618e5f74ff51_",
-				"listPriceFormated": "R$ 0,00",
-				"listPrice": 0,
-				"taxFormated": "R$ 0,00",
-				"taxAsInt": 0,
-				"bestPriceFormated": "R$ 1.400,00",
-				"bestPrice": 140000,
-				"installments": 6,
-				"installmentsValue": 23333,
-				"installmentsInsterestRate": 0,
-				"image": "http://tactical.vteximg.com.br/arquivos/ids/155524-292-292/12110_120_01.jpg?v=636737535706500000",
-				"sellerId": "1",
-				"seller": "Infracommerce Negócios e Soluções em Internet ltda",
-				"measures": {
-					"cubicweight": 1.0000,
-					"height": 12.7000,
-					"length": 30.4800,
-					"weight": 1.4900,
-					"width": 34.2900
-				},
-				"unitMultiplier": 1.0000,
-				"rewardValue": 0
-			}
-		]
-	};
+			"available": true,
+			"availablequantity": 2,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157957-500-500/calca-taclite-pro-tdu-khaki-br-40-regular-us-30-32--511-tactical-1.jpg?v=636795619849400000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.4168,
+				"height": 1.5200,
+				"length": 43.1800,
+				"weight": 0.6300,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101033,
+			"skuname": "BR 40  CURTO - US 30 / 30",
+			"dimensions": {
+				"Tamanho": "BR 40  CURTO - US 30 / 30"
+			},
+			"available": true,
+			"availablequantity": 1,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157958-500-500/calca-taclite-pro-tdu-khaki-br-40--curto-us-30-30--511-tactical-1.jpg?v=636795619855400000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.3677,
+				"height": 1.5200,
+				"length": 38.1000,
+				"weight": 0.5900,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101034,
+			"skuname": "BR 42 CURTO - US 32 / 30",
+			"dimensions": {
+				"Tamanho": "BR 42 CURTO - US 32 / 30"
+			},
+			"available": true,
+			"availablequantity": 1,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157959-500-500/calca-taclite-pro-tdu-khaki-br-42-curto-us-32-30--511-tactical-1.jpg?v=636795619861300000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.3677,
+				"height": 1.5200,
+				"length": 38.1000,
+				"weight": 0.6300,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101035,
+			"skuname": "BR 42 LONGO - US 32 / 34",
+			"dimensions": {
+				"Tamanho": "BR 42 LONGO - US 32 / 34"
+			},
+			"available": true,
+			"availablequantity": 3,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157960-500-500/calca-taclite-pro-tdu-khaki-br-42-longo---us-32-34--511-tactical-1.jpg?v=636795619867500000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.4168,
+				"height": 1.5200,
+				"length": 43.1800,
+				"weight": 0.6300,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101036,
+			"skuname": "BR 42 REGULAR - US 32 / 32",
+			"dimensions": {
+				"Tamanho": "BR 42 REGULAR - US 32 / 32"
+			},
+			"available": true,
+			"availablequantity": 5,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157961-500-500/calca-taclite-pro-tdu-khaki-br-42-regular---us-32-32--511-tactical-1.jpg?v=636795619873970000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.4168,
+				"height": 1.5200,
+				"length": 43.1800,
+				"weight": 0.6300,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101037,
+			"skuname": "BR 44 CURTO - US 34 / 30",
+			"dimensions": {
+				"Tamanho": "BR 44 CURTO - US 34 / 30"
+			},
+			"available": true,
+			"availablequantity": 4,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157962-500-500/calca-taclite-pro-tdu-khaki-br-44-curto-us-34-30-511-tactical-1.jpg?v=636795619880730000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.3677,
+				"height": 1.5200,
+				"length": 38.1000,
+				"weight": 0.6300,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101038,
+			"skuname": "BR 44 LONGO - US 44 / 34",
+			"dimensions": {
+				"Tamanho": "BR 44 LONGO - US 44 / 34"
+			},
+			"available": true,
+			"availablequantity": 5,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157963-500-500/calca-taclite-pro-tdu-khaki-br-44-longo---us-44-34--511-tactical-1.jpg?v=636795619887730000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.4168,
+				"height": 1.5200,
+				"length": 43.1800,
+				"weight": 0.6500,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101039,
+			"skuname": "BR 44 REGULAR - US 34 / 32",
+			"dimensions": {
+				"Tamanho": "BR 44 REGULAR - US 34 / 32"
+			},
+			"available": true,
+			"availablequantity": 9,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157963-500-500/calca-taclite-pro-tdu-khaki-br-44-longo---us-44-34--511-tactical-1.jpg?v=636795619887730000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.4168,
+				"height": 1.5200,
+				"length": 43.1800,
+				"weight": 0.6300,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101040,
+			"skuname": "BR 46 CURTO  - US 36 / 30",
+			"dimensions": {
+				"Tamanho": "BR 46 CURTO  - US 36 / 30"
+			},
+			"available": true,
+			"availablequantity": 3,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157963-500-500/calca-taclite-pro-tdu-khaki-br-44-longo---us-44-34--511-tactical-1.jpg?v=636795619887730000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.3677,
+				"height": 1.5200,
+				"length": 38.1000,
+				"weight": 0.6500,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101041,
+			"skuname": "BR 46 LONGO  - US 36 / 34",
+			"dimensions": {
+				"Tamanho": "BR 46 LONGO  - US 36 / 34"
+			},
+			"available": true,
+			"availablequantity": 3,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157963-500-500/calca-taclite-pro-tdu-khaki-br-44-longo---us-44-34--511-tactical-1.jpg?v=636795619887730000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.4168,
+				"height": 1.5200,
+				"length": 43.1800,
+				"weight": 0.6800,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101042,
+			"skuname": "BR 46 REGULAR  - US 36 / 32",
+			"dimensions": {
+				"Tamanho": "BR 46 REGULAR  - US 36 / 32"
+			},
+			"available": true,
+			"availablequantity": 6,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157963-500-500/calca-taclite-pro-tdu-khaki-br-44-longo---us-44-34--511-tactical-1.jpg?v=636795619887730000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.4168,
+				"height": 1.5200,
+				"length": 43.1800,
+				"weight": 0.6500,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101043,
+			"skuname": "BR 48 CURTO - US 38 / 30",
+			"dimensions": {
+				"Tamanho": "BR 48 CURTO - US 38 / 30"
+			},
+			"available": true,
+			"availablequantity": 1,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157963-500-500/calca-taclite-pro-tdu-khaki-br-44-longo---us-44-34--511-tactical-1.jpg?v=636795619887730000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.3677,
+				"height": 1.5200,
+				"length": 38.1000,
+				"weight": 0.6800,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101044,
+			"skuname": "BR 48 LONGO - US 38 / 34",
+			"dimensions": {
+				"Tamanho": "BR 48 LONGO - US 38 / 34"
+			},
+			"available": true,
+			"availablequantity": 1,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157963-500-500/calca-taclite-pro-tdu-khaki-br-44-longo---us-44-34--511-tactical-1.jpg?v=636795619887730000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.4168,
+				"height": 1.5200,
+				"length": 43.1800,
+				"weight": 0.6800,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101045,
+			"skuname": "BR 48 REGULAR - US 38 / 32",
+			"dimensions": {
+				"Tamanho": "BR 48 REGULAR - US 38 / 32"
+			},
+			"available": true,
+			"availablequantity": 4,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157963-500-500/calca-taclite-pro-tdu-khaki-br-44-longo---us-44-34--511-tactical-1.jpg?v=636795619887730000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.4168,
+				"height": 1.5200,
+				"length": 43.1800,
+				"weight": 0.7000,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101046,
+			"skuname": "BR 50 LONGO - US 40 / 34",
+			"dimensions": {
+				"Tamanho": "BR 50 LONGO - US 40 / 34"
+			},
+			"available": true,
+			"availablequantity": 1,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157963-500-500/calca-taclite-pro-tdu-khaki-br-44-longo---us-44-34--511-tactical-1.jpg?v=636795619887730000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.4168,
+				"height": 1.5200,
+				"length": 43.1800,
+				"weight": 0.7200,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101047,
+			"skuname": "BR 50 REGULAR - US 40 / 32",
+			"dimensions": {
+				"Tamanho": "BR 50 REGULAR - US 40 / 32"
+			},
+			"available": true,
+			"availablequantity": 3,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157963-500-500/calca-taclite-pro-tdu-khaki-br-44-longo---us-44-34--511-tactical-1.jpg?v=636795619887730000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.4168,
+				"height": 1.5200,
+				"length": 43.1800,
+				"weight": 0.7200,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101048,
+			"skuname": "BR 50 CURTO - US 40 / 30",
+			"dimensions": {
+				"Tamanho": "BR 50 CURTO - US 40 / 30"
+			},
+			"available": true,
+			"availablequantity": 1,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157963-500-500/calca-taclite-pro-tdu-khaki-br-44-longo---us-44-34--511-tactical-1.jpg?v=636795619887730000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.3677,
+				"height": 1.5200,
+				"length": 38.1000,
+				"weight": 0.6800,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101049,
+			"skuname": "BR 52 CURTO - US 42 / 30",
+			"dimensions": {
+				"Tamanho": "BR 52 CURTO - US 42 / 30"
+			},
+			"available": true,
+			"availablequantity": 1,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157963-500-500/calca-taclite-pro-tdu-khaki-br-44-longo---us-44-34--511-tactical-1.jpg?v=636795619887730000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.3677,
+				"height": 1.5200,
+				"length": 38.1000,
+				"weight": 0.7200,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101050,
+			"skuname": "BR 52 LONGO - US 42 / 34",
+			"dimensions": {
+				"Tamanho": "BR 52 LONGO - US 42 / 34"
+			},
+			"available": true,
+			"availablequantity": 1,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157963-500-500/calca-taclite-pro-tdu-khaki-br-44-longo---us-44-34--511-tactical-1.jpg?v=636795619887730000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.4168,
+				"height": 1.5200,
+				"length": 43.1800,
+				"weight": 0.7200,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}, {
+			"sku": 101051,
+			"skuname": "BR 52 REGULAR - US 42 / 32",
+			"dimensions": {
+				"Tamanho": "BR 52 REGULAR - US 42 / 32"
+			},
+			"available": true,
+			"availablequantity": 2,
+			"cacheVersionUsedToCallCheckout": "7bfff3cc53b0414a76a0d838fcf3bb24_geral:1A04D58FD3B82DB9D6228E6B54325741",
+			"listPriceFormated": "R$ 389,99",
+			"listPrice": 38999,
+			"taxFormated": "R$ 0,00",
+			"taxAsInt": 0,
+			"bestPriceFormated": "R$ 331,49",
+			"bestPrice": 33149,
+			"installments": 6,
+			"installmentsValue": 5524,
+			"installmentsInsterestRate": 0,
+			"image": "http://tactical.vteximg.com.br/arquivos/ids/157963-500-500/calca-taclite-pro-tdu-khaki-br-44-longo---us-44-34--511-tactical-1.jpg?v=636795619887730000",
+			"sellerId": "1",
+			"seller": "5.11 Tactical",
+			"measures": {
+				"cubicweight": 0.4168,
+				"height": 1.5200,
+				"length": 43.1800,
+				"weight": 0.7200,
+				"width": 30.4800
+			},
+			"unitMultiplier": 1.0000,
+			"rewardValue": 0
+		}]
+	}
+
 	var mockPromiseCheckout = {
 		then: function (t) {
 			setTimeout(function () {

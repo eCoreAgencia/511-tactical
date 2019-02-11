@@ -121,6 +121,11 @@ $(document).ready(function () {
 				}
 			})
 
+			const itemsToRemove = productFilters.length % 4;
+
+			if (productFilters.length > 4) return R.dropLast(itemsToRemove, productFilters)
+
+
 			return productFilters;
 		}
 
@@ -315,5 +320,5 @@ $(document).ready(function () {
 			$('.section__navTop__numberProduct p b').text(numberResult);
 		}
 	}
-})
+});
 

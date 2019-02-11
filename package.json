@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"build:checkout": "cross-env NODE_ENV=production webpack --confisg ./config/webpack.checkout.js",
+		"build:checkout": "cross-env NODE_ENV=production webpack --config ./config/webpack.checkout.js",
 		"build": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js",
 		"dev": "webpack-dev-server --open --hot --config ./config/webpack.dev.js",
 		"deploy": "node scripts/deploy.js",
