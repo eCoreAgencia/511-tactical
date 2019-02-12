@@ -87,7 +87,14 @@ class Product {
 
 			const img = $(this).attr('src').replace('500-500', '1000-1000');
 			$('#show #include #image img').attr('src', img);
-			$('.product__zoom .product__zoom-image img').attr('src', img);
+			if($('.product__zoom .product__zoom-image img')[0]){
+				$('.product__zoom .product__zoom-image img').attr('src', img);
+			}else {
+				const imgHtml = `<img src="${img}" alt="" />`;
+
+				$('.product__zoom .product__zoom-image').html(imgHtml);
+			}
+
 		})
 
 		const openZoom = (img) => {

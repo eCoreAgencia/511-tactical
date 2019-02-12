@@ -10,7 +10,8 @@
                 }
             }
         ]
-    ],
+	],
+	"compact": true,
     "plugins": [
         "transform-class-properties",
         "transform-async-to-generator"
