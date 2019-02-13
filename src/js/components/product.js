@@ -73,8 +73,8 @@ class Product {
 			$(this).addClass('active');
 			$('.product__main .product__media').addClass('is-loading');
 			self.getImage(idproduct);
-			// const productID = $(this).data('product-id');
-			// self.changeProduct(productID);
+			const productID = $(this).data('product-id');
+			self.changeProduct(productID);
 		})
 
 
