@@ -236,24 +236,18 @@ class Product {
 		const productWithVariations = getProductWithVariations(productId);
 		productWithVariations.then(product => {
 			console.log(product);
+
+
 			if (product.available) {
 				self.product = product;
-				const price = self.renderPrice(product.skus[0]);
 
-				const select = `
-            	<span class="product__skus-title">Tamanho</span>
-				<select  class="sku-size" name="id">
-					<option value="" hidden>Selecione um tamanho</option>
-					${this.createSkuSelect(product.skus)}
-				</select>`;
-				$('.product__skus--select').html(select);
-				$('.product__price').html(price);
-
-				$(window).trigger('skuSelectorCreated');
-
+				const skuI = findIndex(propEq('available', true))(product.skus);
+				console.log(product.skus[skuI]);
+				const price = self.renderPrice(product.skus[skuI]);
+				$('.product__main .product__price').html(price);
+				self.renderSkuSelectors(product);
 			} else {
 				self.renderFormNotifyMe(product);
-				$('.product__table').hide();
 			}
 		})
 	}
