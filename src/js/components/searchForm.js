@@ -99,7 +99,7 @@
 
 				//   console.log(productId)
 				vtexjs.catalog.getProductWithVariations(productId).done(function(data) {
-					//   console.log(data);
+					console.log(data);
 					let bestPriceFormated = data.skus[0].bestPriceFormated;
 					let listPriceFormated = data.skus[0].listPriceFormated;
 					let stock = data.skus[0].availablequantity;

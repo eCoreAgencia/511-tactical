@@ -81,6 +81,9 @@ class Product {
 
 
 
+
+
+
 		$('#show ul.thumbs li img').on('click', function (e) {
 			e.preventDefault();
 			// $('.product__zoom').addClass('is-active');
@@ -108,13 +111,22 @@ class Product {
 		})
 
 		$('.thumbs').on('click', 'img', function (e) {
-			openZoom($(this).attr('src'));
+			//openZoom($(this).attr('src'));
+			$('.product__media #image img').attr('src', $(this).attr('src'));
 		})
 
 		$('.product__zoom .btn--close').on('click', function (e) {
 			e.preventDefault();
 			$('.product__zoom').removeClass('is-active');
 		});
+
+		$('.product__qtd').on('keyup', '.product__qtd-value', function(e){
+			console.log($(this).val());
+			self.item.quantity = parseInt($(this).val());
+		})
+
+		const name = $('.product__info .productName').text().replace(/ - TAM ÚNICO/g, '');
+		$('.product__info .productName').html(name);
 	}
 
 	fixeInfoProduct() {
@@ -146,7 +158,8 @@ class Product {
             <button class="button button--minus" onClick="Product.changeQuantity(-1)">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="5" viewBox="0 0 16 5"><defs><path id="459ea" d="M275.714 1124.071v2.143c0 .592-.48 1.072-1.071 1.072H261.07c-.591 0-1.071-.48-1.071-1.072v-2.143c0-.591.48-1.071 1.071-1.071h13.572c.591 0 1.071.48 1.071 1.071z"></path></defs><g><g transform="translate(-260 -1123)"><use fill="#e75300" xlink:href="#459ea"></use></g></g></svg>
             </button>`
-    }
+	}
+
 
     changeQuantity(quantity) {
 		console.log(quantity);
@@ -203,7 +216,9 @@ class Product {
 
     addProductToCart(button){
         if(this.skuValidation()) {
+			console.log($('.product__qtd-value').val());
 			let { id, quantity, seller } = this.item;
+			quantity = $('.product__qtd .product__qtd-value').val();
 			addToCart(id, quantity);
 			$(button).addClass('running');
 			setTimeout(function() {
@@ -494,6 +509,8 @@ class Product {
 			const img = $(this).attr('href');
 			$('.product__zoom .product__zoom-image').append(`<img src="${img}" />`);
 			$('#image').html(`<img src="${img}" />`);
+			$('#image-main').remove();
+			$('#image').find('img').attr('style', '');
 		});
 
 		$('.product__zoom').on('click', 'a', function (e) {
