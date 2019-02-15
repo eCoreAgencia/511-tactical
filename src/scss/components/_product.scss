@@ -334,7 +334,7 @@
 
 		}
 
-		.thumbs {
+		.thumbs, .thumbs-list {
 			@extend %display-flex;
 			@extend %flex-wrap-wrap;
 			list-style: none;

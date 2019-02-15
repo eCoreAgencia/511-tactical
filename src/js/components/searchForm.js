@@ -100,84 +100,110 @@
 				//   console.log(productId)
 				vtexjs.catalog.getProductWithVariations(productId).done(function(data) {
 					console.log(data);
-					let bestPriceFormated = data.skus[0].bestPriceFormated;
-					let listPriceFormated = data.skus[0].listPriceFormated;
-					let stock = data.skus[0].availablequantity;
-					let listPrice = data.skus[0].listPrice;
-					let html = '';
-					let parcelas = data.skus[0].installments;
-					let valorParcela = data.skus[0].installmentsValue;
-
 					let estoque = '';
+					let html = '';
+					if (data.available) {
 
-					if (stock == 0) {
-						estoque = "<p style='color: red;'>Sem estoque</p>";
+						const skuI = findIndex(propEq('available', true))(data.skus);
+						console.log(data.skus[skuI]);
+						let bestPriceFormated = data.skus[skuI].bestPriceFormated;
+						let listPriceFormated = data.skus[skuI].listPriceFormated;
+						let stock = data.skus[skuI].availablequantity;
+						let listPrice = data.skus[skuI].listPrice;
+
+						let parcelas = data.skus[skuI].installments;
+						let valorParcela = data.skus[skuI].installmentsValue;
+						if (valorParcela !== 0) {
+							var num = valorParcela / 100;
+							valorParcela = parseFloat(num)
+								.toFixed(2)
+								.replace('.', ',');
+						}
+
+						if (listPrice == 0) {
+							html = `
+							  <div class="product--shelf">
+								<div class="product__header">
+									<div class="product__media">
+										<a class="product__link" href="${link}" title="${productName}">
+											<img src="${thumb}" alt="${productName}"/>
+										</a>
+									</div>
+								</div>
+								<div class="product__info">
+									<h3 class="product__name">
+										<a class="product__link" href="${link}" title="${productName}">${productName}</a>
+									</h3>
+									<div class="product__price">
+										<div class="price">
+											<span class="price__list">${bestPriceFormated}</span>
+											<span class="price__instament">${parcelas !== 0 ? parcelas : ''}x R$ ${
+								valorParcela !== 0 ? valorParcela : ''
+							} sem juros.</span>
+										</div>
+									</div>
+								</div>
+							</div>`;
+						} else {
+							html = `
+							<div class="product--shelf">
+							  <div class="product__header">
+								  <div class="product__media">
+									  <a class="product__link" href="${link}" title="${productName}">
+										  <img src="${thumb}" alt="${productName}"/>
+									  </a>
+								  </div>
+							  </div>
+							  <div class="product__info">
+								  <h3 class="product__name">
+									  <a class="product__link" href="${link}" title="${productName}">${productName}</a>
+								  </h3>
+								  <div class="product__price">
+									  <div class="price">
+										  <span class="price__list">${listPriceFormated}</span>
+										  <span class="price__instament">${
+												parcelas !== 0 ? parcelas : ''
+											}x R$ ${
+								valorParcela !== 0 ? valorParcela : ''
+							} sem juros.</span>
+									  </div>
+								  </div>
+							  </div>
+						  </div>`;
+						}
+
 					} else {
-						estoque = bestPriceFormated;
+						estoque = "<p style='color: red;'>Sem estoque</p>";
+						html = `
+							<div class="product--shelf">
+							  <div class="product__header">
+								  <div class="product__media">
+									  <a class="product__link" href="${link}" title="${productName}">
+										  <img src="${thumb}" alt="${productName}"/>
+									  </a>
+								  </div>
+							  </div>
+							  <div class="product__info">
+								  <h3 class="product__name">
+									  <a class="product__link" href="${link}" title="${productName}">${productName}</a>
+								  </h3>
+								 	${estoque}
+							  </div>
+						  </div>`;
 					}
+
+
+
+
+
 
 					//   function _formatCurrency(value){
 					//       return parseFloat(num).toFixed(2).replace('.',',').toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1.');
 					//     }
 					// montar parcela
-					if (valorParcela !== 0) {
-						var num = valorParcela / 100;
-						valorParcela = parseFloat(num)
-							.toFixed(2)
-							.replace('.', ',');
-					}
 
-					if (listPrice == 0) {
-						html = `
-					  	<div class="product--shelf">
-							<div class="product__header">
-								<div class="product__media">
-									<a class="product__link" href="${link}" title="${productName}">
-										<img src="${thumb}" alt="${productName}"/>
-									</a>
-								</div>
-							</div>
-							<div class="product__info">
-								<h3 class="product__name">
-									<a class="product__link" href="${link}" title="${productName}">${productName}</a>
-								</h3>
-								<div class="product__price">
-									<div class="price">
-										<span class="price__list">${bestPriceFormated}</span>
-										<span class="price__instament">${parcelas !== 0 ? parcelas : ''}x R$ ${
-							valorParcela !== 0 ? valorParcela : ''
-						} sem juros.</span>
-									</div>
-								</div>
-							</div>
-						</div>`;
-					} else {
-						html = `
-                        <div class="product--shelf">
-                          <div class="product__header">
-                              <div class="product__media">
-                                  <a class="product__link" href="${link}" title="${productName}">
-                                      <img src="${thumb}" alt="${productName}"/>
-                                  </a>
-                              </div>
-                          </div>
-                          <div class="product__info">
-                              <h3 class="product__name">
-                                  <a class="product__link" href="${link}" title="${productName}">${productName}</a>
-                              </h3>
-                              <div class="product__price">
-                                  <div class="price">
-                                      <span class="price__list">${listPriceFormated}</span>
-                                      <span class="price__instament">${
-											parcelas !== 0 ? parcelas : ''
-										}x R$ ${
-							valorParcela !== 0 ? valorParcela : ''
-						} sem juros.</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>`;
-					}
+
+
 					list.prepend(html);
 					$('.searchform-list').css('top', $('.pageHeader').height());
 				});

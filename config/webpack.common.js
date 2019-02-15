@@ -18,7 +18,8 @@ module.exports = {
     new VueLoaderPlugin()
   ],
   output: {
-    filename: 'arquivos/[name].min.js',
+	//filename: `arquivos/[name]-${PROJECT_VARS.PROJECT_VERSION}.min.js`,
+	filename: `arquivos/[name].min.js`,
     path: paths.dist,
     publicPath: '/'
   },

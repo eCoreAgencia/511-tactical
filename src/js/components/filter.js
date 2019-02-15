@@ -107,7 +107,7 @@ $(document).ready(function () {
 				category = url[0];
 				console.log(category);
 				return false;
-			} ''
+			}
 		})
 
 		const fromPage = $('.shelf--new').data('from');
