@@ -8,6 +8,7 @@ class Search {
 		especialChar = especialChar.replace(/Ãª/g, "ê");
 		especialChar = especialChar.replace(/Ã/g, "Ó");
 		especialChar = especialChar.replace(/Ã£o/g, "ã");
+		especialChar = especialChar.replace(/%C3%A7/g, "ç");
 		especialChar = especialChar.replace(/-/g, " ");
 		return especialChar;
 	}
