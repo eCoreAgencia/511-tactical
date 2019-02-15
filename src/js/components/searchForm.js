@@ -108,7 +108,7 @@ const R = require('ramda');
 					let html = '';
 					if (data.available) {
 
-						const skuI = R.findIndex(propEq('available', true))(data.skus);
+						const skuI = R.findIndex(R.propEq('available', true))(data.skus);
 						console.log(data.skus[skuI]);
 						let bestPriceFormated = data.skus[skuI].bestPriceFormated;
 						let listPriceFormated = data.skus[skuI].listPriceFormated;
