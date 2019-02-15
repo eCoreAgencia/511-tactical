@@ -226,6 +226,10 @@ $(document).ready(function () {
 					console.log(data);
 					const dupRemove = filterShelf(data);
 
+					if(data.length < 30){
+						$('.btn-load-more').hide();
+					}
+
 
 					//console.log(dupRemove, 'remove');
 					const teste = `<ul>${dupRemove.map(item => `<li>${mountProduct(item)}</li>`).join('')}</ul>`;
