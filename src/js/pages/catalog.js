@@ -6,10 +6,27 @@ class catalog {
 		this.orderBay();
 	}
 
+	especialCharMask(especialChar) {
+		especialChar = especialChar.replace(/Ã§/g, "ç");
+		especialChar = especialChar.replace(/Ãª/g, "ê");
+		especialChar = especialChar.replace(/Ã/g, "Ó");
+		especialChar = especialChar.replace(/Ã£o/g, "ã");
+		especialChar = especialChar.replace(/%C3%A7/g, "ç");
+		especialChar = especialChar.replace(/-/g, " ");
+		return especialChar;
+	}
+
 	orderBay() {
 		$(".orderBy select").change(function() {
 			const orderBy = $(this).val();
-			window.location = `${window.location.pathname}?O=${orderBy}`;
+			let url 	  = window.location.href;
+
+            if(url.indexOf('&title=') == -1) {
+				window.location = `${window.location.pathname}?O=${orderBy}`;
+			} else {
+				let title = url.split('title=')[1];
+				window.location = `${window.location.pathname}?O=${orderBy}&title=${title}`;
+			}
 		});
 	}
 

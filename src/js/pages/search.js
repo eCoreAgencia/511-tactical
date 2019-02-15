@@ -17,9 +17,9 @@ class Search {
         if($('body').hasClass('resultado-busca')) {
             let url = window.location.href;
 
-            if(url.indexOf('&title=') == -1) {
-                let pathname = this.especialCharMask(window.location.pathname);
-                $('.titulo-sessao').html('RESULTADO DA BUSCA <span>"'+pathname+' "</span>');
+            if(url.indexOf('title=') == -1) {
+                // let pathname = this.especialCharMask(window.location.pathname);
+                // $('.titulo-sessao').html('RESULTADO DA BUSCA <span>"'+pathname+' "</span>');
             } else {
                 $('.section__title .titulo-sessao').text(this.especialCharMask(url.split('title=')[1]));
             }
