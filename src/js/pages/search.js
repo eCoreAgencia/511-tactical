@@ -21,8 +21,11 @@ class Search {
                 // let pathname = this.especialCharMask(window.location.pathname);
                 // $('.titulo-sessao').html('RESULTADO DA BUSCA <span>"'+pathname+' "</span>');
             } else {
-                $('.section__title .titulo-sessao').text(this.especialCharMask(url.split('title=')[1]));
-            }
+				console.log(decodeURI(url.split('title=')[1]))
+				$('.section__title .titulo-sessao').text(decodeURI(url.split('title=')[1]));
+
+			}
+
         }
     }
 }
