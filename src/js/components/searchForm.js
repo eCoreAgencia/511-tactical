@@ -1,3 +1,6 @@
+
+const R = require('ramda');
+
 (function($) {
 	/**
 	 * FormulÃ¡rio de busca nos moldes do Rex
@@ -81,6 +84,7 @@
 		let brandsList = el.find('.searchform-brands');
 		let hintEl = el.find('.searchform-hint');
 
+
 		self.searchformMountResultList = function(items, query) {
 			list.html('');
 			list.append(
@@ -104,7 +108,7 @@
 					let html = '';
 					if (data.available) {
 
-						const skuI = findIndex(propEq('available', true))(data.skus);
+						const skuI = R.findIndex(propEq('available', true))(data.skus);
 						console.log(data.skus[skuI]);
 						let bestPriceFormated = data.skus[skuI].bestPriceFormated;
 						let listPriceFormated = data.skus[skuI].listPriceFormated;
@@ -192,15 +196,6 @@
 						  </div>`;
 					}
 
-
-
-
-
-
-					//   function _formatCurrency(value){
-					//       return parseFloat(num).toFixed(2).replace('.',',').toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1.');
-					//     }
-					// montar parcela
 
 
 
