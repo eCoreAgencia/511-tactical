@@ -547,6 +547,11 @@ class Product {
 
 	}
 
+
+	gallery(images) {
+		console.log(images);
+	}
+
 }
 
 $(document).ready(() => {
