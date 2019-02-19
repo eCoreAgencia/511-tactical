@@ -132,50 +132,80 @@ $(document).ready(function () {
 			return productFilters;
 		}
 
-		const mountProduct = (product) => {
 
-			let indiponivel = '';
 
-			const { items, productName, productId, description, link } = product;
-			const stock = items[0].sellers[0].commertialOffer.AvailableQuantity;
-			const bestPrice = items[0].sellers[0].commertialOffer.Price;
-			const listPrice = items[0].sellers[0].commertialOffer.ListPrice;
-			const imgWidth = 500;
-			const imgHeight = 500;
-			const thumbSize = `-${imgWidth}-${imgHeight}`
-			const thumb = items[0].images[0].imageTag;
-			let aboutMore = `<a class="btn btn--buy product__buy btn-list" title="${productName}" href="${link}">VER DETALHE</a>`;
-			let btnBuy = `<a class="btn btn--buy product__buy" title="${productName}" href="${link}">Compre Agora</a>`;
-			let price = ''
+		const renderProduct = (productFiltered) => {
 
-			if (stock > 0) {
-				if (listPrice > bestPrice) {
-					price = `
-						<div class="price">
-							<span class="price__old">R$ ${listPrice.formatMoney()}</span>
-							<span class="price__best">R$ ${bestPrice.formatMoney()}</span>
-							<span class="price__installment">
-								ou até 6X de R$ ${(bestPrice / 6).formatMoney()}
-							</span>
-						</div>
-					`
-				} else {
-					price = `
-						<div class="price">
-							<span class="price__list">R$ ${bestPrice.formatMoney()}</span>
-							<span class="price__installment">
-								ou até 6X de R$ ${(bestPrice / 6).formatMoney()}
-							</span>
-						</div>
-					`
-				}
-			} else {
-				price = ``;
-				indiponivel = `<span class="product__unavailable">Indisponível</span>`;
-				btnBuy = ``;
-				aboutMore = ``;
-			}
-			const html = `
+			productFiltered.forEach(product => {
+				const {
+					items,
+					productName,
+					productId,
+					description,
+					link
+				} = product;
+
+				vtexjs.catalog.getProductWithVariations(productId).done(function (data) {
+					console.log(data.skus);
+					let indiponivel = '';
+					const imgWidth = 500;
+					const imgHeight = 500;
+					const thumbSize = `-${imgWidth}-${imgHeight}`
+					const thumb = items[0].images[0].imageTag;
+
+					let aboutMore = `<a class="btn btn--buy product__buy btn-list" title="${productName}" href="${link}">VER DETALHE</a>`;
+					let btnBuy = `<a class="btn btn--buy product__buy" title="${productName}" href="${link}">Compre Agora</a>`;
+					let price = ''
+
+					if (data.available) {
+						const skuI = R.findIndex(R.propEq('available', true))(data.skus);
+						let bestPriceFormated = data.skus[skuI].bestPriceFormated;
+						let listPriceFormated = data.skus[skuI].listPriceFormated;
+
+						let listPrice = data.skus[skuI].listPrice;
+						let bestPrice = data.skus[skuI].bestPrice;
+
+						let parcelas = data.skus[skuI].installments;
+						let valorParcela = data.skus[skuI].installmentsValue;
+						if (valorParcela !== 0) {
+							var num = valorParcela / 100;
+							valorParcela = parseFloat(num)
+								.toFixed(2)
+								.replace('.', ',');
+						}
+
+
+
+
+
+						if (listPrice > bestPrice) {
+							price = `
+								<div class="price">
+									<span class="price__old">${listPriceFormated}</span>
+									<span class="price__best">${bestPriceFormated}</span>
+									<span class="price__installment">
+										ou até 6X de R$ ${(bestPrice / 6).formatMoney()}
+									</span>
+								</div>
+							`
+						} else {
+							price = `
+								<div class="price">
+									<span class="price__list">${bestPriceFormated}</span>
+									<span class="price__installment">
+										ou até 6X de R$ ${(bestPrice / 6).formatMoney()}
+									</span>
+								</div>
+							`
+						}
+					} else {
+						price = ``;
+						indiponivel = `<span class="product__unavailable">Indisponível</span>`;
+						btnBuy = ``;
+						aboutMore = ``;
+					}
+
+					const html = `
 					<div class="product product--shelf">
 						<span class="product__id" data-product-id="${productId}"></span>
   						<div class="product__header">
@@ -208,85 +238,44 @@ $(document).ready(function () {
 							</div>
   						</div>
 					</div>`
-			return html;
+
+					///productHtml.push(html);
+					$('.shelf--new ul').append(`<li>${html}</li>`);
+				})
+
+
+			})
+
+			$('.shelf__vitrine').addClass('loaded');
 
 		}
 
-		const renderProducts = (term) => {
-			const endpoint = `/api/catalog_system/pub/products/search${term}`;
-			$.ajax({
-				url: endpoint,
-				type: 'GET',
-				headers: {
-					accept: 'application/json',
-					'content-type': 'application/json; charset=utf-8'
-				}
-			})
-				.done(function (data) {
-					console.log(data);
-					const dupRemove = filterShelf(data);
+		const renderProducts = async (term) => {
+			$('.shelf--new').empty();
+			$('.shelf--new').append('<ul></ul>');
+			const productApi = await getSearchProducts(term);
+			const productFiltered = await filterShelf(productApi);
+			if (productApi.length < 30) {
+				$('.btn-load-more').hide();
+			}
+			const numberProduct = productFiltered.length;
+			$('.section__navTop__numberProduct p b').text(numberProduct);
 
-					if(data.length < 30){
-						$('.btn-load-more').hide();
-					}
-
-
-					//console.log(dupRemove, 'remove');
-					const teste = `<ul>${dupRemove.map(item => `<li>${mountProduct(item)}</li>`).join('')}</ul>`;
-
-					$('.shelf--new').html(teste);
-
-					setTimeout(function () {
-						var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
-						$('.section__navTop__numberProduct p b').text(numberProduct);
-
-						$(".product__info--name .description").each(function (i) {
-							let len = $(this).text().length;
-							if (len > 60) {
-								$(this).text($(this).text().substr(0, 200) + '...');
-							}
-						});
-					}, 1000)
-
-					$('.shelf__vitrine').addClass('loaded');
-
-				})
+			renderProduct(productFiltered);
 		}
 
 
-		const appendProducts = (term) => {
-			const endpoint = `/api/catalog_system/pub/products/search${term}`;
-			$.ajax({
-				url: endpoint,
-				type: 'GET',
-				headers: {
-					accept: 'application/json',
-					'content-type': 'application/json; charset=utf-8'
-				}
-			})
-				.done(function (data) {
-					console.log(data);
-					const dupRemove = filterShelf(data);
+		const appendProducts = async (term) => {
+			const productApi = await getSearchProducts(term);
+			const productFiltered = await filterShelf(productApi);
+			if (productApi.length < 30) {
+				$('.btn-load-more').hide();
+			}
+			const numberProduct = productFiltered.length;
+			$('.section__navTop__numberProduct p b').text(numberProduct);
 
+			renderProduct(productFiltered);
 
-					//console.log(dupRemove, 'remove');
-					dupRemove.map(item => {
-						const li = `<li>${mountProduct(item)}</li>`;
-						$('.shelf--new ul').append(li);
-					});
-
-
-					var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
-					$('.section__navTop__numberProduct p b').text(numberProduct);
-					$(".product__info--name .description").each(function (i) {
-						let len = $(this).text().length;
-						if (len > 60) {
-							$(this).text($(this).text().substr(0, 200) + '...');
-						}
-					});
-					console.log('load more product');
-
-				})
 		}
 
 		const smartFilter = (filters) => {
@@ -311,11 +300,7 @@ $(document).ready(function () {
 			$('.shelf--new').data('from', fromPage);
 			$('.shelf--new').data('to', toPage);
 
-			// setTimeout(function() {
-			// 	var numberProduct = $('.shelf__vitrine.loaded .prateleira.shelf--new ul li').length;
-			// 	$('.section__navTop__numberProduct p b').text(numberProduct);
-			// 	console.log('load more product');
-			// }, 4000)
+
 
 		})
 
