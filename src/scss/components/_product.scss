@@ -254,9 +254,9 @@
 			}
 			#image {
 				img {
-					//display: none !important;
+					position: static !important;
 					&#image-main {
-						display: block !important;
+						display: none !important;
 					}
 				}
 			}
@@ -388,6 +388,7 @@
 				li {
 					height: 75px;
 					margin-bottom: 10px;
+					max-width: 75px;
 					&:hover {
 						outline: #000;
 						outline-width: 3px;
