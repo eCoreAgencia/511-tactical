@@ -26,6 +26,8 @@ class Product {
 
 		this.loading = `<div class="sp sp-circle"></div>`
 
+		this.init(productId);
+
 
 
 		if($('body').hasClass('product')) {
@@ -105,18 +107,19 @@ class Product {
 			$('.product__zoom').addClass('is-active');
 		}
 
-		$('.product__media #image').on('click', 'img', function (e) {
+		$('.product__media').on('click', '.product__gallery-image .product__image', function (e) {
 			console.log($(this).attr('src'));
 			openZoom($(this).attr('src'));
 		})
 
-		$('.thumbs').on('click', 'img', function (e) {
+		$('.product__media').on('click', '.product__gallery-thumbs img', function (e) {
 			//openZoom($(this).attr('src'));
-			$('.product__media #image img').attr('src', $(this).attr('src'));
+			$('.product__media .product__gallery-image .product__image').attr('src', $(this).attr('src'));
 		})
 
 		$('.product__zoom .btn--close').on('click', function (e) {
 			e.preventDefault();
+			$('.product__media .product__gallery-image .product__image').attr('src', $('.product__zoom-image img').attr('src'));
 			$('.product__zoom').removeClass('is-active');
 		});
 
@@ -127,6 +130,11 @@ class Product {
 
 		const name = $('.product__info .productName').text().replace(/ - TAM ÚNICO/g, '');
 		$('.product__info .productName').html(name);
+	}
+
+	async init(productId) {
+		const productJson = await getSearchProductById(productId);
+		this.gallery(productJson[0].items[0].images);
 	}
 
 	fixeInfoProduct() {
@@ -400,68 +408,7 @@ class Product {
 	async getImage(idproduct) {
 		const productId = findIndex(propEq('productId', idproduct))(this.similar);
 		const productImages = this.similar[productId].items[0].images;
-		$(".thumbs").slick('unslick');
-		$(".thumbs").empty();
-		$('.product__zoom-thumbs').empty();
-		const mainImages = () => {
-			let imageHtml = replace(/#width#/g, '506', productImages[0].imageTag);
-			imageHtml = replace(/#height#/g, '506', imageHtml);
-			imageHtml = replace(/~/g, '', imageHtml);
-			console.log(imageHtml);
-			$('.product__media #image').html(imageHtml);
-			$('.product__zoom-image').html(imageHtml);
-		}
-		const renderGallery = productImages.map(image => {
-			console.log(image);
-			let imageHtml = replace(/#width#/g, '500', image.imageTag);
-			imageHtml = replace(/#height#/g, '500', imageHtml);
-			imageHtml = replace(/~/g, '', imageHtml);
-			console.log(imageHtml);
-			const html = `<li><a class="ON" id="botaoZoom" href="javascript:void(0);" title="Zoom" rel="https://tactical.vteximg.com.br/arquivos/ids/155524-292-292/12110_120_01.jpg?v=636737535706500000" zoom="https://tactical.vteximg.com.br/arquivos/ids/155524-1000-1000/12110_120_01.jpg?v=636737535706500000" tabindex="0">${imageHtml}</a></li>`
-			return html;
-		}).join('');
-
-		const renderZoomThumbs = productImages.map(image => {
-			console.log(image);
-			let imageHtml = replace(/#width#/g, '500', image.imageTag);
-			imageHtml = replace(/#height#/g, '500', imageHtml);
-			imageHtml = replace(/~/g, '', imageHtml);
-			console.log(imageHtml);
-			const html = `<a href="javascript:void(0);">${imageHtml}</a>`
-			return html;
-		}).join('');
-		$(".thumbs").html(renderGallery);
-		$('.product__zoom-thumbs').html(renderZoomThumbs);
-		mainImages();
-
-
-
-		const shelf__prev = `<button type='button' class='slick-prev shelf__button'><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43" height="43" viewBox="0 0 43 43"><defs><path id="vcuya" d="M1460 1326.21l21.21-21.21 21.21 21.21-21.21 21.21z"/><path id="vcuyc" d="M1481.5 1318.5l-7.52 7.52"/><path id="vcuyd" d="M1481.5 1333.02l-7.52-7.52"/><clipPath id="vcuyb"><use fill="#fff" xlink:href="#vcuya"/></clipPath></defs><g><g transform="matrix(-1 0 0 1 1503 -1305)"><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-miterlimit="50" stroke-width="4" clip-path="url(&quot;#vcuyb&quot;)" xlink:href="#vcuya"/></g><g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyc"/></g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyd"/></g></g></g></g></svg></button>`
-		const shelf__next = `<button type='button' class='slick-next shelf__button'><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43" height="43" viewBox="0 0 43 43"><defs><path id="vcuya" d="M1460 1326.21l21.21-21.21 21.21 21.21-21.21 21.21z"/><path id="vcuyc" d="M1481.5 1318.5l-7.52 7.52"/><path id="vcuyd" d="M1481.5 1333.02l-7.52-7.52"/><clipPath id="vcuyb"><use fill="#fff" xlink:href="#vcuya"/></clipPath></defs><g><g transform="matrix(-1 0 0 1 1503 -1305)"><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-miterlimit="50" stroke-width="4" clip-path="url(&quot;#vcuyb&quot;)" xlink:href="#vcuya"/></g><g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyc"/></g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyd"/></g></g></g></g></svg></button>`
-
-
-		if (isMobile.any()) {
-			$('.thumbs').slick({
-				arrows: false,
-				dots: true
-			});
-
-
-		}else {
-			$('ul.thumbs').slick({
-				arrows: true,
-				slidesToShow: 6,
-				slidesToScroll: 1,
-				vertical: true,
-				infinite: true,
-				prevArrow: shelf__prev,
-				nextArrow: shelf__next
-			});
-		}
-
-		setTimeout(function(){
-			$('.product__main .product__media').removeClass('is-loading');
-		}, 1000)
+		this.gallery(productImages);
 
 
 
@@ -505,46 +452,51 @@ class Product {
 	makeZoom() {
 
 
-		$('.zoomPup, .zoomWindow, .zoomPreload').remove();
-
-
-		$('script[src]').each(function(){
-			const src = $(this).attr('src')
-			const preg = /ImageControl3/g;
-			console.log(src.search(preg));
-			if (src.search(preg) > -1) {
-				console.log($(this).attr('src'))
-				$(this).remove();
-				return false;
-			}
-
-		})
 
 
 
-		$('.thumbs li').each(function () {
-			const img = $('img', this).attr('src');
-			$('.product__zoom .product__zoom-thumbs').append(`<a href=""><img src="${img}" /></a>`);
+	}
+
+	gallery(images){
+		const productGalleryWrapper = document.querySelector('.product__main .product__media .product__media-top');
+		productGalleryWrapper.innerHTML = this.loading;
+		$('.product__zoom .product__zoom-thumbs').empty();
+		$('.product__zoom .product__zoom-image').empty();
+		images.map(image => {
+			$('.product__zoom .product__zoom-thumbs').append(`<a href=""><img src="${image.imageUrl}" /></a>`);
 		});
 
-		$('#image a').each(function () {
-			const img = $(this).attr('href');
-			$('.product__zoom .product__zoom-image').append(`<img src="${img}" />`);
-			$('#image').html(`<img src="${img}" />`);
-		});
+		$('.product__zoom .product__zoom-image').html(`<img src="${images[0].imageUrl}" />`);
 
-		$('.product__zoom').on('click', 'a', function (e) {
-			e.preventDefault();
-			const img = $('img', this).attr('src').replace('500-500', '1000-1000');
-			$('.product__zoom .product__zoom-image img').attr('src', img);
 
-		})
+
+		const productGallery = `<div class="product__gallery">
+									<div class="product__gallery-thumbs">
+										<ul class="product__thumbs">
+										${ images.map(image => {
+											const thumb = `
+												<li class="product__thumbs-item">
+													<img class="product__thumbs-image" src="${image.imageUrl}"  width="500" height="500" alt="" />
+												</li>
+											`
+											return thumb;
+										}).join('')}
+
+										</ul>
+									</div>
+									<div class="product__gallery-image">
+										<img class="product__image" src="${images[0].imageUrl}" width="500" height="500" alt="" />
+									</div>
+								</div>`
+		console.log(images);
+
+		productGalleryWrapper.innerHTML = productGallery;
+
+		$(window).trigger('productGalleryLoaded');
 
 		setTimeout(function () {
 			$('.product__main .product__media').removeClass('is-loading');
-		}, 1000)
-
-
+		}, 1500)
 	}
 
 }
@@ -563,6 +515,13 @@ $(document).ready(() => {
 			$('.productReference').text(code[0]);
 		}
 
+		$('.product__zoom').on('click', 'a', function (e) {
+			e.preventDefault();
+			const img = $('img', this).attr('src').replace('500-500', '1000-1000');
+			$('.product__zoom .product__zoom-image img').attr('src', img);
+
+		})
+
 
 
 		const shelf__prev = `<button type='button' class='slick-prev shelf__button'><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43" height="43" viewBox="0 0 43 43"><defs><path id="vcuya" d="M1460 1326.21l21.21-21.21 21.21 21.21-21.21 21.21z"/><path id="vcuyc" d="M1481.5 1318.5l-7.52 7.52"/><path id="vcuyd" d="M1481.5 1333.02l-7.52-7.52"/><clipPath id="vcuyb"><use fill="#fff" xlink:href="#vcuya"/></clipPath></defs><g><g transform="matrix(-1 0 0 1 1503 -1305)"><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-miterlimit="50" stroke-width="4" clip-path="url(&quot;#vcuyb&quot;)" xlink:href="#vcuya"/></g><g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyc"/></g><g><use fill="#fff" fill-opacity="0" stroke="#000" stroke-linecap="square" stroke-miterlimit="50" stroke-width="2" xlink:href="#vcuyd"/></g></g></g></g></svg></button>`
@@ -580,6 +539,34 @@ $(document).ready(() => {
 				breakpoint: 800,
 				settings: 'unslick'
 			}]
+		});
+
+		$(window).on('productGalleryLoaded', () => {
+
+			if (isMobile.any()) {
+				$('.product__thumbs').slick({
+					arrows: false,
+					dots: true
+				});
+
+
+			}else {
+				$('.product__thumbs').slick({
+					arrows: true,
+					slidesToShow: 6,
+					slidesToScroll: 1,
+					vertical: true,
+					infinite: true,
+					prevArrow: shelf__prev,
+					nextArrow: shelf__next,
+					responsive: [{
+						breakpoint: 800,
+						settings: 'unslick'
+					}]
+				});
+			}
+
+
 		});
 
 		$('.shelf__carousel--full ul').slick({
