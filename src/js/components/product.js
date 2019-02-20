@@ -499,6 +499,11 @@ class Product {
 		}, 1500)
 	}
 
+
+	gallery(images) {
+		console.log(images);
+	}
+
 }
 
 $(document).ready(() => {

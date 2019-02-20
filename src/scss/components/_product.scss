@@ -255,8 +255,12 @@
 			#image {
 				img {
 					position: static !important;
+					display: none !important;
 					&#image-main {
-						display: none !important;
+
+					}
+					&:last-child {
+						display: block !important;
 					}
 				}
 			}
