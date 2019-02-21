@@ -35,7 +35,7 @@ class Product {
 			$('.product__main .product__media').append(this.loading);
 			$('.product__skus').html(this.loading);
 			$('.product__main .product__media').addClass('is-loading');
-			this.makeZoom();
+			//this.makeZoom();
 			if($(window).width() > 800) {
 				this.fixeInfoProduct();
 			}
@@ -88,7 +88,6 @@ class Product {
 
 		$('#show ul.thumbs li img').on('click', function (e) {
 			e.preventDefault();
-			// $('.product__zoom').addClass('is-active');
 
 			const img = $(this).attr('src').replace('500-500', '1000-1000');
 			$('#show #include #image img').attr('src', img);
@@ -134,8 +133,18 @@ class Product {
 
 	async init(productId) {
 		const productJson = await getSearchProductById(productId);
-		this.gallery(productJson[0].items[0].images);
+		let images = []
+
+		$('.thumbs li').each(function(){
+			const img = $('img', this).attr('src');
+
+			images.push({imageUrl: img})
+
+			console.log(img);
+		})
+		this.gallery(images);
 	}
+
 
 	fixeInfoProduct() {
 		var nav = $('.product__main .product__info');
@@ -368,17 +377,17 @@ class Product {
 		});
 
 		const newSizes = sizes.map(item => item.replace(/\s/g, ""));
-		console.log(newArray, newSizes);
+		///console.log(newArray, newSizes);
 		return newSizes.map(size => {
 			let html = '';
-			console.log(size);
+			//console.log(size);
 			const skuI = findIndex(propEq('skuname', size))(newArray);
-			console.log(size, skuI, '');
+			//console.log(size, skuI, '');
 			if(skuI >= 0){
 				html = `<option value="${items[skuI].sku}">${items[skuI].skuname}</option>`;
 			}
 
-			console.log(html);
+			//console.log(html);
 			return html;
 			}).join('');
 	}
@@ -391,7 +400,7 @@ class Product {
 			}
 		})
 
-		console.log(productFilters);
+		//console.log(productFilters);
 
 		return productFilters.map(product => {
 
@@ -409,12 +418,6 @@ class Product {
 		const productId = findIndex(propEq('productId', idproduct))(this.similar);
 		const productImages = this.similar[productId].items[0].images;
 		this.gallery(productImages);
-
-
-
-
-
-
 	}
 
 	renderFormNotifyMe() {
@@ -441,23 +444,8 @@ class Product {
 	}
 
 
-
-
-	buyProduct() {
-
-
-
-	}
-
-	makeZoom() {
-
-
-
-
-
-	}
-
 	gallery(images){
+		//alert('teste');
 		const productGalleryWrapper = document.querySelector('.product__main .product__media .product__media-top');
 		productGalleryWrapper.innerHTML = this.loading;
 		$('.product__zoom .product__zoom-thumbs').empty();
@@ -500,9 +488,7 @@ class Product {
 	}
 
 
-	gallery(images) {
-		console.log(images);
-	}
+
 
 }
 

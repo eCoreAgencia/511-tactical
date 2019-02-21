@@ -272,6 +272,10 @@
 			width: 100%;
 		}
 
+		.apresentacao {
+			display: none;
+		}
+
 		.product__main  & {
 			@extend %position-relative;
 			flex: 1;
