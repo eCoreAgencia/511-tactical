@@ -10,12 +10,11 @@ import {
 	changeQuantity
 } from '../utils';
 
-import {findIndex, propEq, replace, remove } from 'ramda';
+import {findIndex, propEq, replace, remove, isEmpty } from 'ramda';
 
 class Product {
 	constructor() {
 		const productId = $('#___rc-p-id').val();
-
 		let self = this;
 		this.similar = '';
 		this.variations = {};
@@ -47,6 +46,8 @@ class Product {
 
 		const productWithVariations = getProductWithVariations(productId);
 		productWithVariations.then(product => {
+
+			product.available = false;
 			if (product.available) {
 				self.product = product;
 
@@ -420,7 +421,10 @@ class Product {
 		this.gallery(productImages);
 	}
 
-	renderFormNotifyMe() {
+
+	renderFormNotifyMe(product) {
+		product.skus[4].available = false;
+		const skuIndex = findIndex(propEq('available', false))(product.skus);
 		const html = `<div class="product__unavailable">
 			<span class="product__unavailable-title"> PRODUTO INDISPONÍVEL</span>
 			<p class="product__unavailable-text">
@@ -428,13 +432,14 @@ class Product {
 			</p>
 
 			<form class="form" id="form-notifyme" action="/no-cache/AviseMe.aspx">
+				<input type="hidden" name="notifymeIdSku" value="${product.skus[skuIndex].sku}"/>
 				<div class="form-control">
 					<input class="input" type="text" placeholder="Insira seu nome" name="notifymeClientName" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Insira seu nome...'" />
 				</div>
 				<div class="form-control">
 					<input class="input" type="email" placeholder="Insira seu e-mail" name="notifymeClientEmail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Insira seu nome...'" />
 				</div>
-				<button class="btn btn--primary">Avise-Me</button>
+				<button class="btn btn--primary btn--notify-me">Avise-Me</button>
 			</form>
 		</div>`;
 
@@ -485,6 +490,11 @@ class Product {
 		setTimeout(function () {
 			$('.product__main .product__media').removeClass('is-loading');
 		}, 1500)
+	}
+
+	notifyMe(e){
+		e.preventDefault();
+		console.log(this);
 	}
 
 
@@ -660,6 +670,73 @@ $(document).ready(() => {
 		let newReference = reference.split(',')[0];
 		console.log(newReference);
 		$('.productReference').text(newReference);
+
+		const isEmptyField = (fields, form) => {
+			let empty = false;
+			fields.map((field) => {
+				if (isEmpty(field)){
+					form.find(`[name=${field}]`).addClass('is-error');
+					empty = true;
+				}
+			})
+
+			return empty;
+		}
+
+		$('.product__main').on('submit', '#form-notifyme', function(e){
+			e.preventDefault();
+			let isValid = true;
+			const form = $(this);
+			var fields = {};
+			var url = form.attr('action');
+			form.find(
+				`input[type="text"],
+			input[type="number"],
+			input[type="tel"],
+			input[type="email"],
+			input[type="hidden"],
+			input[type="radio"]:checked,
+			input[type="checkbox"]:checked,
+			select,
+			textarea`
+			).each(function (i) {
+				var name = $(this).attr('name') || $(this).attr('id');
+				const value = $(this).val();
+				if (name) {
+					if (!isEmpty(value)) {
+						fields[name] = value
+
+					}else{
+						isValid = false;
+						$(this).addClass('is-error');
+					}
+				}
+			});
+
+			if(isValid){
+				$.ajax({
+					url: url,
+					type: 'POST',
+					headers: {
+						accept: 'application/vnd.vtex.masterdata.v10+json',
+						'content-type': 'application/json; charset=utf-8'
+					},
+					data: JSON.stringify(fields)
+				})
+					.done(function() {
+						const success_msg = `<span class="success-msg">Cadastrado com sucesso, assim que o produto for disponibilizado você receberá um email avisando.</span>`;
+
+						$(success_msg).insertBefore('.product__main #form-notifyme');
+					})
+					.fail(function(jqXHR, textStatus) {
+						var msg = JSON.parse(jqXHR.responseText);
+						console.log('define notification:', 'error', msg);
+
+					});
+			}
+
+
+		})
 
 
 

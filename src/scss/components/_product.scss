@@ -743,6 +743,10 @@
 				color: #c0c0c0;
 				font-style: italic;
 			}
+
+			&.is-error {
+				border-color: red;
+			}
 		}
 
 		.form-control {
