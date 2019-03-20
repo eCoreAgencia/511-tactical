@@ -1,6 +1,6 @@
 {
 	"name": "tactical",
-	"version": "2.1.7",
+	"version": "0.12.1",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
