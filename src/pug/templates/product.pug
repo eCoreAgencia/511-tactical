@@ -36,7 +36,9 @@ block content
 					.product__code
 						span Modelo:
 						+vtex-controller('<vtex.cmc:productReference/>')
-					.product__price
+					.contentLogin(class="user-off")
+						a(href="/minha-conta.html" class="product__login") Identifique-se para comprar
+					.product__price.user-logged
 						.price
 							+vtex-controller('<vtex.cmc:skuPrice />')
 								.plugin-preco
@@ -61,11 +63,11 @@ block content
 										p.preco-a-vista.price-cash(style='display: block;')
 											| Preço a vista:
 											strong.skuPrice R$ 639,90
-					.product__skus
+					.product__skus.user-logged
 					.product__table
-							a.btn(href='#open-modal')
-								|  Tabela de Medidas
-					.product__action
+						a.btn(href='#open-modal')
+							|  Tabela de Medidas
+					.product__action.user-logged
 						.product__action-top
 							span.product__action-title Quantidade
 							.product__qtd

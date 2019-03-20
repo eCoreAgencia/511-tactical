@@ -47,7 +47,7 @@ class Product {
 		const productWithVariations = getProductWithVariations(productId);
 		productWithVariations.then(product => {
 
-			product.available = false;
+			//product.available = false;
 			if (product.available) {
 				self.product = product;
 
@@ -423,7 +423,7 @@ class Product {
 
 
 	renderFormNotifyMe(product) {
-		product.skus[4].available = false;
+		//product.skus[4].available = false;
 		const skuIndex = findIndex(propEq('available', false))(product.skus);
 		const html = `<div class="product__unavailable">
 			<span class="product__unavailable-title"> PRODUTO INDISPONÍVEL</span>
@@ -717,11 +717,7 @@ $(document).ready(() => {
 				$.ajax({
 					url: url,
 					type: 'POST',
-					headers: {
-						accept: 'application/vnd.vtex.masterdata.v10+json',
-						'content-type': 'application/json; charset=utf-8'
-					},
-					data: JSON.stringify(fields)
+					data: fields
 				})
 					.done(function() {
 						const success_msg = `<span class="success-msg">Cadastrado com sucesso, assim que o produto for disponibilizado você receberá um email avisando.</span>`;

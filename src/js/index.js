@@ -14,6 +14,7 @@ import './components/account';
 import './components/searchForm';
 import './components/searchMob';
 import './components/send-form';
+import './components/login-b2b';
 
 
 $(document).ready(function(){

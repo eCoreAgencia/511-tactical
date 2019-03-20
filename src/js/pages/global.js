@@ -1,15 +1,29 @@
 import { isMobile } from "../utils";
 import "./../components/send-form";
 
-$(document).ready(() => {
+function userActive() {
+	const stateUser = localStorage.getItem("userEcore");
+	console.log(stateUser);
+	if (stateUser == "true") {
+		console.log('e true')
+		$('.user-logged').css('display', 'block');
+		$('.user-off').css('display', 'none');
+	} else {
+		console.log('e false')
+		$('.user-logged').css('display', 'none');
+		$('.user-off').css('display', 'block');
+	}
+}
 
+$(document).ready(() => {
+	userActive();
 	$( "form.search-form" ).on("submit", function(event) {
 		event.preventDefault();
-	
+
 		let termo		 = $('.search-form input').val();
-		
+
 		window.location = "https://"+window.location.hostname+"/"+termo;
-	});	
+	});
 
     $(".product__info--name .description").each(function(i){
 		let len = $(this).text().length;

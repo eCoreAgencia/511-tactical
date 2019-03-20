@@ -4,7 +4,7 @@
 
 	&__item {
 		&--dropdown {
-			
+
 			@media only screen and (max-width: 768px) {
 				a{
 					position: relative;
@@ -148,7 +148,7 @@
 		@extend %color-black;
 		@extend %font-family-unitedsanscondensed;
 		@extend %text-transform-uppercase;
-		color: #4c4a3f;
+		color: #fff;
 		font-weight: 700;
 		@include font-size(18px);
 		letter-spacing: 0.6px;

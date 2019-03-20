@@ -17,6 +17,21 @@
 }
 
 .shelf {
+
+	.btn__login {
+		font-size: 19px;
+		display: block;
+		font-weight: 300;
+		text-align: center;
+		padding: 11px 32px 8px;
+
+		span {
+			font-weight: bold;
+			font-size: 16px;
+			padding-left: 14px;
+			display: block;
+		}
+	}
 	&--grid {
 		ul {
 			display: grid;
