@@ -1,47 +1,103 @@
 section.modalLogin
-    .modalLogin__opacity
-    .modalLogin__content
-        .modalLogin__box
-            .modalLogin__content__top
-                .modalLogin__close x
-            .modalLogin__box--item#optionAcess(style="display: block")
-                .modalLogin__middle
-                    h2.modalLogin__title MINHA CONTA
-                    p.subTitle Usar uma das opções para confirmar sua identidade:
-                    .btnCotent
-                        a(href="#" class="createaccount") Criar conta
-                        a(href="#" class="hasaccount") Já possuo cadastro
-            .modalLogin__box--item#searchCnpj(style="display: none")
-                .modalLogin__middle
-                    h2.modalLogin__title Cadastre-se
-                    .contentForm
-                        label(for="cnpj") CNPJ
-                        input(type="text" id="cnpj" placeholder="12.345.678/0001-90")
-                    .resultCnpj(style="display: none")
-                        h3.resultCnpj__title ESTES SÃO OS SEUS DADOS?
-                        .resultCnpj__info
-                            .resultCnpj__info--item
-                                p.typeItem Nome Fantasia
-                                p.dataresult.nomeFantasia LOJA TACTICAL
-                            .resultCnpj__info--item
-                                p.typeItem Razão Social
-                                p.dataresult.info TACTICAL DEPARTAMENTOS LTDA
-                            .resultCnpj__info--item
-                                p.typeItem Endereço
-                                p.dataresult.info Avenida Paulista, 1200, São Paulo - SP - CEP 00000-000
-                    .btnCotent
-                        a(href="#" class="nextLogin btnOrange") PRÓXIMO
-                        a(href="#" class="backOption btnBorder") VOLTAR
-            .modalLogin__box--item#login(style="display: none")
-                .modalLogin__middle
-                    h2.modalLogin__title acesse sua conta
-                    .contentForm
-                        .item
-                            label(for="login-cnpj") CNPJ
-                            input(type="text" id="login-cnpj" placeholder="12.345.678/0001-90")
-                        .item
-                            label(for="senha") Senha
-                            input(type="password" id="senha" placeholder="*****************")
-                    .btnCotent
-                        a(href="#" class="main-login btnOrange") ENTRAR
-                        a(href="#" class="backOption btnBorder") VOLTAR
+	.modalLogin__opacity
+	.modalLogin__content
+		.modalLogin__box
+			.modalLogin__content__top
+				.modalLogin__close x
+			#optionAcess.modalLogin__box--item(style='display: block;')
+				.modalLogin__middle
+					h2.modalLogin__title MINHA CONTA
+					p.subTitle Usar uma das opções para confirmar sua identidade:
+					.btnCotent
+						a.createaccount(href='#') Criar conta
+						a.hasaccount(href='#') Já possuo cadastro
+			#searchCnpj.modalLogin__box--item(style='display: none;')
+				.modalLogin__middle
+					h2.modalLogin__title Cadastre-se
+					.contentForm
+						label(for='cnpj') CNPJ
+						input#cnpj(type='text', placeholder='12.345.678/0001-90')
+					.resultCnpj(style='display: none;')
+						h3.resultCnpj__title ESTES SÃO OS SEUS DADOS?
+						.resultCnpj__info
+							.resultCnpj__info--item
+								p.typeItem Nome Fantasia
+								p.dataresult.nomeFantasia LOJA TACTICAL
+							.resultCnpj__info--item
+								p.typeItem Razão Social
+								p.dataresult.razaoSocial TACTICAL DEPARTAMENTOS LTDA
+							.resultCnpj__info--item
+								p.typeItem Endereço
+								p.dataresult.endereco Avenida Paulista, 1200, São Paulo - SP - CEP 00000-000
+					.btnCotent
+						a.nextLogin.btnOrange(href='#', style='display: none;') PRÓXIMO 
+						a.buscarCnpj.btnOrange(href='#') Buscar
+						a.backOption.btnBorder(href='#') VOLTAR
+			#createcliente.modalLogin__box--item(style='display: none;')
+				.modalLogin__middle
+					h2.modalLogin__title Cadastre-se
+					.modalLogin__optioncad
+						ul
+							li
+								a#aboutStore(href='#') Sobre seu negócio
+							li
+								a#yourData.active(href='#') Seus dados
+					.contentForm
+						.contentForm__item.hasSub
+							.contentForm__item--subitem
+								label(for='incriEstadual') Inscrição estadual
+								input#incriEstadual(type='text')
+							.contentForm__item--subitem
+								label(for='isento') Isento
+								input#isento(type='checkbox', value='isento')
+						.contentForm__item
+							label(for='endComercial') Endereço comercial
+							input#endComercial(type='text', disabled='true')
+						.contentForm__item
+							label(for='segmento') Segmento
+							select#segmento
+								option(value='')
+								option(value='loja-de-equipamento-profissional') Loja de equipamento profissional
+						.contentForm__item
+							label(for='nameRespo') Nome do responsável
+							input#nameRespo(type='text')
+						.contentForm__item
+							label(for='emailRespo') E-mail do responsável
+							input#emailRespo(type='text')
+						.contentForm__item
+							label(for='telefoneRespo') Telefone do responsável
+							input#telefoneRespo(type='text')
+						.contentForm__item.hasSub
+							.contentForm__item--subitem
+								label(for='senha1') Senha
+								input#senha1(type='password')
+							.contentForm__item--subitem
+								label(for='senha2') Repita a senha
+								input#senha2(type='password')
+						.contentForm__item.sendImage
+							label(for='sedimage') Imagem do estabelecimento
+							.sendImage__content
+								p
+									| Complete o cadastro enviando uma foto do estabelecimento.
+									| Você pode realizar este envio posteriormente, porém a 511 exigirá a imagem antes de permitir suas compras.
+									| Para saber mais entre em contato conosco: (11) 0000-0000
+								.sendImage__btn
+									label(for='sendImageclick') ENVIAR ARQUIVO
+									input#sendImageclick(type='file', value='')
+									span#file-name
+					.btnCotent
+						a.confirmcad.btnOrange(href='#') CONFIRMAR CADASTRO
+						a.backCnpj.btnBorder(href='#') VOLTAR
+			#login.modalLogin__box--item(style='display: none;')
+				.modalLogin__middle
+					h2.modalLogin__title acesse sua conta
+					.contentForm
+						.item
+							label(for='login-cnpj') CNPJ
+							input#login-cnpj(type='text', placeholder='12.345.678/0001-90')
+						.item
+							label(for='senha') Senha
+							input#senha(type='password', placeholder='*****************')
+					.btnCotent
+						a.main-login.btnOrange(href='#') ENTRAR
+						a.backOption.btnBorder(href='#') VOLTAR
