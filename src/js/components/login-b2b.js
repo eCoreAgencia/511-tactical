@@ -1,11 +1,6 @@
 class Login {
 	constructor() {
-		if ("true" == localStorage.getItem("userEcore") ? ($(".shelf .btn__login").remove(),
-				$(".shelf .product__actions .product__buy").css("display", "block")) : (console.log("ao tem"),
-				$(".shelf .product__actions .product__buy").remove(),
-				$(".shelf .product__info .product__price").remove(),
-				$(".shelf .product__info .price").remove()),
-			$("body").hasClass("minha-conta")) {
+		if ($("body").hasClass("minha-conta")) {
 			this.loginUser(),
 				this.buttonActions(),
 				this.maskCnpj(),
@@ -17,6 +12,7 @@ class Login {
 				e.textContent = this.value
 			})
 		}
+
 	}
 
 	insertMensager(mensager, classname, inject) {
@@ -36,7 +32,7 @@ class Login {
 				$.ajax({
 					async: !0,
 					crossDomain: !0,
-					url: "http://api.vtexcrm.com.br/tactical/dataentities/LG/search?_where=cnpj=" + r + " AND senha=" + e + "&_fields=ativo,id",
+					url: "http://api.vtexcrm.com.br/tactical/dataentities/LG/search?_where=cnpj=" + r + " AND senha=" + e + "&_fields=ativo,id,cnpj,nomefantasia,razaosocial",
 					type: "GET",
 					contentType: "application/json"
 				}).done(function (t) {
@@ -50,6 +46,7 @@ class Login {
 						console.log("entro"),
 						localStorage.setItem("userEcore", !0),
 						localStorage.setItem("idUserEcore", n[0].id),
+						localStorage.setItem("userLogged", JSON.stringify(n[0])),
 						window.location = "/";
 					else {
 						$(".contentForm").append("                        <div class='not-regitered--red'>                            <p>Você já esta cadastro, agora e só esperar a ativação do seu cadastro!</p>                        </div>"),
@@ -74,8 +71,8 @@ class Login {
 				CNPJ: n
 			};
 			$.ajax({
-				async: !0,
-				crossDomain: !0,
+				async: true,
+				crossDomain: true,
 				url: "https://fullcore.com.br/tactical/middleware/",
 				type: "POST",
 				contentType: "application/json",

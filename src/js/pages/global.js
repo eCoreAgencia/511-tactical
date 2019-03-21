@@ -5,18 +5,22 @@ function userActive() {
 	const stateUser = localStorage.getItem("userEcore");
 	console.log(stateUser);
 	if (stateUser == "true") {
-		console.log('e true')
-		$('.user-logged').css('display', 'block');
-		$('.user-off').css('display', 'none');
+		$("body").each(function () {
+			$(this).addClass('user-logged')
+		});
 	} else {
-		console.log('e false')
-		$('.user-logged').css('display', 'none');
-		$('.user-off').css('display', 'block');
+		$("body").each(function () {
+			$(this).removeClass('user-logged');
+		});
 	}
 }
 
 $(document).ready(() => {
 	userActive();
+
+	$(window).on('shelf-loaded', () => {
+		userActive();
+	})
 	$( "form.search-form" ).on("submit", function(event) {
 		event.preventDefault();
 

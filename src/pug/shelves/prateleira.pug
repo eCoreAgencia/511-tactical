@@ -12,7 +12,7 @@ if (global.process.env.NODE_ENV === 'production')
 	- var categoryName = '+ $product.CategoryName'
 	- var categoryHref = '$product.CategoryLink'
 	- var description = '$product.DescriptionShort'
-
+	- var account = '/minha-conta'
 else
 	- var title = 'XPRT® MultiCam® Tactical Pant'
 	- var href = '/product.html'
@@ -25,8 +25,8 @@ else
 	- var categoryName = '+ Iluminação'
 	- var categoryHref = '/category.html'
 	- var description = 'Eu dou dinheiro pra minha filha. Eu dou dinheiro pra ela viajar, então é...'
-
-.product.product--shelf
+	- var account = '/minha-conta.html'
+.product.product--shelf.user-off
 	span.product__id(data-product-id= dataProductId)
 	.product__header
 		.product__media
@@ -35,16 +35,16 @@ else
 		.product__actions
 			if ( global.process.env.NODE_ENV === 'production' )
 				!= '\n#if ($product.IsInStock)'
-				!= '\n 	<a class="btn btn--buy product__buy" title="XPRT® MultiCam® Tactical Pant" href="'+href+'">Compre Agora</a>'
+				!= '\n 	<a class="btn btn--buy btn__login" title="$product.HtmlEscapedName" href="'+href+'">IDENTIFIQUE-SE <span>Para Comprar</span></a>'
+				!= '\n 	<a class="btn btn--buy product__buy" title="$product.HtmlEscapedName" href="'+href+'">Compre Agora</a>'
 				!= '\n#else'
 				!= '\n	<div class="product__unavailable">Indisponível</div>'
 				!= '\n#end\n'
 			else
-				a.btn.btn--buy.btn__login.user-off(title= title, href="/minha-conta.html")
+				a.btn.btn--buy.btn__login(title= title, href= account)
 					| IDENTIFIQUE-SE
 					span  PARA COMPRAR
-				a.btn.btn--buy.product__buy.user-logged(title= title, href= href) Compre Agora
-
+				a.btn.btn--buy.product__buy(title= title, href= href) Compre Agora
 	.product__reviews
 	.product__info
 		.product__info--name
@@ -77,4 +77,3 @@ else
 					span.price__old R$ 432,75
 					span.price__best R$ 432,75
 					span.price__installment ou até 10x de R$ 43,28
-					a.btn.btn--buy.product__buy.btn-list(title= title, href= href) VER DETALHES

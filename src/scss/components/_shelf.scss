@@ -28,7 +28,6 @@
 		span {
 			font-weight: bold;
 			font-size: 16px;
-			padding-left: 14px;
 			display: block;
 		}
 	}
@@ -91,6 +90,38 @@
 
 ul.slick-initialized.slick-slider {
 	display: flex;
+}
+
+body {
+	.product__buy,
+	.product__price,
+	.product__skus,
+	.product__action {
+		display: none;
+	}
+
+	.btn__login,
+	.contentLogin {
+		display: block;
+	}
+
+	&.user-logged {
+
+		.product__buy,
+		.product__skus,
+		.product__action {
+			display: block;
+		}
+
+		.product__price {
+			display: flex;
+		}
+
+		.btn__login,
+		.contentLogin {
+			display: none;
+		}
+	}
 }
 
 

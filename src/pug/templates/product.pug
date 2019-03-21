@@ -19,7 +19,7 @@ block content
 						li.last
 							a(href='https://tactical.vtexcommercestable.com.br/ferramentas-eletricas/acessorios/mandril', rel='v:url', property='v:title') Mandril
 		section.section__page.section__product-header
-			.product__main
+			.product__main.user-off
 				.product__media
 					.product__media-top
 						+vtex-controller('<vtex.cmc:ProductImage zoom="on"/>')
@@ -36,9 +36,9 @@ block content
 					.product__code
 						span Modelo:
 						+vtex-controller('<vtex.cmc:productReference/>')
-					.contentLogin(class="user-off")
-						a(href="/minha-conta.html" class="product__login") Identifique-se para comprar
-					.product__price.user-logged
+					.contentLogin
+						a(href="/minha-conta" class="product__login") Identifique-se para comprar
+					.product__price
 						.price
 							+vtex-controller('<vtex.cmc:skuPrice />')
 								.plugin-preco
@@ -63,11 +63,11 @@ block content
 										p.preco-a-vista.price-cash(style='display: block;')
 											| Preço a vista:
 											strong.skuPrice R$ 639,90
-					.product__skus.user-logged
+					.product__skus
 					.product__table
 						a.btn(href='#open-modal')
 							|  Tabela de Medidas
-					.product__action.user-logged
+					.product__action
 						.product__action-top
 							span.product__action-title Quantidade
 							.product__qtd

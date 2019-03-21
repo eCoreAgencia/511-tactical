@@ -154,7 +154,8 @@ $(document).ready(function () {
 					const thumb = items[0].images[0].imageTag;
 
 					let aboutMore = `<a class="btn btn--buy product__buy btn-list" title="${productName}" href="${link}">VER DETALHE</a>`;
-					let btnBuy = `<a class="btn btn--buy product__buy" title="${productName}" href="${link}">Compre Agora</a>`;
+					let btnBuy = `<a class="btn btn--buy btn__login" title="${productName}" href="/minha-conta">IDENTIFIQUE-SE<span> PARA COMPRAR</span></a>
+					<a class="btn btn--buy product__buy" title="${productName}" href="${link}">Compre Agora</a>`;
 					let price = ''
 
 					if (data.available) {
@@ -206,7 +207,7 @@ $(document).ready(function () {
 					}
 
 					const html = `
-					<div class="product product--shelf">
+					<div class="product product--shelf user-off">
 						<span class="product__id" data-product-id="${productId}"></span>
   						<div class="product__header">
 							<div class="product__media">
@@ -245,6 +246,8 @@ $(document).ready(function () {
 
 
 			})
+
+			$(window).trigger('shelf-loaded');
 
 			$('.shelf__vitrine').addClass('loaded');
 
@@ -311,6 +314,8 @@ $(document).ready(function () {
 			let numberResult = $('.resultado-busca-numero:first .value').text();
 			$('.section__navTop__numberProduct p b').text(numberResult);
 		}
+
+
 	}
 });
 
