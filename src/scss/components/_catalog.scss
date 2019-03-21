@@ -282,6 +282,12 @@
 	}
 }
 
+@keyframes spinner {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 body.category {
 	.shelf__vitrine {
 		.vitrine {
