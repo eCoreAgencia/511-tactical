@@ -13,7 +13,11 @@ class Account {
                 $('.section__account__box__tlt').text('Olá '+name);
             } else {
                 $('.section__account__box__tlt').text('Olá '+email);
-            }
+			}
+
+			const linkLogoutAccount = `<a class="link-logout" href="/no-cache/user/logout">Sair</a></li>`
+
+			$('.account .section__account__box__tlt').append(linkLogoutAccount);
         });
     }
 }
