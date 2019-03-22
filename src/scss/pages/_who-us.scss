@@ -1,0 +1,13 @@
+.who-us {
+	.banner {
+		&--who-us {
+			&-main, &-banner {
+				@extend %position-relative;
+				.box-banner {
+					@extend %display-none;
+				}
+			}
+		}
+	}
+
+}
