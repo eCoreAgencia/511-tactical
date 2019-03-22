@@ -32,7 +32,7 @@ class Login {
 				$.ajax({
 					async: !0,
 					crossDomain: !0,
-					url: "http://api.vtexcrm.com.br/tactical/dataentities/LG/search?_where=cnpj=" + r + " AND senha=" + e + "&_fields=ativo,id,cnpj,nomefantasia,razaosocial",
+					url: "http://api.vtexcrm.com.br/tacticalb2b/dataentities/US/search?_where=cnpj=" + r + " AND senha=" + e + "&_fields=ativo,id,cnpj,nomefantasia,razaosocial,tipo",
 					type: "GET",
 					contentType: "application/json"
 				}).done(function (t) {
@@ -73,7 +73,7 @@ class Login {
 			$.ajax({
 				async: true,
 				crossDomain: true,
-				url: "https://fullcore.com.br/tactical/middleware/",
+				url: "https://tacticalb2b-fullcore.herokuapp.com/",
 				type: "POST",
 				contentType: "application/json",
 				data: JSON.stringify(e)

@@ -11,7 +11,8 @@ export const addToCart = function (id, quantity = 1, seller = '1', redirect = fa
 		quantity,
 		seller
 	}
-	vtexjs.checkout.addToCart([item], null, 1)
+
+	vtexjs.checkout.addToCart([item], null, 2)
 		.done(orderForm => {
 			$(window).trigger('FC.ProductAdded');
 		})
@@ -91,9 +92,9 @@ export const changeQuantity = (element, value) => {
 	const currentValue = element.val();
 	console.log(value);
 	let newValue = +currentValue + +value;
-	
+
     if(newValue) {
         element.val(newValue);
     }
-    
+
 }

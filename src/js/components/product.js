@@ -21,7 +21,7 @@ class Product {
 		this.product = {};
         this.item = {};
         this.item.quantity = 1;
-        this.item.seller = "1";
+        this.item.seller = "2";
 
 		this.loading = `<div class="sp sp-circle"></div>`
 
