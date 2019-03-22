@@ -47,7 +47,7 @@ class Product {
 		const productWithVariations = getProductWithVariations(productId);
 		productWithVariations.then(product => {
 
-			product.available = false;
+			//product.available = false;
 			if (product.available) {
 				self.product = product;
 

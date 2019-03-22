@@ -117,6 +117,7 @@ $(document).ready(function () {
 		url = category + '&_from=' + fromPage + '&_to=' + toPage;
 
 		const filterShelf = (products) => {
+			console.log(products, 'teste')
 			const productNames = products.map(product => product.productName);
 			const productFilters = products.filter((product, index) => {
 				if (R.findIndex(R.propEq('productName', productNames[index]))(products) >= index) {
@@ -126,7 +127,7 @@ $(document).ready(function () {
 
 			const itemsToRemove = productFilters.length % 4;
 
-			if (productFilters.length > 4) return R.dropLast(itemsToRemove, productFilters)
+			if (productFilters.length > 4 && products.length >= 50) return R.dropLast(itemsToRemove, productFilters)
 
 
 			return productFilters;
@@ -255,7 +256,7 @@ $(document).ready(function () {
 			$('.shelf--new').append('<ul></ul>');
 			const productApi = await getSearchProducts(term);
 			const productFiltered = await filterShelf(productApi);
-			if (productApi.length < 30) {
+			if (productApi.length < 50) {
 				$('.btn-load-more').hide();
 			}
 			const numberProduct = productFiltered.length;
@@ -268,7 +269,7 @@ $(document).ready(function () {
 		const appendProducts = async (term) => {
 			const productApi = await getSearchProducts(term);
 			const productFiltered = await filterShelf(productApi);
-			if (productApi.length < 30) {
+			if (productApi.length < 50) {
 				$('.btn-load-more').hide();
 			}
 			const numberProduct = productFiltered.length;
@@ -293,8 +294,8 @@ $(document).ready(function () {
 		})
 
 		$('.btn-load-more').on('click', function () {
-			const fromPage = $('.shelf--new').data('from') + 30;
-			const toPage = $('.shelf--new').data('to') + 30;
+			const fromPage = $('.shelf--new').data('from') + 50;
+			const toPage = $('.shelf--new').data('to') + 50;
 			const url = category + '&_from=' + fromPage + '&_to=' + toPage;
 			appendProducts(url);
 			$('.shelf--new').data('from', fromPage);
