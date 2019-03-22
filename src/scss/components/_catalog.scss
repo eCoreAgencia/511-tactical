@@ -264,12 +264,6 @@
 			flex-wrap: wrap;
 			justify-content: space-between;
 		}
-
-		.vitrine {
-			&::after {
-				display: none;
-			}
-		}
 	}
 }
 @media only screen and (max-width: 768px) {
