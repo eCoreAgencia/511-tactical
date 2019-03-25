@@ -1,35 +1,9 @@
-extends ../layouts/default.pug
+extends ../layouts/empty.pug
 
 block vars
-  - var pageTitle = '404'
-  - var bodyClass = '404 home'
+	- var pageTitle = 'Login'
+	- var bodyClass = 'login'
 
 block content
-  section.section__page.section__hero
-    .banner.banner--full
-      .banner__inner
-        +vtex-controller('<vtex:contentPlaceHolder id="Banner Full" />')
-          .box-banner
-            a(href="")
-              img(src="/arquivos/banner-ex.png")/
-          .box-banner
-            a(href="")
-              img(src="/arquivos/banner-ex.png")/
-          .box-banner
-            a(href="")
-              img(src="/arquivos/banner-ex.png")/
-    .banner.banner--mobile
-      .banner__inner
-        +vtex-controller('<vtex:contentPlaceHolder id="Banner Full Mobile" />')
-          .box-banner
-            a(href="")
-              img(src="/arquivos/banner-full-mbl.png")/
-          .box-banner
-            a(href="")
-              img(src="/arquivos/banner-full-mbl.png")/
-          .box-banner
-            a(href="")
-              img(src="/arquivos/banner-full-mbl.png")/
-  section.section__page.section__comprecategoria
-    include ../vtexParts/comprecategoriatop-new.pug
-  +vtex-controller('<vtex.cmc:userLogin/>')
+	iframe.iframe--home(src="/", frameborder="0" width="100%", height="100%", scrolling="no")
+	+vtex-controller('<vtex.cmc:userLogin/>')

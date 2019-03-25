@@ -10,7 +10,7 @@ section.modalLogin
 					p.subTitle Usar uma das opções para confirmar sua identidade:
 					.btnCotent
 						a.createaccount(href='#') Criar conta
-						a.hasaccount(href='#') Já possuo cadastro
+						a.hasaccount(href='/login?ReturnUrl=%2f') Já possuo cadastro
 			#searchCnpj.modalLogin__box--item(style='display: none;')
 				.modalLogin__middle
 					h2.modalLogin__title Cadastre-se
@@ -18,19 +18,20 @@ section.modalLogin
 						label(for='cnpj') CNPJ
 						input#cnpj(type='text', placeholder='12.345.678/0001-90')
 					.resultCnpj(style='display: none;')
-						h3.resultCnpj__title ESTES SÃO OS SEUS DADOS?
-						.resultCnpj__info
-							.resultCnpj__info--item
-								p.typeItem Nome Fantasia
-								p.dataresult.nomeFantasia LOJA TACTICAL
-							.resultCnpj__info--item
-								p.typeItem Razão Social
-								p.dataresult.razaoSocial TACTICAL DEPARTAMENTOS LTDA
-							.resultCnpj__info--item
-								p.typeItem Endereço
-								p.dataresult.endereco Avenida Paulista, 1200, São Paulo - SP - CEP 00000-000
+						.resultCnpj__inner(style='display: none;')
+							h3.resultCnpj__title ESTES SÃO OS SEUS DADOS?
+							.resultCnpj__info
+								.resultCnpj__info--item
+									p.typeItem Nome Fantasia
+									p.dataresult.nomeFantasia LOJA TACTICAL
+								.resultCnpj__info--item
+									p.typeItem Razão Social
+									p.dataresult.razaoSocial TACTICAL DEPARTAMENTOS LTDA
+								.resultCnpj__info--item
+									p.typeItem Endereço
+									p.dataresult.endereco Avenida Paulista, 1200, São Paulo - SP - CEP 00000-000
 					.btnCotent
-						a.nextLogin.btnOrange(href='#', style='display: none;') PRÓXIMO 
+						a.nextLogin.btnOrange(href='#', style='display: none;') PRÓXIMO
 						a.buscarCnpj.btnOrange(href='#') Buscar
 						a.backOption.btnBorder(href='#') VOLTAR
 			#createcliente.modalLogin__box--item(style='display: none;')
@@ -46,13 +47,13 @@ section.modalLogin
 						.contentForm__item.hasSub
 							.contentForm__item--subitem
 								label(for='incriEstadual') Inscrição estadual
-								input#incriEstadual(type='text')
+								input#incriEstadual(type='text')/
 							.contentForm__item--subitem
 								label(for='isento') Isento
-								input#isento(type='checkbox', value='isento')
+								input#isento(type='checkbox', value='isento')/
 						.contentForm__item
 							label(for='endComercial') Endereço comercial
-							input#endComercial(type='text', disabled='true')
+							input#endComercial(type='text', disabled='true')/
 						.contentForm__item
 							label(for='segmento') Segmento
 							select#segmento
@@ -60,20 +61,14 @@ section.modalLogin
 								option(value='loja-de-equipamento-profissional') Loja de equipamento profissional
 						.contentForm__item
 							label(for='nameRespo') Nome do responsável
-							input#nameRespo(type='text')
+							input#nameRespo(type='text')/
 						.contentForm__item
 							label(for='emailRespo') E-mail do responsável
-							input#emailRespo(type='text')
+							input#emailRespo(type='text')/
 						.contentForm__item
 							label(for='telefoneRespo') Telefone do responsável
-							input#telefoneRespo(type='text')
-						.contentForm__item.hasSub
-							.contentForm__item--subitem
-								label(for='senha1') Senha
-								input#senha1(type='password')
-							.contentForm__item--subitem
-								label(for='senha2') Repita a senha
-								input#senha2(type='password')
+							input#telefoneRespo(type='text')/
+
 						.contentForm__item.sendImage
 							label(for='sedimage') Imagem do estabelecimento
 							.sendImage__content
@@ -83,7 +78,7 @@ section.modalLogin
 									| Para saber mais entre em contato conosco: (11) 0000-0000
 								.sendImage__btn
 									label(for='sendImageclick') ENVIAR ARQUIVO
-									input#sendImageclick(type='file', value='')
+									input#sendImageclick(type='file', value='')/
 									span#file-name
 					.btnCotent
 						a.confirmcad.btnOrange(href='#') CONFIRMAR CADASTRO
@@ -94,10 +89,10 @@ section.modalLogin
 					.contentForm
 						.item
 							label(for='login-cnpj') CNPJ
-							input#login-cnpj(type='text', placeholder='12.345.678/0001-90')
+							input#login-cnpj(type='text', placeholder='12.345.678/0001-90')/
 						.item
 							label(for='senha') Senha
-							input#senha(type='password', placeholder='*****************')
+							input#senha(type='password', placeholder='*****************')/
 					.btnCotent
 						a.main-login.btnOrange(href='#') ENTRAR
 						a.backOption.btnBorder(href='#') VOLTAR

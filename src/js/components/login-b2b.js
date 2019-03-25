@@ -186,7 +186,7 @@ class Login {
 }
 
 $(document).ready(function(){
-	window.Login = new Login();
+	//window.Login = new Login();
 })
 
 

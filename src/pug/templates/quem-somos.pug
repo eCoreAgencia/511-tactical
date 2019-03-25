@@ -1,0 +1,65 @@
+extends ../layouts/default.pug
+
+block vars
+	- var pageTitle = 'Quem somos'
+	- var bodyClass = 'who-us'
+
+block content
+	section.section.section--who-us.section--banner-main
+		.banner.banner--who-us-banner
+			+vtex-controller('<vtex:contentPlaceHolder id="Banner Main"/>')
+				.box-banner
+					a(href="")
+						img(src="/arquivos/banner-who-us-principal.jpg", )/
+			.container
+				.logo.logo--special
+					img(src="/arquivos/logo-special.png")/
+		.banner.banner--who-us-banner
+			+vtex-controller('<vtex:contentPlaceHolder id="Banner Second"/>')
+				.box-banner
+					a(href="")
+						img(src="/arquivos/banner-who-us-2.jpg")/
+			.container
+				.who-us__box.who-us__box--align-right
+					+vtex-controller('<vtex:contentPlaceHolder id="Text Second"/>')
+						h2.who-us__title O MUNDO É CHEIO DE INCÓGNITAS.
+						.who-us__text
+							p Não podemos prever o que acontecerá a cada minuto do dia, mas podemos ficar preparados. Em nossos equipamentos, nossas roupas, nossa mentalidade. Quer estejamos em serviço ou de folga, em nosso país ou fora de alcance.
+							p A mentalidade é sempre a mesma...
+		.banner.banner--who-us-banner-text
+			+vtex-controller('<vtex:contentPlaceHolder id="Banner Second"/>')
+				.box-banner
+					a(href="")
+						img(src="/arquivos/always-be-ready.jpg")/
+		.banner.banner--who-us-banner
+			+vtex-controller('<vtex:contentPlaceHolder id="Banner Second"/>')
+				.box-banner
+					a(href="")
+						img(src="/arquivos/banner-who-us-3.jpg")/
+			.container
+				.who-us__box.who-us__box--align-left
+					+vtex-controller('<vtex:contentPlaceHolder id="Text Second"/>')
+						h2.who-us__title NÃO É APENAS UM LEMA.
+						.who-us__text
+							p Não é só uma frase em uma camiseta. É o modo como vivemos. Não importa o que aconteça, seguimos em frente. Não por não termos medo, mas apesar dele. Porque confiamos em nossos instintos, em nosso treinamento, em nosso equipamento.
+							p Na 5.11, não apenas inspiramos prontidão, nós somos a pronidão.
+		.banner.banner--who-us-banner
+			+vtex-controller('<vtex:contentPlaceHolder id="Banner Second"/>')
+				.box-banner
+					a(href="")
+						img(src="/arquivos/banner-who-us-4.jpg")/
+			.container
+				.who-us__box
+					.who-us__box-column
+						h2.who-us__call TRAJES PERSONALIZADOS PARA AS MISSÕES MAIS EXIGENTES
+					.who-us__box-column
+						+vtex-controller('<vtex:contentPlaceHolder id="Text Second"/>')
+							h2.who-us__title TUDO COMEÇOU COM UM PAR DE CALÇAS.
+							.who-us__text
+								p A academia do FBI adotou a calça 5.11® original como sua calça de treinamento em 1992, dando início a um relacionamento de décadas que direciona o comprometimento da 5.11® com a segurança pública e com a comunidade de socorristas.
+								p A 5.11 Tactical® começou a desenvolver uma linha mais ampla voltada para oficiais da lei em 2003. Nossos designers trabalham juntamente com profissionais da segurança pública para criar equipamentos que atendam às necessidades de pessoas reais no campo. Em 2012, enfrentamos o desafio de redesenhar nossa coleção feminina para criar opções mais adequadas e que apresentem melhor desempenho. Nossa categoria feminina cresceu para incluir uniformes especiais, roupas discretas, vestuário para ginástica e mais.
+								p Atualmente, a 5.11® está em expansão para os mercados de atividades ao ar livre e ginástica com produtos como as bermudas Vaporlite e os tênis ABR trainer. Estamos determinados a enfrentar esses novos desafios com a mesma determinação e firmeza que sempre definiu nossa marca.
+	section.section.section--who-us-video
+		.section__inner.container
+	section.section.section--who-us-video
+		.section__inner.container

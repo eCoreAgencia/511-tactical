@@ -93,3 +93,35 @@ export const getSearchProductById = (productId) => {
 
 
 }
+export const postInMasterData = (entity, data) => {
+	const endpoint = `//api.vtexcrm.com.br/casaegaragem/dataentities/${entity}/documents`;
+
+
+	return new Promise((resolve, reject) => {
+		return fetch(endpoint, {
+				method: 'post',
+				body: JSON.stringify(data)
+			})
+			.then(data => {
+				const result = data.json()
+				return resolve(result)
+			})
+			.catch(err => reject(err))
+	})
+
+}
+
+export const getInMasterData = (entity, where, fields) => {
+	const endpoint = `//api.vtexcrm.com.br/tacticalb2b/dataentities/${entity}/search?_where=${where}&_fields=${fields}`;
+
+
+	return new Promise((resolve, reject) => {
+		return fetch(endpoint)
+			.then(data => {
+				const result = data.json()
+				return resolve(result)
+			})
+			.catch(err => reject(err))
+	})
+
+}

@@ -1,31 +1,10 @@
 import { isMobile } from "../utils";
 import "./../components/send-form";
 
-function userActive() {
-	const stateUser = localStorage.getItem("userEcore");
-	console.log(stateUser);
-	if (stateUser == "true") {
 
-		$("body").each(function () {
-			$(this).addClass('user-logged')
-		});
-
-	} else {
-
-		$(".header .logged-status").attr('href', '/minha-conta');
-
-		$("body").each(function () {
-			$(this).removeClass('user-logged');
-		});
-	}
-}
 
 $(document).ready(() => {
-	userActive();
 
-	$(window).on('shelf-loaded', () => {
-		userActive();
-	})
 	$( "form.search-form" ).on("submit", function(event) {
 		event.preventDefault();
 

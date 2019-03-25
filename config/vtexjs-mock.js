@@ -5,7 +5,7 @@
 	var orderForm = {
 		"orderFormId": "531c27a2ae724a8dac3dbcbc6c90bb1d",
 		"salesChannel": "1",
-		"loggedIn": false,
+		"loggedIn": true,
 		"isCheckedIn": false,
 		"storeId": null,
 		"allowManualPrice": false,
@@ -287,8 +287,8 @@
 		},
 		"clientProfileData": {
 			"attachmentId": "clientProfileData",
-			"email": "zeonardo.lima@original.io",
-			"firstName": null,
+			"email": "lf.pereirarj@gmail.com",
+			"firstName": "Luiz Felipe",
 			"lastName": null,
 			"document": null,
 			"documentType": null,
