@@ -5,11 +5,11 @@ $(document).ready(() => {
 
 	$( "form.search-form" ).on("submit", function(event) {
 		event.preventDefault();
-	
+
 		let termo		 = $('.search-form input').val();
-		
+
 		window.location = "https://"+window.location.hostname+"/"+termo;
-	});	
+	});
 
     $(".product__info--name .description").each(function(i){
 		let len = $(this).text().length;
@@ -89,4 +89,15 @@ $(document).ready(() => {
 	$(".edit.edit-profile-link").insertAfter(
 		".span4.profile-detail-display h4"
 	);
+
+	if($('body').hasClass('who-us')){
+		$('.banner--who-us-banner').each(function(){
+			const img = $('.box-banner img', this).attr('src');
+			const height = $('.box-banner img', this).height();
+			console.log(height);
+
+			$(this).css('background-image', 'url(' + img + ')');
+			$(this).height(height);
+		});
+	}
 });
