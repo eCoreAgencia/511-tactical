@@ -92,12 +92,13 @@ $(document).ready(() => {
 
 	if($('body').hasClass('who-us')){
 		$('.banner--who-us-banner').each(function(){
-			const img = $('.box-banner img', this).attr('src');
 			const height = $('.box-banner img', this).height();
-			console.log(height);
-
-			$(this).css('background-image', 'url(' + img + ')');
 			$(this).height(height);
+		});
+
+		$('.our-products__box').each(function () {
+			const imgSrc = $('img', this).attr('src');
+			$('.our-products__inner', this).css('background-image', 'url(' + imgSrc + ')');
 		});
 	}
 });

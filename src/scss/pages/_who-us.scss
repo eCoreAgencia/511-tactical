@@ -4,10 +4,111 @@
 			&-main, &-banner {
 				@extend %position-relative;
 				.box-banner {
-					@extend %display-none;
+					@extend %position-absolute;
+					top: 0;
+					z-index: -1;
 				}
 			}
 		}
 	}
 
+	.banner--who-us-banner {
+		.container {
+			height: 100%;
+		}
+	}
+
+	&__box {
+		@extend %display-flex;
+		@extend %flex-align-items-center;
+		@extend %flex-wrap-wrap;
+		height: 100%;
+
+		.who-us__title {
+			max-width: 683px;
+			width: 100%;
+			text-align: left;
+			@extend %color-white;
+		}
+
+		.who-us__text {
+			max-width: 683px;
+			width: 100%;
+			@extend %color-white;
+		}
+
+		&--align-right {
+			@extend %flex-align-items-flex-end;
+			@extend %flex-direction-column;
+			@extend %flex-justify-content-center;
+
+
+
+		}
+
+		&--align-left {
+			@extend %flex-align-items-flex-start;
+			@extend %flex-direction-column;
+			@extend %flex-wrap-wrap;
+			@extend %flex-justify-content-center;
+
+
+		}
+
+		&-column {
+			max-width: 554px;
+			align-self: flex-end;
+			padding-bottom: 95px;
+		}
+
+
+
+	}
+
+
+	&__call {
+		@extend %font-family-trumpgothicwest;
+		@include font-size(52px);
+		@extend %color-white;
+
+		max-width: 471px;
+		width: 100%;
+		margin-right: 60px;
+
+		border-bottom: 7px solid $c-orange;
+		margin-bottom: 0;
+	}
+
+}
+
+.our-products {
+	@extend %display-flex;
+	flex-wrap: wrap;
+	&__box {
+		width: calc((100%/3));
+		padding: 0 10px;
+		margin: 10px 0;
+	}
+
+	&__inner {
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+	}
+
+	&__image {
+		opacity: 0;
+	}
+
+	margin: 30px 0 50px;
+}
+
+.section--who-us-our-produts {
+	.section__title {
+		margin-top: 40px;
+		@extend %font-family-unitedsans;
+		@extend %color-black;
+		@include font-size(22px);
+		font-weight: 900;
+	}
 }
