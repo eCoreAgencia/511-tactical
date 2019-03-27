@@ -91,6 +91,14 @@ $(document).ready(() => {
 	);
 
 	if($('body').hasClass('who-us')){
-		
+		$('.banner--who-us-banner').each(function(){
+			const height = $('.box-banner img', this).height();
+			$(this).height(height);
+		});
+
+		$('.our-products__box').each(function () {
+			const imgSrc = $('img', this).attr('src');
+			$('.our-products__inner', this).css('background-image', 'url(' + imgSrc + ')');
+		});
 	}
 });
