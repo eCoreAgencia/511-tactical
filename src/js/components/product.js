@@ -293,13 +293,17 @@ class Product {
     }
 
     addProductToCart(button){
+
         if(isEmpty(this.cart)) {
 			$('<span class="error">Selecione um tamanho</span>').insertAfter('.product__skus--size .product__skus-title');
 
 		}else{
+			$(button).addClass('running')
 			vtexjs.checkout.addToCart(this.cart, null, 2)
 				.done(function(orderForm) {
 					$(button).removeClass('running')
+
+					$('.minicart').addClass('active')
 				});
 		}
 

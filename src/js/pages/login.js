@@ -4,21 +4,19 @@ const R = require('ramda');
 
 $(document).ready(() => {
 
-	if($('body').hasClass('minha-conta')){
-		localStorage.setItem('onMyAccount', true);
-	}
+
 
 
 	vtexjs.checkout.getOrderForm().done(async orderForm => {
 		const isLogged = orderForm.loggedIn;
 		if (isLogged) {
-			let onMyAccount = localStorage.getItem('onMyAccount') || localStorage.setItem('onMyAccount', false);
+			let onMyAccount = sessionStorage.getItem('onMyAccount') || sessionStorage.setItem('onMyAccount', false);
 			const userEmail = orderForm.clientProfileData.email;
 			const userName = orderForm.clientProfileData.firstName;
 			const query = `email=${userEmail}`
 			const getUser = await getInMasterData('CL', query, "id,corporateDocument,approved,customerClass,corporateName,corporateEmail,businessPhone,tradeName,stateRegistration");
 			const user = getUser[0];
-			localStorage.setItem('user', JSON.stringify(user))
+			sessionStorage.setItem('user', JSON.stringify(user))
 			console.log(user);
 			const welcomeMessage = userName ? `Olá, ${userName}` : `Olá, ${userEmail}`
 			if (welcomeMessage.length >= 15) $(".logged-status").text(`${welcomeMessage.substr(0, 14)}...`)
@@ -32,12 +30,12 @@ $(document).ready(() => {
 			if (R.isEmpty(user) || R.isNil(user)) {
 
 
-				localStorage.setItem('userEmail', userEmail)
-				localStorage.setItem('user', '')
+				sessionStorage.setItem('userEmail', userEmail)
+				sessionStorage.setItem('user', '')
 
 			} else {
 
-				localStorage.setItem('user', JSON.stringify(user));
+				sessionStorage.setItem('user', JSON.stringify(user));
 
 				if(user.approved == true) {
 					document.body.classList.add('user-logged');
@@ -103,7 +101,7 @@ $(document).ready(() => {
 					$('.razaoSocial', resultCnpj).text(RazaoSocial)
 					$('.endereco', resultCnpj).text(address)
 
-					localStorage.removeItem('onMyAccount');
+					sessionStorage.removeItem('onMyAccount');
 
 				} else {
 
@@ -134,7 +132,7 @@ $(document).ready(() => {
 
 	$(".modalLogin__close").on("click", function (t) {
 		window.history.back()
-		localStorage.setItem('onMyAccount', false)
+		sessionStorage.setItem('onMyAccount', false)
 	})
 
 	$(".backOption").on("click", function (e) {
@@ -163,7 +161,7 @@ $(document).ready(() => {
 		form_data.append("file", file)
 		console.log(file);
 		if (R.isEmpty(userCad) || R.isNil(userCad)) {
-			let user = localStorage.getItem('user') || ''
+			let user = sessionStorage.getItem('user') || ''
 			var t = cnpj,
 				n = $(".resultCnpj .resultCnpj__info .nomeFantasia").text(),
 				e = $(".resultCnpj .resultCnpj__info .razaoSocial").text(),
@@ -180,7 +178,7 @@ $(document).ready(() => {
 				var f = {
 					corporateDocument: t,
 					address: i,
-					email: localStorage.getItem('userEmail'),
+					email: sessionStorage.getItem('userEmail'),
 					stateRegistration: r,
 					tradeName: n,
 					firstName: a,
@@ -247,7 +245,7 @@ $(document).ready(() => {
 						console.log(response);
 					});
 
-					localStorage.removeItem('userEmail')
+					sessionStorage.removeItem('userEmail')
 				},
 				error: function () {
 					alert("Ops, houve um erro.")
@@ -278,7 +276,7 @@ $(document).ready(() => {
 	})
 
 
-	$('.vtexIdUI-close').on('click', function(){
+	$('.login').on('click', '.vtexIdUI-close', function () {
 		window.location = "/"
 	})
 });
