@@ -157,6 +157,11 @@ $(document).ready(() => {
 		const query = `corporateDocument=${cnpj}`
 		const getUser = await getInMasterData('CL', query, "corporateDocument")
 		const userCad = getUser[0];
+
+		const file = $('#sendImageclick').prop("files")[0];
+		var form_data = new FormData();
+		form_data.append("file", file)
+		console.log(file);
 		if (R.isEmpty(userCad) || R.isNil(userCad)) {
 			let user = localStorage.getItem('user') || ''
 			var t = cnpj,
@@ -201,7 +206,8 @@ $(document).ready(() => {
 					businessPhone: u,
 					approved: false,
 					isCorporate: true,
-					documentType: 'CNPJ'
+					documentType: 'CNPJ',
+					email: c
 				};
 			}
 
@@ -215,8 +221,31 @@ $(document).ready(() => {
 					"Content-Type": "application/json"
 				},
 				data: JSON.stringify(f),
-				success: function () {
+				success: function (data) {
 					$("#createcliente .modalLogin__middle").html('<div class="cadastroSucesso"><h3>Cadastrado com sucesso.</h3><p>Aguarde até que seu perfil seja ativo</p></div>')
+
+					console.log(data)
+					//var form = new FormData();
+
+					var settings = {
+						"async": true,
+						"crossDomain": true,
+						"url": `//api.vtexcrm.com.br/tacticalb2b/dataentities/CL/documents/${data.DocumentId}/attach/attachments`,
+						"type": "POST",
+						"headers": {
+							"accept": "application/vnd.vtex.ds.v10+json",
+							"cache-control": "no-cache",
+							"postman-token": "a7509754-c629-cba8-2ed6-195ce8307188"
+						},
+						"processData": false,
+						"contentType": false,
+						"mimeType": "multipart/form-data",
+						"data": form_data
+					}
+
+					$.ajax(settings).done(function (response) {
+						console.log(response);
+					});
 
 					localStorage.removeItem('userEmail')
 				},

@@ -10,7 +10,7 @@ import {
 	changeQuantity
 } from '../utils';
 
-import {findIndex, propEq, replace, remove, isEmpty } from 'ramda';
+import {findIndex, propEq, replace, remove, isEmpty, isNil } from 'ramda';
 
 class Product {
 	constructor() {
@@ -21,22 +21,50 @@ class Product {
 		this.product = {};
         this.item = {};
         this.item.quantity = 1;
-        this.item.seller = "2";
+		this.item.seller = "2";
+		this.cart = [];
+		this.productSelected = '';
 
 		this.loading = `<div class="sp sp-circle"></div>`
 
 		this.init(productId);
 
 
+		$(window).on('skuSelectorCreated', () => {
+			self.getTotalProducts();
+			console.log(self.cart, 'skuSelectorCreated')
+			if(!isEmpty(self.cart)){
+				self.cart.map(item => {
+					$(`input[name="sku-${item.sku}"]`).val(item.quantity);
+				})
+			}
+
+			if(isEmpty(self.productSelected)){
+				$('.product__skus li:first-child').addClass('is-active');
+				const color = $('.product__skus li:first-child a').attr('title').replace(/-/g, ' ');
+
+				$('.color-selected strong').html(color);
+			}else{
+				$(`.product__skus #product-color-${self.productSelected}`).parent().addClass('is-active');
+				const color = $(`.product__skus #product-color-${self.productSelected}`).attr('title').replace(/-/g, ' ');
+
+				$('.color-selected strong').html(color);
+			}
+
+		});
+
+
 
 		if($('body').hasClass('product')) {
+
+			//$('body').addClass('user-logged')
 			this.addProductToCart();
 			$('.product__main .product__media').append(this.loading);
 			$('.product__skus').html(this.loading);
 			$('.product__main .product__media').addClass('is-loading');
 			//this.makeZoom();
 			if($(window).width() > 800) {
-				this.fixeInfoProduct();
+				//this.fixeInfoProduct();
 			}
 
 			if (jQuery(".modal-window .box-banner").children().length <= 0) {
@@ -58,7 +86,7 @@ class Product {
 				self.renderSkuSelectors(product);
 
 
-				$('.product__main .product__buy').html(self.buttonBuy());
+				$('.product__main .product__action-top .product__buy').html(self.buttonBuy());
 				$('.product__main .product__qtd').html(self.inputQuantity());
 			} else {
 				self.renderFormNotifyMe(product);
@@ -78,6 +106,7 @@ class Product {
 			self.getImage(idproduct);
 			const productID = $(this).data('product-id');
 			self.changeProduct(productID);
+			self.productSelected = productID;
 		})
 
 
@@ -126,6 +155,37 @@ class Product {
 		$('.product__qtd').on('keyup', '.product__qtd-value', function(e){
 			console.log($(this).val());
 			self.item.quantity = parseInt($(this).val());
+		})
+
+		$('.product__skus').on('keyup', '.quantity-product', function (e) {
+			const productSelected = {};
+			const skuId = $(this).parents('tr').find('.size').data('sku');
+			const stock = parseInt($(this).parents('tr').find('.stock').text());
+			let qtd = parseInt($(this).val()) || 0;
+			console.log($(this).val(), skuId);
+			const skuIndex = findIndex(propEq('id', skuId))(self.cart);
+			console.log(skuIndex);
+			if(qtd > stock) {
+				qtd = stock
+				$(this).val(stock);
+			}
+			if (skuIndex >= 0) {
+				if(qtd > 0 ){
+					self.cart[skuIndex].quantity = qtd
+				}else{
+					self.cart.splice(self.cart[skuIndex], 1);
+				}
+
+				self.getTotalProducts();
+			}else{
+				productSelected.id = skuId
+				productSelected.quantity = qtd
+				productSelected.seller = 1
+
+				self.cart.push(productSelected);
+
+				self.getTotalProducts();
+			}
 		})
 
 		const name = $('.product__info .productName').text().replace(/ - TAM ÚNICO/g, '');
@@ -233,16 +293,14 @@ class Product {
     }
 
     addProductToCart(button){
-        if(this.skuValidation()) {
-			console.log($('.product__qtd-value').val());
-			let { id, quantity, seller } = this.item;
-			quantity = $('.product__qtd .product__qtd-value').val();
-			addToCart(id, quantity);
-			$(button).addClass('running');
-			setTimeout(function() {
-				$(".minicart").addClass("active");
-			}, 1000);
+        if(isEmpty(this.cart)) {
+			$('<span class="error">Selecione um tamanho</span>').insertAfter('.product__skus--size .product__skus-title');
 
+		}else{
+			vtexjs.checkout.addToCart(this.cart, null, 2)
+				.done(function(orderForm) {
+					$(button).removeClass('running')
+				});
 		}
 
 
@@ -253,7 +311,7 @@ class Product {
 
     buttonBuy() {
         return `<button class="btn btn--buy ld-ext-right" onClick="Product.addProductToCart(this)">
-            Adicionar ao Carrinho
+            Adicionar todos ao Carrinho
             <div class="ld ld-ring ld-spin"></div>
       </button>`;
     }
@@ -302,17 +360,42 @@ class Product {
 
 			if (product.dimensionsMap.Tamanho[0] == 'U') {
 				self.item.id = product.skus[0].sku;
-				select = '';
+				select = `
+						<div class="product__skus--size product__skus--table">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Tamanho</th>
+										<th>Em Estoque</th>
+										<th>Quantidade</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="size" data-sku="${product.skus[0].sku}">${product.skus[0].skuname}</td>
+										<td class="stock">${product.skus[0].availablequantity}</td>
+										<td class="quantity"><input name="sku-${product.skus[0].sku}" class="quantity-product" type="text" placeholder="0"/></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>`;;
 			} else {
 
 
 				select = `
-						<div class="product__skus--size product__skus--select">
-							<span class="product__skus-title">Tamanho</span>
-							<select  class="sku-size" name="id">
-								<option value="" hidden>Selecione um tamanho</option>
-								${this.createSkuSelect(product.skus, product.dimensionsMap.Tamanho)}
-							</select>
+						<div class="product__skus--size product__skus--table">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Tamanho</th>
+										<th>Em Estoque</th>
+										<th>Quantidade</th>
+									</tr>
+								</thead>
+								<tbody>
+									${this.createSkuSelect(product.skus, product.dimensionsMap.Tamanho)}
+								</tbody>
+							</table>
 						</div>`;
 			}
 
@@ -346,6 +429,8 @@ class Product {
 							<ul>
 								${this.createSkuThumb(productSimilar)}
 							</ul>
+
+							<span class="color-selected">Cor Selecionada: <strong></strong></span>
 					</div>`;
 				const skus = `<div class="product__skus-inner">
 						${list}
@@ -378,17 +463,17 @@ class Product {
 		});
 
 		const newSizes = sizes.map(item => item.replace(/\s/g, ""));
-		///console.log(newArray, newSizes);
 		return newSizes.map(size => {
 			let html = '';
-			//console.log(size);
 			const skuI = findIndex(propEq('skuname', size))(newArray);
-			//console.log(size, skuI, '');
 			if(skuI >= 0){
-				html = `<option value="${items[skuI].sku}">${items[skuI].skuname}</option>`;
+				html = `<tr>
+					<td class="size" data-sku="${items[skuI].sku}">${items[skuI].skuname}</td>
+					<td class="stock">${items[skuI].availablequantity}</td>
+					<td class="quantity"><input name="sku-${items[skuI].sku}"class="quantity-product" type="text" placeholder="0"/></td>
+				</tr>`;
 			}
 
-			//console.log(html);
 			return html;
 			}).join('');
 	}
@@ -400,8 +485,6 @@ class Product {
 				return product;
 			}
 		})
-
-		//console.log(productFilters);
 
 		return productFilters.map(product => {
 
@@ -495,6 +578,19 @@ class Product {
 	notifyMe(e){
 		e.preventDefault();
 		console.log(this);
+	}
+
+	getTotalProducts(){
+		if (isNil(this.cart) || isEmpty(this.cart)) {
+			console.log(this.cart, '--')
+			const noProducts = `Nenhum produto selecionado`;
+			$('.total-products strong').html(noProducts);
+		} else {
+			console.log(this.cart, '----')
+			const total = this.cart.reduce((prev, item) => prev + item.quantity, 0);
+			const totalText = `${total} produtos selecionados`;
+			$('.total-products strong').html(totalText);
+		}
 	}
 
 
@@ -609,63 +705,9 @@ $(document).ready(() => {
 
 
 
-		$(window).on('skuSelectorCreated', () => {
-			const img = $('#image img');
-			$('.zoomPup, .zoomWindow, .zoomPreload').remove();
-			$('#image').html(img);
-
-			$('select').each(function () {
-				var $this = $(this),
-					numberOfOptions = $(this).children('option').length;
-
-				$this.addClass('select-hidden');
-				$this.wrap('<div class="select"></div>');
-				$this.after('<div class="select-styled"></div>');
-
-				var $styledSelect = $this.next('div.select-styled');
-				$styledSelect.text($this.children('option').eq(0).text());
-				$styledSelect.append('<i class="icon-arrow-right"></i>');
-
-				var $list = $('<ul />', {
-					'class': 'select-options'
-				}).insertAfter($styledSelect);
-
-				for (var i = 0; i < numberOfOptions; i++) {
-					$('<li />', {
-						text: $this.children('option').eq(i).text(),
-						rel: $this.children('option').eq(i).val()
-					}).appendTo($list);
-				}
-
-				var $listItems = $list.children('li');
-
-				$styledSelect.click(function (e) {
-                    e.stopPropagation();
-                    $('.error').remove();
-					$('div.select-styled.active').not(this).each(function () {
-						$(this).removeClass('active').next('ul.select-options').hide();
-					});
-					$(this).toggleClass('active').next('ul.select-options').toggle();
-				});
-
-				$listItems.click(function (e) {
-					e.stopPropagation();
-					$styledSelect.text($(this).text()).removeClass('active');
-					$styledSelect.append('<i class="icon-arrow-right"></i>');
-					$this.val($(this).attr('rel'));
-					$list.hide();
-				});
-
-				$(document).click(function () {
-					$styledSelect.removeClass('active');
-					$list.hide();
-				});
 
 
 
-
-			});
-		});
 		let reference = $('.productReference').text();
 		let newReference = reference.split(',')[0];
 		console.log(newReference);
