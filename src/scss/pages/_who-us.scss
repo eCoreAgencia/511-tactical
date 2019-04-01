@@ -3,11 +3,15 @@
 		&--who-us {
 			&-main, &-banner {
 				@extend %position-relative;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
 				.box-banner {
 					@extend %position-absolute;
 					top: 0;
 					z-index: -1;
 				}
+
 			}
 		}
 	}
