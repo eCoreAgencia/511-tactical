@@ -47,7 +47,7 @@ class Product {
 		const productWithVariations = getProductWithVariations(productId);
 		productWithVariations.then(product => {
 
-			product.available = false;
+			
 			if (product.available) {
 				self.product = product;
 
@@ -423,7 +423,7 @@ class Product {
 
 
 	renderFormNotifyMe(product) {
-		product.skus[4].available = false;
+		
 		const skuIndex = findIndex(propEq('available', false))(product.skus);
 		const html = `<div class="product__unavailable">
 			<span class="product__unavailable-title"> PRODUTO INDISPONÍVEL</span>
