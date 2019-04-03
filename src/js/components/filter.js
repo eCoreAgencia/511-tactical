@@ -2,7 +2,7 @@ import {
 	getProductWithVariations,
 	getSearchProducts
 } from '../modules/vtexRequest'
-const R = require('ramda');
+
 
 class Filter {
 	constructor() {
@@ -95,7 +95,7 @@ class Filter {
 $(document).ready(function () {
 	if ($('body').hasClass('catalog')) {
 		window.filter = new Filter();
-		let urlFilters = '';
+		/* let urlFilters = '';
 		let url, content, preg, category;
 		jQuery('script:not([src])').each(function () {
 			content = jQuery(this)[0].innerHTML;
@@ -302,11 +302,11 @@ $(document).ready(function () {
 
 
 
-		})
+		}) */
 
 
 		if ($('body').hasClass('category') || $('body').hasClass('department')) {
-			renderProducts(url);
+			//renderProducts(url);
 		} else {
 			let numberResult = $('.resultado-busca-numero:first .value').text();
 			$('.section__navTop__numberProduct p b').text(numberResult);
