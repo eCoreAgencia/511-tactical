@@ -5,7 +5,7 @@ const R = require('ramda');
 $(document).ready(() => {
 
 
-
+	const AddressJson = {};
 
 	vtexjs.checkout.getOrderForm().done(async orderForm => {
 		const isLogged = orderForm.loggedIn;
@@ -100,6 +100,17 @@ $(document).ready(() => {
 					$('.nomeFantasia', resultCnpj).text(NomeFantasia)
 					$('.razaoSocial', resultCnpj).text(RazaoSocial)
 					$('.endereco', resultCnpj).text(address)
+
+					$('#endComercial').val(address);
+
+					AddressJson.city = Enderecos[0].Cidade
+					AddressJson.complement = Enderecos[0].Complemento
+					AddressJson.street = Enderecos[0].Logradouro
+					AddressJson.state = Enderecos[0].Estado
+					AddressJson.postalCode = Enderecos[0].CEP
+					AddressJson.neighborhood = Enderecos[0].Bairro
+					AddressJson.number = Enderecos[0].Numero
+
 
 					sessionStorage.removeItem('onMyAccount');
 
@@ -244,6 +255,30 @@ $(document).ready(() => {
 					$.ajax(settings).done(function (response) {
 						console.log(response);
 					});
+
+					const dataAddress = {
+						...AddressJson,
+						userId: data.Id.replace('CL-', '')
+					}
+
+
+					$.ajax({
+						async: false,
+						url: "//api.vtexcrm.com.br/tacticalb2b/dataentities/AD/documents/",
+						type: "PATCH",
+						contentType: "application/json",
+						headers: {
+							"Accept": "application/vnd.vtex.masterdata.v10+json",
+							"Content-Type": "application/json"
+						},
+						data: JSON.stringify(dataAddress),
+						success: function (data) {
+							console.log(data)
+						},
+						error: function (error) {
+							console.log(error)
+						}
+					})
 
 					sessionStorage.removeItem('userEmail')
 				},
