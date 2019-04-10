@@ -3,7 +3,7 @@ const R = require('ramda');
 const slugify = require('slugify');
 
 $(document).ready(() => {
-	if($('body').hasClass('catalog')){
+	if($('body').hasClass('category')){
 		//$(`.prateleira ul > li`).hide();
 		const newShelf = [];
 		const productNames = []
@@ -65,6 +65,32 @@ $(document).ready(() => {
 		$(document).ajaxStop(function () {
 
 			loadShelf();
+
+			$('.section__shelf').each(function(){
+				var html = "";
+				var title = $('.shelf__carousel--full.active h2', this).text();
+				$('.filter__title', this).text(title);
+				$('.prateleira h2', this).each(function(index){
+					var text = $(this).text();
+					var parentIndex = $(this).parents('.shelf__carousel--full').data('name');
+					if(index == 0){
+						html += '<li class="filter__opt-item"><a class="active" href="" data-name="'+parentIndex+'">'+text+'</a></li>'
+					}else {
+						html += '<li class="filter__opt-item"><a href="" data-name="'+parentIndex+'">'+text+'</a></li>'
+					}
+					
+				});
+
+				$('.filter__opt', this).html(html);
+			})
+
+			$('.filter__opt').on('click', 'a', function(e){
+				e.preventDefault();
+				$('.shelf__carousel--full').removeClass('active');
+				var i = $(this).data('name');
+
+				$('.shelf__carousel--full[data-name='+i+']').addClass('active')
+			})
 
 		});
 
