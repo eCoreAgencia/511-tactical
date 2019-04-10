@@ -40,8 +40,8 @@ $(document).ready(() => {
 				if(user.approved == true) {
 					document.body.classList.add('user-logged');
 
-					$('.logged-link').href('/account/orders')
-					$('.logged-status').href('/account/')
+					$('.logged-link').attr('href', '/account/orders')
+					$('.logged-status').attr('href', '/account/')
 				}
 
 
