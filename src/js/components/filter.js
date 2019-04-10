@@ -72,7 +72,11 @@ class Filter {
 			}
 		});
 
-		$(".filter input[type='checkbox']").vtexSmartResearch();
+		if($('body').hasClass('category') || $('body').hasClass('department')){
+			$(".filter input[type='checkbox']").vtexSmartResearch();
+		}
+
+		
 
 		$('.search-multiple-navigator input').on('change', function () {
 			let urlFilters = ''
