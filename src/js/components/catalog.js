@@ -78,7 +78,7 @@ $(document).ready(() => {
 					}else {
 						html += '<li class="filter__opt-item"><a href="" data-name="'+parentIndex+'">'+text+'</a></li>'
 					}
-					
+
 				});
 
 				$('.filter__opt', this).html(html);
@@ -95,5 +95,96 @@ $(document).ready(() => {
 		});
 
 
+		var currentPage = 1;
+
+		var pages = $('.pager.bottom .page-number').length;
+
+		if(pages > currentPage){
+			var buttonLoadMore = '<div class="button btn-load-more confira-todos-produtos">Ver Mais</div>'
+		}
+
+
+
+		$('.prateleira[id^=ResultItems]').append(buttonLoadMore);
+
+		$('.prateleira').on('click','.btn-load-more', function(){
+			var url, content, preg;
+			currentPage++;
+			jQuery('script:not([src])').each(function () {
+				content = jQuery(this)[0].innerHTML;
+				preg = /\/buscapagina\?.+&PageNumber=/i;
+				if (content.search(/\/buscapagina\?/i) > -1) {
+					url = preg.exec(content);
+
+				}
+			});
+
+
+
+			var searchUrl = url[0] + currentPage;
+
+			console.log(searchUrl)
+
+			$.ajax({
+				url: searchUrl,
+				success: function (data) {
+					console.log(data)
+					console.log(data.trim().length)
+					if (data.trim().length < 1) {
+						$('.btn-load-more').remove();
+					}else {
+						$('.prateleira[id^=ResultItems]').append(data);
+					}
+				}
+			});
+		});
+
+
+	}
+
+	if ($('body').hasClass('resultado-busca')){
+		var currentPage = 1;
+
+		var pages = $('.pager.bottom .page-number').length;
+
+		if (pages > currentPage) {
+			var buttonLoadMore = '<div class="button btn-load-more confira-todos-produtos">Ver Mais</div>'
+		}
+
+
+
+		$('.prateleira[id^=ResultItems]').append(buttonLoadMore);
+
+		$('.prateleira').on('click', '.btn-load-more', function () {
+			var url, content, preg;
+			currentPage++;
+			jQuery('script:not([src])').each(function () {
+				content = jQuery(this)[0].innerHTML;
+				preg = /\/buscapagina\?.+&PageNumber=/i;
+				if (content.search(/\/buscapagina\?/i) > -1) {
+					url = preg.exec(content);
+
+				}
+			});
+
+
+
+			var searchUrl = url[0] + currentPage;
+
+			console.log(searchUrl)
+
+			$.ajax({
+				url: searchUrl,
+				success: function (data) {
+					console.log(data)
+					console.log(data.trim().length)
+					if (data.trim().length < 1) {
+						$('.btn-load-more').remove();
+					} else {
+						$('.prateleira[id^=ResultItems] .prateleira').after(data);
+					}
+				}
+			});
+		});
 	}
 });
