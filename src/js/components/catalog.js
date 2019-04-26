@@ -42,7 +42,7 @@ $(document).ready(() => {
 
 					console.log(R.uniq(filterShelf))
 
-					const list = filterShelf.map(shelf => `<li>${shelf}</li>`).join('')
+					const list = filterShelf.map(shelf => `<li>${shelf}</li>`).join('');
 					$('.shelf__vitrine .prateleira .prateleira.eached').remove();
 					$('.shelf__vitrine').addClass('loaded');
 					$('.shelf__vitrine .vitrine .prateleira').html(`<div class="prateleira"><ul>${list}</ul></div>`);

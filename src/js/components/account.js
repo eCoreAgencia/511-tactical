@@ -7,7 +7,7 @@ class Account {
         vtexjs.checkout.getOrderForm().done(function(orderForm) {
             const data = orderForm;
             let name   = data.clientProfileData.firstName;
-            let email  = data.clientProfileData.email;
+            let email  = data.clientProfileData.corporateName;
 
             if(name) {
                 $('.section__account__box__tlt').text('Olá '+name);

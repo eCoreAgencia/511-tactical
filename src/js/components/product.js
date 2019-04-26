@@ -69,6 +69,7 @@ class Product {
 			e.preventDefault();
 			let idproduct = $(this).attr("data-product-id");
 			let colorname = $(this).attr("style").split("/arquivos/")[1];
+			let nameColor = $(this).attr("style").split("/arquivos/")[1];
 			colorname	  = colorname.replace(/1|2|3|4|5|6|7|8|9|0.|.jpg|'|\)| /g,'');
 			colorname	  = colorname.replace(/-/g,' ');
 			console.log(colorname)
@@ -78,6 +79,9 @@ class Product {
 			self.getImage(idproduct);
 			const productID = $(this).data('product-id');
 			self.changeProduct(productID);
+			setTimeout(function() {
+				$('.product__skus--color .colorSelect span').text(nameColor.replace(/.jpg|'|\)|/g,'').replace(/-/g,' '));
+			}, 1500);
 		})
 
 
@@ -346,6 +350,7 @@ class Product {
 							<ul>
 								${this.createSkuThumb(productSimilar)}
 							</ul>
+							<p class="colorSelect">Cor selecionada: <span></span></p>
 					</div>`;
 				const skus = `<div class="product__skus-inner">
 						${list}
