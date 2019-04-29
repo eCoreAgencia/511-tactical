@@ -1,10 +1,7 @@
 
 const R = require('ramda');
 const slugify = require('slugify');
-import {
-	parse,
-	parseDefaults
-} from 'himalaya'
+
 
 $(document).ready(() => {
 	const newShelf = [];

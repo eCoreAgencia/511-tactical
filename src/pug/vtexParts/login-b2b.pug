@@ -56,7 +56,18 @@ section.modalLogin
 							input#endComercial(type='text', disabled='true')/
 						.contentForm__item
 							label(for='segmento') Segmento
-							input#segmento(type='text')/
+							select#segmento(name="segmento")
+								option(value="Indústria") Indústria
+								option(value="Profissional") Profissional
+								option(value="Empresas") Empresas
+								option(value="Outdoor") Outdoor
+								option(value="Sportswear") Sportswear
+								option(value="Calçados") Calçados
+								option(value="Acessórios") Acessórios
+								option(value="Clube de Tiro") Clube de Tiro
+								option(value="Lifestyle/Multimarca") Lifestyle/Multimarca
+								option(value="Internet/E-commerce") Internet/E-commerce
+								option(value="Outros") Outros
 						.contentForm__item
 							label(for='nameRespo') Nome do responsável
 							input#nameRespo(type='text')/
