@@ -579,4 +579,9 @@ body {
 			}
 		}
 	}
+
+
+	&.resultado-busca .allVitrine .is-fluid .pager.bottom .pages {
+		display: flex;
+	}
 }

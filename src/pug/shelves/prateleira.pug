@@ -1,5 +1,6 @@
 include ../helpers.pug
 
+
 if (global.process.env.NODE_ENV === 'production')
 	- var title = '$product.HtmlEscapedName'
 	- var href = '$product.Uri'
@@ -14,11 +15,11 @@ if (global.process.env.NODE_ENV === 'production')
 	- var description = '$product.DescriptionShort'
 
 else
-	- var title = 'XPRT® MultiCam® Tactical Pant'
+	- var title = 'XPRT MultiCam Tactical Pant'
 	- var href = '/product.html'
 	- var dataProductId = Math.floor(Math.random() * 9999999)
-	- var listPrice = 'R$ 299,99'
-	- var bestPrice = 'R$ 199,99'
+	- var listPrice = 'R$ ' + Math.floor(Math.random() * 9999999)/100;
+	- var bestPrice = 'R$ ' + Math.floor(Math.random() * 9999999)/100
 	- var flags = '<p class="flag destaque">novo</p>'
 	- var getImageTag = '<img src="/arquivos/ImgProduto-220x220.png" width="220" height="220" />'
 	- var getImageTag2 = '<img src="/arquivos/ImgProduto-220x220.png" width="220" height="220" />'
@@ -71,7 +72,7 @@ else
 				!= '\n#end\n'
 			else
 				.price
-					span.price__old R$ 432,75
-					span.price__best R$ 432,75
+					span.price__old=listPrice
+					span.price__best=bestPrice
 					span.price__installment ou até 10x de R$ 43,28
 					a.btn.btn--buy.product__buy.btn-list(title= title, href= href) VER DETALHES
