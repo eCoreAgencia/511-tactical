@@ -47,7 +47,7 @@ class Product {
 		const productWithVariations = getProductWithVariations(productId);
 		productWithVariations.then(product => {
 
-			
+
 			if (product.available) {
 				self.product = product;
 
@@ -428,9 +428,10 @@ class Product {
 
 
 	renderFormNotifyMe(product) {
-		
+
 		const skuIndex = findIndex(propEq('available', false))(product.skus);
 		const html = `<div class="product__unavailable">
+			<button class="btn btn--close"> X</button>
 			<span class="product__unavailable-title"> PRODUTO INDISPONÍVEL</span>
 			<p class="product__unavailable-text">
 				Preencha os dados e clique no botão abaixo para ser avisado quando houver disponibilidade.
@@ -619,6 +620,11 @@ $(document).ready(() => {
 			$('.zoomPup, .zoomWindow, .zoomPreload').remove();
 			$('#image').html(img);
 
+			//$('.product__skus li:first-child').addClass('is-active');
+			const color = $('.product__skus li:first-child a').attr('title').replace(/-/g, ' ');
+
+			$('.colorSelect p').html(color);
+
 			$('select').each(function () {
 				var $this = $(this),
 					numberOfOptions = $(this).children('option').length;
@@ -741,6 +747,13 @@ $(document).ready(() => {
 			}
 
 
+		})
+
+
+		$('.product__main').on('click', '.product__unavailable .btn--close', function (){
+			const productId = $('#___rc-p-id').val();
+
+			window.Product.renderSkuSelectors(productId);
 		})
 
 

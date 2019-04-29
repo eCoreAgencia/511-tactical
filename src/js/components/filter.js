@@ -80,7 +80,7 @@ class Filter {
 			$(".filter input[type='checkbox']").vtexSmartResearch();
 		}
 
-		
+
 
 		$('.search-multiple-navigator input').on('change', function () {
 			let urlFilters = ''
@@ -126,7 +126,7 @@ class Filter {
 			preg = /\/buscapagina\?.+&PageNumber=/i;
 			if (content.search(/\/buscapagina\?/i) > -1) {
 				url = preg.exec(content);
-				
+
 			}
 		});
 		if (typeof url !== 'undefined' && typeof url[0] !== 'undefined') return url[0];
@@ -147,15 +147,8 @@ class Filter {
 $(document).ready(function () {
 	if ($('body').hasClass('catalog')) {
 		window.filter = new Filter();
-		
 
 
-		if ($('body').hasClass('category') || $('body').hasClass('department')) {
-			//renderProducts(url);
-		} else {
-			let numberResult = $('.resultado-busca-numero:first .value').text();
-			$('.section__navTop__numberProduct p b').text(numberResult);
-		}
 	}
 });
 
