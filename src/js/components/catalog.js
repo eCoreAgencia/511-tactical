@@ -1,9 +1,14 @@
 
 const R = require('ramda');
 const slugify = require('slugify');
+import {
+	parse,
+	parseDefaults
+} from 'himalaya'
 
 $(document).ready(() => {
 	const newShelf = [];
+
 	const productNames = []
 	const loadShelf = () => {
 		const liLength = $(`.prateleira .prateleira:not(.eached) ul > li:not(.helperComplement)`).length
@@ -124,6 +129,7 @@ $(document).ready(() => {
 					if (data.trim().length < 1) {
 						$('.btn-load-more').remove();
 					}else {
+
 						$('.prateleira[id^=ResultItems]').append(data);
 						loadShelf();
 					}
@@ -174,7 +180,12 @@ $(document).ready(() => {
 					if (data.trim().length < 1) {
 						$('.btn-load-more').remove();
 					} else {
+						//$('.prateleira .prateleira').removeClass('eached');
 						$('.prateleira[id^=ResultItems] .prateleira').after(data);
+						setTimeout(function(){
+							loadShelf();
+						}, 1000)
+
 					}
 				}
 			});
