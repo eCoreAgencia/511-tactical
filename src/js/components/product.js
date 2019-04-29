@@ -75,7 +75,7 @@ class Product {
 		const productWithVariations = getProductWithVariations(productId);
 		productWithVariations.then(product => {
 
-			//product.available = false;
+			
 			if (product.available) {
 				self.product = product;
 
@@ -97,6 +97,7 @@ class Product {
 			e.preventDefault();
 			let idproduct = $(this).attr("data-product-id");
 			let colorname = $(this).attr("style").split("/arquivos/")[1];
+			let nameColor = $(this).attr("style").split("/arquivos/")[1];
 			colorname	  = colorname.replace(/1|2|3|4|5|6|7|8|9|0.|.jpg|'|\)| /g,'');
 			colorname	  = colorname.replace(/-/g,' ');
 			console.log(colorname)
@@ -433,8 +434,7 @@ class Product {
 							<ul>
 								${this.createSkuThumb(productSimilar)}
 							</ul>
-
-							<span class="color-selected">Cor Selecionada: <strong></strong></span>
+							<p class="colorSelect">Cor selecionada: <span></span></p>
 					</div>`;
 				const skus = `<div class="product__skus-inner">
 						${list}
@@ -510,7 +510,7 @@ class Product {
 
 
 	renderFormNotifyMe(product) {
-		//product.skus[4].available = false;
+		
 		const skuIndex = findIndex(propEq('available', false))(product.skus);
 		const html = `<div class="product__unavailable">
 			<span class="product__unavailable-title"> PRODUTO INDISPONÍVEL</span>

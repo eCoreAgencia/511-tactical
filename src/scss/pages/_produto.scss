@@ -17,7 +17,18 @@
 
             }
 		}
-	}
+    }
+    
+    &__skus--color {
+        .colorSelect {
+            font-weight: bold;
+            color: #e75300;
+            span {
+                color: black;
+                font-weight: normal;
+            }
+        }
+    }
 
     .modal-window {
         > div {
