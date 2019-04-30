@@ -719,6 +719,14 @@
 	}
 
 	&__unavailable {
+		position: relative;
+		.btn--close {
+			position: absolute;
+			right: 0;
+			width: 30px;
+			height: 30px;
+			top: 0;
+		}
 		&-title {
 			@extend %color-primary;
 			@extend %font-family-unitedsans;

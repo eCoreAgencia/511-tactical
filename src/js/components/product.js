@@ -753,7 +753,7 @@ $(document).ready(() => {
 		$('.product__main').on('click', '.product__unavailable .btn--close', function (){
 			const productId = $('#___rc-p-id').val();
 
-			window.Product.renderSkuSelectors(productId);
+			window.Product.changeProduct(productId);
 		})
 
 
