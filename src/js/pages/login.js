@@ -146,6 +146,10 @@ $(document).ready(() => {
 		sessionStorage.setItem('onMyAccount', false)
 	})
 
+	$('#sendImageclick').on('change', function(){
+		$('.sendImage__btn label').text($(this).prop("files")[0].name);
+	})
+
 	$(".backOption").on("click", function (e) {
 		e.preventDefault()
 		$(this).parents(".modalLogin__box--item").css("display", "none")

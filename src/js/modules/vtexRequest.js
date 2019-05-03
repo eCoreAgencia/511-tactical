@@ -125,3 +125,19 @@ export const getInMasterData = (entity, where, fields) => {
 	})
 
 }
+
+
+export const getInventoryLogistics = (sku) => {
+	const endpoint = `https://tacticalb2b-fullcore.herokuapp.com/estoque.php?skuId=${sku}`;
+
+
+	return new Promise((resolve, reject) => {
+		return fetch(endpoint)
+			.then(data => {
+				const result = data.json()
+				return resolve(result)
+			})
+			.catch(err => reject(err))
+	})
+
+}

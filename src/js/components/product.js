@@ -1,7 +1,8 @@
 import {
 	getProductWithVariations,
 	getProductSimilarById,
-	getSearchProductById
+	getSearchProductById,
+	getInventoryLogistics
 } from '../modules/vtexRequest';
 import {
 	isMobile,
@@ -350,6 +351,8 @@ class Product {
 
 
 
+
+
 	async renderSkuSelectors(product) {
 		const self = this;
 		const productSimilar = await getProductSimilarById(product.productId);
@@ -365,6 +368,11 @@ class Product {
 
 			if (product.dimensionsMap.Tamanho[0] == 'U') {
 				self.item.id = product.skus[0].sku;
+
+				if(product.skus[0].availablequantity > 10){
+					const quantity = getInventoryLogistics(102069);
+					console.log(quantity);
+				}
 				select = `
 						<div class="product__skus--size product__skus--table">
 							<table class="table">
@@ -383,7 +391,7 @@ class Product {
 									</tr>
 								</tbody>
 							</table>
-						</div>`;;
+						</div>`;
 			} else {
 
 
@@ -467,10 +475,15 @@ class Product {
 		});
 
 		const newSizes = sizes.map(item => item.replace(/\s/g, ""));
-		return newSizes.map(size => {
+		return newSizes.map(async size => {
 			let html = '';
 			const skuI = findIndex(propEq('skuname', size))(newArray);
 			if(skuI >= 0){
+				if(items[skuI].availablequantity > 10) {
+					const quantity = await getInventoryLogistics(102069);
+					console.log(quantity, '------');
+				}
+
 				html = `<tr>
 					<td class="size" data-sku="${items[skuI].sku}">${items[skuI].skuname}</td>
 					<td class="stock">${items[skuI].availablequantity}</td>
