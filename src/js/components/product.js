@@ -620,10 +620,14 @@ $(document).ready(() => {
 			$('.zoomPup, .zoomWindow, .zoomPreload').remove();
 			$('#image').html(img);
 
-			//$('.product__skus li:first-child').addClass('is-active');
-			const color = $('.product__skus li:first-child a').attr('title').replace(/-/g, ' ');
+			if ($('.product__skus li')[0]){
+				//$('.product__skus li:first-child').addClass('is-active');
+				const color = $('.product__skus li:first-child a').attr('title').replace(/-/g, ' ');
 
-			$('.colorSelect p').html(color);
+				$('.product__skus .colorSelect span').html(color);
+			}
+
+
 
 			$('select').each(function () {
 				var $this = $(this),
