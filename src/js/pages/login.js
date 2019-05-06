@@ -58,7 +58,7 @@ $(document).ready(() => {
 				window.location = "/";
 			}
 
-			if (!R.isEmpty(orderFormclient.ProfileData) || !R.isNil(orderFormclient.ProfileData)) {
+			if (!R.isEmpty(orderForm.clientProfileData) || !R.isNil(orderForm.clientProfileData)) {
 
 
 				const clientEmail = orderForm.clientProfileData.email;
