@@ -8,8 +8,11 @@ import {
 	isMobile,
 	slugify,
 	addToCart,
-	changeQuantity
+	changeQuantity,
+	isLocalhost
 } from '../utils';
+
+import axios from 'axios';
 
 import {findIndex, propEq, replace, remove, isEmpty, isNil } from 'ramda';
 
@@ -349,6 +352,22 @@ class Product {
 		})
 	}
 
+	renderStock(quantity, sku){
+		//if (isLocalhost) sku = 100693;
+		if(quantity > 5) {
+			const endpoint = `https://tacticalb2b-fullcore.herokuapp.com/estoque.php?skuId=${sku}`;
+
+			axios.get(endpoint).then(res => {
+				console.log(res.data.balance[0].totalQuantity)
+				$(`.product__skus td.sku-${sku}`).html(res.data.balance[0].totalQuantity);
+
+			});
+		}
+
+		return quantity;
+
+	}
+
 
 
 
@@ -369,10 +388,6 @@ class Product {
 			if (product.dimensionsMap.Tamanho[0] == 'U') {
 				self.item.id = product.skus[0].sku;
 
-				if(product.skus[0].availablequantity > 10){
-					const quantity = getInventoryLogistics(102069);
-					console.log(quantity);
-				}
 				select = `
 						<div class="product__skus--size product__skus--table">
 							<table class="table">
@@ -386,7 +401,9 @@ class Product {
 								<tbody>
 									<tr>
 										<td class="size" data-sku="${product.skus[0].sku}">${product.skus[0].skuname}</td>
-										<td class="stock">${product.skus[0].availablequantity}</td>
+										<td class="stock sku-${product.skus[0].sku}">
+											${this.renderStock(product.skus[0].availablequantity, product.skus[0].sku)}
+										</td>
 										<td class="quantity"><input name="sku-${product.skus[0].sku}" class="quantity-product" type="text" placeholder="0"/></td>
 									</tr>
 								</tbody>
@@ -475,18 +492,17 @@ class Product {
 		});
 
 		const newSizes = sizes.map(item => item.replace(/\s/g, ""));
-		return newSizes.map(async size => {
+		return newSizes.map(size => {
 			let html = '';
 			const skuI = findIndex(propEq('skuname', size))(newArray);
 			if(skuI >= 0){
-				if(items[skuI].availablequantity > 10) {
-					const quantity = await getInventoryLogistics(102069);
-					console.log(quantity, '------');
-				}
+
 
 				html = `<tr>
 					<td class="size" data-sku="${items[skuI].sku}">${items[skuI].skuname}</td>
-					<td class="stock">${items[skuI].availablequantity}</td>
+					<td class="stock sku-${items[skuI].sku}">
+						${this.renderStock(items[skuI].availablequantity, items[skuI].sku)}
+					</td>
 					<td class="quantity"><input name="sku-${items[skuI].sku}"class="quantity-product" type="text" placeholder="0"/></td>
 				</tr>`;
 			}
@@ -618,6 +634,7 @@ class Product {
 
 $(document).ready(() => {
 	if ($('body').hasClass('product')) {
+		$('body').addClass('user-logged');
 		window.productChoice = {};
 		window.Product = new Product();
 

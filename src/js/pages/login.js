@@ -4,6 +4,10 @@ const R = require('ramda');
 
 $(document).ready(() => {
 
+	$('.login').on('click', '.vtexIdUI-close', function () {
+		window.location = "/"
+	})
+
 
 	const AddressJson = {};
 
@@ -47,6 +51,26 @@ $(document).ready(() => {
 
 			}
 
+		}
+
+		if (orderForm.userType == 'callCenterOperator') {
+			if(window.location.pathname == '/minha-conta'){
+				window.location = "/";
+			}
+
+			if (!R.isEmpty(orderFormclient.ProfileData) || !R.isNil(orderFormclient.ProfileData)) {
+
+
+				const clientEmail = orderForm.clientProfileData.email;
+				const clientName = orderForm.clientProfileData.firstName;
+				const query = `email=${clientEmail}`
+				const getUser = await getInMasterData('CL', query, "id,corporateDocument,approved,customerClass,corporateName,corporateEmail,businessPhone,tradeName,stateRegistration");
+				const user = getUser[0];
+				sessionStorage.setItem('user', JSON.stringify(user))
+				console.log(user);
+
+
+			}
 		}
 	});
 
@@ -142,7 +166,7 @@ $(document).ready(() => {
 	})
 
 	$(".modalLogin__close").on("click", function (t) {
-		window.history.back()
+		window.location = '/';
 		sessionStorage.setItem('onMyAccount', false)
 	})
 
@@ -278,8 +302,15 @@ $(document).ready(() => {
 
 					sessionStorage.removeItem('userEmail')
 				},
-				error: function (error) {
-					console.log(error)
+				fail: function (error) {
+					const message = `<span class="cnpj-error" style="color: red; display: block; margin: 20px 0; padding: 10px; background-color: pink;    text-align: center;">Ops houve um erro no cadastro, tente novamente</span>`
+
+					$('.contentForm').fadeOut();
+					$(message).insertBefore('.contentForm');
+					setTimeout(function(){
+						window.location = "/minha-conta";
+					}, 1500)
+
 				}
 			})
 		} else {
