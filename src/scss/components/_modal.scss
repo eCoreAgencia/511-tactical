@@ -1,0 +1,42 @@
+.modal-notify {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	display: none;
+
+	&.is-active {
+		display: block;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.5);
+	}
+
+	.modal-content {
+		background-color: #fff;
+		max-width: 600px;
+		width: 100%;
+		position: absolute;
+		left: 50%;
+		margin-left: -300px;
+		top: 50%;
+		margin-top: -65px;
+	}
+
+	.modal-close {
+		position: absolute;
+		right: 20px;
+		color: #e75300;
+		font-size: 30px;
+		top: 5px;
+	}
+}
