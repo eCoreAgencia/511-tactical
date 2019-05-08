@@ -1,42 +1,45 @@
 header.header
-    .header__top
-        .header__inner
-            a.b2b__link(href="/") 5.11 para cliente
-            ul.menu.menu--institutional
-                li.menu__item
-                    a.menu__link(href="tel:1149352390") Atendimento: (11) 4935-2390
-                li.menu__item
-                    a.menu__link(href="/institucional/encontre-uma-loja") Encontre uma loja
-                li.menu__item
-                    a.menu__link.logged-status(href="/minha-conta") Acessar sua conta
-                li.menu__item
-                    a.menu__link.logged-link(href="/minha-conta") Meus Pedidos
-    .header__main
-        .header__inner
-            button.btn.btn--menu
-                i.icon-menu
-                | menu
-            .header__logo
-                .logo
-                    a(href="/")
-                        include ../../svg/logo-b2b.svg
-                .logo.logo--white
-                    a(href="/")
-                        include ../../svg/logo-b2b-white.svg
-            .header__menu
-                nav.navbar.navbar--main
-                    include ../subtemplates/menu.pug
-                    include ../subtemplates/menu-mobile.pug
-            .header__search-form
-                button.btn.btn--search
-                    i.icon-search
-                .js-search-form
-                    .search-form
-                        form.search-form__form.search-form(method="get")
-                            .search-form__control
-                                input.input(type='text', placeholder='Faça uma busca...')/
-                                button.btn.btn--submit
-                                    i.icon-search
-                        .search-form__result
-            .header__minicart
-                .js-minicart
+	.header__top
+		.header__inner
+			a.b2b__link(href="/") 5.11 para cliente
+			ul.menu.menu--institutional
+				li.menu__item
+					a.menu__link(href="tel:1149352390") Atendimento: (11) 4935-2390
+				li.menu__item
+					a.menu__link(href="/institucional/encontre-uma-loja") Encontre uma loja
+				li.menu__item
+					a.menu__link.logged-status(href="/minha-conta") Acessar sua conta
+				li.menu__item
+					a.menu__link.logged-link(href="/minha-conta") Meus Pedidos
+	.header__main
+		.header__inner
+			button.btn.btn--menu
+				i.icon-menu
+				| menu
+			.header__logo
+				.logo.logo--svg
+					a(href="/")
+						include ../../svg/logo.svg
+						span Para Lojistas
+				.logo.logo--svg.logo--white
+					a(href="/")
+						include ../../svg/logo-white.svg
+						span Para Lojistas
+
+			.header__menu
+				nav.navbar.navbar--main
+					include ../subtemplates/menu.pug
+					include ../subtemplates/menu-mobile.pug
+			.header__search-form
+				button.btn.btn--search
+					i.icon-search
+				.js-search-form
+					.search-form
+						form.search-form__form.search-form(method="get")
+							.search-form__control
+								input.input(type='text', placeholder='Faça uma busca...')/
+								button.btn.btn--submit
+									i.icon-search
+						.search-form__result
+			.header__minicart
+				.js-minicart

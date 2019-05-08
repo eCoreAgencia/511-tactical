@@ -100,7 +100,7 @@ $(document).ready(() => {
 
 		$('.prateleira[id^=ResultItems]').append(buttonLoadMore);
 
-		$('.prateleira').on('click','.btn-load-more', function(){
+		/* $('.prateleira .btn-load-more').on('click', function () {
 			var url, content, preg;
 			currentPage++;
 			jQuery('script:not([src])').each(function () {
@@ -132,7 +132,7 @@ $(document).ready(() => {
 					}
 				}
 			});
-		});
+		}); */
 
 
 	}
@@ -151,7 +151,7 @@ $(document).ready(() => {
 
 		$('.prateleira[id^=ResultItems]').append(buttonLoadMore);
 
-		$('.prateleira').on('click', '.btn-load-more', function () {
+		/* $('.prateleira .btn-load-more').on('click', function () {
 			var url, content, preg;
 			currentPage++;
 			jQuery('script:not([src])').each(function () {
@@ -186,6 +186,6 @@ $(document).ready(() => {
 					}
 				}
 			});
-		});
+		}); */
 	}
 });

@@ -94,11 +94,11 @@ class Filter {
 		$('.pages li:not(.pgCurrent)').on('click', function(){
 			const value = $(this).text();
 			if(value === 'anterior'){
-				self.loadMoreProducts(-1)
+				//self.loadMoreProducts(-1)
 			} else if (value === 'próximo') {
-				self.loadMoreProducts(+1)
+				//self.loadMoreProducts(+1)
 			} else {
-				self.loadMoreProducts(value)
+				//self.loadMoreProducts(value)
 			}
 		})
 	}
@@ -146,8 +146,8 @@ class Filter {
 
 $(document).ready(function () {
 	if ($('body').hasClass('catalog')) {
-		window.filter = new Filter();
-
+		//window.filter = new Filter();
+		$(".filter input[type='checkbox']").vtexSmartResearch();
 
 	}
 });

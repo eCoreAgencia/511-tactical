@@ -222,7 +222,7 @@ jQuery.fn.vtexSmartResearch = function(opts) {
 				}
 			});
 
-			loadContentE.live('click', '.btn-load-more', function() {
+			loadContentE.on('click', '.btn-load-more', function() {
 				// _window.bind('scroll', function() {
 				var _this = jQuery(this);
 				if (

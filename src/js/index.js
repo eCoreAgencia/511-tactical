@@ -1,4 +1,5 @@
 import '../scss/main.scss';
+import './components/browser';
 import './pages/global';
 import './pages/home';
 import './pages/catalog';

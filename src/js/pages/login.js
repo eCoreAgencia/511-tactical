@@ -220,6 +220,8 @@ $(document).ready(() => {
 		const query = `corporateDocument=${cnpj}`;
 		const getUser = await getInMasterData("CL", query, "corporateDocument");
 		const userCad = getUser[0];
+		const fileValue = $("#sendImageclick").prop("files")[0];
+		console.log(fileValue);
 
 		if (R.isEmpty(userCad) || R.isNil(userCad)) {
 			let user = sessionStorage.getItem("user") || "";
@@ -269,14 +271,13 @@ $(document).ready(() => {
 					console.log(data);
 					//var form = new FormData();
 
-					var fileValue = $("#sendImageclick").val();
+
 
 					console.log(fileValue);
 
 					if (!R.isNil(fileValue)) {
-						const file = $("#sendImageclick").prop("files")[0];
 						var form_data = new FormData();
-						form_data.append("file", file);
+						form_data.append("file", fileValue);
 
 						var settings = {
 							async: true,
@@ -304,7 +305,8 @@ $(document).ready(() => {
 
 					const dataAddress = {
 						...AddressJson,
-						userId: data.Id.replace("CL-", "")
+						userId: c,
+						addressName: 'Principal'
 					};
 
 					$.ajax({
