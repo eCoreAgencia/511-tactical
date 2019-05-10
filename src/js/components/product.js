@@ -27,7 +27,7 @@ class Product {
         this.item.quantity = 1;
 		this.item.seller = "2";
 		this.cart = [];
-		this.productSelected = '';
+		this.productSelected = productId;
 
 		this.loading = `<div class="sp sp-circle"></div>`
 
@@ -43,17 +43,10 @@ class Product {
 				})
 			}
 
-			if(isEmpty(self.productSelected)){
-				$('.product__skus li:first-child').addClass('is-active');
-				const color = $('.product__skus li:first-child a').attr('title').replace(/-/g, ' ');
+			$(`.product__skus .product-id-${self.productSelected}`).addClass('is-active');
+			const color = $(`.product__skus #product-color-${self.productSelected}`).attr('title').replace(/-/g, ' ');
 
-				$('.color-selected strong').html(color);
-			}else{
-				$(`.product__skus #product-color-${self.productSelected}`).parent().addClass('is-active');
-				const color = $(`.product__skus #product-color-${self.productSelected}`).attr('title').replace(/-/g, ' ');
-
-				$('.color-selected strong').html(color);
-			}
+			$('.colorSelect span').html(color);
 
 		});
 
@@ -354,7 +347,8 @@ class Product {
 
 	renderStock(quantity, sku){
 		//if (isLocalhost) sku = 100693;
-		if(quantity > 5) {
+		if(quantity > 10) {
+			quantity = '';
 			const endpoint = `https://tacticalb2b-fullcore.herokuapp.com/estoque.php?skuId=${sku}`;
 
 			axios.get(endpoint).then(res => {
@@ -522,10 +516,10 @@ class Product {
 		return productFilters.map(product => {
 
 			if (product.hasOwnProperty("ListaCores")) {
-				return `<li><a style="background-image: url('/arquivos/${product.ListaCores[0]}.jpg')" title="${product.ListaCores[0]}" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`
+				return `<li class="product-id-${product.productId}"><a style="background-image: url('/arquivos/${product.ListaCores[0]}.jpg')" title="${product.ListaCores[0]}" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`
 			}
 
-			return `<li><a title="" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`;
+			return `<li class="product-id-${product.productId}"><a title="" class="sku-color" href="#" id="product-color-${product.productId}" data-product-id="${product.productId}"></a></li>`;
 
 		}).join('');
 
