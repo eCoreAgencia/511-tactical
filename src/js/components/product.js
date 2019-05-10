@@ -245,7 +245,7 @@ class Product {
 			addToCart(id, quantity);
 			$(button).addClass('running');
 			setTimeout(function() {
-				self.item = '';
+				self.item = {};
 				self.item.quantity = 1;
 				self.item.seller = "1";
 				$(".minicart").addClass("active");
