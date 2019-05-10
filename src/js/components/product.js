@@ -36,7 +36,7 @@ class Product {
 			$('.product__main .product__media').addClass('is-loading');
 			//this.makeZoom();
 			if($(window).width() > 800) {
-				this.fixeInfoProduct();
+				//this.fixeInfoProduct();
 			}
 
 			if (jQuery(".modal-window .box-banner").children().length <= 0) {
@@ -237,6 +237,7 @@ class Product {
     }
 
     addProductToCart(button){
+		const self = this;
         if(this.skuValidation()) {
 			console.log($('.product__qtd-value').val());
 			let { id, quantity, seller } = this.item;
@@ -244,6 +245,9 @@ class Product {
 			addToCart(id, quantity);
 			$(button).addClass('running');
 			setTimeout(function() {
+				self.item = '';
+				self.item.quantity = 1;
+				self.item.seller = "1";
 				$(".minicart").addClass("active");
 			}, 1000);
 
@@ -604,10 +608,10 @@ $(document).ready(() => {
 		}
 
 		if (!isMobile.any()) {
-			positionFixed();
+			//positionFixed();
 
 			$(window).scroll(() => {
-				positionFixed();
+				//positionFixed();
 			})
 		}
 
@@ -744,8 +748,11 @@ $(document).ready(() => {
 						$(success_msg).insertBefore('.product__main #form-notifyme');
 					})
 					.fail(function(jqXHR, textStatus) {
-						var msg = JSON.parse(jqXHR.responseText);
-						console.log('define notification:', 'error', msg);
+						const success_msg = `<span class="success-msg">Cadastrado com sucesso, assim que o produto for disponibilizado você receberá um email avisando.</span>`;
+
+						$(success_msg).insertBefore('.product__main #form-notifyme');
+						/*var msg = JSON.parse(jqXHR.responseText);
+						console.log('define notification:', 'error', msg);*/
 
 					});
 			}
@@ -758,6 +765,7 @@ $(document).ready(() => {
 			const productId = $('#___rc-p-id').val();
 
 			window.Product.changeProduct(productId);
+			$('.product__action').show();
 		})
 
 
