@@ -628,7 +628,7 @@ class Product {
 
 $(document).ready(() => {
 	if ($('body').hasClass('product')) {
-		$('body').addClass('user-logged');
+		//$('body').addClass('user-logged');
 		window.productChoice = {};
 		window.Product = new Product();
 
