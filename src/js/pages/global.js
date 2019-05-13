@@ -92,8 +92,11 @@ $(document).ready(() => {
 
 	if($('body').hasClass('who-us')){
 		$('.banner--who-us-banner').each(function(){
-			const height = $('.box-banner img', this).height();
-			$(this).height(height);
+			setTimeout(function(){
+				const height = $('.box-banner img', this).height();
+				$(this).height(height);
+			}, 1500)
+
 		});
 
 		$('.our-products__box').each(function () {
