@@ -34,7 +34,10 @@
   }
 
   &--full {
-    display: none;
+	min-height: 400px;
+	@include mq('container', 'max'){
+		display: none;
+	}
     @include atMedium {
       display: block;
     }

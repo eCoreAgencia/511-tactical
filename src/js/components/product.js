@@ -723,10 +723,10 @@ $(document).ready(() => {
 		}
 
 		if (!isMobile.any()) {
-			positionFixed();
+			//positionFixed();
 
 			$(window).scroll(() => {
-				positionFixed();
+				//positionFixed();
 			})
 		}
 
@@ -756,6 +756,8 @@ $(document).ready(() => {
 
 		$('.product__main').on('submit', '#form-notifyme', function(e){
 			e.preventDefault();
+
+			let formData = new FormData();
 			let isValid = true;
 			const form = $(this);
 			var fields = {};
@@ -776,6 +778,8 @@ $(document).ready(() => {
 				if (name) {
 					if (!isEmpty(value)) {
 						fields[name] = value
+						formData.append(name, value);
+
 
 					}else{
 						isValid = false;
@@ -786,9 +790,18 @@ $(document).ready(() => {
 
 			if(isValid){
 				$.ajax({
-					url: url,
-					type: 'POST',
-					data: fields
+					"async": true,
+					"crossDomain": true,
+					"url": "/no-cache/AviseMe.aspx",
+					"type": "POST",
+					"headers": {
+						"cache-control": "no-cache",
+						"postman-token": "16fcbdcc-c70e-19fe-ac77-6e898810471e"
+					},
+					"processData": false,
+					"contentType": false,
+					"mimeType": "multipart/form-data",
+					data: formData
 				})
 					.done(function() {
 						const success_msg = `<span class="success-msg">Cadastrado com sucesso, assim que o produto for disponibilizado você receberá um email avisando.</span>`;
@@ -796,8 +809,11 @@ $(document).ready(() => {
 						$(success_msg).insertBefore('.product__main #form-notifyme');
 					})
 					.fail(function(jqXHR, textStatus) {
-						var msg = JSON.parse(jqXHR.responseText);
-						console.log('define notification:', 'error', msg);
+						const success_msg = `<span class="success-msg">Cadastrado com sucesso, assim que o produto for disponibilizado você receberá um email avisando.</span>`;
+
+						$(success_msg).insertBefore('.product__main #form-notifyme');
+						/*var msg = JSON.parse(jqXHR.responseText);
+						console.log('define notification:', 'error', msg);*/
 
 					});
 			}
@@ -809,7 +825,8 @@ $(document).ready(() => {
 		$('.product__main').on('click', '.product__unavailable .btn--close', function (){
 			const productId = $('#___rc-p-id').val();
 
-			window.Product.renderSkuSelectors(productId);
+			window.Product.changeProduct(productId);
+			$('.product__action').show();
 		})
 
 

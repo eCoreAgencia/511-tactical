@@ -18,14 +18,16 @@
             }
 		}
     }
-    
+
     &__skus--color {
         .colorSelect {
             font-weight: bold;
-            color: #e75300;
+			color: #e75300;
+			text-transform: uppercase;
             span {
                 color: black;
-                font-weight: normal;
+				font-weight: normal;
+				text-transform: none;
             }
         }
     }
