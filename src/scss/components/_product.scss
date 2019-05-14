@@ -346,6 +346,7 @@
 	}
 
 	&__main {
+		flex-wrap: wrap;
 		@include mq(tablet, max) {
 			#include,
 			.product__gallery-image {
@@ -430,7 +431,7 @@
 	}
 
 	&__column {
-		flex: 1;
+
 	}
 
 	&__code {

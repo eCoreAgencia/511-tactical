@@ -79,7 +79,7 @@ class Product {
 				const skuI = findIndex(propEq('available', true))(product.skus);
 				console.log(product.skus[skuI]);
 				const price = self.renderPrice(product.skus[skuI]);
-				$('.product__main .product__price').html(price);
+				$('.product__main .product__info--main .product__price').html(price);
 				self.renderSkuSelectors(product);
 
 
@@ -337,7 +337,7 @@ class Product {
 				const skuI = findIndex(propEq('available', true))(product.skus);
 				console.log(product.skus[skuI]);
 				const price = self.renderPrice(product.skus[skuI]);
-				$('.product__main .product__price').html(price);
+				$('.product__main .product__info--main .product__price').html(price);
 				self.renderSkuSelectors(product);
 			} else {
 				self.renderFormNotifyMe(product);
