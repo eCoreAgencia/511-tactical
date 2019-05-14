@@ -704,6 +704,8 @@ $(document).ready(() => {
 
 		$('.product__main').on('submit', '#form-notifyme', function(e){
 			e.preventDefault();
+
+			let formData = new FormData();
 			let isValid = true;
 			const form = $(this);
 			var fields = {};
@@ -724,6 +726,8 @@ $(document).ready(() => {
 				if (name) {
 					if (!isEmpty(value)) {
 						fields[name] = value
+						formData.append(name, value);
+
 
 					}else{
 						isValid = false;
@@ -734,13 +738,18 @@ $(document).ready(() => {
 
 			if(isValid){
 				$.ajax({
-					url: url,
-					type: 'POST',
-					headers: {
-						accept: 'application/vnd.vtex.masterdata.v10+json',
-						'content-type': 'application/json; charset=utf-8'
+					"async": true,
+					"crossDomain": true,
+					"url": "/no-cache/AviseMe.aspx",
+					"type": "POST",
+					"headers": {
+						"cache-control": "no-cache",
+						"postman-token": "16fcbdcc-c70e-19fe-ac77-6e898810471e"
 					},
-					data: JSON.stringify(fields)
+					"processData": false,
+					"contentType": false,
+					"mimeType": "multipart/form-data",
+					data: formData
 				})
 					.done(function() {
 						const success_msg = `<span class="success-msg">Cadastrado com sucesso, assim que o produto for disponibilizado você receberá um email avisando.</span>`;
