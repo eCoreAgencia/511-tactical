@@ -431,7 +431,15 @@
 	}
 
 	&__column {
+		&:first-child {
+			max-width: 666px;
+			width: 100%;
+		}
 
+		&:last-child {
+			max-width: 420px;
+			width: 100%;
+		}
 	}
 
 	&__code {

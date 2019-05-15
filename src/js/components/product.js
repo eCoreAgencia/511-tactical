@@ -695,18 +695,22 @@ $(document).ready(() => {
 
 		});
 
-		$('.shelf__carousel--full ul').slick({
-			arrows: true,
-			slidesToShow: 2,
-			slidesToScroll: 1,
-			infinite: true,
-			prevArrow: shelf__prev,
-			nextArrow: shelf__next,
-			responsive: [{
-				breakpoint: 800,
-				settings: 'unslick'
-			}]
-		});
+		if ($('.shelf__carousel--full ul li:not(.helperComplement)').length >= 2) {
+			$('.shelf__carousel--full ul').slick({
+				arrows: true,
+				slidesToShow: 2,
+				slidesToScroll: 1,
+				infinite: true,
+				prevArrow: shelf__prev,
+				nextArrow: shelf__next,
+				responsive: [{
+					breakpoint: 800,
+					settings: 'unslick'
+				}]
+			});
+		}
+
+
 		if (isMobile.any()) {
 			$('.thumbs').slick({
 				arrows: false,
