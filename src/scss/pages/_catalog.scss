@@ -1,5 +1,8 @@
 body {
 	&.catalog {
+		.pager {
+			display: none !important;
+		}
 		.section__diff {
 			padding: 0;
 		}
@@ -255,7 +258,6 @@ body {
 						@include mq("tablet") {
 							width: 230px;
 						}
-
 					}
 					&.active {
 						display: flex;
@@ -578,10 +580,5 @@ body {
 				}
 			}
 		}
-	}
-
-
-	&.resultado-busca .allVitrine .is-fluid .pager.bottom .pages {
-		display: flex;
 	}
 }
