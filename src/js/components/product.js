@@ -2,6 +2,7 @@ import {
 	getProductWithVariations,
 	getProductSimilarById,
 	getSearchProductById,
+	getSearchProductByUrl,
 	getInventoryLogistics
 } from "../modules/vtexRequest";
 import {
@@ -45,11 +46,18 @@ class Product {
 			$(`.product__skus .product-id-${self.productSelected}`).addClass(
 				"is-active"
 			);
-			const color = $(
+			let color = $(
 				`.product__skus #product-color-${self.productSelected}`
 			)
-				.attr("title")
-				.replace(/-/g, " ");
+				.attr("title");
+
+			if (!isNil(color)) {
+				console.log(color);
+				color = color.replace(/-/g, " ");
+			} else {
+				console.info(`O Sku de id: ${self.productSelected} está sem cor cadastrada no campo produto Lista Cores`);
+			}
+
 
 			$(".colorSelect span").html(color);
 		});
@@ -400,7 +408,9 @@ class Product {
 	async renderSkuSelectors(product) {
 		const self = this;
 		const productSimilar = await getProductSimilarById(product.productId);
-		console.log(productSimilar);
+		const productJson = await getSearchProductByUrl(window.location.pathname);
+		console.log(productSimilar, 'similares');
+		console.log(productJson, 'search');
 		self.similar = productSimilar;
 
 		let select = "";
@@ -497,7 +507,16 @@ class Product {
 				</div>`;
 			$(".product__skus").html(skus);
 		} else {
+			const list = `
+						<div class="product__skus--color product__skus--thumb">
+							<span class="product__skus-title">Cor</span>
+							<ul>
+								${this.createSkuThumb(productJson)}
+							</ul>
+							<p class="colorSelect">Cor selecionada: <span></span></p>
+					</div>`;
 			const skus = `<div class="product__skus-inner">
+						${list}
 						${select}
 					</div>`;
 			$(".product__skus").html(skus);
@@ -507,7 +526,7 @@ class Product {
 	}
 
 	createSkuSelect(items, sizes) {
-		//console.log(items);
+		console.log(items);
 
 		const newArray = items.map(item => {
 			const skuname = {

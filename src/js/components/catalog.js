@@ -9,6 +9,7 @@ const slugify = require("slugify");
 
 		var settings = $.extend({}, defaults, options);
 		const productNames = [];
+		const pages = $('.pager.bottom li.page-number').length;
 
 		let tempShelf = [];
 		let pageNumber = 2;
@@ -116,7 +117,11 @@ const slugify = require("slugify");
 				}
 			});
 		};
-		$(".shelf__vitrine").append(buttonLoadMore);
+
+		if(pages > 1) {
+			$(".shelf__vitrine").append(buttonLoadMore);
+		}
+
 		$("main").append(returnToTop);
 		loadShelf();
 		getSearchUrl();
