@@ -7,8 +7,11 @@ const slugify = require("slugify");
 			corDeFundo: "yellow"
 		};
 
+		let countProduct = 0;
+
 		var settings = $.extend({}, defaults, options);
 		const productNames = [];
+		const pages = $('.pager.bottom li.page-number').length;
 
 		let tempShelf = [];
 		let pageNumber = 2;
@@ -54,6 +57,7 @@ const slugify = require("slugify");
 
 		const loadShelf = () => {
 			$(".prateleira .prateleira").each(function() {
+
 				const prateleira = $(this);
 				if (!$(this).hasClass("eached")) {
 					let newShelf = [];
@@ -107,16 +111,19 @@ const slugify = require("slugify");
 							$(".shelf__vitrine").addClass("loaded");
 							prateleira.html(`<ul>${list}</ul>`);
 							prateleira.addClass("eached");
+							countProduct = countProduct + filterShelf.length
 
 							$(".section__navTop__numberProduct b").text(
-								filterShelf.length
+								countProduct
 							);
 						}
 					});
 				}
 			});
 		};
-		$(".shelf__vitrine").append(buttonLoadMore);
+		if (pages > 1) {
+			$(".shelf__vitrine").append(buttonLoadMore);
+		}
 		$("main").append(returnToTop);
 		loadShelf();
 		getSearchUrl();
