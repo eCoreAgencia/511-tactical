@@ -7,6 +7,9 @@ body {
 		.section__title {
 			background: url(/arquivos/BG_Banner_Categoria.jpg) center;
 			text-align: center;
+			@include mq(mobile) {
+				height: auto!important;
+			}
 			h2 {
 				padding: 0;
 				color: #211e14;
@@ -18,6 +21,13 @@ body {
 				font-family: "TrumpGothicWest-Bold";
 				@include atMedium {
 					font-size: 75px;
+				}
+			}
+
+			&--white {
+				h2 {
+					color: #fff;
+					text-shadow: rgba(0, 0, 0, 0.2) 0 0 6px;
 				}
 			}
 		}

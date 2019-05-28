@@ -4,6 +4,7 @@ class catalog {
 		this.numberProduct();
 		this.checkText();
 		this.orderBay();
+		this.bgBannerCatalog();
 	}
 
 	especialCharMask(especialChar) {
@@ -70,6 +71,12 @@ class catalog {
 		if (!$('.textCatalog p').length > 0) {
 			$('.textCatalog').hide();
 		}
+	}
+
+	bgBannerCatalog() {
+		var newBanner = $('.banner.banner__category img').attr('src');
+
+		$('.banner.banner__category img')[0] ? $('.section__title').addClass('section__title--white') && $('body.catalog .section__title').css({ 'background-image': 'url(' + newBanner + ')', height: '200px'}) : null
 	}
 }
 
