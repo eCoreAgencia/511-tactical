@@ -74,9 +74,11 @@ class catalog {
 	}
 
 	bgBannerCatalog() {
-		var newBanner = $('.banner.banner__category img').attr('src');
+		var banner = $('.banner.banner__category img');
+		var url = banner.attr('src');
+		var height = banner.attr('height');
 
-		$('.banner.banner__category img')[0] ? $('.section__title').addClass('section__title--white') && $('body.catalog .section__title').css({ 'background-image': 'url(' + newBanner + ')', height: '200px'}) : null
+		$('.banner.banner__category img')[0] ? $('.section__title').addClass('section__title--white') && $('body.catalog .section__title').css({ 'background-image': 'url(' + newBanner + ')', height: '' + height +''}) : null
 	}
 }
 

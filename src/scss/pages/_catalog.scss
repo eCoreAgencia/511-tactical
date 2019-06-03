@@ -7,8 +7,8 @@ body {
 		.section__title {
 			background: url(/arquivos/BG_Banner_Categoria.jpg) center;
 			text-align: center;
-			@include mq(mobile) {
-				height: auto!important;
+			@media only screen and (max-width: 768px) {
+				height: auto !important;
 			}
 			h2 {
 				padding: 0;
