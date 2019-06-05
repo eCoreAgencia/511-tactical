@@ -5,6 +5,10 @@
 		height: 60px;
 		position: relative;
 
+		&.hass-tipbar {
+			height: 90px;
+		}
+
 		i.icon-cart {
 			color: #bab1a8;
 		}
@@ -23,6 +27,20 @@
 
 		.header__top & {
 			padding-left: 163px;
+		}
+	}
+
+	&__tipbar {
+		background: #e75300;
+		color: #fbf7f1;
+		position: relative;
+		z-index: 11;
+		text-align: center;
+		font-size: 12px;
+		text-transform: uppercase;
+		&--item {
+			height: 30px;
+			padding: 8px 0;
 		}
 	}
 
@@ -370,6 +388,11 @@
 		animation: slide-down 0.7s;
 		opacity: 1;
 		top: 0;
+
+		.header__tipbar {
+			opacity: 0;
+			height: 0;
+		}
 
 		.header__top {
 			@extend %display-none;

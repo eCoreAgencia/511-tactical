@@ -7,6 +7,7 @@ import './pages/login';
 import './pages/search';
 
 import './components/menu';
+import './components/tipbar';
 import './components/catalog';
 import './components/filter';
 import './components/product';
