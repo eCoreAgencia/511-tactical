@@ -1,4 +1,8 @@
 $(document).ready(() => {
+	$('body').on('click', 'a.menu__link.logged-status', function (e) {
+		e.preventDefault();
+		$(this).text() == 'Acessar sua conta' ? $('.header__login #login').trigger('click') : window.location = window.location.origin + '/account'
+	})
 	vtexjs.checkout.getOrderForm().done(orderForm => {
 		const ifLogged = orderForm.loggedIn;
 		if (ifLogged) {

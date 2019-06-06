@@ -1,4 +1,6 @@
 header.header
+    .header__login(style="display: none;")
+        +vtex-controller('<vtex.cmc:welcomeMessage/>')
     .header__tipbar
         .header__inner.js-tipbar
             +vtex-controller('<vtex.cmc:tipbar />')
@@ -13,7 +15,7 @@ header.header
                 li.menu__item
                     a.menu__link(href="/institucional/encontre-uma-loja") Encontre uma loja
                 li.menu__item
-                    a.menu__link.logged-status(href="/account") Acessar sua conta
+                    a.menu__link.logged-status(href="#") Acessar sua conta
                 li.menu__item
                     a.menu__link(href="/account/orders") Meus Pedidos
     .header__main
