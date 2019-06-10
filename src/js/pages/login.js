@@ -2,10 +2,33 @@ import { getInMasterData } from "../modules/vtexRequest";
 import { isLocalhost } from "../utils";
 const R = require("ramda");
 
+
 $(document).ready(() => {
-	$(".login").on("click", ".vtexIdUI-close", function() {
-		window.location = "/";
+
+	function waitForElement(target, callback) {
+		var tries = 0;
+		var checkExist = setInterval(function () {
+			if ($(target).length) {
+				clearInterval(checkExist);
+				callback && callback()
+			} else {
+				tries++
+				if (tries > 50) {
+					clearInterval(checkExist);
+					console.log('Elemento não encontrado');
+				}
+			}
+		}, 500);
+	}
+
+	waitForElement('.vtexIdUI-close', function () {
+		$("body").on("click", "button.vtexIdUI-close", function () {
+			window.location = "/";
+			console.log('>> 2 << - Voltando para home')
+		});
 	});
+
+	console.log('INICIANDO LOGIN')
 
 	const AddressJson = {};
 
@@ -356,9 +379,5 @@ $(document).ready(() => {
 				$(".cnpj-error").remove();
 			}, 2000);
 		}
-	});
-
-	$(".login").on("click", ".vtexIdUI-close", function() {
-		window.location = "/";
 	});
 });
