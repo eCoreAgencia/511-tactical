@@ -106,4 +106,8 @@ $(document).ready(() => {
 			);
 		});
 	}
+
+	$("body").on("click", ".vtexIdUI-page .close", function() {
+		window.location.href = "/";
+	});
 });
