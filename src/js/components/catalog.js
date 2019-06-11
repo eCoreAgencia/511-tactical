@@ -1,14 +1,17 @@
 const R = require("ramda");
 const slugify = require("slugify");
 
-(function($) {
-	$.fn.shelf = function(options) {
+(function ($) {
+	$.fn.shelf = function (options) {
 		var defaults = {
 			corDeFundo: "yellow"
 		};
 
+		let countProduct = 0;
+
 		var settings = $.extend({}, defaults, options);
 		const productNames = [];
+		const pages = $('.pager.bottom li.page-number').length;
 
 		let tempShelf = [];
 		let pageNumber = 2;
@@ -19,7 +22,7 @@ const slugify = require("slugify");
 
 		const getSearchUrl = () => {
 			var url, content, preg;
-			jQuery("script:not([src])").each(function() {
+			jQuery("script:not([src])").each(function () {
 				content = jQuery(this)[0].innerHTML;
 				preg = /\/buscapagina\?.+&PageNumber=/i;
 				if (content.search(/\/buscapagina\?/i) > -1) {
@@ -41,7 +44,7 @@ const slugify = require("slugify");
 		const getMoreProducts = searchUrl => {
 			$.ajax({
 				url: searchUrl
-			}).success(function(data) {
+			}).success(function (data) {
 				if (data.trim().length == "") {
 					$(".shelf__vitrine .btn-load-more").remove();
 				}
@@ -53,7 +56,8 @@ const slugify = require("slugify");
 		};
 
 		const loadShelf = () => {
-			$(".prateleira .prateleira").each(function() {
+			$(".prateleira .prateleira").each(function () {
+
 				const prateleira = $(this);
 				if (!$(this).hasClass("eached")) {
 					let newShelf = [];
@@ -63,7 +67,7 @@ const slugify = require("slugify");
 					}
 					const shelfItem = $("li:not(.helperComplement)", this);
 					const shelfLength = shelfItem.length;
-					shelfItem.each(function(index) {
+					shelfItem.each(function (index) {
 						const name = $(
 							".product__name .product__link",
 							this
@@ -83,7 +87,7 @@ const slugify = require("slugify");
 							const itemsToRemove = newShelf.length % 4;
 							let filterShelf = "";
 
-							if (newShelf.length > 4) {
+							if (newShelf.length > 4 && pages > 1) {
 								for (var i = 1; i <= itemsToRemove; i++) {
 									const index = newShelf.length - i;
 									tempShelf.push(newShelf[index]);
@@ -99,6 +103,8 @@ const slugify = require("slugify");
 								filterShelf = newShelf;
 							}
 
+
+
 							console.log(R.uniq(filterShelf));
 
 							const list = filterShelf
@@ -107,35 +113,41 @@ const slugify = require("slugify");
 							$(".shelf__vitrine").addClass("loaded");
 							prateleira.html(`<ul>${list}</ul>`);
 							prateleira.addClass("eached");
+							countProduct = countProduct + filterShelf.length
 
 							$(".section__navTop__numberProduct b").text(
-								filterShelf.length
+								countProduct
 							);
 						}
 					});
 				}
 			});
 		};
-		$(".shelf__vitrine").append(buttonLoadMore);
+		if (pages > 1) {
+			$(".shelf__vitrine").append(buttonLoadMore);
+		}
 		$("main").append(returnToTop);
 		loadShelf();
 		getSearchUrl();
 
-		$(".shelf__vitrine").on("click", ".btn-load-more", function() {
+		$(".shelf__vitrine").on("click", ".btn-load-more", function () {
 			$(this).addClass("loading");
 			const searchUrl = getSearchUrl() + pageNumber;
 			getMoreProducts(searchUrl);
 			pageNumber++;
 		});
 
-		$(".shelf__vitrine").on("click", "#returnToTop", function() {
-			$("html,body").animate({ scrollTop: 0 }, "slow");
+		$(".shelf__vitrine").on("click", "#returnToTop", function () {
+			$("html,body").animate({
+				scrollTop: 0
+			}, "slow");
 		});
 	};
 })(jQuery);
 
 $(document).ready(() => {
 	if ($("body").hasClass("catalog")) {
+
 		$(".prateleira .prateleira").shelf();
 	}
 });

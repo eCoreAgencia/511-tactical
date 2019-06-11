@@ -93,6 +93,26 @@ export const getSearchProductById = (productId) => {
 
 
 }
+
+export const getSearchProductByUrl = (productUrl) => {
+
+	const endpoint = `/api/catalog_system/pub/products/search/${productUrl}`;
+
+
+	return new Promise((resolve, reject) => {
+		if (isLocalhost) return resolve(window.similars)
+		else {
+			return fetch(endpoint)
+				.then(data => {
+					return resolve(data.json())
+				})
+				.catch(err => reject(err))
+		}
+		return reject("Couldn't get product.")
+	})
+
+
+}
 export const postInMasterData = (entity, data) => {
 	const endpoint = `//api.vtexcrm.com.br/casaegaragem/dataentities/${entity}/documents`;
 
