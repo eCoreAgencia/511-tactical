@@ -1,28 +1,25 @@
 import { isMobile } from "../utils";
 import "./../components/send-form";
 
-
-
 $(document).ready(() => {
-
-	$( "form.search-form" ).on("submit", function(event) {
+	$("form.search-form").on("submit", function(event) {
 		event.preventDefault();
 
-		let termo		 = $('.search-form input').val();
+		let termo = $(".search-form input").val();
 
-		window.location = "https://"+window.location.hostname+"/"+termo;
+		window.location = "https://" + window.location.hostname + "/" + termo;
 	});
 
-    $(".product__info--name .description").each(function(i){
+	$(".product__info--name .description").each(function(i) {
 		let len = $(this).text().length;
-        if(len>60) {
-            $(this).text($(this).text().substr(0,200)+'...');
-        }
-    });
-
-	$("body").hasClass("login") && $("body").on("click", ".vtexIdUI-page .close", function() {
-		window.location.href = "/"
-	})
+		if (len > 60) {
+			$(this).text(
+				$(this)
+					.text()
+					.substr(0, 200) + "..."
+			);
+		}
+	});
 
 	const removeRS = () => {
 		$(".product--shelf").each(function() {
@@ -92,19 +89,21 @@ $(document).ready(() => {
 		".span4.profile-detail-display h4"
 	);
 
-	if($('body').hasClass('who-us')){
-		$('.banner--who-us-banner').each(function(){
+	if ($("body").hasClass("who-us")) {
+		$(".banner--who-us-banner").each(function() {
 			const self = this;
-			setTimeout(function(){
-				const height = $('.box-banner img', self).height();
+			setTimeout(function() {
+				const height = $(".box-banner img", self).height();
 				$(self).height(height);
-			}, 1500)
-
+			}, 1500);
 		});
 
-		$('.our-products__box').each(function () {
-			const imgSrc = $('img', this).attr('src');
-			$('.our-products__inner', this).css('background-image', 'url(' + imgSrc + ')');
+		$(".our-products__box").each(function() {
+			const imgSrc = $("img", this).attr("src");
+			$(".our-products__inner", this).css(
+				"background-image",
+				"url(" + imgSrc + ")"
+			);
 		});
 	}
 });

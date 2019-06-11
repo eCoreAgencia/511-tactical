@@ -2,33 +2,28 @@ import { getInMasterData } from "../modules/vtexRequest";
 import { isLocalhost } from "../utils";
 const R = require("ramda");
 
-
 $(document).ready(() => {
+	$("body").on("click", "#vtexIdContainer", function() {
+		alert("teste");
+	});
 
 	function waitForElement(target, callback) {
 		var tries = 0;
-		var checkExist = setInterval(function () {
+		var checkExist = setInterval(function() {
 			if ($(target).length) {
 				clearInterval(checkExist);
-				callback && callback()
+				callback && callback();
 			} else {
-				tries++
+				tries++;
 				if (tries > 50) {
 					clearInterval(checkExist);
-					console.log('Elemento não encontrado');
+					console.log("Elemento não encontrado");
 				}
 			}
 		}, 500);
 	}
 
-	waitForElement('.vtexIdUI-close', function () {
-		$("body").on("click", "button.vtexIdUI-close", function () {
-			window.location = "/";
-			console.log('>> 2 << - Voltando para home')
-		});
-	});
-
-	console.log('INICIANDO LOGIN')
+	console.log("INICIANDO LOGIN");
 
 	const AddressJson = {};
 
@@ -84,6 +79,7 @@ $(document).ready(() => {
 		}
 
 		if (orderForm.userType == "callCenterOperator") {
+			$("body").addClass("callCenterOperator");
 			if (window.location.pathname == "/minha-conta") {
 				window.location = "/";
 			}
@@ -294,8 +290,6 @@ $(document).ready(() => {
 					console.log(data);
 					//var form = new FormData();
 
-
-
 					console.log(fileValue);
 
 					if (!R.isNil(fileValue)) {
@@ -329,7 +323,7 @@ $(document).ready(() => {
 					const dataAddress = {
 						...AddressJson,
 						userId: c,
-						addressName: 'Principal'
+						addressName: "Principal"
 					};
 
 					$.ajax({
