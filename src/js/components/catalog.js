@@ -8,10 +8,32 @@ const slugify = require("slugify");
 		};
 
 		let countProduct = 0;
+		let urlFilter = '';
 
 		var settings = $.extend({}, defaults, options);
 		const productNames = [];
 		const pages = $('.pager.bottom li.page-number').length;
+
+		const getFilterProducts = searchUrl => {
+			$.ajax({
+				url: searchUrl
+			}).success(function (data) {
+
+				$(".prateleira[id^=ResultItems]").html(data);
+
+				loadShelf();
+			});
+		};
+
+		$('.search-multiple-navigator input').on('change', function(){
+
+			$('.search-multiple-navigator input').each(function(){
+				if ($(this).is(':checked')) {
+					const filter = $(this).attr('rel');
+					urlFilter = `${urlFilter}&${filter}`;
+				}
+			});
+		});
 
 		let tempShelf = [];
 		let pageNumber = 2;
@@ -42,6 +64,9 @@ const slugify = require("slugify");
 			}
 		};
 		const getMoreProducts = searchUrl => {
+			if (!R.isEmpty(urlFilter)){
+				searchUrl = searchUrl + urlFilter;
+			}
 			$.ajax({
 				url: searchUrl
 			}).success(function (data) {
@@ -149,5 +174,7 @@ $(document).ready(() => {
 	if ($("body").hasClass("catalog")) {
 
 		$(".prateleira .prateleira").shelf();
+
+		$(".filter input[type='checkbox']").vtexSmartResearch();
 	}
 });

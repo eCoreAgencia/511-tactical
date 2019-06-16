@@ -58,6 +58,9 @@ block content
 						.product__code
 							span Modelo:
 							+vtex-controller('<vtex.cmc:productReference/>')
+						.product__ean
+							span SKU/EAN:
+							+vtex-controller('<vtex.cmc:skuReference/>')
 						.contentLogin
 							a(href="/minha-conta" class="product__login") Identifique-se para comprar
 						.product__price

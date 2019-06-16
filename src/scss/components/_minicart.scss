@@ -139,6 +139,13 @@
 		&__info {
 			padding: 5px;
 			max-width: 210px;
+
+			input {
+				padding: .3rem;
+				@include font-size(14px);
+				width: 30px;
+				text-align: center;
+			}
 		}
 
 		&__name {

@@ -14,6 +14,9 @@ class Minicart {
 				<div class="minicart-product__wrapper-flex">
 					<div class="minicart-product__info">
 						<h4 class="minicart-product__name">${item.name}</h4>
+						<span>quantidade:
+								<input type="text" value="${item.quantity}" onkeyup="Minicart.updateItem.apply(this, [${i}])">
+							</span>
 						<strong class="minicart-product__price">R$${(item.price / 100).formatMoney()}</strong>
 					</div>
 					<button class="minicart-product__remove" type="button" onclick="Minicart.removeItem.apply(null, [${i}])" title="Remover ${item.name} do carrinho"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 10 10"><defs><path id="dmqka" d="M1685 451.047c0 .21-.084.421-.236.573l-1.144 1.144a.816.816 0 0 1-1.145 0L1680 450.29l-2.475 2.474a.816.816 0 0 1-1.145 0l-1.144-1.144a.816.816 0 0 1 0-1.145l2.474-2.475-2.474-2.475a.816.816 0 0 1 0-1.145l1.144-1.144a.816.816 0 0 1 1.145 0l2.475 2.474 2.475-2.474a.816.816 0 0 1 1.145 0l1.144 1.144a.816.816 0 0 1 0 1.145L1682.29 448l2.474 2.475a.816.816 0 0 1 .236.572z"/></defs><g><g transform="translate(-1675 -443)"><use fill="#e75300" xlink:href="#dmqka"/></g></g></svg> Remover</button>
@@ -90,9 +93,8 @@ class Minicart {
 		}
 	}
 
-	updateItem(obj) {
-		let { index, qty, calc } = obj;
-		let quantity = qty + +calc;
+	updateItem(index) {
+		let quantity = this.value;
 		if (quantity) {
 			vtexjs.checkout.updateItems(
 				[
@@ -105,6 +107,20 @@ class Minicart {
 				false
 			);
 		}
+	}
+
+	updateCart() {
+		const itens = this.orderForm.items.map(this.renderItem, this).join('');
+		const total = this.getTotal();
+
+		const totalItens = this.orderForm.items.length;
+
+		console.log(totalItens, 'itens');
+
+		$('.minicart__item-qty').html(`${this.getQuantity()} ITEM(S)`);
+
+		$('.minicart__products').html(itens);
+		$('.minicart__dsp-number').html(total);
 	}
 
 	getTotal() {
@@ -124,7 +140,12 @@ class Minicart {
 
 	update(orderForm) {
 		this.orderForm = orderForm;
-		this.mount();
+		if (!$('.minicart')[0]) {
+			this.mount();
+		} else {
+			this.updateCart();
+		}
+
 	}
 
 	mount() {

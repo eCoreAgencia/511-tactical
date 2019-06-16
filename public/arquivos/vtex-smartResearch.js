@@ -209,9 +209,7 @@ jQuery.fn.vtexSmartResearch = function(opts) {
 
 			if ('undefined' === typeof pages) pages = 99999999;
 
-			loadContentE.append(
-				"<div class='button btn-load-more confira-todos-produtos'>Ver Mais</div>"
-			);
+
 
 			pageJqxhr = jQuery.ajax({
 				url: fn.getUrl(true),
@@ -560,7 +558,7 @@ jQuery.fn.vtexSmartResearch = function(opts) {
 	else if (body.hasClass('categoria') || body.hasClass('resultado-busca')) fns.mergeMenuList();
 
 	fns.exec();
-	fn.infinitScroll();
+	//fn.infinitScroll();
 	fn.scrollToTop();
 	options.callback();
 

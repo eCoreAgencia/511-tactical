@@ -442,13 +442,14 @@
 		}
 	}
 
-	&__code {
+	&__code, &__ean {
 		padding: 10px 0;
 		@extend %display-flex;
 		@include font-size(14px);
 		color: #6A6257;
 
-		.productReference {
+		.productReference,
+		.skuReference {
 			margin-left: 10px;
 		}
 	}
