@@ -4,6 +4,7 @@ class Minicart {
 			this.update(orderForm);
 		});
 		vtexjs.checkout.getOrderForm();
+		this.removeAllItems();
 	}
 	renderItem(item, i) {
 		let { quantity } = item;
@@ -70,6 +71,7 @@ class Minicart {
 						</ul>
 					</div>
 					<div class="minicart__footer">
+						${qty != 0 ? '<a class="minicart__clearAll" href="#">LIMPAR CARRINHO</a>' : ''}
 						<a class="minicart__checkout" href="/Site/Carrinho.aspx">IR PARA O CARRINHO</a>
 					</div>
 				</div>
@@ -107,6 +109,15 @@ class Minicart {
 				false
 			);
 		}
+	}
+
+	removeAllItems() {
+		$('body').on('click', '.minicart__clearAll', function() {
+			vtexjs.checkout.removeAllItems()
+				.done(function(orderForm) {
+				console.log(orderForm);
+			});
+		})
 	}
 
 	updateCart() {
