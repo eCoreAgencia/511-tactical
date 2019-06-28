@@ -39,7 +39,7 @@ $(document).ready(() => {
 			const getUser = await getInMasterData(
 				"CL",
 				query,
-				"id,corporateDocument,approved,customerClass,corporateName,corporateEmail,businessPhone,tradeName,stateRegistration"
+				"id,corporateDocument,approved,customerClass,corporateName,corporateEmail,businessPhone,tradeName,stateRegistration,ticket10days,ticket14days,ticket120days,ticket20days,ticket21days,ticket28days,ticket306090120days,ticket306090days,ticket3060days,ticket30days,ticket6090120days,ticket6090days,ticket60days,ticket7days,ticket90120days,ticketV306090days,ticketV3060days"
 			);
 			const user = getUser[0];
 			sessionStorage.setItem("user", JSON.stringify(user));
