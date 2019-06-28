@@ -81,7 +81,7 @@ const slugify = require("slugify");
 		};
 
 		const loadShelf = () => {
-			$(".prateleira .prateleira").each(function () {
+			$(".prateleira .prateleira").each(function() {
 
 				const prateleira = $(this);
 				if (!$(this).hasClass("eached")) {

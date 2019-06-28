@@ -42,9 +42,8 @@
 			display: block;
 		}
 		.comprecategoria__box__list {
-			display: grid !important;
-			grid-template-columns: repeat(6, 1fr);
-			grid-gap: 10px;
+			display: flex;
+			justify-content: space-between;
 		}
 	}
 	&__bannercategoria {
@@ -138,7 +137,7 @@
 		padding: 54px 0;
 
 		&.texture-bg--3 {
-			background-image: url('/arquivos/news-texture.png');
+			background-image: url("/arquivos/news-texture.png");
 			background-color: #fbf7f1;
 		}
 		.container {
