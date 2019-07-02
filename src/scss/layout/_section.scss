@@ -70,9 +70,7 @@
 			padding: 31.5px 0;
 		}
 		.comprecategoria__box__list {
-			display: grid !important;
-			grid-template-columns: repeat(3, 1fr);
-			grid-gap: 25px;
+			display: flex;
 		}
 		&--mobile {
 			display: block;
