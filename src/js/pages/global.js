@@ -55,11 +55,11 @@ $(document).ready(() => {
 
 		if (pageScroll >= distancePageTop) {
 			$(".header").addClass("header--fixed");
-			$("body main").css("display", "block");
-			$("body main").css("margin-top", "110px");
+			$("body > main").css("display", "block");
+			$("body > main").css("margin-top", "110px");
 		} else {
 			$(".header").removeClass("header--fixed");
-			$("body main").css("margin-top", "0px");
+			$("body > main").css("margin-top", "0px");
 		}
 	};
 
