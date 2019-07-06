@@ -88,7 +88,7 @@
 		z-index: 9;
 		cursor: pointer;
 		box-shadow: inset transparent 0px 0px 0px 9px;
-		transition: all .15s linear;
+		transition: all 0.15s linear;
 	}
 	&:hover {
 		text-decoration: none;
@@ -97,7 +97,8 @@
 		}
 
 		.cattop__wrapper {
-			transform: translateY(-10px)
+			transform: translateY(-10px);
+			padding-bottom: 40px;
 		}
 	}
 
@@ -125,7 +126,7 @@
 		width: 100%;
 		padding-bottom: 20px;
 		text-decoration: none;
-		transition: all .15s linear;
+		transition: all 0.15s linear;
 		&::after {
 			content: "";
 			display: block;
