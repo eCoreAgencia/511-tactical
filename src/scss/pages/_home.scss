@@ -93,6 +93,10 @@
 		&::after {
 			box-shadow: inset #ffffff52 0px 0px 0px 9px;
 		}
+
+		&__wrapper {
+			padding-bottom: 40px;
+		}
 	}
 
 	&--1 {
@@ -119,6 +123,7 @@
 		width: 100%;
 		padding-bottom: 20px;
 		text-decoration: none;
+		transition: 0.15s ease all;
 		&::after {
 			content: "";
 			display: block;
