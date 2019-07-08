@@ -73,4 +73,37 @@
 			}
 		}
 	}
+	&.resultado-busca {
+		.search-single-navigator {
+			padding:  0 30px;
+			.section__title .titulo-sessao { font-size: 40px;}
+			.section__title .titulo-sessao span { text-transform: lowercase;}
+			h3 {
+				a {
+					display: block;
+					font-size: 17px;
+					font-weight: 700;
+					color: #211e14;
+					letter-spacing: 0.5px;
+					margin-bottom: 15px;
+					text-transform: uppercase;
+					font-family: "United Sans";
+				}
+			}
+
+			ul {
+				li {
+					list-style: none;
+					a {
+						display: block;
+						font-size: 14px;
+						color: rgb(0, 0, 0);
+						font-weight: 500;
+						margin-bottom: 10px;
+						font-family: "United Sans";
+					}
+				}
+			}
+		}
+	}
 }
