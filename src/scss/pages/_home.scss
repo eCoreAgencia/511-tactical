@@ -1,6 +1,8 @@
 .home {
-	.slick-prev {
-		transform: rotate(180deg);
+	.shelf__carousel--full {
+		.slick-prev {
+			transform: rotate(180deg);
+		}
 	}
 
 	.shelf--grid li {
@@ -96,8 +98,7 @@
 			box-shadow: inset #ffffff52 0px 0px 0px 9px;
 		}
 
-		.cattop__wrapper {
-			transform: translateY(-10px);
+		&__wrapper {
 			padding-bottom: 40px;
 		}
 	}

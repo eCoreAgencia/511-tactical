@@ -150,7 +150,10 @@ class Product {
 			".product__gallery-image .product__image",
 			function(e) {
 				console.log($(this).attr("src"));
-				openZoom($(this).attr("src"));
+				const img = $(this)
+					.attr("src")
+					.replace("500-500", "1000-1000");
+				openZoom(img);
 			}
 		);
 
@@ -158,7 +161,6 @@ class Product {
 			"click",
 			".product__gallery-thumbs img",
 			function(e) {
-				//openZoom($(this).attr('src'));
 				$(
 					".product__media .product__gallery-image .product__image"
 				).attr("src", $(this).attr("src"));

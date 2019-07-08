@@ -8,26 +8,28 @@ $(document).ready(function() {
 			$('.modaleCore').addClass('active');
 		});
 
-		if ($('.call__box')[0]) {
-			$('.call__box').each(function() {
-				const img = $('img', this).attr('src');
+		if ($(".call__box")[0]) {
+			$(".call__box").each(function() {
+				const img = $("img", this).attr("src");
 
-				$(this).css('background-image', 'url(' + img + ')');
+				$(this).css("background-image", "url(" + img + ")");
 			});
 		}
 
-		$('.product--shelf-flip .product__front').on('click', function() {
+		$(".product--shelf-flip .product__front").on("click", function() {
 			$(this)
-				.parents('.product--shelf-flip')
-				.addClass('hover');
+				.parents(".product--shelf-flip")
+				.addClass("hover");
 		});
 
-		var $gallery = $('.banner--full .banner__inner , .banner--mobile .banner__inner');
+		var $gallery = $(
+			".banner--full .banner__inner , .banner--mobile .banner__inner"
+		);
 
 		$gallery.slick({
 			dots: true,
 			autoplay: true,
-			arrows: false,
+			arrows: true,
 			fade: true,
 			infinite: false
 		});
@@ -45,7 +47,7 @@ $(document).ready(function() {
 			responsive: [
 				{
 					breakpoint: 800,
-					settings: 'unslick'
+					settings: "unslick"
 				}
 			]
 		});
