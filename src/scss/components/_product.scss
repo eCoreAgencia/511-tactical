@@ -2,9 +2,6 @@
 	&__name {
 		@extend %color-black;
 	}
-
-
-
 }
 
 %price {
@@ -28,10 +25,7 @@
 	}
 }
 
-
 .product {
-
-
 	&--shelf {
 		&:hover {
 			outline: #f2f2f2;
@@ -52,8 +46,6 @@
 			.price__list {
 				@extend %color-primary;
 			}
-
-
 		}
 
 		.btn--buy {
@@ -68,7 +60,7 @@
 
 	&__info {
 		.product__main & {
-			flex: 1
+			flex: 1;
 		}
 		.description {
 			display: none;
@@ -92,8 +84,6 @@
 		}
 
 		.product__main & {
-
-
 			h1 {
 				margin: 0;
 			}
@@ -117,9 +107,9 @@
 
 	.productName {
 		@extend %font-family-trumpgothicwest;
-        font-weight: 700;
-        border-bottom: 5px solid $c-primary;
-        @include font-size(25px);
+		font-weight: 700;
+		border-bottom: 5px solid $c-primary;
+		@include font-size(25px);
 		@extend %text-transform-uppercase;
 
 		@include mq(tablet) {
@@ -153,7 +143,6 @@
 			width: 100%;
 			@extend %display-block;
 			@include font-size(14px);
-
 		}
 
 		.product--shelf & {
@@ -174,12 +163,11 @@
 				padding: 5px 0;
 				text-align: center;
 				@include font-size(13px);
-				@extend %display-none;
 			}
 
 			.price__list {
-                width: 100%;
-                text-align: center;
+				width: 100%;
+				text-align: center;
 			}
 		}
 
@@ -200,7 +188,6 @@
 			@extend %price__old;
 			@extend %no-italic;
 			@include font-size(16px);
-
 		}
 
 		.skuBestPrice {
@@ -250,14 +237,13 @@
 			padding-right: 70px;
 			flex-wrap: wrap;
 			@media only screen and (max-width: 768px) {
-			    padding-right: 0px;
+				padding-right: 0px;
 			}
 			#image {
 				img {
 					position: static !important;
 					display: none !important;
 					&#image-main {
-
 					}
 					&:last-child {
 						display: block !important;
@@ -276,7 +262,7 @@
 			display: none;
 		}
 
-		.product__main  & {
+		.product__main & {
 			@extend %position-relative;
 			flex: 1;
 			max-width: 666px;
@@ -300,7 +286,6 @@
 				}
 			}
 		}
-
 	}
 
 	&__header {
@@ -315,8 +300,6 @@
 		.product--shelf & {
 			padding: 5px;
 		}
-
-
 
 		&--fixed {
 			position: fixed;
@@ -341,10 +324,12 @@
 		@include mq(tablet) {
 			display: flex;
 			justify-content: space-between;
-
 		}
 
-		.thumbs, .thumbs-list, .product__thumbs, .product__gallery-thumbs {
+		.thumbs,
+		.thumbs-list,
+		.product__thumbs,
+		.product__gallery-thumbs {
 			@extend %display-flex;
 			@extend %flex-wrap-wrap;
 			list-style: none;
@@ -376,11 +361,10 @@
 					&.slick-active button {
 						background-color: $c-primary;
 					}
-
 				}
 
 				button {
-					background-color: #BCBCBC;
+					background-color: #bcbcbc;
 					border: none;
 					font-size: 0;
 					width: 13px;
@@ -406,12 +390,8 @@
 						outline-style: solid;
 					}
 				}
-
 			}
 		}
-
-
-
 	}
 
 	&__column {
@@ -422,7 +402,7 @@
 		padding: 10px 0;
 		@extend %display-flex;
 		@include font-size(14px);
-		color: #6A6257;
+		color: #6a6257;
 
 		.productReference {
 			margin-left: 10px;
@@ -448,8 +428,6 @@
 		.sku-selector-container {
 			display: none !important;
 		}
-
-
 
 		ul {
 			list-style: none;
@@ -507,15 +485,10 @@
 				@include mq(tablet, max) {
 					margin: 11px auto;
 				}
-
 			}
-
-
 		}
 
-
 		&--select {
-
 			@include mq(tablet) {
 				max-width: 300px;
 			}
@@ -552,7 +525,7 @@
 				}
 
 				i {
-					transform: rotate(90deg)
+					transform: rotate(90deg);
 				}
 			}
 
@@ -567,7 +540,7 @@
 				width: 100%;
 				z-index: 10;
 				height: 200px;
-			    overflow: auto;
+				overflow: auto;
 
 				li {
 					padding: 10px 20px;
@@ -614,7 +587,6 @@
 			@include mq(tablet) {
 				max-width: 314px;
 				padding: 0;
-
 			}
 		}
 
@@ -641,9 +613,7 @@
 
 		@include mq(tablet) {
 			max-width: 80px;
-
 		}
-
 
 		&-value {
 			@extend %text-align-center;
@@ -655,7 +625,6 @@
 			@include mq(tablet, max) {
 				border-left: 3px solid #211e14;
 				border-right: 3px solid #211e14;
-
 			}
 		}
 
@@ -670,11 +639,9 @@
 
 			@include mq(tablet) {
 				display: none;
-
 			}
 		}
 	}
-
 
 	&__description {
 		border-top: 1px solid #dddddd;
@@ -682,7 +649,7 @@
 		padding: 40px 0;
 		margin: 20px 0;
 
-		@include mq(tablet, max){
+		@include mq(tablet, max) {
 			padding-left: 10px;
 			padding-right: 10px;
 		}
@@ -713,8 +680,6 @@
 					display: none;
 				}
 			}
-
-
 		}
 	}
 
@@ -773,7 +738,7 @@
 			@extend %flex-justify-content-center;
 			@extend %display-flex;
 			font-weight: 800;
-			background-color: #B8B0A7;
+			background-color: #b8b0a7;
 			width: 100%;
 			padding: 16px 32px;
 		}
@@ -807,7 +772,6 @@
 		}
 
 		&-image {
-
 			img {
 				height: 100vh;
 				width: auto;
@@ -833,7 +797,6 @@
 		color: red;
 		@include font-size(12px);
 	}
-
 }
 
 .price {
@@ -875,61 +838,59 @@
 		}
 	}
 	&:target {
-	  opacity: 1;
-	  pointer-events: auto;
+		opacity: 1;
+		pointer-events: auto;
 	}
-	&>div {
-	  width: 100%;
-	  max-width: 600px;
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  transform: translate(-50%, -50%);
+	& > div {
+		width: 100%;
+		max-width: 600px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 
-	  background: #ffffff;
-	  color: #333333;
+		background: #ffffff;
+		color: #333333;
 	}
+}
 
-  }
-
-  .modal-close {
+.modal-close {
 	color: #fff;
+}
 
-  }
+.modal-header {
+	background-color: #000000;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 30px 15px;
+	@extend %font-family-unitedsans;
 
-  .modal-header {
-	  background-color: #000000;
-	  color: #fff;
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	  padding: 30px 15px;
-	  @extend %font-family-unitedsans;
+	h2 {
+		margin: 0;
+		font-size: 24px;
+		font-weight: 800;
+		text-transform: uppercase;
+	}
+	a {
+		font-size: 18px;
+		margin-right: 10px;
+		margin-left: auto;
+		transition: 0.3s ease;
+		&:hover {
+			color: #e75300;
+			text-decoration: none;
+		}
+	}
+}
 
-	  h2 {
-			margin: 0;
-		  	font-size: 24px;
-			font-weight: 800;
-			text-transform: uppercase;
-	  }
-	  a {
-		  font-size: 18px;
-		  margin-right: 10px;
-		  margin-left: auto;
-		  transition: .3s ease;
-		  &:hover {
-			  color: #e75300;
-			  text-decoration: none;
-		  }
-	  }
-  }
+.modal-content {
+	padding: 30px;
+	max-height: 80vh;
+	overflow: auto;
 
-  .modal-content {
-	  padding: 30px;
-	  max-height: 80vh;
-	  overflow: auto;
-
-	  .title {
+	.title {
 		color: #000;
 		font-weight: 800;
 		font-size: 23px;
@@ -938,5 +899,5 @@
 		align-items: center;
 		margin: 0;
 		@extend %font-family-unitedsans;
-	  }
-  }
+	}
+}

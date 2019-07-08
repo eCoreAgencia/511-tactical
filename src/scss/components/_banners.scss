@@ -1,61 +1,99 @@
 .banner {
-  &--full,
-  &--mobile {
-    .slick-dots {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      padding: 40px 20px;
-      display: flex !important;
-      flex-direction: row;
-      justify-content: center;
-      margin: 0 auto;
+	&--full,
+	&--mobile {
+		.slick-dots {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			padding: 40px 20px;
+			display: flex !important;
+			flex-direction: row;
+			justify-content: center;
+			margin: 0 auto;
 
-      li {
-        opacity: 0.5;
-        display: inline;
-        &.slick-active {
-          opacity: 1;
-        }
-      }
+			li {
+				opacity: 0.5;
+				display: inline;
+				&.slick-active {
+					opacity: 1;
+				}
+			}
 
-      button {
-        border: none;
-        background-color: $c-black;
-        width: 5px;
-        height: 5px;
-        font-size: 0;
-        padding: 0;
-        border-radius: 50%;
-        margin: 0 2px;
-      }
-    }
-  }
-
-  &--full {
-	min-height: 400px;
-	@include mq('container', 'max'){
-		display: none;
+			button {
+				border: none;
+				background-color: $c-black;
+				width: 5px;
+				height: 5px;
+				font-size: 0;
+				padding: 0;
+				border-radius: 50%;
+				margin: 0 2px;
+			}
+		}
 	}
-    @include atMedium {
-      display: block;
-    }
-    position: relative;
-  }
-  &--mobile {
-    display: block;
-    .slick-dots {
-      padding: 0;
-    }
-    @include atMedium {
-      display: none;
-    }
-  }
 
-  .box-banner {
-    & > a {
-      display: block;
-    }
-  }
+	&--full {
+		min-height: 400px;
+		@include mq("container", "max") {
+			display: none;
+		}
+		@include atMedium {
+			display: block;
+		}
+		position: relative;
+	}
+	&--mobile {
+		display: block;
+		.slick-dots {
+			padding: 0;
+		}
+		@include atMedium {
+			display: none;
+		}
+	}
+
+	.box-banner {
+		& > a {
+			display: block;
+		}
+	}
+
+	&--full {
+		.slick-arrow {
+			position: absolute;
+			top: 50%;
+			margin-top: -20px;
+			width: 40px;
+			height: 40px;
+			border: none;
+			background-color: $c-primary;
+			color: $c-white;
+			z-index: 10;
+			font-size: 0;
+			&::after {
+				content: "";
+				display: inline-block;
+				margin: 5px;
+				padding: 5px;
+				box-shadow: 2px -2px 0 0 $c-white inset;
+			}
+		}
+
+		.slick-prev {
+			left: calc((100vw - 1100px - 80px) / 2);
+			&::after {
+				transform: rotate(45deg);
+				left: 25px;
+			}
+		}
+
+		.slick-next {
+			right: calc((100vw - 1100px - 80px) / 2);
+			&::after {
+				transform: rotate(225deg);
+				right: 25px;
+			}
+		}
+	}
 }
