@@ -72,6 +72,9 @@
 	}
 }
 
+.cattop:hover {
+}
+
 .cattop {
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -98,7 +101,7 @@
 			box-shadow: inset #ffffff52 0px 0px 0px 9px;
 		}
 
-		&__wrapper {
+		.cattop__wrapper {
 			padding-bottom: 40px;
 		}
 	}
