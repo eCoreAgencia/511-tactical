@@ -90,7 +90,7 @@
 		z-index: 9;
 		cursor: pointer;
 		box-shadow: inset transparent 0px 0px 0px 9px;
-		transition: all .15s linear;
+		transition: all 0.15s linear;
 	}
 	&:hover {
 		text-decoration: none;
@@ -245,4 +245,8 @@
 
 body.is-fixed {
 	overflow: hidden;
+}
+
+.cattop:hover .cattop__wrapper {
+	padding-bottom: 40px;
 }
