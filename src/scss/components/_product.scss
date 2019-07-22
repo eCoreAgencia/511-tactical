@@ -946,6 +946,7 @@
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
+	display: none;
 	.modal-header {
 		.modal-close {
 			@media only screen and (max-width: 768px) {
@@ -956,6 +957,7 @@
 	&:target {
 		opacity: 1;
 		pointer-events: auto;
+		display: block;
 	}
 	& > div {
 		width: 100%;

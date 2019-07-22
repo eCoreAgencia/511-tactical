@@ -249,3 +249,7 @@
 body.is-fixed {
 	overflow: hidden;
 }
+
+.cattop:hover .cattop__wrapper {
+	padding-bottom: 40px;
+}
