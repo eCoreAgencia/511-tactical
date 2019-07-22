@@ -317,6 +317,7 @@ class Product {
 		);
 		console.log(productSimilar, "similares");
 		console.log(productJson, "search");
+		$('.productName').html(productJson[0].productName)
 		self.similar = productSimilar;
 
 		let select = "";
