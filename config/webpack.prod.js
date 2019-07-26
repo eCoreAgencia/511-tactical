@@ -18,7 +18,6 @@ module.exports = merge(common, {
   plugins: [
     new CleanWebpackPlugin([paths.dist], {root: paths.root}),
     ...templates,
-    ExtractCSS,
     new UglifyJSPlugin({
       compress: {
         screw_ie8: true,
@@ -32,6 +31,7 @@ module.exports = merge(common, {
         screw_ie8: true
       }
     }),
+    ExtractCSS,
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')

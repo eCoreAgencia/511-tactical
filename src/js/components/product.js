@@ -181,7 +181,8 @@ class Product {
 			self.item.quantity = parseInt($(this).val());
 		});
 
-		$(".product__skus").on("keyup", ".quantity-product", function(e) {
+		// $(".product__skus").on("keyup", ".quantity-product", function(e) {
+		$(".product__skus").on("change", ".quantity-product", function(e) {
 			const productSelected = {};
 			const skuId = $(this)
 				.parents("tr")
@@ -195,7 +196,13 @@ class Product {
 			);
 			let qtd = parseInt($(this).val()) || 0;
 			console.log($(this).val(), skuId);
-			const skuIndex = findIndex(propEq("id", skuId))(self.cart);
+			// const skuIndex = findIndex(propEq("id", skuId))(self.cart);
+			var skuIndex = -1;
+			for (var i = 0; i < self.cart.length; i++) {
+				if(self.cart[i].id == skuId) {
+					skuIndex = i;
+				}
+			}
 			console.log(skuIndex);
 			if (qtd > stock) {
 				qtd = stock;
@@ -205,7 +212,8 @@ class Product {
 				if (qtd > 0) {
 					self.cart[skuIndex].quantity = qtd;
 				} else {
-					self.cart.splice(self.cart[skuIndex], 1);
+					// self.cart.splice(self.cart[skuIndex], 1);
+					self.cart.splice(skuIndex, 1);
 				}
 
 				self.getTotalProducts();
