@@ -1,6 +1,16 @@
 .minicart {
 	position: relative;
 
+	&.is-not-empty {
+		.btn-cart-checkout {
+			display: flex;
+		}
+	}
+	.btn-cart-checkout {
+		display: none;
+	}
+	
+
 	&__overlay {
 		width: 100vw;
 		height: 100vh;
@@ -177,6 +187,46 @@
 		}
 		&__wrapper {
 			display: flex;
+			flex-wrap: wrap;
+
+			&-flex {
+				width: 100%;
+				max-width: 170px;
+			}
+		}
+
+		&__details {
+			padding: 10px;
+			a {
+				color: $c-gray;
+				@include font-size(14px);
+				display: flex;
+				align-items: center;
+				svg {
+					transform: rotate(-90deg);
+					width: 7px;
+					
+					margin-left: 10px;
+
+					use {
+						fill: $c-gray;
+					}
+				}
+			}
+			&-info {
+				display: none;
+				span {
+					display: block;
+					@include font-size(14px);
+					margin: 3px 0;
+				}
+
+				.is-active & {
+					display: block;
+				}
+			}
+
+			
 		}
 	}
 

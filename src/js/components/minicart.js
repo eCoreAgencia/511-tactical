@@ -1,20 +1,50 @@
+import { getSearchProductByUrl } from "../modules/vtexRequest";
+
 class Minicart {
 	constructor() {
 		$(window).on('orderFormUpdated.vtex', (evt, orderForm) => {
 			this.update(orderForm);
 		});
 		vtexjs.checkout.getOrderForm();
+
+		$('.js-minicart').on('click', '.minicart-product__details a', function(e){
+			e.preventDefault();
+			$(this).parent().toggleClass('is-active');
+		});
+	}
+
+	async getColor(productUrl, id){
+		const productJson = await getSearchProductByUrl(productUrl);
+
+		if(productJson[0].hasOwnProperty("ListaCores")){
+			const color = `<span>Cor: ${productJson[0].ListaCores[0]}</span>`;
+			$(`.minicart-product-${id} .minicart-product__details-info`).prepend(color);
+	
+			
+		}
 	}
 	renderItem(item, i) {
 		let { quantity } = item;
+		this.getColor(item.detailUrl, item.id);
 		return `
-		 <li class="minicart-product" data-item-id="${item.id}">
+		 <li class="minicart-product minicart-product-${item.id}" data-item-id="${item.id}">
 		 	<div class="minicart-product__wrapper">
 				<div class="minicart-product__image"><img src="${item.imageUrl}"></div>
 				<div class="minicart-product__wrapper-flex">
 					<div class="minicart-product__info">
 						<h4 class="minicart-product__name">${item.name}</h4>
 						<strong class="minicart-product__price">R$${(item.price / 100).formatMoney()}</strong>
+					</div>
+					<div class="minicart-product__details">
+						<a href="">
+							Ver Detalhes
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="16" viewBox="0 0 10 16"><defs><path id="ic9la" d="M1557.914 33.18l1.536 1.544a.59.59 0 0 1 0 .838l-4.942 4.943 4.942 4.942a.59.59 0 0 1 0 .838l-1.536 1.545a.601.601 0 0 1-.847 0l-6.897-6.907a.59.59 0 0 1 0-.837l6.897-6.907a.601.601 0 0 1 .847 0z"></path></defs><g><g transform="translate(-1550 -33)"><use fill="#e75300" xlink:href="#ic9la"></use></g></g></svg>
+						</a>
+						<div class="minicart-product__details-info">
+							
+							${item.skuName ? `<span>Tamanho: ${item.skuName}</span>` : ''}
+							${item.quantity ? `<span>Quantidade: ${item.quantity}</span>` : ''}
+						</div>
 					</div>
 					<button class="minicart-product__remove" type="button" onclick="Minicart.removeItem.apply(null, [${i}])" title="Remover ${item.name} do carrinho"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 10 10"><defs><path id="dmqka" d="M1685 451.047c0 .21-.084.421-.236.573l-1.144 1.144a.816.816 0 0 1-1.145 0L1680 450.29l-2.475 2.474a.816.816 0 0 1-1.145 0l-1.144-1.144a.816.816 0 0 1 0-1.145l2.474-2.475-2.474-2.475a.816.816 0 0 1 0-1.145l1.144-1.144a.816.816 0 0 1 1.145 0l2.475 2.474 2.475-2.474a.816.816 0 0 1 1.145 0l1.144 1.144a.816.816 0 0 1 0 1.145L1682.29 448l2.474 2.475a.816.816 0 0 1 .236.572z"/></defs><g><g transform="translate(-1675 -443)"><use fill="#e75300" xlink:href="#dmqka"/></g></g></svg> Remover</button>
 				</div>
@@ -81,13 +111,7 @@ class Minicart {
 				index
 			}
 		]);
-		if($('.minicart').hasClass('active')) {
-			$('.minicart').removeClass('active');
-			$('body').removeClass('is-fixed');
-		} else {
-			$('.minicart').addClass('active');
-			$('body').addClass('is-fixed');
-		}
+		
 	}
 
 	updateItem(obj) {
@@ -107,6 +131,19 @@ class Minicart {
 		}
 	}
 
+	updateCart(){
+		alert('teste')
+		const itens = this.orderForm.items.map(this.renderItem, this).join('');
+		const total = this.getTotal()
+
+		if(items == 0) {
+			$('.minicart').removeClass('is-not-empty');
+		}
+
+		$('.minicart__products').html(itens);
+		$('.minicart__dsp-number').html(total);
+	}
+
 	getTotal() {
 		const itemsTotal = this.orderForm.totalizers.find(item => item.id === 'Items');
 		const total = itemsTotal ? itemsTotal.value / 100 : 0;
@@ -124,7 +161,12 @@ class Minicart {
 
 	update(orderForm) {
 		this.orderForm = orderForm;
-		this.mount();
+		if(!$('.minicart')[0]){
+			this.mount();
+		}else {
+			this.updateCart();
+		}
+
 	}
 
 	mount() {
