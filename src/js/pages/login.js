@@ -4,7 +4,7 @@ const R = require("ramda");
 
 $(document).ready(() => {
 	$("body").on("click", "#vtexIdContainer", function() {
-		alert("teste");
+		
 	});
 
 	function waitForElement(target, callback) {
