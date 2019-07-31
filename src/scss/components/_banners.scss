@@ -17,14 +17,18 @@
 				display: inline;
 				&.slick-active {
 					opacity: 1;
+
+					button {
+						background-color: $c-primary;
+					}
 				}
 			}
 
 			button {
 				border: none;
-				background-color: $c-black;
-				width: 5px;
-				height: 5px;
+				background-color: $c-gray;
+				width: 8px;
+				height: 8px;
 				font-size: 0;
 				padding: 0;
 				border-radius: 50%;
@@ -35,7 +39,7 @@
 
 	&--full {
 		min-height: 400px;
-		@include mq("container", "max") {
+		@include mq("tablet", "max") {
 			display: none;
 		}
 		@include atMedium {
