@@ -483,7 +483,9 @@ class Product {
 				][0].split(";");
 				const detail = `
 						<div class="product__description-detail">
-							<span class="product__description-detail-title" style="display: none" >Detalhes</span>
+							<span class="product__description-detail-title" style="display: none" >
+							<svg class="section__title__ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 25 25"><defs><path id="qg31a" d="M874.24 1114.82a3.41 3.41 0 0 1-3.42 3.42H856.2a3.41 3.41 0 0 1-3.4-3.42h-.02v-14.62h.02a3.41 3.41 0 0 1 3.4-3.42h14.63a3.41 3.41 0 0 1 3.42 3.42v14.62zM851 1120h25v-25h-25z"></path><path id="qg31b" d="M870.69 1111.73c0 1.2-.97 2.16-2.16 2.16h-9.25c-1.2 0-2.16-.97-2.16-2.16h-.01v-9.26h.01c0-1.19.97-2.16 2.16-2.16v-.01h9.25v.01c1.2 0 2.16.97 2.16 2.16v9.26zm-14.85 3.43h16.13v-16.13h-16.13z"></path><path id="qg31c" d="M867.93 1106.51h-3.45v-3.45h-1.15v3.45h-3.46v1.16h3.46v3.45h1.15v-3.45h3.45z"></path></defs><g><g transform="translate(-851 -1095)"><g><use fill="#e75300" xlink:href="#qg31a"></use></g><g><use fill="#e75300" xlink:href="#qg31b"></use></g><g><use fill="#e75300" xlink:href="#qg31c"></use></g></g></g></svg>
+							Detalhes</span>
 							<ul>${items.map(item => `<li> <span>+</span> ${item}</li>`).join("")}</ul>
 						</div>`;
 
@@ -499,7 +501,7 @@ class Product {
 				} else {
 					$(".product__description-detail-title").css(
 						"display",
-						"block"
+						"flex"
 					);
 				}
 			}

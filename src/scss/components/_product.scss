@@ -765,6 +765,8 @@
 				@extend %text-transform-uppercase;
 				@include font-size(23px);
 				font-weight: 800;
+				align-items: center;
+				
 			}
 
 			ul {
