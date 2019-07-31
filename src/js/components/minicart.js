@@ -17,8 +17,11 @@ class Minicart {
 		const productJson = await getSearchProductByUrl(productUrl);
 
 		if(productJson[0].hasOwnProperty("ListaCores")){
-			const color = `<span>Cor: ${productJson[0].ListaCores[0]}</span>`;
-			$(`.minicart-product-${id} .minicart-product__details-info`).prepend(color);
+			const color = `<span class="s-cor">Cor: ${productJson[0].ListaCores[0]}</span>`;
+			if(!$(`.minicart-product-${id} .minicart-product__details-info .s-cor`)[0]){
+				$(`.minicart-product-${id} .minicart-product__details-info`).prepend(color);
+			}
+			
 	
 			
 		}
@@ -132,7 +135,7 @@ class Minicart {
 	}
 
 	updateCart(){
-		alert('teste')
+		
 		const itens = this.orderForm.items.map(this.renderItem, this).join('');
 		const total = this.getTotal()
 
