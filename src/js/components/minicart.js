@@ -16,16 +16,17 @@ class Minicart {
 
 	async getColor(productUrl, id){
 		const productJson = await getSearchProductByUrl(productUrl);
+		console.log(productJson);
 
-		if(productJson[0].hasOwnProperty("ListaCores")){
-			const color = `<span class="s-cor">Cor: ${productJson[0].ListaCores[0]}</span>`;
-			if(!$(`.minicart-product-${id} .minicart-product__details-info .s-cor`)[0]){
-				$(`.minicart-product-${id} .minicart-product__details-info`).prepend(color);
-			}
+		// if(productJson[0].hasOwnProperty("ListaCores")){
+		// 	const color = `<span class="s-cor">Cor: ${productJson[0].ListaCores[0]}</span>`;
+		// 	if(!$(`.minicart-product-${id} .minicart-product__details-info .s-cor`)[0]){
+		// 		$(`.minicart-product-${id} .minicart-product__details-info`).prepend(color);
+		// 	}
 			
 	
 			
-		}
+		// }
 	}
 	renderItem(item, i) {
 		let { quantity } = item;
